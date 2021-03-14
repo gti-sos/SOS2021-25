@@ -1,5 +1,3 @@
-function main(){
-	console.log("prueba con goorm!");
-}
+var cool = require ("cool-ascii-faces");
 
-main();
+console.log(cool());
