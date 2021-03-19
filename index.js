@@ -12,8 +12,13 @@ var port = 10000;
 
 app.use("/",express.static(path.join(__dirname,"public")));
 
-// app.get("/",(req,res) =>{
-// 	res.render("/index"); //corregir la renderizacion
+
+app.get("/info/rentals",(req,res)=>{
+	res.send()
+});
+
+// app.get("/public/index.html",(req,res) =>{
+// 	res.render(path.join(__dirname,"/public/index.html"));
 // });
 
 app.listen(port,() => {
