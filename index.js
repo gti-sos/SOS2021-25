@@ -869,7 +869,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">9.333</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">balearic islands</td>
+							<th class="s2">balearic islands</th>
 							<td class="s3">2019</td>
 							<td class="s4">15.692</td>
 							<td class="s4">111</td>
@@ -877,7 +877,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">14.388</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">canary islands</td>
+							<th class="s2">canary islands</th>
 							<td class="s3">2019</td>
 							<td class="s4">24.630</td>
 							<td class="s4">945</td>
@@ -885,7 +885,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">22.886</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">cantabria</td>
+							<th class="s2">cantabria</th>
 							<td class="s3">2019</td>
 							<td class="s4">7.250</td>
 							<td class="s4">240</td>
@@ -893,9 +893,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">6.435</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">castilla-la mancha</div>
-							</td>
+							<th class="s2">castilla-la mancha</th>
 							<td class="s3">2019</td>
 							<td class="s4">24.082</td>
 							<td class="s4">907</td>
@@ -903,7 +901,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">21.882</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">castile and leon</td>
+							<th class="s2">castile and leon</th>
 							<td class="s3">2019</td>
 							<td class="s4">25.852</td>
 							<td class="s4">1.130</td>
@@ -911,7 +909,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">23.825</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">catalonia</td>
+							<th class="s2">catalonia</th>
 							<td class="s3">2019</td>
 							<td class="s4">89.237</td>
 							<td class="s4">1.647</td>
@@ -919,9 +917,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">82.341</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">valencian community</div>
-							</td>
+							<th class="s2">valencian community</th>
 							<td class="s3">2019</td>
 							<td class="s4">84.737</td>
 							<td class="s4">4.097</td>
@@ -929,7 +925,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">76.815</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">extremadura</td>
+							<th class="s2">extremadura</th>
 							<td class="s3">2019</td>
 							<td class="s4">9.686</td>
 							<td class="s4">765</td>
@@ -937,7 +933,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">9.213</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">galicia</td>
+							<th class="s2">galicia</th>
 							<td class="s3">2019</td>
 							<td class="s4">20.462</td>
 							<td class="s4">487</td>
@@ -945,9 +941,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">18.560</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">community of madrid</div>
-							</td>
+							<th class="s2">community of madrid</th>
 							<td class="s3">2019</td>
 							<td class="s4">78.634</td>
 							<td class="s4">3.628</td>
@@ -955,9 +949,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">68.036</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">region of murcia</div>
-							</td>
+							<th class="s2">region of murcia</th>
 							<td class="s3">2019</td>
 							<td class="s4">19.296</td>
 							<td class="s4">536</td>
@@ -965,9 +957,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">17.723</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">community of navarre</div>
-							</td>
+							<th class="s2">community of navarre</th>
 							<td class="s3">2019</td>
 							<td class="s4">6.521</td>
 							<td class="s4">323</td>
@@ -975,7 +965,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">5.271</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">basque country</td>
+							<th class="s2">basque country</th>
 							<td class="s3">2019</td>
 							<td class="s4">23.644</td>
 							<td class="s4">1.367</td>
@@ -983,7 +973,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">19.870</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">la rioja</td>
+							<th class="s2">la rioja</th>
 							<td class="s3">2019</td>
 							<td class="s4">4.292</td>
 							<td class="s4">279</td>
@@ -991,7 +981,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">3.991</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">ceuta</td>
+							<th class="s2">ceuta</th>
 							<td class="s3">2019</td>
 							<td class="s4">1.218</td>
 							<td class="s4">71</td>
@@ -999,10 +989,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">1.043</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R19" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">20</div>
-							</th>
-							<td class="s2">andalusia</td>
+							<th class="s2">andalusia</th>
 							<td class="s3">2018</td>
 							<td class="s4">110.425</td>
 							<td class="s4">5.575</td>
@@ -1010,10 +997,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">100.435</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R20" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">21</div>
-							</th>
-							<td class="s2">aragon</td>
+							<th class="s2">aragon</th>
 							<td class="s3">2018</td>
 							<td class="s4">15.499</td>
 							<td class="s4">409</td>
@@ -1021,7 +1005,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">13.515</td>
 						</tr>
 						<tr style="height: 20px">
-							<td class="s2">principality of asturias</td>
+							<th class="s2">principality of asturias</th>
 							<td class="s3">2018</td>
 							<td class="s4">10.186</td>
 							<td class="s4">707</td>
@@ -1029,10 +1013,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">9.194</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R22" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">23</div>
-							</th>
-							<td class="s2">balearic islands</td>
+							<th class="s2">balearic islands</th>
 							<td class="s3">2018</td>
 							<td class="s4">17.466</td>
 							<td class="s4">122</td>
@@ -1040,10 +1021,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">16.302</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R23" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">24</div>
-							</th>
-							<td class="s2">canary islands</td>
+							<th class="s2">canary islands</th>
 							<td class="s3">2018</td>
 							<td class="s4">25.269</td>
 							<td class="s4">525</td>
@@ -1051,10 +1029,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">23.703</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R24" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">25</div>
-							</th>
-							<td class="s2">cantabria</td>
+							<th class="s2">cantabria</th>
 							<td class="s3">2018</td>
 							<td class="s4">7.072</td>
 							<td class="s4">222</td>
@@ -1062,12 +1037,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">6.226</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R25" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">26</div>
-							</th>
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">castilla-la mancha</div>
-							</td>
+							<th class="s2">castilla-la mancha</th>
 							<td class="s3">2018</td>
 							<td class="s4">23.626</td>
 							<td class="s4">1.071</td>
@@ -1075,10 +1045,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">21.222</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R26" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">27</div>
-							</th>
-							<td class="s2">castile and leon</td>
+							<th class="s2">castile and leon</th>
 							<td class="s3">2018</td>
 							<td class="s4">25.957</td>
 							<td class="s4">1.059</td>
@@ -1086,10 +1053,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">24.071</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R27" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">28</div>
-							</th>
-							<td class="s2">catalonia</td>
+							<th class="s2">catalonia</th>
 							<td class="s3">2018</td>
 							<td class="s4">89.685</td>
 							<td class="s4">1.731</td>
@@ -1097,12 +1061,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">82.596</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R28" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">29</div>
-							</th>
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">valencian community</div>
-							</td>
+							<th class="s2">valencian community</th>
 							<td class="s3">2018</td>
 							<td class="s4">88.792</td>
 							<td class="s4">4.128</td>
@@ -1110,10 +1069,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">81.061</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R29" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">30</div>
-							</th>
-							<td class="s2">extremadura</td>
+							<th class="s2">extremadura</th>
 							<td class="s3">2018</td>
 							<td class="s4">9.280</td>
 							<td class="s4">813</td>
@@ -1121,10 +1077,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">8.800</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R30" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">31</div>
-							</th>
-							<td class="s2">galicia</td>
+							<th class="s2">galicia</th>
 							<td class="s3">2018</td>
 							<td class="s4">19.786</td>
 							<td class="s4">527</td>
@@ -1132,12 +1085,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">17.805</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R31" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">32</div>
-							</th>
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">community of madrid</div>
-							</td>
+							<th class="s2">community of madrid</th>
 							<td class="s3">2018</td>
 							<td class="s4">85.294</td>
 							<td class="s4">3.940</td>
@@ -1145,12 +1093,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">74.574</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R32" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">33</div>
-							</th>
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">region of murcia</div>
-							</td>
+							<th class="s2">region of murcia</th>
 							<td class="s3">2018</td>
 							<td class="s4">18.213</td>
 							<td class="s4">508</td>
@@ -1158,12 +1101,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">16.656</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R33" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">34</div>
-							</th>
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">community of navarre</div>
-							</td>
+							<th class="s2">community of navarre</th>
 							<td class="s3">2018</td>
 							<td class="s4">7.156</td>
 							<td class="s4">596</td>
@@ -1171,10 +1109,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">5.367</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R34" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">35</div>
-							</th>
-							<td class="s2">basque country</td>
+							<th class="s2">basque country</th>
 							<td class="s3">2018</td>
 							<td class="s4">23.166</td>
 							<td class="s4">1.409</td>
@@ -1182,10 +1117,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">19.781</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R35" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">36</div>
-							</th>
-							<td class="s2">la rioja</td>
+							<th class="s2">la rioja</th>
 							<td class="s3">2018</td>
 							<td class="s4">4.659</td>
 							<td class="s4">304</td>
@@ -1193,10 +1125,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">4.139</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R36" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">37</div>
-							</th>
-							<td class="s2">ceuta</td>
+							<th class="s2">ceuta</th>
 							<td class="s3">2018</td>
 							<td class="s4">1.357</td>
 							<td class="s4">252</td>
@@ -1204,10 +1133,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">963</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R37" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">38</div>
-							</th>
-							<td class="s2">andalusia</td>
+							<th class="s2">andalusia</th>
 							<td class="s3">2017</td>
 							<td class="s4">96.440</td>
 							<td class="s4">4.703</td>
@@ -1215,10 +1141,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">89.004</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R38" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">39</div>
-							</th>
-							<td class="s2">aragon</td>
+							<th class="s2">aragon</th>
 							<td class="s3">2017</td>
 							<td class="s4">13.988</td>
 							<td class="s4">573</td>
@@ -1226,12 +1149,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">12.291</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R39" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">40</div>
-							</th>
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">principality of asturias</div>
-							</td>
+							<th class="s2">principality of asturias</th>
 							<td class="s3">2017</td>
 							<td class="s4">9.216</td>
 							<td class="s4">739</td>
@@ -1239,10 +1157,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">8.133</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R40" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">41</div>
-							</th>
-							<td class="s2">balearic islands</td>
+							<th class="s2">balearic islands</th>
 							<td class="s3">2017</td>
 							<td class="s4">18.390</td>
 							<td class="s4">127</td>
@@ -1250,10 +1165,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">16.947</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R41" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">42</div>
-							</th>
-							<td class="s2">canary islands</td>
+							<th class="s2">canary islands</th>
 							<td class="s3">2017</td>
 							<td class="s4">25.868</td>
 							<td class="s4">572</td>
@@ -1261,10 +1173,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">24.207</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R42" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">43</div>
-							</th>
-							<td class="s2">cantabria</td>
+							<th class="s2">cantabria</th>
 							<td class="s3">2017</td>
 							<td class="s4">6.638</td>
 							<td class="s4">223</td>
@@ -1272,12 +1181,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">5.874</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R43" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">44</div>
-							</th>
-							<td class="s2 softmerge">
-								<div class="softmerge-inner" style="width:97px;left:-1px">castilla-la mancha</div>
-							</td>
+							<th class="s3">castilla-la mancha</th>
 							<td class="s3">2017</td>
 							<td class="s4">20.642</td>
 							<td class="s4">1.039</td>
@@ -1285,10 +1189,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">17.653</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R44" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">45</div>
-							</th>
-							<td class="s2">castile and leon</td>
+							<th class="s2">castile and leon</th>
 							<td class="s3">2017</td>
 							<td class="s4">22.890</td>
 							<td class="s4">1.228</td>
@@ -1296,10 +1197,7 @@ app.get("/info/sales",(req,res) =>{
 							<td class="s4">21.025</td>
 						</tr>
 						<tr style="height: 20px">
-							<th id="296288714R45" style="height: 20px;" class="row-headers-background">
-								<div class="row-header-wrapper" style="line-height: 20px">46</div>
-							</th>
-							<td class="s2">catalonia</td>
+							<th class="s2">catalonia</th>
 							<td class="s3">2017</td>
 							<td class="s4">85.567</td>
 							<td class="s4">1.747</td>
