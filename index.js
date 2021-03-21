@@ -3,7 +3,7 @@ var express = require ("express");
 var path = require("path");
 
 var app = express();
-var port = (process.evn.PORT || 10000);
+var port = (process.env.PORT || 10000);
 
 // app.get("/cool",(request,response) => {
 // 	response.send(cool());
@@ -24,7 +24,7 @@ app.get("/info/rentals",(req,res)=>{
 		<link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
 		<title>Rentals</title>
 	</head>
-	
+	 
 	<body>
 		<style>
 			* {
