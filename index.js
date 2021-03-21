@@ -127,7 +127,7 @@ app.get("/info/rentals",(req,res)=>{
 				<table>
 					<thead>
 						<tr>
-							<th></th>
+							<th>location</th>
 							<th>year</th>
 							<th>price-m2</th>
 							<th>annual-variation</th>
