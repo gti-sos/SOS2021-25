@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 // var cool = require ("cool-ascii-faces");
 var express = require ("express");
 var path = require("path");
-
 var app = express();
 var port = (process.env.PORT || 10000);
 
@@ -3155,7 +3153,7 @@ app.get("/info/evictions",(req,res) => {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- <link rel="stylesheet" href="style.css"> -->
 		<link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
-		<title>Rentals</title>
+		<title>Evictions</title>
 	</head>
 	
 	<body>
