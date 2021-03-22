@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+	<html lang="es">
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- <link rel="stylesheet" href="style.css"> -->
+		<link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+		<title>Rentals</title>
+	</head>
+	
+	<body>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+	
+			body {
+				font-family: 'Poppins', sans-serif;
+				color: rgb(226, 226, 226);
+				background: #e2e2e2;
+			}
+	
+			a {
+				text-decoration: none;
+				color: #e2e2e2;
+				transition: 0.2s ease-in-out;
+			}
+	
+			a:hover {
+				color: #fdfd96;
+	
+			}
+	
+			p {
+				font-size: 16px;
+				line-height: 20px;
+			}
+	
+			h1,
+			h2,
+			h3,
+			b {
+				padding: 5px;
+				color: #fdfd96;
+			}
+	
+			.main {
+				margin: auto;
+				padding: 15px;
+				display: grid;
+				grid-template-columns: 1fr;
+				width: 80%;
+			}
+	
+			.container {
+				padding: 30px;
+				background: #191919;
+				margin-top: 50px;
+				border-radius: 5px;
+				-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+				-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+				box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+	
+			}
+	
+			.team,
+			.description,
+			.api {
+				margin: 15px;
+				padding: 15px;
+			}
+	
+			/* TABLE STYLE */
+	
+			table {
+				background: #191919;
+				font-size: 12px;
+				margin: 45px;
+				width: 90%;
+				text-align: left;
+				border-collapse: collapse;
+			}
+	
+			th {
+				font-size: 16px;
+				font-weight: bold;
+				padding: 8px;
+				border-top: 4px solid #242323;
+				border-bottom: 4px solid #242323;
+				color: #fdfd96;
+			}
+	
+			td {
+				padding: 8px;
+				border-bottom: 4px solid #242323;
+				color: #e2e2e2;
+				border-top: 1px solid transparent;
+				transition: 0.2s ease-in-out;
+			}
+	
+			tr:hover td {
+				background: #242323;
+				color: #fdfd96;
+			}
+		</style>
+	<div class="main">
+		<div class="container">
+			<table class="waffle" cellspacing="0" cellpadding="0">
+				<thead>
+					<tr>
+						<th>location</th>
+						<th>year</th>
+						<th>evictions-total</th>
+						<th>evictions-rustic</th>
+						<th>evictions-household</th>
+						<th>evictions-buildinglot</th>
+						<th>evictions-other</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr style="height: 20px">
+						<th class="s2">andalusia</th>
+						<td class="s3">2019</td>
+						<td class="s3">9834</td>
+						<td class="s3">517</td>
+						<td class="s3">5681</td>
+						<td class="s3">598</td>
+						<td class="s3">3038</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">aragon</th>
+						<td class="s3">2019</td>
+						<td class="s3">1152</td>
+						<td class="s3">26</td>
+						<td class="s3">473</td>
+						<td class="s3">121</td>
+						<td class="s3">532</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">principality of asturias</th>
+						<td class="s3">2019</td>
+						<td class="s3">920</td>
+						<td class="s3">81</td>
+						<td class="s3">338</td>
+						<td class="s3">38</td>
+						<td class="s3">463</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">balearic islands</th>
+						<td class="s3">2019</td>
+						<td class="s3">801</td>
+						<td class="s3">15</td>
+						<td class="s3">405</td>
+						<td class="s3">21</td>
+						<td class="s3">360</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">canary islands</th>
+						<td class="s3">2019</td>
+						<td class="s3">1266</td>
+						<td class="s3">57</td>
+						<td class="s3">630</td>
+						<td class="s3">53</td>
+						<td class="s3">526</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">cantabria</th>
+						<td class="s3">2019</td>
+						<td class="s3">618</td>
+						<td class="s3">22</td>
+						<td class="s3">376</td>
+						<td class="s3">18</td>
+						<td class="s3">202</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castilla-la mancha</th>
+						<td class="s3">2019</td>
+						<td class="s3">3104</td>
+						<td class="s3">424</td>
+						<td class="s3">1642</td>
+						<td class="s3">316</td>
+						<td class="s3">722</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castile and leon</th>
+						<td class="s3">2019</td>
+						<td class="s3">2680</td>
+						<td class="s3">195</td>
+						<td class="s3">791</td>
+						<td class="s3">822</td>
+						<td class="s3">872</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">catalonia</th>
+						<td class="s3">2019</td>
+						<td class="s3">12131</td>
+						<td class="s3">169</td>
+						<td class="s3">5757</td>
+						<td class="s3">634</td>
+						<td class="s3">5571</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">valencian community</th>
+						<td class="s3">2019</td>
+						<td class="s3">11644</td>
+						<td class="s3">690</td>
+						<td class="s3">5356</td>
+						<td class="s3">248</td>
+						<td class="s3">5350</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">extremadura</th>
+						<td class="s3">2019</td>
+						<td class="s3">950</td>
+						<td class="s3">68</td>
+						<td class="s3">452</td>
+						<td class="s3">133</td>
+						<td class="s3">297</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">galicia</th>
+						<td class="s3">2019</td>
+						<td class="s3">2667</td>
+						<td class="s3">100</td>
+						<td class="s3">1393</td>
+						<td class="s3">114</td>
+						<td class="s3">1060</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of madrid</th>
+						<td class="s3">2019</td>
+						<td class="s3">3303</td>
+						<td class="s3">91</td>
+						<td class="s3">1424</td>
+						<td class="s3">85</td>
+						<td class="s3">1703</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">region of murcia</th>
+						<td class="s3">2019</td>
+						<td class="s3">4374</td>
+						<td class="s3">253</td>
+						<td class="s3">2051</td>
+						<td class="s3">106</td>
+						<td class="s3">1964</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of navarre</th>
+						<td class="s3">2019</td>
+						<td class="s3">174</td>
+						<td class="s3">42</td>
+						<td class="s3">54</td>
+						<td class="s3">5</td>
+						<td class="s3">73</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">basque country</th>
+						<td class="s3">2019</td>
+						<td class="s3">218</td>
+						<td class="s3">2</td>
+						<td class="s3">81</td>
+						<td class="s3">0</td>
+						<td class="s3">135</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">la rioja</th>
+						<td class="s3">2019</td>
+						<td class="s3">495</td>
+						<td class="s3">25</td>
+						<td class="s3">143</td>
+						<td class="s3">21</td>
+						<td class="s3">306</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">ceuta</th>
+						<td class="s3">2019</td>
+						<td class="s3">12</td>
+						<td class="s3">0</td>
+						<td class="s3">3</td>
+						<td class="s3">1</td>
+						<td class="s3">8</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">melilla</th>
+						<td class="s3">2019</td>
+						<td class="s3">6</td>
+						<td class="s3">0</td>
+						<td class="s3">5</td>
+						<td class="s3">0</td>
+						<td class="s3">1</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">andalusia</th>
+						<td class="s3">2018</td>
+						<td class="s3">10123</td>
+						<td class="s3">518</td>
+						<td class="s3">5154</td>
+						<td class="s3">431</td>
+						<td class="s3">4020</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">aragon</th>
+						<td class="s3">2018</td>
+						<td class="s3">1073</td>
+						<td class="s3">47</td>
+						<td class="s3">466</td>
+						<td class="s3">138</td>
+						<td class="s3">422</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">principality of asturias</th>
+						<td class="s3">2018</td>
+						<td class="s3">1128</td>
+						<td class="s3">158</td>
+						<td class="s3">471</td>
+						<td class="s3">74</td>
+						<td class="s3">425</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">balearic islands</th>
+						<td class="s3">2018</td>
+						<td class="s3">802</td>
+						<td class="s3">43</td>
+						<td class="s3">387</td>
+						<td class="s3">19</td>
+						<td class="s3">353</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">canary islands</th>
+						<td class="s3">2018</td>
+						<td class="s3">3036</td>
+						<td class="s3">77</td>
+						<td class="s3">1433</td>
+						<td class="s3">37</td>
+						<td class="s3">1489</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">cantabria</th>
+						<td class="s3">2018</td>
+						<td class="s3">856</td>
+						<td class="s3">51</td>
+						<td class="s3">406</td>
+						<td class="s3">78</td>
+						<td class="s3">321</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castilla-la mancha</th>
+						<td class="s3">2018</td>
+						<td class="s3">2919</td>
+						<td class="s3">116</td>
+						<td class="s3">1531</td>
+						<td class="s3">442</td>
+						<td class="s3">830</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castile and leon</th>
+						<td class="s3">2018</td>
+						<td class="s3">2851</td>
+						<td class="s3">179</td>
+						<td class="s3">865</td>
+						<td class="s3">521</td>
+						<td class="s3">1286</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">catalonia</th>
+						<td class="s3">2018</td>
+						<td class="s3">8841</td>
+						<td class="s3">180</td>
+						<td class="s3">4561</td>
+						<td class="s3">733</td>
+						<td class="s3">3367</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">valencian community</th>
+						<td class="s3">2018</td>
+						<td class="s3">10076</td>
+						<td class="s3">512</td>
+						<td class="s3">5242</td>
+						<td class="s3">378</td>
+						<td class="s3">3944</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">extremadura</th>
+						<td class="s3">2018</td>
+						<td class="s3">952</td>
+						<td class="s3">117</td>
+						<td class="s3">463</td>
+						<td class="s3">178</td>
+						<td class="s3">194</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">galicia</th>
+						<td class="s3">2018</td>
+						<td class="s3">1972</td>
+						<td class="s3">183</td>
+						<td class="s3">1076</td>
+						<td class="s3">64</td>
+						<td class="s3">649</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of madrid</th>
+						<td class="s3">2018</td>
+						<td class="s3">4191</td>
+						<td class="s3">82</td>
+						<td class="s3">1646</td>
+						<td class="s3">58</td>
+						<td class="s3">2405</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">region of murcia</th>
+						<td class="s3">2018</td>
+						<td class="s3">3260</td>
+						<td class="s3">212</td>
+						<td class="s3">1424</td>
+						<td class="s3">108</td>
+						<td class="s3">1516</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of navarre</th>
+						<td class="s3">2018</td>
+						<td class="s3">342</td>
+						<td class="s3">43</td>
+						<td class="s3">173</td>
+						<td class="s3">14</td>
+						<td class="s3">112</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">basque country</th>
+						<td class="s3">2018</td>
+						<td class="s3">261</td>
+						<td class="s3">7</td>
+						<td class="s3">97</td>
+						<td class="s3">35</td>
+						<td class="s3">122</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">la rioja</th>
+						<td class="s3">2018</td>
+						<td class="s3">1156</td>
+						<td class="s3">18</td>
+						<td class="s3">495</td>
+						<td class="s3">44</td>
+						<td class="s3">599</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">ceuta</th>
+						<td class="s3">2018</td>
+						<td class="s3">10</td>
+						<td class="s3">0</td>
+						<td class="s3">6</td>
+						<td class="s3">0</td>
+						<td class="s3">4</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">melilla</th>
+						<td class="s3">2018</td>
+						<td class="s3">8</td>
+						<td class="s3">0</td>
+						<td class="s3">7</td>
+						<td class="s3">0</td>
+						<td class="s3">1</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">andalusia</th>
+						<td class="s3">2017</td>
+						<td class="s3">13.644</td>
+						<td class="s3">706</td>
+						<td class="s3">7.693</td>
+						<td class="s3">1.054</td>
+						<td class="s3">4.191</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">aragon</th>
+						<td class="s3">2017</td>
+						<td class="s3">1.122</td>
+						<td class="s3">75</td>
+						<td class="s3">513</td>
+						<td class="s3">111</td>
+						<td class="s3">423</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">principality of asturias</th>
+						<td class="s3">2017</td>
+						<td class="s3">561</td>
+						<td class="s3">66</td>
+						<td class="s3">284</td>
+						<td class="s3">31</td>
+						<td class="s3">180</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">balearic islands</th>
+						<td class="s3">2017</td>
+						<td class="s3">1.026</td>
+						<td class="s3">54</td>
+						<td class="s3">515</td>
+						<td class="s3">24</td>
+						<td class="s3">433</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">canary islands</th>
+						<td class="s3">2017</td>
+						<td class="s3">2.616</td>
+						<td class="s3">66</td>
+						<td class="s3">1.349</td>
+						<td class="s3">100</td>
+						<td class="s3">1.101</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">cantabria</th>
+						<td class="s3">2017</td>
+						<td class="s3">341</td>
+						<td class="s3">19</td>
+						<td class="s3">222</td>
+						<td class="s3">6</td>
+						<td class="s3">94</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castilla-la mancha</th>
+						<td class="s3">2017</td>
+						<td class="s3">2.302</td>
+						<td class="s3">429</td>
+						<td class="s3">1.023</td>
+						<td class="s3">158</td>
+						<td class="s3">692</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castile and leon</th>
+						<td class="s3">2017</td>
+						<td class="s3">2.425</td>
+						<td class="s3">502</td>
+						<td class="s3">695</td>
+						<td class="s3">173</td>
+						<td class="s3">1.055</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">catalonia</th>
+						<td class="s3">2017</td>
+						<td class="s3">7.206</td>
+						<td class="s3">118</td>
+						<td class="s3">4.107</td>
+						<td class="s3">290</td>
+						<td class="s3">2.691</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">valencian community</th>
+						<td class="s3">2017</td>
+						<td class="s3">10.212</td>
+						<td class="s3">553</td>
+						<td class="s3">5.356</td>
+						<td class="s3">292</td>
+						<td class="s3">4.011</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">extremadura</th>
+						<td class="s3">2017</td>
+						<td class="s3">657</td>
+						<td class="s3">72</td>
+						<td class="s3">354</td>
+						<td class="s3">17</td>
+						<td class="s3">214</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">galicia</th>
+						<td class="s3">2017</td>
+						<td class="s3">1.790</td>
+						<td class="s3">180</td>
+						<td class="s3">787</td>
+						<td class="s3">49</td>
+						<td class="s3">774</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of madrid</th>
+						<td class="s3">2017</td>
+						<td class="s3">3.885</td>
+						<td class="s3">45</td>
+						<td class="s3">2.147</td>
+						<td class="s3">79</td>
+						<td class="s3">1.614</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">region of murcia</th>
+						<td class="s3">2017</td>
+						<td class="s3">3.252</td>
+						<td class="s3">349</td>
+						<td class="s3">1.591</td>
+						<td class="s3">110</td>
+						<td class="s3">1.202</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of navarre</th>
+						<td class="s3">2017</td>
+						<td class="s3">206</td>
+						<td class="s3">12</td>
+						<td class="s3">129</td>
+						<td class="s3">7</td>
+						<td class="s3">58</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">basque country</th>
+						<td class="s3">2017</td>
+						<td class="s3">348</td>
+						<td class="s3">6</td>
+						<td class="s3">188</td>
+						<td class="s3">9</td>
+						<td class="s3">145</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">la rioja</th>
+						<td class="s3">2017</td>
+						<td class="s3">342</td>
+						<td class="s3">31</td>
+						<td class="s3">165</td>
+						<td class="s3">13</td>
+						<td class="s3">133</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">ceuta</th>
+						<td class="s3">2017</td>
+						<td class="s3">51</td>
+						<td class="s3">0</td>
+						<td class="s3">44</td>
+						<td class="s3">1</td>
+						<td class="s3">6</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">melilla</th>
+						<td class="s3">2017</td>
+						<td class="s3">13</td>
+						<td class="s3">0</td>
+						<td class="s3">9</td>
+						<td class="s3">0</td>
+						<td class="s3">4</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">andalusia</th>
+						<td class="s3">2016</td>
+						<td class="s3">20.611</td>
+						<td class="s3">1.123</td>
+						<td class="s3">11.581</td>
+						<td class="s3">1.314</td>
+						<td class="s3">6.593</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">aragon</th>
+						<td class="s3">2016</td>
+						<td class="s3">1.441</td>
+						<td class="s3">65</td>
+						<td class="s3">929</td>
+						<td class="s3">66</td>
+						<td class="s3">381</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">principality of asturias</th>
+						<td class="s3">2016</td>
+						<td class="s3">745</td>
+						<td class="s3">66</td>
+						<td class="s3">395</td>
+						<td class="s3">13</td>
+						<td class="s3">271</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">balearic islands</th>
+						<td class="s3">2016</td>
+						<td class="s3">1.418</td>
+						<td class="s3">95</td>
+						<td class="s3">761</td>
+						<td class="s3">69</td>
+						<td class="s3">493</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">canary islands</th>
+						<td class="s3">2016</td>
+						<td class="s3">3.668</td>
+						<td class="s3">99</td>
+						<td class="s3">1.952</td>
+						<td class="s3">115</td>
+						<td class="s3">1.502</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">cantabria</th>
+						<td class="s3">2016</td>
+						<td class="s3">629</td>
+						<td class="s3">41</td>
+						<td class="s3">340</td>
+						<td class="s3">34</td>
+						<td class="s3">214</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castilla-la mancha</th>
+						<td class="s3">2016</td>
+						<td class="s3">2.835</td>
+						<td class="s3">196</td>
+						<td class="s3">1.521</td>
+						<td class="s3">336</td>
+						<td class="s3">782</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castile and leon</th>
+						<td class="s3">2016</td>
+						<td class="s3">2.565</td>
+						<td class="s3">298</td>
+						<td class="s3">987</td>
+						<td class="s3">323</td>
+						<td class="s3">957</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">catalonia</th>
+						<td class="s3">2016</td>
+						<td class="s3">11.195</td>
+						<td class="s3">167</td>
+						<td class="s3">6.956</td>
+						<td class="s3">446</td>
+						<td class="s3">3.626</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">valencian community</th>
+						<td class="s3">2016</td>
+						<td class="s3">12.769</td>
+						<td class="s3">687</td>
+						<td class="s3">7.638</td>
+						<td class="s3">253</td>
+						<td class="s3">4.191</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">extremadura</th>
+						<td class="s3">2016</td>
+						<td class="s3">893</td>
+						<td class="s3">92</td>
+						<td class="s3">490</td>
+						<td class="s3">52</td>
+						<td class="s3">259</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">galicia</th>
+						<td class="s3">2016</td>
+						<td class="s3">1.564</td>
+						<td class="s3">132</td>
+						<td class="s3">727</td>
+						<td class="s3">59</td>
+						<td class="s3">646</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of madrid</th>
+						<td class="s3">2016</td>
+						<td class="s3">5.958</td>
+						<td class="s3">95</td>
+						<td class="s3">3.498</td>
+						<td class="s3">105</td>
+						<td class="s3">2.260</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">region of murcia</th>
+						<td class="s3">2016</td>
+						<td class="s3">4.893</td>
+						<td class="s3">427</td>
+						<td class="s3">2.582</td>
+						<td class="s3">436</td>
+						<td class="s3">1.448</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of navarre</th>
+						<td class="s3">2016</td>
+						<td class="s3">564</td>
+						<td class="s3">4</td>
+						<td class="s3">233</td>
+						<td class="s3">24</td>
+						<td class="s3">303</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">basque country</th>
+						<td class="s3">2016</td>
+						<td class="s3">520</td>
+						<td class="s3">16</td>
+						<td class="s3">214</td>
+						<td class="s3">57</td>
+						<td class="s3">233</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">la rioja</th>
+						<td class="s3">2016</td>
+						<td class="s3">620</td>
+						<td class="s3">127</td>
+						<td class="s3">284</td>
+						<td class="s3">32</td>
+						<td class="s3">177</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">ceuta</th>
+						<td class="s3">2016</td>
+						<td class="s3">14</td>
+						<td class="s3">0</td>
+						<td class="s3">11</td>
+						<td class="s3">0</td>
+						<td class="s3">3</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">melilla</th>
+						<td class="s3">2016</td>
+						<td class="s3">39</td>
+						<td class="s3">0</td>
+						<td class="s3">30</td>
+						<td class="s3">0</td>
+						<td class="s3">9</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">andalusia</th>
+						<td class="s3">2015</td>
+						<td class="s3">28.251</td>
+						<td class="s3">1.658</td>
+						<td class="s3">16.246</td>
+						<td class="s3">1.294</td>
+						<td class="s3">9.053</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">aragon</th>
+						<td class="s3">2015</td>
+						<td class="s3">2.315</td>
+						<td class="s3">130</td>
+						<td class="s3">1.287</td>
+						<td class="s3">72</td>
+						<td class="s3">826</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">principality of asturias</th>
+						<td class="s3">2015</td>
+						<td class="s3">1.083</td>
+						<td class="s3">107</td>
+						<td class="s3">603</td>
+						<td class="s3">27</td>
+						<td class="s3">346</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">balearic islands</th>
+						<td class="s3">2015</td>
+						<td class="s3">2.408</td>
+						<td class="s3">139</td>
+						<td class="s3">1.328</td>
+						<td class="s3">89</td>
+						<td class="s3">852</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">canary islands</th>
+						<td class="s3">2015</td>
+						<td class="s3">5.001</td>
+						<td class="s3">216</td>
+						<td class="s3">3.021</td>
+						<td class="s3">171</td>
+						<td class="s3">1.593</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">cantabria</th>
+						<td class="s3">2015</td>
+						<td class="s3">771</td>
+						<td class="s3">57</td>
+						<td class="s3">405</td>
+						<td class="s3">10</td>
+						<td class="s3">299</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castilla-la mancha</th>
+						<td class="s3">2015</td>
+						<td class="s3">4.883</td>
+						<td class="s3">381</td>
+						<td class="s3">2.548</td>
+						<td class="s3">540</td>
+						<td class="s3">1.414</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">castile and leon</th>
+						<td class="s3">2015</td>
+						<td class="s3">4.403</td>
+						<td class="s3">266</td>
+						<td class="s3">1.907</td>
+						<td class="s3">340</td>
+						<td class="s3">1.890</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">catalonia</th>
+						<td class="s3">2015</td>
+						<td class="s3">16.464</td>
+						<td class="s3">283</td>
+						<td class="s3">11.110</td>
+						<td class="s3">476</td>
+						<td class="s3">4.595</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">valencian community</th>
+						<td class="s3">2015</td>
+						<td class="s3">17.539</td>
+						<td class="s3">1.030</td>
+						<td class="s3">10.714</td>
+						<td class="s3">420</td>
+						<td class="s3">5.375</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">extremadura</th>
+						<td class="s3">2015</td>
+						<td class="s3">1.578</td>
+						<td class="s3">192</td>
+						<td class="s3">828</td>
+						<td class="s3">104</td>
+						<td class="s3">454</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">galicia</th>
+						<td class="s3">2015</td>
+						<td class="s3">2.570</td>
+						<td class="s3">236</td>
+						<td class="s3">1.226</td>
+						<td class="s3">114</td>
+						<td class="s3">994</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of madrid</th>
+						<td class="s3">2015</td>
+						<td class="s3">6.372</td>
+						<td class="s3">107</td>
+						<td class="s3">4.250</td>
+						<td class="s3">156</td>
+						<td class="s3">1.859</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">region of murcia</th>
+						<td class="s3">2015</td>
+						<td class="s3">6.972</td>
+						<td class="s3">394</td>
+						<td class="s3">3.612</td>
+						<td class="s3">338</td>
+						<td class="s3">2.628</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">community of navarre</th>
+						<td class="s3">2015</td>
+						<td class="s3">567</td>
+						<td class="s3">17</td>
+						<td class="s3">340</td>
+						<td class="s3">68</td>
+						<td class="s3">142</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">basque country</th>
+						<td class="s3">2015</td>
+						<td class="s3">694</td>
+						<td class="s3">43</td>
+						<td class="s3">297</td>
+						<td class="s3">51</td>
+						<td class="s3">303</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">la rioja</th>
+						<td class="s3">2015</td>
+						<td class="s3">539</td>
+						<td class="s3">37</td>
+						<td class="s3">272</td>
+						<td class="s3">29</td>
+						<td class="s3">201</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">ceuta</th>
+						<td class="s3">2015</td>
+						<td class="s3">29</td>
+						<td class="s3">0</td>
+						<td class="s3">17</td>
+						<td class="s3">0</td>
+						<td class="s3">12</td>
+					</tr>
+					<tr style="height: 20px">
+						<th class="s2">melilla</th>
+						<td class="s3">2015</td>
+						<td class="s3">38</td>
+						<td class="s3">1</td>
+						<td class="s3">21</td>
+						<td class="s3">0</td>
+						<td class="s3">16</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
