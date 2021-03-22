@@ -124,6 +124,7 @@ app.get("/info/rentals",(req,res)=>{
 		</style>
 		<div class="main">
 			<div class="container">
+				<p>Alquileres de pisos: comunidad, año, precio por metro cuadrado, porcentaje de variación anual de precio, máximo histórico de precio del metro cuadrado, y variación del precio máximo</p>
 				<table>
 					<thead>
 						<tr>
@@ -832,6 +833,7 @@ app.get("/info/sales",(req,res) =>{
 		</style>
 		<div class="main">
 			<div class="container">
+				<p>Venta de pisos: comunidad, año, total de ventas, ventas de viviendas protegidas, ventas de pisos nuevos y ventas de casas de segunda mano</p>
 				<table class="waffle" cellspacing="0" cellpadding="0">
 					<thead>
 						<tr>
@@ -1680,6 +1682,7 @@ app.get("/info/evictions",(req,res) => {
 		</style>
 	<div class="main">
 		<div class="container">
+			<p>Ejecuciones hipotecarias: comunidad, año, total de desahucios, desahucios de fincas rústicas, desahucios de viviendas urbanas, desahucios de solares y otros desahucios</p>
 			<table class="waffle" cellspacing="0" cellpadding="0">
 				<thead>
 					<tr>
