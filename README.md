@@ -7,6 +7,6 @@
 - **Repository**: [gti-sos/SOS2021-25](https://github.com/gti-sos/SOS2021-25)
 - **URL**: [http://sos2021-25.herokuapp.com](http://sos2021-25.herokuapp.com)
 -  **APIs**:
-    - [https://sos2021-25.herokuapp.com/api/v1/my-awesome-resource-1/docs](https://sos2021-25.herokuapp.com/api/v1/my-awesome-resource-1/docs) (developed by [José Alberto Trancoso Nieto](https://github.com/AlbertoTNJ))
-    - [https://sos2021-25.herokuapp.com/api/v1/my-awesome-resource-2/docs](https://sos2021-25.herokuapp.com/api/v1/my-awesome-resource-2/docs) (developed by [Antonio Javier Palma Guerrero](https://github.com/ajpalma28))
-    - [https://sos2021-25.herokuapp.com/api/v1/my-awesome-resource-3/docs](https://sos2021-25.herokuapp.com/api/v1/my-awesome-resource-3/docs) (developed by [José María de Soto Oncins](https://github.com/PepeDeSoto))
+    - [https://sos2021-25.herokuapp.com/info/sales](https://sos2021-25.herokuapp.com/info/sales) (developed by [José Alberto Trancoso Nieto](https://github.com/AlbertoTNJ))
+    - [https://sos2021-25.herokuapp.com/info/evictions](https://sos2021-25.herokuapp.com/info/evictions) (developed by [Antonio Javier Palma Guerrero](https://github.com/ajpalma28))
+    - [https://sos2021-25.herokuapp.com/info/rentals](https://sos2021-25.herokuapp.com/info/rentals) (developed by [José María de Soto Oncins](https://github.com/PepeDeSoto))
