@@ -3,7 +3,7 @@ var express = require ("express");
 var path = require("path");
 
 var app = express();
-var port = 10000;
+var port = (process.env.port || 10000);
 
 // app.get("/cool",(request,response) => {
 // 	response.send(cool());
