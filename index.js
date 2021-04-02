@@ -3,7 +3,8 @@ var express = require ("express");
 var path = require("path");
 
 var app = express();
-var port = (process.env.PORT || 10000);
+var PORT = (process.env.PORT || 10000);
+var BASE_API_PATH = "/api/v1";
 
 // app.get("/cool",(request,response) => {
 // 	response.send(cool());
@@ -2558,6 +2559,6 @@ app.get("/info/evictions",(req,res) => {
 	</div>`)
 });
 
-app.listen(port,() => {
+app.listen(PORT,() => {
 	console.log(`Server ready lintening on port ${port}`);
 })
