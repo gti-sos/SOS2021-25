@@ -2560,5 +2560,5 @@ app.get("/info/evictions",(req,res) => {
 });
 
 app.listen(PORT,() => {
-	console.log(`Server ready lintening on port ${port}`);
+	console.log(`Server ready lintening on port ${PORT}`);
 })
