@@ -111,7 +111,7 @@ var sales = [
 //carga inicial de datos
 app.get(BASE_API_PATH + "/sales/loadInitialData", (req, res) => {
 	//res.send(JSON.stringify(sales));
-	console.log(`Loaded initial data: <${JSON.stringify(sales, null, 2)}>`);
+	console.log(`Loaded initial data: ${JSON.stringify(sales, null, 2)}`);
 	return res.sendStatus(200);
 });
 
@@ -225,9 +225,15 @@ app.put(BASE_API_PATH + "/sales", (req,res) => {
   
   //DELETE a una lista de recursos
   app.delete(BASE_API_PATH + "/sales", (req,res) => {
-	sales = [];
-	console.log("DELETE sales success");
-	return res.sendStatus(200);
+	  if (sales.length==0){
+		  console.log("Array is empty");
+		  return res.sendStatus(404);
+	  }
+	  else{
+		sales = [];
+		console.log("DELETE sales success");
+		return res.sendStatus(200);
+	  }
   });
 
 var evictions = [];
