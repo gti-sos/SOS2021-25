@@ -1,9 +1,11 @@
 // var cool = require ("cool-ascii-faces");
 var express = require ("express");
-var path = require("path");
+var path = require ("path");
+var bodyParser = require ("body-parser");
 
 var app = express();
 var PORT = (process.env.PORT || 10000);
+
 var BASE_API_PATH = "/api/v1";
 
 // app.get("/cool",(request,response) => {
@@ -11,8 +13,32 @@ var BASE_API_PATH = "/api/v1";
 // 	console.log("New request to /cool hasta arrived");
 // });
 
+app.use(bodyParser.json());
 app.use("/",express.static(path.join(__dirname,"public")));
 
+var contacts = [
+
+	{
+		"name": "pablo",
+		"phone": 123456
+	},
+	{
+		"name": "pepe",
+		"phone": 2459
+	}
+];
+
+app.get(BASE_API_PATH+"/contacts",(req,res)=>{
+	res.send(JSON.stringify(contacts,null,2));
+});
+
+app.post(BASE_API_PATH+"/contacts",(req,res)=>{
+	var newContact = req.body;
+	console.log(`new contact to be added: <${JSON.stringify(newContact,null,2)}>`);
+
+	contacts.push(newContact);
+	res.status(201);
+});
 
 app.get("/info/rentals",(req,res)=>{
 	res.send(`<!DOCTYPE html>
