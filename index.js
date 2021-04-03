@@ -151,20 +151,85 @@ app.post(BASE_API_PATH + "/sales", (req, res) => {
 		return res.sendStatus(201);
 	}
 });
-//GET a la lista de recursos
+//GET a un recurso
 app.get(BASE_API_PATH + "/sales/:location/:year", (req, res) => {
 	var location = req.params.location;
 	var year = parseInt(req.params.year);
 
-	console.log(`get files by location: <${location}> and year: <${year}>`);
+	console.log(`get data by location: <${location}> and year <${year}>`);
 	for (var status of sales){
 		if (status.location == location && status.year == year){
 			return res.status(200).json(status);
 		}
 	}
 	return res.sendStatus(404);
+});
+
+//DELETE a un recurso
+app.delete(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
+	var location = req.params.location;
+	var year = parseInt(req.params.year);
+
+	console.log (`DELETE by location ${location} and year: ${year}`);
+	for (var i=0; i<sales.length;i++){
+		if(sales[i]["location"]==location && sales[i]["year"]==year){
+			sales.splice(i,1)
+			return res.sendStatus(200);
+		}
+	}
+	/*for (var status of sales){
+		if (status.location == location && status.year == year){
+			status.delete;
+			return res.status(200).json(status);
+		}
+	}*/
+	return res.sendStatus(404);
+}); 
+
+//PUT a un recurso
+app.put(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
+	var location = req.params.location;
+	var year = parseInt(req.params.year);
+	var newSales = req.body;
+
+	console.log(`Edit ${newSales.location} Selected ${location}`);
+	console.log(`Edit ${newSales.year} Selected ${year}`);
+
+	if (sales.length == 0){
+		console.log ("Data not found");
+		return res.sendStatus(404);
+	}
+	else {
+		for (var i=0; i<sales.length;i++){
+			if (sales[i]["location"]==location && sales[i]["year"]==year){
+				sales[i] = newSales;
+				console.log("PUT success");
+        		return res.sendStatus(200);
+			}
+		}
+	}	      
+	return res.sendStatus(404);           
 
 });
+
+//POST a un recurso
+app.post(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
+	console.log ("Unable to POST to a specific resource");
+	return res.sendStatus(405);
+});
+//PUT a una lista de recursos
+app.put(BASE_API_PATH + "/sales", (req,res) => {
+	console.log("Unable to PUT to a list of resources");
+	return res.sendStatus(405);
+  });
+  
+  //DELETE a una lista de recursos
+  app.delete(BASE_API_PATH + "/sales", (req,res) => {
+	sales = [];
+	console.log("DELETE sales success");
+	return res.sendStatus(200);
+  });
+
 var evictions = [];
 
 var rentals =
