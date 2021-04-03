@@ -1,7 +1,7 @@
 // var cool = require ("cool-ascii-faces");
-var express = require ("express");
-var path = require ("path");
-var bodyParser = require ("body-parser");
+var express = require("express");
+var path = require("path");
+var bodyParser = require("body-parser");
 
 var app = express();
 var PORT = (process.env.PORT || 10000);
@@ -14,33 +14,102 @@ var BASE_API_PATH = "/api/v1";
 // });
 
 app.use(bodyParser.json());
-app.use("/",express.static(path.join(__dirname,"public")));
+app.use("/", express.static(path.join(__dirname, "public")));
 
-var contacts = [
 
-	{
-		"name": "pablo",
-		"phone": 123456
-	},
-	{
-		"name": "pepe",
-		"phone": 2459
-	}
-];
+var sales = [];
 
-app.get(BASE_API_PATH+"/contacts",(req,res)=>{
-	res.send(JSON.stringify(contacts,null,2));
+var evictions = [];
+
+var rentals =
+	[
+		{ "location": "andalusia", "year": "2019", "price-square-meter": "8.5", "annual-variation": "7", "all-time-high": "9.5", "max-variation": "-9.9" },
+		{ "location": "aragon", "year": "2019", "price-square-meter": "7.8", "annual-variation": "9.1", "all-time-high": "8.2", "max-variation": "-4" },
+		{ "location": "principality of asturias", "year": "2019", "price-square-meter": "7.2", "annual-variation": "4.6", "all-time-high": "10.8", "max-variation": "-33.2" },
+		{ "location": "balearic islands", "year": "2019", "price-square-meter": "12.6", "annual-variation": "2", "all-time-high": "14", "max-variation": "-9.6" },
+		{ "location": "canary islands", "year": "2019", "price-square-meter": "10", "annual-variation": "3.3", "all-time-high": "10.3", "max-variation": "-2.7" },
+		{ "location": "cantabria", "year": "2019", "price-square-meter": "7.6", "annual-variation": "4.3", "all-time-high": "12.7", "max-variation": "-40.2" },
+		{ "location": "castile and leon", "year": "2019", "price-square-meter": "6.5", "annual-variation": "5.8", "all-time-high": "7", "max-variation": "-7.7" },
+		{ "location": "castilla-la mancha", "year": "2019", "price-square-meter": "5.4", "annual-variation": "6.6", "all-time-high": "5.8", "max-variation": "-6.6" },
+		{ "location": "catalonia", "year": "2019", "price-square-meter": "14.2", "annual-variation": "4.4", "all-time-high": "15.2", "max-variation": "-6.8" },
+		{ "location": "valencian community", "year": "2019", "price-square-meter": "7.5", "annual-variation": "7.4", "all-time-high": "9.4", "max-variation": "-19.9" },
+		{ "location": "basque country", "year": "2019", "price-square-meter": "11.9", "annual-variation": "5.1", "all-time-high": "12.3", "max-variation": "-3.9" },
+		{ "location": "extremadura", "year": "2019", "price-square-meter": "5", "annual-variation": "5.3", "all-time-high": "5.4", "max-variation": "-6.5" },
+		{ "location": "galicia", "year": "2019", "price-square-meter": "6.6", "annual-variation": "0.7", "all-time-high": "8.7", "max-variation": "-24.8" },
+		{ "location": "la rioja", "year": "2019", "price-square-meter": "6.5", "annual-variation": "8.7", "all-time-high": "6.8", "max-variation": "-4.2" },
+		{ "location": "community of madrid", "year": "2019", "price-square-meter": "14.7", "annual-variation": "3.6", "all-time-high": "15.4", "max-variation": "-4" },
+		{ "location": "melilla", "year": "2019", "price-square-meter": "8.4", "annual-variation": "-0.6", "all-time-high": "9.5", "max-variation": "-11.3" },
+		{ "location": "region of murcia", "year": "2019", "price-square-meter": "6.1", "annual-variation": "7.5", "all-time-high": "7.1", "max-variation": "-13.9" },
+		{ "location": "community of navarre", "year": "2019", "price-square-meter": "8.5", "annual-variation": "10.6", "all-time-high": "8.8", "max-variation": "-3.4" },
+		{ "location": "andalusia", "year": "2018", "price-square-meter": "8", "annual-variation": "96", "all-time-high": "9.5", "max-variation": "-15.7" },
+		{ "location": "aragon", "year": "2018", "price-square-meter": "7.2", "annual-variation": "6.6", "all-time-high": "8.2", "max-variation": "-12" },
+		{ "location": "principality of asturias", "year": "2018", "price-square-meter": "6.9", "annual-variation": "3.9", "all-time-high": "10.8", "max-variation": "-36.1" },
+		{ "location": "balearic islands", "year": "2018", "price-square-meter": "12.4", "annual-variation": "4.2", "all-time-high": "14", "max-variation": "-11.4" },
+		{ "location": "canary islands", "year": "2018", "price-square-meter": "9.7", "annual-variation": "10.8", "all-time-high": "10.3", "max-variation": "-5.9" },
+		{ "location": "cantabria", "year": "2018", "price-square-meter": "7.3", "annual-variation": "7.7", "all-time-high": "12.7", "max-variation": "-42.6" },
+		{ "location": "castile and leon", "year": "2018", "price-square-meter": "6.1", "annual-variation": "6.1", "all-time-high": "7", "max-variation": "-12.8" },
+		{ "location": "castilla-la mancha", "year": "2018", "price-square-meter": "5.1", "annual-variation": "6.6", "all-time-high": "5.8", "max-variation": "-12.4" },
+		{ "location": "catalonia", "year": "2018", "price-square-meter": "13.6", "annual-variation": "-0.5", "all-time-high": "15.2", "max-variation": "-10.8" },
+		{ "location": "valencian community", "year": "2018", "price-square-meter": "7", "annual-variation": "7.2", "all-time-high": "9.4", "max-variation": "-25.4" },
+		{ "location": "basque country", "year": "2018", "price-square-meter": "11.3", "annual-variation": "3.5", "all-time-high": "12.3", "max-variation": "-8.5" },
+		{ "location": "extremadura", "year": "2018", "price-square-meter": "4.8", "annual-variation": "0.4", "all-time-high": "5.4", "max-variation": "-11.2" },
+		{ "location": "galicia", "year": "2018", "price-square-meter": "6.1", "annual-variation": "5.5", "all-time-high": "8.7", "max-variation": "-29.7" },
+		{ "location": "la rioja", "year": "2018", "price-square-meter": "6", "annual-variation": "0.9", "all-time-high": "6.8", "max-variation": "-11.9" },
+		{ "location": "community of madrid", "year": "2018", "price-square-meter": "14.2", "annual-variation": "9.6", "all-time-high": "15.4", "max-variation": "-7.3" },
+		{ "location": "melilla", "year": "2018", "price-square-meter": "8.5", "annual-variation": "-2", "all-time-high": "9.5", "max-variation": "-10.8" },
+		{ "location": "region of murcia", "year": "2018", "price-square-meter": "5.7", "annual-variation": "7.1", "all-time-high": "7.1", "max-variation": "-19.9" },
+		{ "location": "community of navarre", "year": "2018", "price-square-meter": "7.7", "annual-variation": "10.9", "all-time-high": "8.8", "max-variation": "-12.6" },
+		{ "location": "andalusia", "year": "2017", "price-square-meter": "7.3", "annual-variation": "11.2", "all-time-high": "9.5", "max-variation": "-23.1" },
+		{ "location": "aragon", "year": "2016", "price-square-meter": "6.7", "annual-variation": "5.6", "all-time-high": "8.2", "max-variation": "-17.5" },
+		{ "location": "principality of asturias", "year": "2016", "price-square-meter": "6.6", "annual-variation": "5.6", "all-time-high": "10.8", "max-variation": "-38.5" },
+		{ "location": "balearic islands", "year": "2016", "price-square-meter": "11.9", "annual-variation": "16.8", "all-time-high": "14", "max-variation": "-14.9" },
+		{ "location": "canary islands", "year": "2016", "price-square-meter": "8.7", "annual-variation": "19.8", "all-time-high": "10.3", "max-variation": "-15" },
+		{ "location": "cantabria", "year": "2016", "price-square-meter": "6.8", "annual-variation": "3.4", "all-time-high": "12.7", "max-variation": "-46.7" },
+		{ "location": "castile and leon", "year": "2016", "price-square-meter": "5.8", "annual-variation": "5.9", "all-time-high": "7", "max-variation": "-17.8" },
+		{ "location": "castilla-la mancha", "year": "2016", "price-square-meter": "4.8", "annual-variation": "4.8", "all-time-high": "5.8", "max-variation": "-17.8" },
+		{ "location": "catalonia", "year": "2016", "price-square-meter": "13.7", "annual-variation": "13.4", "all-time-high": "15.2", "max-variation": "-10.3" },
+		{ "location": "valencian community", "year": "2016", "price-square-meter": "6.5", "annual-variation": "10.9", "all-time-high": "9.4", "max-variation": "-30.4" },
+		{ "location": "basque country", "year": "2016", "price-square-meter": "10.9", "annual-variation": "6.4", "all-time-high": "12.3", "max-variation": "-11.6" },
+		{ "location": "extremadura", "year": "2016", "price-square-meter": "4.8", "annual-variation": "5", "all-time-high": "5.4", "max-variation": "-11.6" },
+		{ "location": "galicia", "year": "2016", "price-square-meter": "5.8", "annual-variation": "4.8", "all-time-high": "8.7", "max-variation": "-33.3" },
+		{ "location": "la rioja", "year": "2016", "price-square-meter": "5.5", "annual-variation": "5.7", "all-time-high": "6.8", "max-variation": "-19.2" },
+		{ "location": "community of madrid", "year": "2016", "price-square-meter": "13", "annual-variation": "10.6", "all-time-high": "15.4", "max-variation": "-15.5" },
+		{ "location": "melilla", "year": "2016", "price-square-meter": "8.7", "annual-variation": "7", "all-time-high": "9.5", "max-variation": "-9" },
+		{ "location": "region of murcia", "year": "2016", "price-square-meter": "5.3", "annual-variation": "7.9", "all-time-high": "7.1", "max-variation": "-25.2" },
+		{ "location": "community of navarre", "year": "2016", "price-square-meter": "6.9", "annual-variation": "6.9", "all-time-high": "8.8", "max-variation": "-21.2" },
+		{ "location": "andalusia", "year": "2015", "price-square-meter": "6.5", "annual-variation": "6", "all-time-high": "9.5", "max-variation": "-30.8" },
+		{ "location": "aragon", "year": "2015", "price-square-meter": "6.4", "annual-variation": "5.5", "all-time-high": "8.2", "max-variation": "-21.8" },
+		{ "location": "principality of asturias", "year": "2015", "price-square-meter": "6.3", "annual-variation": "5", "all-time-high": "10.8", "max-variation": "-41.8" },
+		{ "location": "balearic islands", "year": "2015", "price-square-meter": "10.2", "annual-variation": "23.8", "all-time-high": "14", "max-variation": "-27.2" },
+		{ "location": "canary islands", "year": "2015", "price-square-meter": "7.3", "annual-variation": "6.2", "all-time-high": "10.3", "max-variation": "-29" },
+		{ "location": "cantabria", "year": "2015", "price-square-meter": "6.6", "annual-variation": "6.8", "all-time-high": "12.7", "max-variation": "-48.5" },
+		{ "location": "castile and leon", "year": "2015", "price-square-meter": "5.4", "annual-variation": "4", "all-time-high": "7", "max-variation": "-22.4" },
+		{ "location": "castilla-la mancha", "year": "2015", "price-square-meter": "4.5", "annual-variation": "2", "all-time-high": "5.8", "max-variation": "-21.6" },
+		{ "location": "catalonia", "year": "2015", "price-square-meter": "12", "annual-variation": "19.9", "all-time-high": "15.2", "max-variation": "-20.9" },
+		{ "location": "valencian community", "year": "2015", "price-square-meter": "5.9", "annual-variation": "9.5", "all-time-high": "9.4", "max-variation": "-37.3" },
+		{ "location": "basque country", "year": "2015", "price-square-meter": "10.3", "annual-variation": "5", "all-time-high": "12.3", "max-variation": "-16.9" },
+		{ "location": "extremadura", "year": "2015", "price-square-meter": "4.5", "annual-variation": "6.8", "all-time-high": "5.4", "max-variation": "-15.8" },
+		{ "location": "galicia", "year": "2015", "price-square-meter": "5.6", "annual-variation": "2.7", "all-time-high": "8.7", "max-variation": "-36.4" },
+		{ "location": "la rioja", "year": "2015", "price-square-meter": "5.2", "annual-variation": "3.3", "all-time-high": "6.8", "max-variation": "-23.6" },
+		{ "location": "community of madrid", "year": "2015", "price-square-meter": "11.7", "annual-variation": "9.6", "all-time-high": "15.4", "max-variation": "-23.6" },
+		{ "location": "melilla", "year": "2015", "price-square-meter": "8.1", "annual-variation": "-3.3", "all-time-high": "9.5", "max-variation": "-15" },
+		{ "location": "region of murcia", "year": "2015", "price-square-meter": "4.9", "annual-variation": "1", "all-time-high": "7.1", "max-variation": "-30.7" },
+		{ "location": "community of navarre", "year": "2015", "price-square-meter": "6.5", "annual-variation": "2.8", "all-time-high": "8.8", "max-variation": "-26.3" }
+	];
+
+app.get(BASE_API_PATH + "/rentals", (req, res) => {
+	res.send(JSON.stringify(rentals));
 });
 
-app.post(BASE_API_PATH+"/contacts",(req,res)=>{
-	var newContact = req.body;
-	console.log(`new contact to be added: <${JSON.stringify(newContact,null,2)}>`);
+app.post(BASE_API_PATH + "/rentals", (req, res) => {
+	var newRentals = req.params;
+	console.log(`new rentals to be added: <${JSON.stringify(newRentals, null, 2)}>`);
 
-	contacts.push(newContact);
+	contacts.push(newRentals);
 	res.status(201);
 });
 
-app.get("/info/rentals",(req,res)=>{
+app.get("/info/rentals", (req, res) => {
 	res.send(`<!DOCTYPE html>
 	<html lang="es">
 	
@@ -749,7 +818,7 @@ app.get("/info/rentals",(req,res)=>{
 	</html>`)
 });
 
-app.get("/info/sales",(req,res) =>{
+app.get("/info/sales", (req, res) => {
 	res.send(`<!DOCTYPE html>
 	<html lang="es">
 	
@@ -1598,7 +1667,7 @@ app.get("/info/sales",(req,res) =>{
 	</div>`);
 });
 
-app.get("/info/evictions",(req,res) => {
+app.get("/info/evictions", (req, res) => {
 	res.send(`<!DOCTYPE html>
 	<html lang="es">
 	
@@ -2585,6 +2654,6 @@ app.get("/info/evictions",(req,res) => {
 	</div>`)
 });
 
-app.listen(PORT,() => {
+app.listen(PORT, () => {
 	console.log(`Server ready lintening on port ${PORT}`);
 })
