@@ -5,7 +5,6 @@ var bodyParser = require("body-parser");
 
 var app = express();
 var PORT = (process.env.PORT || 10000);
-
 var BASE_API_PATH = "/api/v1";
 
 // app.get("/cool",(request,response) => {
@@ -109,7 +108,63 @@ var sales = [
 		{"location":"la rioja","year":"2015","sales-total":"3124","sales-protected-housing":"206","sales-new":"321","sales-secondhand":"2759"},
 		{"location":"ceuta","year":"2015","sales-total":"972","sales-protected-housing":"30","sales-new":"209","sales-secondhand":"755"}
 ];
+//carga inicial de datos
+app.get(BASE_API_PATH + "/sales/loadInitialData", (req, res) => {
+	//res.send(JSON.stringify(sales));
+	console.log(`Loaded initial data: <${JSON.stringify(sales, null, 2)}>`);
+	return res.sendStatus(200);
+});
 
+//GET a la lista de recursos
+app.get(BASE_API_PATH + "/sales", (req, res) => {
+	if (sales.length !=0) {
+		console.log(`request sales`);
+		return res.send(JSON.stringify(sales));
+	}
+	else {
+		console.log("No data found");
+		return res.sendStatus(404);	
+	}
+});
+//POST a la lista de recursos
+app.post(BASE_API_PATH + "/sales", (req, res) => {
+	var newSales = req.body;
+	var location = req.body.location;
+	var year = parseInt(req.body.year);
+
+	//con datos
+	if (sales.length != 0){
+		for (var status of sales){
+			if (status.location == location && status.year == year){
+				console.log ("not is a new entry");
+				return res.sendStatus(403);
+			}
+		}	
+		console.log(`new sales to be added: <${JSON.stringify(newSales, null, 2)}>`);
+		sales.push(newSales);
+		return res.sendStatus(201);
+	}
+	//sin datos
+	else{
+		console.log(`new sales to be added: <${JSON.stringify(newSales, null, 2)}>`);
+		sales.push(newSales);
+		return res.sendStatus(201);
+	}
+});
+//GET a la lista de recursos
+app.get(BASE_API_PATH + "/sales/:location/:year", (req, res) => {
+	var location = req.params.location;
+	var year = parseInt(req.params.year);
+
+	console.log(`get files by location: <${location}> and year: <${year}>`);
+	for (var status of sales){
+		if (status.location == location && status.year == year){
+			return res.status(200).json(status);
+		}
+	}
+	return res.sendStatus(404);
+
+});
 var evictions = [];
 
 var rentals =
