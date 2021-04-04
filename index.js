@@ -2,6 +2,7 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
+const { DefaultDeserializer } = require("v8");
 
 var app = express();
 var PORT = (process.env.PORT || 10000);
@@ -111,14 +112,14 @@ var sales = [
 //carga inicial de datos
 app.get(BASE_API_PATH + "/sales/loadInitialData", (req, res) => {
 	//res.send(JSON.stringify(sales));
-	console.log(`Loaded initial data: ${JSON.stringify(sales, null, 2)}`);
+	console.log(`Loaded initial data: ${JSON.stringify(sales)}`);
 	return res.sendStatus(200);
 });
 
 //GET a la lista de recursos
 app.get(BASE_API_PATH + "/sales", (req, res) => {
 	if (sales.length !=0) {
-		console.log(`request sales`);
+		console.log(`Request sales`);
 		return res.send(JSON.stringify(sales));
 	}
 	else {
@@ -136,16 +137,46 @@ app.post(BASE_API_PATH + "/sales", (req, res) => {
 	if (sales.length != 0){
 		for (var status of sales){
 			if (status.location == location && status.year == year){
-				console.log ("not is a new entry");
+				console.log (`Location ${location} and Year ${year} are already in the database`);
 				return res.sendStatus(403);
 			}
-		}	
+		}
+		if (!newSales.location ||
+			!newSales.year ||
+			!newSales['sales-total'] ||
+			!newSales['sales-protected-housing'] ||
+			!newSales['sales-new'] ||
+			!newSales['sales-secondhand']){
+				console.log(`Number of parameters is incorrect`);
+				return res.sendStatus(400);
+			}
+			/*else if (newSales['sales-total'] != (/^([0-9])*$/) ||
+			newSales['sales-protected-housing']!=/^([0-9])*$/ ||
+			newSales['sales-new']!=/^([0-9])*$/ ||
+			newSales['sales-secondhand']!=/^([0-9])*$/){
+				console.log(`Only numbers are allowed`);
+				console.log(`${newSales['sales-total']}`);
+				console.log(`${newSales['sales-protected-housing']}`);
+				console.log(`${newSales['sales-new']}`);
+				console.log(`${newSales['sales-secondhand']}`);
+				return res.sendStatus(400);
+			}*/
+		
 		console.log(`new sales to be added: <${JSON.stringify(newSales, null, 2)}>`);
 		sales.push(newSales);
 		return res.sendStatus(201);
 	}
 	//sin datos
-	else{
+	else if (!newSales.location ||
+		!newSales.year ||
+		!newSales['sales-total'] ||
+		!newSales['sales-protected-housing'] ||
+		!newSales['sales-new'] ||
+		!newSales['sales-secondhand']){
+			console.log(`Number of parameters is incorrect`);
+			return res.sendStatus(400);
+		}
+	else {
 		console.log(`new sales to be added: <${JSON.stringify(newSales, null, 2)}>`);
 		sales.push(newSales);
 		return res.sendStatus(201);
@@ -156,12 +187,13 @@ app.get(BASE_API_PATH + "/sales/:location/:year", (req, res) => {
 	var location = req.params.location;
 	var year = parseInt(req.params.year);
 
-	console.log(`get data by location: <${location}> and year <${year}>`);
+	console.log(`get data by location: ${location} and year ${year}`);
 	for (var status of sales){
 		if (status.location == location && status.year == year){
 			return res.status(200).json(status);
 		}
 	}
+	console.log (`Data not found`);
 	return res.sendStatus(404);
 });
 
@@ -169,21 +201,23 @@ app.get(BASE_API_PATH + "/sales/:location/:year", (req, res) => {
 app.delete(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
 	var location = req.params.location;
 	var year = parseInt(req.params.year);
-
-	console.log (`DELETE by location ${location} and year: ${year}`);
-	for (var i=0; i<sales.length;i++){
-		if(sales[i]["location"]==location && sales[i]["year"]==year){
-			sales.splice(i,1)
-			return res.sendStatus(200);
+	
+	if (sales.length!=0){
+		for (var i=0; i<sales.length;i++){
+			if(sales[i]["location"]==location && sales[i]["year"]==year){
+				console.log (`DELETE location ${location} and year ${year}`);
+				sales.splice(i,1)
+				return res.sendStatus(200);
+			} 
 		}
+		console.log (`No data found`);
+		return res.sendStatus(404);
 	}
-	/*for (var status of sales){
-		if (status.location == location && status.year == year){
-			status.delete;
-			return res.status(200).json(status);
-		}
-	}*/
-	return res.sendStatus(404);
+	else {
+		console.log (`Database is empty`);
+		return res.sendStatus(404);
+	}
+
 }); 
 
 //PUT a un recurso
@@ -196,18 +230,30 @@ app.put(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
 	console.log(`Edit ${newSales.year} Selected ${year}`);
 
 	if (sales.length == 0){
-		console.log ("Data not found");
+		console.log (`Database is empty`);
 		return res.sendStatus(404);
 	}
 	else {
-		for (var i=0; i<sales.length;i++){
-			if (sales[i]["location"]==location && sales[i]["year"]==year){
-				sales[i] = newSales;
-				console.log("PUT success");
-        		return res.sendStatus(200);
+		if (!newSales.location ||
+			!newSales.year ||
+			!newSales['sales-total'] ||
+			!newSales['sales-protected-housing'] ||
+			!newSales['sales-new'] ||
+			!newSales['sales-secondhand']){
+				console.log(`Number of parameters is incorrect`);
+				return res.sendStatus(400);
+			}
+		else{
+			for (var i=0; i<sales.length; i++){
+				if (sales[i]["location"]==location && sales[i]["year"]==year){
+					sales[i] = newSales;
+					console.log(`PUT success`);
+					return res.sendStatus(200);
+				}
 			}
 		}
-	}	      
+	}
+	console.log(`Data not found`);
 	return res.sendStatus(404);           
 
 });
