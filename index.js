@@ -281,8 +281,17 @@ app.put(BASE_API_PATH + "/sales", (req,res) => {
 		return res.sendStatus(200);
 	  }
   });
+var evictions_initial = [
 
+	//objeto de excel
+];
 var evictions = [];
+
+//codigo PALMA
+
+
+
+
 
 var rentals_initial =
 	[
