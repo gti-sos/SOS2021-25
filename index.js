@@ -127,7 +127,7 @@ app.get(BASE_API_PATH + "/sales", (req, res) => {
 		return res.sendStatus(404);	
 	}
 });
-//POST a la lista de recursos
+//POST a la lista de recursoss
 app.post(BASE_API_PATH + "/sales", (req, res) => {
 	var newSales = req.body;
 	var location = req.body.location;
