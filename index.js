@@ -310,6 +310,7 @@ app.put(BASE_API_PATH + "/sales", (req,res) => {
 		return res.sendStatus(200);
 	  }
   });
+
 var evictions_initial = [
 	{"location":"andalusia","year":"2019","evictions-total":"9834","evictions-rustic":"517","evictions-household":"5681","evictions-buildinglot":"598","evictions-other":"3038"},
 	{"location":"aragon","year":"2019","evictions-total":"1152","evictions-rustic":"26","evictions-household":"473","evictions-buildinglot":"121","evictions-other":"532"},
@@ -413,19 +414,20 @@ var evictions = [];
 //carga inicial de datos
 app.get(BASE_API_PATH + "/evictions/loadInitialData", (req, res) => {
 	//res.send(JSON.stringify(evictions));
-	console.log(evictions.length);
-	if(evictions.length == 0){
-		for(var i=0;i<evictions_initial.length;i++){
+	if (evictions.length == 0){
+		for (var i=0; i<evictions_initial.length; i++){
 			evictions.push(evictions_initial[i]);
 		}
-		
+		//console.log(`Loaded initial data: ${JSON.stringify(sales)}`);
+		console.log(`Loaded initial data`);
+		return res.status(200).json(evictions);
 	}
-	return res.send(JSON.stringify(evictions));
+	
 });
 
 //GET a la lista de recursos
 app.get(BASE_API_PATH + "/evictions", (req, res) => {
-	if (sales.length != 0) {
+	if (evictions.length !=0) {
 		console.log(`Request evictions`);
 		return res.send(JSON.stringify(evictions));
 	}
@@ -434,6 +436,7 @@ app.get(BASE_API_PATH + "/evictions", (req, res) => {
 		return res.sendStatus(404);	
 	}
 });
+
 //POST a la lista de recursoss
 app.post(BASE_API_PATH + "/evictions", (req, res) => {
 	var newEvictions = req.body;
@@ -458,18 +461,7 @@ app.post(BASE_API_PATH + "/evictions", (req, res) => {
 				console.log(`Number of parameters is incorrect`);
 				return res.sendStatus(400);
 			}
-			/*else if (newSales['sales-total'] != (/^([0-9])*$/) ||
-			newSales['sales-protected-housing']!=/^([0-9])*$/ ||
-			newSales['sales-new']!=/^([0-9])*$/ ||
-			newSales['sales-secondhand']!=/^([0-9])*$/){
-				console.log(`Only numbers are allowed`);
-				console.log(`${newSales['sales-total']}`);
-				console.log(`${newSales['sales-protected-housing']}`);
-				console.log(`${newSales['sales-new']}`);
-				console.log(`${newSales['sales-secondhand']}`);
-				return res.sendStatus(400);
-			}*/
-		
+
 		console.log(`new evictions to be added: <${JSON.stringify(newEvictions, null, 2)}>`);
 		evictions.push(newEvictions);
 		return res.sendStatus(201);
@@ -492,7 +484,123 @@ app.post(BASE_API_PATH + "/evictions", (req, res) => {
 	}
 });
 
+//GET a un recurso
+app.get(BASE_API_PATH + "/evictions/:location/:year", (req, res) => {
+	var location = req.params.location;
+	var year = parseInt(req.params.year);
 
+	console.log(`get data by location: ${location} and year ${year}`);
+	for (var status of evictions){
+		if (status.location == location && status.year == year){
+			return res.status(200).json(status);
+		}
+	}
+	console.log (`Data not found`);
+	return res.sendStatus(404);
+});
+
+//DELETE a un recurso
+app.delete(BASE_API_PATH + "/evictions/:location/:year", (req,res) => {
+	var location = req.params.location;
+	var year = parseInt(req.params.year);
+	
+	if (evictions.length!=0){
+		for (var i=0; i<evictions.length;i++){
+			if(evictions[i]["location"]==location && evictions[i]["year"]==year){
+				console.log (`DELETE location ${location} and year ${year}`);
+				evictions.splice(i,1)
+				return res.sendStatus(200);
+			} 
+		}
+		console.log (`No data found`);
+		return res.sendStatus(404);
+	}
+	else {
+		console.log (`Database is empty`);
+		return res.sendStatus(404);
+	}
+
+}); 
+
+//PUT a un recurso
+app.put(BASE_API_PATH + "/evictions/:location/:year", (req,res) => {
+	var location = req.params.location;
+	var year = parseInt(req.params.year);
+	var newEvictions = req.body;
+
+	console.log(`Edit ${newEvictions.location} Selected ${location}`);
+	console.log(`Edit ${newEvictions.year} Selected ${year}`);
+
+	if (evictions.length == 0){
+		console.log (`Database is empty`);
+		return res.sendStatus(404);
+	}
+	else {
+		if (!newEvictions.location ||
+			!newEvictions.year ||
+			!newEvictions['evictions-total'] ||
+			!newEvictions['evictions-rustic'] ||
+			!newEvictions['evictions-household'] ||
+			!newEvictions['evictions-buildinglot'] ||
+			!newEvictions['evictions-other']){
+				console.log(`Number of parameters is incorrect`);
+				return res.sendStatus(400);
+			}
+		else{
+			for (var i=0; i<evictions.length; i++){
+				if (evictions[i]["location"]==location && evictions[i]["year"]==year){
+					if (newEvictions.location != location){
+						console.log(`Error, location is not editable`);
+						return res.sendStatus(403);	
+					}
+					else if (newEvictions.year != year){
+						console.log(`Error, year is not editable`);
+						return res.sendStatus(403);
+					}
+					else{
+						evictions[i]["location"] = location;
+						evictions[i]["year"] = year;
+						evictions[i]['evictions-total'] = newEvictions['evictions-total'];
+						evictions[i]['evictions-rustic'] = newEvictions['evictions-rustic'];
+						evictions[i]['evictions-household'] = newEvictions['evictions-household'];
+						evictions[i]['evictions-buildinglot'] = newEvictions['evictions-buildinglot'];
+						evictions[i]['evictions-other'] = newEvictions['evictions-other'];
+						console.log(`PUT success`);
+						return res.sendStatus(200);
+					}
+
+				}
+			}
+		}
+	}
+	console.log(`Data not found`);
+	return res.sendStatus(404);           
+
+});
+
+//POST a un recurso
+app.post(BASE_API_PATH + "/evictions/:location/:year", (req,res) => {
+	console.log ("Unable to POST to a specific resource");
+	return res.sendStatus(405);
+});
+//PUT a una lista de recursos
+app.put(BASE_API_PATH + "/evictions", (req,res) => {
+	console.log("Unable to PUT to a list of resources");
+	return res.sendStatus(405);
+  });
+  
+  //DELETE a una lista de recursos
+  app.delete(BASE_API_PATH + "/evictions", (req,res) => {
+	  if (evictions.length==0){
+		  console.log("Array is empty");
+		  return res.sendStatus(404);
+	  }
+	  else{
+		evictions = [];
+		console.log("DELETE evictions success");
+		return res.sendStatus(200);
+	  }
+  });
 
 
 var rentals_initial =
