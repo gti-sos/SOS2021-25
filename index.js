@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use("/", express.static(path.join(__dirname, "public")));
 
 
-var sales = [
+var salesInitial = [
 		{"location":"andalusia","year":"2019","sales-total":"109275","sales-protected-housing":"5806","sales-new":"9165","sales-secondhand":"98636"},
 		{"location":"aragon","year":"2019","sales-total":"15365","sales-protected-housing":"369","sales-new":"1816","sales-secondhand":"13459"},
 		{"location":"principality of asturias","year":"2019","sales-total":"10120","sales-protected-housing":"693","sales-new":"657","sales-secondhand":"9333"},
@@ -109,11 +109,22 @@ var sales = [
 		{"location":"la rioja","year":"2015","sales-total":"3124","sales-protected-housing":"206","sales-new":"321","sales-secondhand":"2759"},
 		{"location":"ceuta","year":"2015","sales-total":"972","sales-protected-housing":"30","sales-new":"209","sales-secondhand":"755"}
 ];
+
+var sales = [];
+
 //carga inicial de datos
+
 app.get(BASE_API_PATH + "/sales/loadInitialData", (req, res) => {
 	//res.send(JSON.stringify(sales));
-	console.log(`Loaded initial data: ${JSON.stringify(sales)}`);
-	return res.sendStatus(200);
+	if (sales.length == 0){
+		for (var i=0; i<salesInitial.length; i++){
+			sales.push(salesInitial[i]);
+		}
+		//console.log(`Loaded initial data: ${JSON.stringify(sales)}`);
+		console.log(`Loaded initial data`);
+		return res.status(200).json(sales);
+	}
+	
 });
 
 //GET a la lista de recursos
@@ -246,9 +257,27 @@ app.put(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
 		else{
 			for (var i=0; i<sales.length; i++){
 				if (sales[i]["location"]==location && sales[i]["year"]==year){
-					sales[i] = newSales;
-					console.log(`PUT success`);
-					return res.sendStatus(200);
+					if (newSales.location != location){
+						console.log(`Error, location is not editable`);
+						return res.sendStatus(403);	
+					}
+					else if (newSales.year != year){
+						console.log(`Error, year is not editable`);
+						return res.sendStatus(403);
+					}
+					else{
+						sales[i]["location"] = location;
+						sales[i]["year"] = year;
+						sales[i]['sales-total'] = newSales['sales-total'];
+						sales[i]['sales-protected-housing'] = newSales['sales-protected-housing'];
+						sales[i]['sales-new'] = newSales['sales-new'];
+						sales[i]['sales-secondhand'] = newSales['sales-secondhand'];
+						//sales[i] = newSales;
+						//console.log(req.body);
+						console.log(`PUT success`);
+						return res.sendStatus(200);
+					}
+
 				}
 			}
 		}
