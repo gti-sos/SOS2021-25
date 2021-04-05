@@ -365,7 +365,7 @@ var rentals_initial =
 
 //carga inicial de datos
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
-	//res.send(JSON.stringify(sales));
+	//res.send(JSON.stringify(rentals));
 	console.log(rentals.length);
 	if(rentals.length == 0){
 		for(var i=0;i<rentals_initial.length;i++){
@@ -458,15 +458,15 @@ app.get(BASE_API_PATH + "/rentals/:location/:year", (req, res) => {
 });
 
 //DELETE a un recurso
-app.delete(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
+app.delete(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
 	var location = req.params.location;
 	var year = parseInt(req.params.year);
 	
-	if (sales.length!=0){
-		for (var i=0; i<sales.length;i++){
-			if(sales[i]["location"]==location && sales[i]["year"]==year){
+	if (rentals.length!=0){
+		for (var i=0; i<rentals.length;i++){
+			if(rentals[i]["location"]==location && rentals[i]["year"]==year){
 				console.log (`DELETE location ${location} and year ${year}`);
-				sales.splice(i,1)
+				rentals.splice(i,1)
 				return res.sendStatus(200);
 			} 
 		}
@@ -481,32 +481,32 @@ app.delete(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
 }); 
 
 //PUT a un recurso
-app.put(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
+app.put(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
 	var location = req.params.location;
 	var year = parseInt(req.params.year);
-	var newSales = req.body;
+	var newRentals = req.body;
 
-	console.log(`Edit ${newSales.location} Selected ${location}`);
-	console.log(`Edit ${newSales.year} Selected ${year}`);
+	console.log(`Edit ${newSRentals.location} Selected ${location}`);
+	console.log(`Edit ${newSRentals.year} Selected ${year}`);
 
-	if (sales.length == 0){
+	if (rentals.length == 0){
 		console.log (`Database is empty`);
 		return res.sendStatus(404);
 	}
 	else {
-		if (!newSales.location ||
-			!newSales.year ||
-			!newSales['sales-total'] ||
-			!newSales['sales-protected-housing'] ||
-			!newSales['sales-new'] ||
-			!newSales['sales-secondhand']){
+		if (!newRentals.location ||
+			!newRentals.year ||
+			!newRentals['price-square-meter'] ||
+			!newRentals['annual-variation'] ||
+			!newRentals['all-time-high'] ||
+			!newRentals['max-variation']){
 				console.log(`Number of parameters is incorrect`);
 				return res.sendStatus(400);
 			}
 		else{
-			for (var i=0; i<sales.length; i++){
-				if (sales[i]["location"]==location && sales[i]["year"]==year){
-					sales[i] = newSales;
+			for (var i=0; i<rentals.length; i++){
+				if (rentals[i]["location"]==location && rentals[i]["year"]==year){
+					rentals[i] = newRentals;
 					console.log(`PUT success`);
 					return res.sendStatus(200);
 				}
@@ -519,25 +519,25 @@ app.put(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
 });
 
 //POST a un recurso
-app.post(BASE_API_PATH + "/sales/:location/:year", (req,res) => {
+app.post(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
 	console.log ("Unable to POST to a specific resource");
 	return res.sendStatus(405);
 });
 //PUT a una lista de recursos
-app.put(BASE_API_PATH + "/sales", (req,res) => {
+app.put(BASE_API_PATH + "/rentals", (req,res) => {
 	console.log("Unable to PUT to a list of resources");
 	return res.sendStatus(405);
   });
   
   //DELETE a una lista de recursos
-  app.delete(BASE_API_PATH + "/sales", (req,res) => {
-	  if (sales.length==0){
+  app.delete(BASE_API_PATH + "/rentals", (req,res) => {
+	  if (rentals.length==0){
 		  console.log("Array is empty");
 		  return res.sendStatus(404);
 	  }
 	  else{
-		sales = [];
-		console.log("DELETE sales success");
+		rentals = [];
+		console.log("DELETE rentals success");
 		return res.sendStatus(200);
 	  }
   });
