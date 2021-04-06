@@ -603,7 +603,7 @@ app.put(BASE_API_PATH + "/evictions", (req,res) => {
   });
 
 
-var rentals_initial =
+var rentalsInitial =
 	[
 		{ "location": "andalusia", "year": "2019", "price-square-meter": "8.5", "annual-variation": "7", "all-time-high": "9.5", "max-variation": "-9.9" },
 		{ "location": "aragon", "year": "2019", "price-square-meter": "7.8", "annual-variation": "9.1", "all-time-high": "8.2", "max-variation": "-4" },
@@ -681,185 +681,204 @@ var rentals_initial =
 
 	var rentals = [];
 
-
-//carga inicial de datos
-app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
-	//res.send(JSON.stringify(rentals));
-	console.log(rentals.length);
-	if(rentals.length == 0){
-		for(var i=0;i<rentals_initial.length;i++){
-			rentals.push(rentals_initial[i]);
+	//carga inicial de datos
+	
+	app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
+		//res.send(JSON.stringify(rentals));
+		if (rentals.length == 0){
+			for (var i=0; i<rentalsInitial.length; i++){
+				rentals.push(rentalsInitial[i]);
+			}
+			//console.log(`Loaded initial data: ${JSON.stringify(rentals)}`);
+			console.log(`Loaded initial data`);
+			return res.status(200).json(rentals);
 		}
 		
-	}
-	return res.send(JSON.stringify(rentals));
-});
-
-//GET a la lista de recursos
-app.get(BASE_API_PATH + "/rentals", (req, res) => {
-	if (rentals.length !=0) {
-		console.log(`Request rentals`);
-		return res.send(JSON.stringify(rentals));
-	}
-	else {
-		console.log("No data found");
-		return res.sendStatus(404);	
-	}
-});
-//POST a la lista de recursos (SOLUCIONAR)
-app.post(BASE_API_PATH + "/rentals", (req, res) => {
-	var newRentals = req.body;
-	var location = req.body.location;
-	var year = parseInt(req.body.year);
-
-	//con datos
-	if (rentals.length != 0){
+	});
+	
+	//GET a la lista de recursos
+	app.get(BASE_API_PATH + "/rentals", (req, res) => {
+		if (rentals.length !=0) {
+			console.log(`Request rentals`);
+			return res.send(JSON.stringify(rentals));
+		}
+		else {
+			console.log("No data found");
+			return res.sendStatus(404);	
+		}
+	});
+	//POST a la lista de recursoss
+	app.post(BASE_API_PATH + "/rentals", (req, res) => {
+		var newRentals = req.body;
+		var location = req.body.location;
+		var year = parseInt(req.body.year);
+	
+		//con datos
+		if (rentals.length != 0){
+			for (var status of rentals){
+				if (status.location == location && status.year == year){
+					console.log (`Location ${location} and Year ${year} are already in the database`);
+					return res.sendStatus(403);
+				}
+			}
+			if (!newRentals.location ||
+				!newRentals.year ||
+				!newRentals['price-square-meter'] ||
+				!newRentals['annual-variation'] ||
+				!newRentals['all-time-high'] ||
+				!newRentals['max-variation']){
+					console.log(`Number of parameters is incorrect`);
+					return res.sendStatus(400);
+				}
+				/*else if (newRentals['rentals-total'] != (/^([0-9])*$/) ||
+				newRentals['rentals-protected-housing']!=/^([0-9])*$/ ||
+				newRentals['rentals-new']!=/^([0-9])*$/ ||
+				newRentals['rentals-secondhand']!=/^([0-9])*$/){
+					console.log(`Only numbers are allowed`);
+					console.log(`${newRentals['rentals-total']}`);
+					console.log(`${newRentals['rentals-protected-housing']}`);
+					console.log(`${newRentals['rentals-new']}`);
+					console.log(`${newRentals['rentals-secondhand']}`);
+					return res.sendStatus(400);
+				}*/
+			
+			console.log(`new rentals to be added: <${JSON.stringify(newRentals, null, 2)}>`);
+			rentals.push(newRentals);
+			return res.sendStatus(201);
+		}
+		//sin datos
+		else if (!newRentals.location ||
+			!newRentals.year ||
+			!newRentals['price-square-meter'] ||
+			!newRentals['annual-variation'] ||
+			!newRentals['all-time-high'] ||
+			!newRentals['max-variation']){
+				console.log(`Number of parameters is incorrect`);
+				return res.sendStatus(400);
+			}
+		else {
+			console.log(`new rentals to be added: <${JSON.stringify(newRentals, null, 2)}>`);
+			rentals.push(newRentals);
+			return res.sendStatus(201);
+		}
+	});
+	//GET a un recurso
+	app.get(BASE_API_PATH + "/rentals/:location/:year", (req, res) => {
+		var location = req.params.location;
+		var year = parseInt(req.params.year);
+	
+		console.log(`get data by location: ${location} and year ${year}`);
 		for (var status of rentals){
 			if (status.location == location && status.year == year){
-				console.log (`Location ${location} and Year ${year} are already in the database`);
-				return res.sendStatus(403);
+				return res.status(200).json(status);
 			}
 		}
-		if (!newRentals.location ||
-			!newRentals.year ||
-			!newRentals['price-square-meter'] ||
-			!newRentals['annual-variation'] ||
-			!newRentals['all-time-high'] ||
-			!newRentals['max-variation']){
-				console.log(`Number of parameters is incorrect`);
-				return res.sendStatus(400);
-			}
-			/*else if (newSales['sales-total'] != (/^([0-9])*$/) ||
-			newSales['sales-protected-housing']!=/^([0-9])*$/ ||
-			newSales['sales-new']!=/^([0-9])*$/ ||
-			newSales['sales-secondhand']!=/^([0-9])*$/){
-				console.log(`Only numbers are allowed`);
-				console.log(`${newSales['sales-total']}`);
-				console.log(`${newSales['sales-protected-housing']}`);
-				console.log(`${newSales['sales-new']}`);
-				console.log(`${newSales['sales-secondhand']}`);
-				return res.sendStatus(400);
-			}*/
-		
-		console.log(`new rentals to be added: <${JSON.stringify(newRentals, null, 2)}>`);
-		rentals.push(newRentals);
-		return res.sendStatus(201);
-	}
-	//sin datos
-	else if (!newRentals.location ||
-		!newRentals.year ||
-		!newRentals['price-square-meter'] ||
-		!newRentals['annual-variation'] ||
-		!newRentals['all-time-high'] ||
-		!newRentals['max-variation']){
-			console.log(`Number of parameters is incorrect`);
-			return res.sendStatus(400);
-		}
-	else {
-		console.log(`new rentals to be added: <${JSON.stringify(newRentals, null, 2)}>`);
-		rentals.push(newRentals);
-		return res.sendStatus(201);
-	}
-});
-//GET a un recurso
-app.get(BASE_API_PATH + "/rentals/:location/:year", (req, res) => {
-	var location = req.params.location;
-	var year = parseInt(req.params.year);
-
-	console.log(`get data by location: ${location} and year ${year}`);
-	for (var status of rentals){
-		if (status.location == location && status.year == year){
-			return res.status(200).json(status);
-		}
-	}
-	console.log (`Data not found`);
-	return res.sendStatus(404);
-});
-
-//DELETE a un recurso
-app.delete(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
-	var location = req.params.location;
-	var year = parseInt(req.params.year);
+		console.log (`Data not found`);
+		return res.sendStatus(404);
+	});
 	
-	if (rentals.length!=0){
-		for (var i=0; i<rentals.length;i++){
-			if(rentals[i]["location"]==location && rentals[i]["year"]==year){
-				console.log (`DELETE location ${location} and year ${year}`);
-				rentals.splice(i,1)
-				return res.sendStatus(200);
-			} 
-		}
-		console.log (`No data found`);
-		return res.sendStatus(404);
-	}
-	else {
-		console.log (`Database is empty`);
-		return res.sendStatus(404);
-	}
-
-}); 
-
-//PUT a un recurso
-app.put(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
-	var location = req.params.location;
-	var year = parseInt(req.params.year);
-	var newRentals = req.body;
-
-	console.log(`Edit ${newSRentals.location} Selected ${location}`);
-	console.log(`Edit ${newSRentals.year} Selected ${year}`);
-
-	if (rentals.length == 0){
-		console.log (`Database is empty`);
-		return res.sendStatus(404);
-	}
-	else {
-		if (!newRentals.location ||
-			!newRentals.year ||
-			!newRentals['price-square-meter'] ||
-			!newRentals['annual-variation'] ||
-			!newRentals['all-time-high'] ||
-			!newRentals['max-variation']){
-				console.log(`Number of parameters is incorrect`);
-				return res.sendStatus(400);
-			}
-		else{
-			for (var i=0; i<rentals.length; i++){
-				if (rentals[i]["location"]==location && rentals[i]["year"]==year){
-					rentals[i] = newRentals;
-					console.log(`PUT success`);
+	//DELETE a un recurso
+	app.delete(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
+		var location = req.params.location;
+		var year = parseInt(req.params.year);
+		
+		if (rentals.length!=0){
+			for (var i=0; i<rentals.length;i++){
+				if(rentals[i]["location"]==location && rentals[i]["year"]==year){
+					console.log (`DELETE location ${location} and year ${year}`);
+					rentals.splice(i,1)
 					return res.sendStatus(200);
+				} 
+			}
+			console.log (`No data found`);
+			return res.sendStatus(404);
+		}
+		else {
+			console.log (`Database is empty`);
+			return res.sendStatus(404);
+		}
+	
+	}); 
+	
+	//PUT a un recurso
+	app.put(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
+		var location = req.params.location;
+		var year = parseInt(req.params.year);
+		var newRentals = req.body;
+	
+		console.log(`Edit ${newRentals.location} Selected ${location}`);
+		console.log(`Edit ${newRentals.year} Selected ${year}`);
+	
+		if (rentals.length == 0){
+			console.log (`Database is empty`);
+			return res.sendStatus(404);
+		}
+		else {
+			if (!newRentals.location ||
+				!newRentals.year ||
+				!newRentals['price-square-meter'] ||
+				!newRentals['annual-variation'] ||
+				!newRentals['all-time-high'] ||
+				!newRentals['max-variation']){
+					console.log(`Number of parameters is incorrect`);
+					return res.sendStatus(400);
+				}
+			else{
+				for (var i=0; i<rentals.length; i++){
+					if (rentals[i]["location"]==location && rentals[i]["year"]==year){
+						if (newRentals.location != location){
+							console.log(`Error, location is not editable`);
+							return res.sendStatus(403);	
+						}
+						else if (newRentals.year != year){
+							console.log(`Error, year is not editable`);
+							return res.sendStatus(403);
+						}
+						else{
+							rentals[i]["location"] = location;
+							rentals[i]["year"] = year;
+							rentals[i]['price-square-meter'] = newRentals['price-square-meter'];
+							rentals[i]['annual-variation'] = newRentals['annual-variation'];
+							rentals[i]['all-time-high'] = newRentals['all-time-high'];
+							rentals[i]['max-variation'] = newRentals['max-variation'];
+							//rentals[i] = newRentals;
+							//console.log(req.body);
+							console.log(`PUT success`);
+							return res.sendStatus(200);
+						}
+	
+					}
 				}
 			}
 		}
-	}
-	console.log(`Data not found`);
-	return res.sendStatus(404);           
-
-});
-
-//POST a un recurso
-app.post(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
-	console.log ("Unable to POST to a specific resource");
-	return res.sendStatus(405);
-});
-//PUT a una lista de recursos
-app.put(BASE_API_PATH + "/rentals", (req,res) => {
-	console.log("Unable to PUT to a list of resources");
-	return res.sendStatus(405);
-  });
-  
-  //DELETE a una lista de recursos
-  app.delete(BASE_API_PATH + "/rentals", (req,res) => {
-	  if (rentals.length==0){
-		  console.log("Array is empty");
-		  return res.sendStatus(404);
-	  }
-	  else{
-		rentals = [];
-		console.log("DELETE rentals success");
-		return res.sendStatus(200);
-	  }
-  });
+		console.log(`Data not found`);
+		return res.sendStatus(404);           
+	
+	});
+	
+	//POST a un recurso
+	app.post(BASE_API_PATH + "/rentals/:location/:year", (req,res) => {
+		console.log ("Unable to POST to a specific resource");
+		return res.sendStatus(405);
+	});
+	//PUT a una lista de recursos
+	app.put(BASE_API_PATH + "/rentals", (req,res) => {
+		console.log("Unable to PUT to a list of resources");
+		return res.sendStatus(405);
+	  });
+	  
+	  //DELETE a una lista de recursos
+	  app.delete(BASE_API_PATH + "/rentals", (req,res) => {
+		  if (rentals.length==0){
+			  console.log("Array is empty");
+			  return res.sendStatus(404);
+		  }
+		  else{
+			rentals = [];
+			console.log("DELETE rentals success");
+			return res.sendStatus(200);
+		  }
+	  });
 
 app.get("/info/rentals", (req, res) => {
 	res.send(`<!DOCTYPE html>
