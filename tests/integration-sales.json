@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "e1829d40-ec3c-4453-bd2e-909c1b377e76",
+		"name": "Test API SOS2021-25-sales",
+		"description": "sales management api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/v1/sales/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There are 90 resources\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(90);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/loadInitialData",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"loadInitialData"
+					]
+				},
+				"description": "GET inicial"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales - get sales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There are 90 resource\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(90);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales - add andalusia 2000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Resource has been created\", function () {\r",
+							"    pm.response.to.have.body(\"Created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"sales-total\": \"109275\",\r\n    \"sales-protected-housing\": \"5806\",\r\n    \"sales-new\": \"9165\",\r\n    \"sales-secondhand\": \"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						""
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales/andalusia/2000 - get andalusia 2000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/andalusia/2000",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"andalusia",
+						"2000"
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales/andalusia/2000 - del andalusia 2000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Resource has been deleted\", function () {\r",
+							"    pm.response.to.have.body(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"2000\",\r\n    \"sales-total\":\"109275\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/andalusia/2000",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"andalusia",
+						"2000"
+					]
+				},
+				"description": "DELETE a un recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales/andalusia/2015 - update andalusia 2015",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Resource has been updated\", function () {\r",
+							"    pm.response.to.have.body(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"2015\",\r\n    \"sales-total\":\"5000\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/andalusia/2015",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"andalusia",
+						"2015"
+					]
+				},
+				"description": "PUT a un recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales/andalusia/2015 - add andalusia 2001 (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"2001\",\r\n    \"sales-total\":\"109275\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/andalusia/2015",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"andalusia",
+						"2015"
+					]
+				},
+				"description": "POST a un recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales - update sales (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"2015\",\r\n    \"sales-total\":\"0\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					]
+				},
+				"description": "PUT a lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales - del sales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Resource has been deleted\", function () {\r",
+							"    pm.response.to.have.body(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					]
+				},
+				"description": "DELETE a lista de recursos"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "239d4336-5749-49b0-8eaa-ce50704c318a",
+			"key": "HOST",
+			"value": "localhost"
+		},
+		{
+			"id": "d3ac9be5-8e41-423d-963f-7133da5ba739",
+			"key": "PORT",
+			"value": "10000"
+		},
+		{
+			"id": "91f3abbf-5001-4af0-851d-c736a2ec226a",
+			"key": "PROTOCOL",
+			"value": "http"
+		}
+	]
+}
