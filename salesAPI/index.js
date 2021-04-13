@@ -110,7 +110,7 @@ module.exports.register = (app) => {
             return res.status(200).json(sales);
         }
         console.log(`Dabase is not empty, please remove before`);
-        return res.status(205).json(`ERROR 205 - Reset Content [Dabase is not empty, please remove before]`);
+        return res.sendStatus(205);
     });
 
     //GET a la lista de recursos
@@ -129,6 +129,7 @@ module.exports.register = (app) => {
         var newSales = req.body;
         var location = req.body.location;
         var year = parseInt(req.body.year);
+        var salesError = [];
 
         //con datos
         if (sales.length != 0) {
@@ -144,21 +145,18 @@ module.exports.register = (app) => {
                 !newSales['sales-protected-housing'] ||
                 !newSales['sales-new'] ||
                 !newSales['sales-secondhand']) {
+
+                salesError.push(newSales);
                 console.log(`Number of parameters is incorrect`);
-                return res.sendStatus(400);
+                return res.status(400).json(salesError);
             }
             else if (!(/^([0-9])*$/.test(newSales['sales-total'])) ||
-            !(/^([0-9])*$/.test(newSales['sales-protected-housing'])) ||
-            !(/^([0-9])*$/.test(newSales['sales-new'])) ||
-            !(/^([0-9])*$/.test(newSales['sales-secondhand'])))
-            {
+                !(/^([0-9])*$/.test(newSales['sales-protected-housing'])) ||
+                !(/^([0-9])*$/.test(newSales['sales-new'])) ||
+                !(/^([0-9])*$/.test(newSales['sales-secondhand']))) {
                 console.log(`Only numbers are allowed`);
-                console.log(`${newSales['sales-total']}`);
-                console.log(`${newSales['sales-protected-housing']}`);
-                console.log(`${newSales['sales-new']}`);
-                console.log(`${newSales['sales-secondhand']}`);
-                console.log(`${newSales['sales-total']}`);
-                return res.sendStatus(409);
+                salesError.push(newSales);
+                return res.status(409).json(salesError);
             }
 
             console.log(`new sales to be added: <${JSON.stringify(newSales, null, 2)}>`);
@@ -174,6 +172,14 @@ module.exports.register = (app) => {
             !newSales['sales-secondhand']) {
             console.log(`Number of parameters is incorrect`);
             return res.sendStatus(400);
+        }
+        else if (!(/^([0-9])*$/.test(newSales['sales-total'])) ||
+            !(/^([0-9])*$/.test(newSales['sales-protected-housing'])) ||
+            !(/^([0-9])*$/.test(newSales['sales-new'])) ||
+            !(/^([0-9])*$/.test(newSales['sales-secondhand']))) {
+            console.log(`Only numbers are allowed`);
+            salesError.push(newSales);
+            return res.sendStatus(409);
         }
         else {
             console.log(`new sales to be added: <${JSON.stringify(newSales, null, 2)}>`);
