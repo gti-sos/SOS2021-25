@@ -146,17 +146,19 @@ module.exports.register = (app) => {
                 console.log(`Number of parameters is incorrect`);
                 return res.sendStatus(400);
             }
-            /*else if (newSales['sales-total'] != (/^([0-9])*$/) ||
-            newSales['sales-protected-housing']!=/^([0-9])*$/ ||
-            newSales['sales-new']!=/^([0-9])*$/ ||
-            newSales['sales-secondhand']!=/^([0-9])*$/){
+            else if (!(/^([0-9])*$/.test(newSales['sales-total'])) ||
+            !(/^([0-9])*$/.test(newSales['sales-protected-housing'])) ||
+            !(/^([0-9])*$/.test(newSales['sales-new'])) ||
+            !(/^([0-9])*$/.test(newSales['sales-secondhand'])))
+            {
                 console.log(`Only numbers are allowed`);
                 console.log(`${newSales['sales-total']}`);
                 console.log(`${newSales['sales-protected-housing']}`);
                 console.log(`${newSales['sales-new']}`);
                 console.log(`${newSales['sales-secondhand']}`);
-                return res.sendStatus(400);
-            }*/
+                console.log(`${newSales['sales-total']}`);
+                return res.sendStatus(409);
+            }
 
             console.log(`new sales to be added: <${JSON.stringify(newSales, null, 2)}>`);
             sales.push(newSales);
