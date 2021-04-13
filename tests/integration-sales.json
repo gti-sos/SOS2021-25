@@ -86,6 +86,54 @@
 			"response": []
 		},
 		{
+			"name": "/api/v1/sales - add andalusia 2000 with string (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							"pm.test(\"Resource conflict, only numbers are allowed\", function () {\r",
+							"    pm.response.to.have.body(\"Conflict\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"sales-total\": \"asdfasdfasdf\",\r\n    \"sales-protected-housing\": \"5806\",\r\n    \"sales-new\": \"9165\",\r\n    \"sales-secondhand\": \"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						""
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
 			"name": "/api/v1/sales - add andalusia 2000",
 			"event": [
 				{
@@ -400,17 +448,17 @@
 	],
 	"variable": [
 		{
-			"id": "239d4336-5749-49b0-8eaa-ce50704c318a",
+			"id": "04a1f5e2-26d8-4805-8bfe-87c6fa130d16",
 			"key": "HOST",
 			"value": "localhost"
 		},
 		{
-			"id": "d3ac9be5-8e41-423d-963f-7133da5ba739",
+			"id": "27242483-1b8b-4874-a0f8-dd8e303ba215",
 			"key": "PORT",
 			"value": "10000"
 		},
 		{
-			"id": "91f3abbf-5001-4af0-851d-c736a2ec226a",
+			"id": "2796779c-e7df-42e5-b3ea-9ce1785c00f3",
 			"key": "PROTOCOL",
 			"value": "http"
 		}
