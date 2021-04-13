@@ -11,6 +11,6 @@
     - [https://sos2021-25.herokuapp.com/api/v1/evictions](https://sos2021-25.herokuapp.com/api/v1/evictions) (developed by [Antonio Javier Palma Guerrero](https://github.com/ajpalma28))
     - [https://sos2021-25.herokuapp.com/api/v1/rentals](https://sos2021-25.herokuapp.com/api/v1/rentals) (developed by [José María de Soto Oncins](https://github.com/PepeDeSoto))
 - **POSTMAN**:
-    - []() (developed by [José Alberto Trancoso Nieto](https://github.com/AlbertoTNJ))
+    - [https://documenter.getpostman.com/view/14947805/TzJoDg1U](https://documenter.getpostman.com/view/14947805/TzJoDg1U) (developed by [José Alberto Trancoso Nieto](https://github.com/AlbertoTNJ))
     - [https://documenter.getpostman.com/view/14966088/TzJoDKvD](https://documenter.getpostman.com/view/14966088/TzJoDKvD) (developed by [Antonio Javier Palma Guerrero](https://github.com/ajpalma28))
     - []() (developed by [José María de Soto Oncins](https://github.com/PepeDeSoto))
