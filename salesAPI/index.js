@@ -109,7 +109,8 @@ module.exports.register = (app) => {
             console.log(`Loaded initial data`);
             return res.status(200).json(sales);
         }
-
+        console.log(`Dabase is not empty, please remove before`);
+        return res.status(205).json(`ERROR 205 - Reset Content [Dabase is not empty, please remove before]`);
     });
 
     //GET a la lista de recursos
