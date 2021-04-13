@@ -13,4 +13,4 @@
 - **POSTMAN**:
     - [https://documenter.getpostman.com/view/14947805/TzJoDg1U](https://documenter.getpostman.com/view/14947805/TzJoDg1U) (developed by [José Alberto Trancoso Nieto](https://github.com/AlbertoTNJ))
     - [https://documenter.getpostman.com/view/14966088/TzJoDKvD](https://documenter.getpostman.com/view/14966088/TzJoDKvD) (developed by [Antonio Javier Palma Guerrero](https://github.com/ajpalma28))
-    - []() (developed by [José María de Soto Oncins](https://github.com/PepeDeSoto))
+    - [https://documenter.getpostman.com/view/10637326/TzJoFLoj](https://documenter.getpostman.com/view/10637326/TzJoFLoj) (developed by [José María de Soto Oncins](https://github.com/PepeDeSoto))
