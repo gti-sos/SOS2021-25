@@ -1,0 +1,422 @@
+{
+	"info": {
+		"_postman_id": "175151e3-6bd8-44dd-8624-c383785ed064",
+		"name": "SOS2021-25-rentals Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0. loadInitialData TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos original TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 72 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(72);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST nuevo recurso TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"location\": \"prueba\",\r\n\"year\": \"2021\",\r\n\"price-square-meter\": \"8\",\r\n\"annual-variation\": \"96\",\r\n\"all-time-high\": \"9.5\",\r\n\"max-variation\": \"-15.7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1b. GET lista recursos new TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 73 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(73);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET recurso TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"prueba",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT actualiza recurso TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"location\": \"prueba\",\r\n\"year\": \"2021\",\r\n\"price-square-meter\": \"0\",\r\n\"annual-variation\": \"0\",\r\n\"all-time-high\": \"10\",\r\n\"max-variation\": \"2001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"prueba",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. DELETE recurso TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"prueba",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. POST recurso ERROR TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"location\": \"prueba\",\r\n\"year\": \"2021\",\r\n\"price-square-meter\": \"0\",\r\n\"annual-variation\": \"0\",\r\n\"all-time-high\": \"10\",\r\n\"max-variation\": \"2001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"prueba",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. PUT lista ERROR TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. DELETE lista recursos TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "ac989af0-7a37-430e-aef3-8e7384549cc6",
+			"key": "HOST",
+			"value": "https://sos2021-25.herokuapp.com"
+		},
+		{
+			"id": "7b12503c-2d45-45b5-ac0e-01eac4eed75d",
+			"key": "host",
+			"value": "localhost"
+		},
+		{
+			"id": "68af6b0b-a84d-44cb-9d36-c13453d9d061",
+			"key": "port",
+			"value": "10000"
+		}
+	]
+}
