@@ -263,6 +263,47 @@
 			"response": []
 		},
 		{
+			"name": "/api/v1/sales/andalusia/1900 - get andalusia 1900 (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"pm.test(\"No data found\", function () {\r",
+							"    pm.response.to.have.body(\"Not Found\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/andalusia/1900",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"andalusia",
+						"1900"
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
 			"name": "/api/v1/sales/andalusia/2000 - del andalusia 2000",
 			"event": [
 				{
@@ -305,6 +346,55 @@
 						"sales",
 						"andalusia",
 						"2000"
+					]
+				},
+				"description": "DELETE a un recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales/andalusia/1900 - del andalusia 1900 (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"pm.test(\"No data found\", function () {\r",
+							"    pm.response.to.have.body(\"Not Found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"2000\",\r\n    \"sales-total\":\"109275\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/andalusia/1900",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"andalusia",
+						"1900"
 					]
 				},
 				"description": "DELETE a un recurso"
@@ -361,7 +451,56 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/2015 - add andalusia 2001 (error)",
+			"name": "/api/v1/sales/andalusia/1900 - update andalusia 1900 (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"pm.test(\"Resource has been updated\", function () {\r",
+							"    pm.response.to.have.body(\"Not Found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"1900\",\r\n    \"sales-total\":\"5000\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/andalusia/1900",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"andalusia",
+						"1900"
+					]
+				},
+				"description": "PUT a un recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/sales/andalusia/2001 - add andalusia 2001 (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -491,17 +630,17 @@
 	],
 	"variable": [
 		{
-			"id": "ac737757-55a2-45f4-88ad-2b98f5d40a7d",
+			"id": "0c858463-83e4-4730-b389-3c9b7189bb44",
 			"key": "HOST",
 			"value": "localhost"
 		},
 		{
-			"id": "80901c4c-2045-4ece-ade1-1bcae9b9cb11",
+			"id": "d4dcd008-fcbe-476a-9a02-824093e92b8a",
 			"key": "PORT",
 			"value": "10000"
 		},
 		{
-			"id": "de0ac6d7-0b0e-419f-ab1f-a0c3a34bade5",
+			"id": "ff98bb50-2c7a-4f11-8008-7e1a933f638a",
 			"key": "PROTOCOL",
 			"value": "http"
 		}
