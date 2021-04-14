@@ -47,6 +47,45 @@
 			"response": []
 		},
 		{
+			"name": "/api/v1/sales/loadInitialData - get initialData (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 205\", function () {\r",
+							"    pm.response.to.have.status(205);\r",
+							"});\r",
+							"pm.test(\"Reset content, Database is not empty. Please remove before\", function () {\r",
+							"    pm.response.to.have.body(\"Reset Content\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/loadInitialData",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"loadInitialData"
+					]
+				},
+				"description": "GET inicial"
+			},
+			"response": []
+		},
+		{
 			"name": "/api/v1/sales - get sales",
 			"event": [
 				{
@@ -95,8 +134,12 @@
 							"pm.test(\"Status code is 409\", function () {\r",
 							"    pm.response.to.have.status(409);\r",
 							"});\r",
-							"pm.test(\"Resource conflict, only numbers are allowed\", function () {\r",
-							"    pm.response.to.have.body(\"Conflict\");\r",
+							"pm.test(\"Body matches string: location\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"location\");\r",
+							"});\r",
+							"pm.test(\"There is one conflict\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -108,7 +151,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"sales-total\": \"asdfasdfasdf\",\r\n    \"sales-protected-housing\": \"5806\",\r\n    \"sales-new\": \"9165\",\r\n    \"sales-secondhand\": \"98636\"\r\n}",
+					"raw": "{\r\n        \"location\": \"andalusia\",\r\n        \"year\": \"2000\",\r\n        \"sales-total\": \"pruebaString\",\r\n        \"sales-protected-housing\": \"5806\",\r\n        \"sales-new\": \"9165\",\r\n        \"sales-secondhand\": \"98636\"\r\n}\r\n ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -448,17 +491,17 @@
 	],
 	"variable": [
 		{
-			"id": "04a1f5e2-26d8-4805-8bfe-87c6fa130d16",
+			"id": "ac737757-55a2-45f4-88ad-2b98f5d40a7d",
 			"key": "HOST",
 			"value": "localhost"
 		},
 		{
-			"id": "27242483-1b8b-4874-a0f8-dd8e303ba215",
+			"id": "80901c4c-2045-4ece-ade1-1bcae9b9cb11",
 			"key": "PORT",
 			"value": "10000"
 		},
 		{
-			"id": "2796779c-e7df-42e5-b3ea-9ce1785c00f3",
+			"id": "de0ac6d7-0b0e-419f-ab1f-a0c3a34bade5",
 			"key": "PROTOCOL",
 			"value": "http"
 		}
