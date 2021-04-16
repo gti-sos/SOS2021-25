@@ -240,7 +240,7 @@ module.exports.register = (app) => {
 				res.sendStatus(404);
 			}
 			if(evictionsInDB.length==0){
-				console.log("Eviction not found: "+locationTC+" "+yearTC);
+				console.log("Eviction not found: "+locationTF+" "+yearTF);
 				res.sendStatus(404); // NOT FOUND
 			}else{
 				console.log(evictionsInDB);
@@ -360,9 +360,9 @@ module.exports.register = (app) => {
     	return res.sendStatus(405);
     });
 
-      //DELETE a una lista de recursos
+      //DELETE a una lista de recursos -- CODIGO NUEVO
     app.delete(BASE_EVICTION_API_PATH + "/evictions", (req,res) => {
-      if (evictions.length==0){
+      /*if (evictions.length==0){
     	  console.log("Array is empty");
     	  return res.sendStatus(404);
       }
@@ -370,6 +370,19 @@ module.exports.register = (app) => {
     	evictions = [];
     	console.log("DELETE evictions success");
     	return res.sendStatus(200);
-      }
+      }*/
+	  db.remove({},{multi: true},(err, numEvictionsRemoved)=>{
+		  if(err){
+			  console.error("ERROR deleting DB evictions: "+err);
+			  res.sendStatus(500);
+		  }else{
+			  if(numEvictionsRemoved==0){
+				  res.sendStatus(404);
+			  }else{
+				  console.log("Evictions deleted");
+				  res.sendStatus(200);
+			  }
+		  }
+	  })
     });
 }
