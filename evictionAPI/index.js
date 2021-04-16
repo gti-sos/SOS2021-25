@@ -360,9 +360,9 @@ module.exports.register = (app) => {
     	return res.sendStatus(405);
     });
 
-      //DELETE a una lista de recursos -- CODIGO NUEVO
+      //DELETE a una lista de recursos -- EL CODIGO NUEVO ES EL COMENTADO
     app.delete(BASE_EVICTION_API_PATH + "/evictions", (req,res) => {
-      /*if (evictions.length==0){
+      if (evictions.length==0){
     	  console.log("Array is empty");
     	  return res.sendStatus(404);
       }
@@ -370,8 +370,8 @@ module.exports.register = (app) => {
     	evictions = [];
     	console.log("DELETE evictions success");
     	return res.sendStatus(200);
-      }*/
-	  db.remove({},{multi: true},(err, numEvictionsRemoved)=>{
+      }
+	  /*db.remove({},{multi: true},(err, numEvictionsRemoved)=>{
 		  if(err){
 			  console.error("ERROR deleting DB evictions: "+err);
 			  res.sendStatus(500);
@@ -383,6 +383,6 @@ module.exports.register = (app) => {
 				  res.sendStatus(200);
 			  }
 		  }
-	  })
+	  })*/
     });
 }
