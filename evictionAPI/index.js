@@ -255,7 +255,7 @@ module.exports.register = (app) => {
 
     //DELETE a un recurso -- POSIBLE CODIGO NUEVO (probar cuando haga el post nuevo)
     app.delete(BASE_EVICTION_API_PATH + "/evictions/:location/:year", (req,res) => {
-    	var location = req.params.location;
+    /*	var location = req.params.location;
     	var year = parseInt(req.params.year);
     
     	if (evictions.length!=0){
@@ -272,12 +272,12 @@ module.exports.register = (app) => {
     	else {
     		console.log (`Database is empty`);
     		return res.sendStatus(404);
-    	}
-		/*
+    	}*/
+		
 		var locationTD = req.params.location;
 		var yearTD = req.params.year;
 		
-		db.remove({name: nameTD, year: yearTD},{},(err, numEvictionsRemoved)=>{
+		db.remove({location: locationTD, year: yearTD},{},(err, numEvictionsRemoved)=>{
 			if(err){
 				console.error("ERROR deleting DB evictions in DELETE: "+err);
 				res.sendStatus(500);
@@ -289,7 +289,7 @@ module.exports.register = (app) => {
 				}
 			}
 		})
-		*/
+		
 
     }); 
 
@@ -362,7 +362,7 @@ module.exports.register = (app) => {
 
       //DELETE a una lista de recursos -- EL CODIGO NUEVO ES EL COMENTADO
     app.delete(BASE_EVICTION_API_PATH + "/evictions", (req,res) => {
-      if (evictions.length==0){
+      /*if (evictions.length==0){
     	  console.log("Array is empty");
     	  return res.sendStatus(404);
       }
@@ -370,8 +370,8 @@ module.exports.register = (app) => {
     	evictions = [];
     	console.log("DELETE evictions success");
     	return res.sendStatus(200);
-      }
-	  /*db.remove({},{multi: true},(err, numEvictionsRemoved)=>{
+      }*/
+	  db.remove({},{multi: true},(err, numEvictionsRemoved)=>{
 		  if(err){
 			  console.error("ERROR deleting DB evictions: "+err);
 			  res.sendStatus(500);
@@ -383,6 +383,6 @@ module.exports.register = (app) => {
 				  res.sendStatus(200);
 			  }
 		  }
-	  })*/
+	  })
     });
 }
