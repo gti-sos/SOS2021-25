@@ -102,7 +102,8 @@ var evictions_initial = [
 ];
 var evictions = [];
 
-db.insert(evictions_initial);
+//db.insert(evictions_initial);
+db.insert(evictions);
 
 
 module.exports.register = (app) => {
@@ -111,10 +112,10 @@ module.exports.register = (app) => {
     app.get(BASE_EVICTION_API_PATH + "/evictions/loadInitialData", (req, res) => {
     	//res.send(JSON.stringify(evictions));
     	if (evictions.length == 0){
-    		for (var i=0; i<evictions_initial.length; i++){
+    		/*for (var i=0; i<evictions_initial.length; i++){
     			evictions.push(evictions_initial[i]);
-    		}
-			//db.insert(evictions_initial);
+    		}*/
+			db.insert(evictions_initial);
     		//console.log(`Loaded initial data: ${JSON.stringify(sales)}`);
     		console.log(`Loaded initial data`);
     		return res.status(200).json(evictions);
@@ -145,9 +146,9 @@ module.exports.register = (app) => {
 		})
     });
 
-    //POST a la lista de recursoss
+    //POST a la lista de recursoss -- CODIGO NUEVO
     app.post(BASE_EVICTION_API_PATH + "/evictions", (req, res) => {
-    	var newEvictions = req.body;
+    	/*var newEvictions = req.body;
     	var location = req.body.location;
     	var year = parseInt(req.body.year);
 
@@ -190,7 +191,8 @@ module.exports.register = (app) => {
     		evictions.push(newEvictions);
     		return res.sendStatus(201);
     	}
-		/*
+		*/
+		
 		var newEviction = req.body;
 		var locationTA = req.body.location;
 		//var yearTA = parseInt(req.body.year);
@@ -202,15 +204,21 @@ module.exports.register = (app) => {
 				res.sendStatus(500);
 			}else{
 				if(evictionsInDB.length==0){
-					console.log("Inserting new eviction in db: "+JSON.stringify(newEviction,null,2));
-					db.insert(newContact);
-					res.sendStatus(201); // CREATED
+					if (!newEviction.location || !newEviction.year || !newEviction['total'] || !newEviction['rustic'] 
+					|| !newEviction['household'] || !newEviction['buildinglot'] || !newEviction['other']){
+    					console.log(`Number of parameters is incorrect`);
+    					return res.sendStatus(400);
+    				}else{
+						console.log("Inserting new eviction in db: "+JSON.stringify(newEviction,null,2));
+						db.insert(newEviction);
+						res.sendStatus(201); // CREATED	
+					}
 				}else{
 					res.sendStatus(409); // CONFLICT
 				}
 			}
 		})
-		*/
+		
     });
 
     //GET a un recurso -- CODIGO NUEVO
@@ -295,6 +303,7 @@ module.exports.register = (app) => {
 
     //PUT a un recurso
     app.put(BASE_EVICTION_API_PATH + "/evictions/:location/:year", (req,res) => {
+		/*
     	var location = req.params.location;
     	var year = parseInt(req.params.year);
     	var newEvictions = req.body;
@@ -345,7 +354,58 @@ module.exports.register = (app) => {
     		}
     	}
     	console.log(`Data not found`);
-    	return res.sendStatus(404);           
+    	return res.sendStatus(404);        
+		*/
+		var locationTU = req.params.location;
+		var yearTU = req.params.year;
+		var newEviction = req.body;
+
+		console.log(`Edit ${newEviction.location} Selected ${locationTU}`);
+    	console.log(`Edit ${newEviction.year} Selected ${yearTU}`);
+
+		db.find({}, (err,evictionsInDB)=>{
+			if(err){
+				console.error("");
+				res.sendStatus(500);
+			}else{
+				if(evictionsInDB==0){
+					console.log (`Database is empty`);
+    				return res.sendStatus(404);
+				}else{
+					if (!newEviction.location || !newEviction.year || !newEviction['total'] || !newEviction['rustic'] ||
+    				!newEviction['household'] || !newEviction['buildinglot'] || !newEviction['other']){
+    					console.log(`Number of parameters is incorrect`);
+    					return res.sendStatus(400);
+    				}else{
+						db.find({location: locationTU, year: yearTU}, function(err, evictionsInDB){
+							console.log("buscando "+locationTU+" "+yearTU);
+							if(err) {
+								console.error(err);
+								res.sendStatus(404);
+							}
+							if(evictionsInDB.length==0){
+								console.log("Eviction not found: "+locationTU+" "+yearTU);
+								res.sendStatus(404); // NOT FOUND
+							}else{
+								console.log(evictionsInDB);
+								// Mantiene location y year, aunque en el body se le indiquen location y/o year distintos
+								db.update({location: locationTU, year: yearTU}, {location: locationTU, year: yearTU, total: newEviction['total'], rustic: newEviction['rustic'],
+									household: newEviction['household'], buildinglot: newEviction['household'], other: newEviction['other']}, {}, function (err, numReplaced) {
+										if(err) {
+											console.error(err);
+											res.sendStatus(404);
+										}else{
+											res.sendStatus(200);
+											console.log("Eviction "+locationTU+" "+yearTU+" updated")
+										}
+								});
+							}
+						});
+					}
+				}	
+			}
+			
+		});
 
     });
 
