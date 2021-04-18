@@ -7,6 +7,41 @@
 	},
 	"item": [
 		{
+			"name": "0. loadInitialData TEST - db empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "0. loadInitialData TEST",
 			"event": [
 				{
@@ -83,6 +118,505 @@
 			"response": []
 		},
 		{
+			"name": "1a. GET lista recursos andalusia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 5 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains andalusia\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"andalusia\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?location=andalusia",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos 2017",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 19 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(19);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains 2017\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2017\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?year=2017",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos 2017 LIMIT=10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 10 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(10);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains 2017\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2017\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?year=2017&limit=10$offset=100",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						},
+						{
+							"key": "limit",
+							"value": "10$offset=100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos total=1578",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains total=1578\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"1578\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?total=1578",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "total",
+							"value": "1578"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos rustic=1658",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains rustic=1658\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"1658\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?rustic=1658",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "rustic",
+							"value": "1658"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos household=30",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains household=30\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"30\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?household=30",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "household",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos buildinglot=340",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains buildinglot=340\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"340\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?buildinglot=340",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "buildinglot",
+							"value": "340"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos other=2628",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains other=2628\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2628\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?other=2628",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "other",
+							"value": "2628"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos andalusia 2015",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 evictions\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?location=andalusia&year=2015",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						},
+						{
+							"key": "year",
+							"value": "2015"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos - busqueda de dato no existente - location=france",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body is empty\", function () {\r",
+							"    pm.response.to.have.body(\"\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?location=france",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "france"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "2. POST nuevo recurso TEST",
 			"event": [
 				{
@@ -103,6 +637,138 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"518\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST nuevo recurso TEST - ERROR: letras en datos numericos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2005\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"casa\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST nuevo recurso TEST - ERROR: faltan campos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2005\",\r\n    \"total\": \"10123\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST nuevo recurso TEST - ERROR: ya existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2018\",\r\n    \"total\": \"10123\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -204,6 +870,43 @@
 			"response": []
 		},
 		{
+			"name": "3. GET recurso TEST - ERROR: no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions/francia/2002",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions",
+						"francia",
+						"2002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "4. PUT actualiza recurso TEST",
 			"event": [
 				{
@@ -224,6 +927,144 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"0\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions/andalusia/2001",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions",
+						"andalusia",
+						"2001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT actualiza recurso TEST - ERROR: no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2009\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"0\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions/andalusia/2009",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions",
+						"andalusia",
+						"2009"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT actualiza recurso TEST - ERROR: faltan parametros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"0\",\r\n    \"household\": \"5154\",\r\n    \"other\": \"4020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions/andalusia/2001",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions",
+						"andalusia",
+						"2001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT actualiza recurso TEST - ERROR: letras en parametros numericos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"0\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"casa\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -287,7 +1128,7 @@
 			"response": []
 		},
 		{
-			"name": "5. DELETE recurso TEST ERROR",
+			"name": "5. DELETE recurso TEST - ERROR: no existe",
 			"event": [
 				{
 					"listen": "test",
@@ -413,6 +1254,76 @@
 			],
 			"request": {
 				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. DELETE lista recursos TEST - ERROR: db vacia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. GET db vacia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
