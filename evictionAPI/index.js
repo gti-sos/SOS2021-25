@@ -152,7 +152,7 @@ module.exports.register = (app) => {
 		if(req.query.year) search["year"] = req.query.year;
 		if(req.query.total) search["total"] = req.query.total;
 		if(req.query.rustic) search["rustic"] = req.query.rustic;
-		if(req.query.household) search["household"] = req.query.injure;
+		if(req.query.household) search["household"] = req.query.household;
 		if(req.query.buildinglot) search["buildinglot"] = req.query.buildinglot;
 		if(req.query.other) search["other"] = req.query.other;
 		
@@ -172,6 +172,7 @@ module.exports.register = (app) => {
                             return ti;
                         })
                     );
+					console.log("Limit="+limit+". Offset="+offset);
                     console.log(
                         '\nSTART - SHOW ALL DATA OR AVAILABLE ON DB\n' +
                             JSON.stringify(docs, null, 2) +
@@ -241,9 +242,16 @@ module.exports.register = (app) => {
 				if(evictionsInDB.length==0){
 					if (!newEviction.location || !newEviction.year || !newEviction['total'] || !newEviction['rustic'] 
 					|| !newEviction['household'] || !newEviction['buildinglot'] || !newEviction['other']){
-    					console.log(`Number of parameters is incorrect`);
+    					//console.log(`Number of parameters is incorrect`);
     					return res.sendStatus(400);
-    				}else{
+    				}else if (!(/^([0-9])*$/.test(newEviction['total'])) ||
+                        !(/^([0-9])*$/.test(newEviction['rustic'])) ||
+                        !(/^([0-9])*$/.test(newEviction['household'])) ||
+                        !(/^([0-9])*$/.test(newEviction['buildinglot'])) ||
+                        !(/^([0-9])*$/.test(newEviction['other']))) {
+                        console.log(`Only numbers are allowed`);
+                        return res.sendStatus(409);
+                    }else{
 						console.log("Inserting new eviction in db: "+JSON.stringify(newEviction,null,2));
 						db.insert(newEviction);
 						res.sendStatus(201); // CREATED	
@@ -290,7 +298,7 @@ module.exports.register = (app) => {
 				var evictionToSend = evictionsInDB.map((c)=>{
 					return {location : c.location, year : c.year, total : c.total, rustic : c.rustic, household : c.household, buildinglot : c.buildinglot, other : c.other};
 				});
-				res.send(JSON.stringify(evictionToSend,null,2));
+				res.status(200).send(JSON.stringify(evictionToSend,null,2));
 			}
 			
 		})
@@ -326,6 +334,7 @@ module.exports.register = (app) => {
 				res.sendStatus(500);
 			}else{
 				if(numEvictionsRemoved==0){
+					console.log("No data found to delete");
 					res.sendStatus(404); // NOT FOUND
 				}else{
 					res.sendStatus(200); // OK
@@ -411,7 +420,15 @@ module.exports.register = (app) => {
     				!newEviction['household'] || !newEviction['buildinglot'] || !newEviction['other']){
     					console.log(`Number of parameters is incorrect`);
     					return res.sendStatus(400);
-    				}else{
+    				}else if (!(/^([0-9])*$/.test(newEviction['total'])) ||
+					!(/^([0-9])*$/.test(newEviction['rustic'])) ||
+					!(/^([0-9])*$/.test(newEviction['household'])) ||
+					!(/^([0-9])*$/.test(newEviction['buildinglot'])) ||
+					!(/^([0-9])*$/.test(newEviction['other']))) {
+						console.log(`Only numbers are allowed`);
+						return res.sendStatus(409);
+					}
+					else{
 						db.find({location: locationTU, year: yearTU}, function(err, evictionsInDB){
 							console.log("buscando "+locationTU+" "+yearTU);
 							if(err) {
