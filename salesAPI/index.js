@@ -228,7 +228,7 @@ module.exports.register = (app) => {
                             console.error("No data found");
                             res.sendStatus(404);
                         } else {
-                            console.log(`requested sales`);
+                            console.log(`Requested sales`);
                             var salesToSend = salesInDB.map((c) => {
                                 return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.seconhand }
                             });

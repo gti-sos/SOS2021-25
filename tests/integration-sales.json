@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "/api/v1/sales/loadInitialData",
+			"name": "/sales/loadInitialData",
 			"event": [
 				{
 					"listen": "test",
@@ -16,10 +16,7 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"There are 90 resources\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(90);\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -47,7 +44,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/loadInitialData - get initialData (error)",
+			"name": "/sales/loadInitialData - get initialData (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -86,7 +83,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales - get sales",
+			"name": "/sales - get sales",
 			"event": [
 				{
 					"listen": "test",
@@ -125,7 +122,159 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales - add andalusia 2000 with string (error)",
+			"name": "/sales - get sales find andalusia and 2018",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There are 1 resource\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});\r",
+							"pm.test(\"Body matches string: andalusia\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"andalusia\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&year=2018",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - get sales find andalusia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There are 5 resource\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
+							"});\r",
+							"pm.test(\"Body matches string: andalusia\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"andalusia\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - get sales find andalusia limit=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There are 2 resource\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"});\r",
+							"pm.test(\"Body matches string: andalusia\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"andalusia\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&limit=2$offset=10",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						},
+						{
+							"key": "limit",
+							"value": "2$offset=10"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - add andalusia 2000 with string (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -134,13 +283,7 @@
 							"pm.test(\"Status code is 409\", function () {\r",
 							"    pm.response.to.have.status(409);\r",
 							"});\r",
-							"pm.test(\"Body matches string: location\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"location\");\r",
-							"});\r",
-							"pm.test(\"There is one conflict\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(1);\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -151,7 +294,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"location\": \"andalusia\",\r\n        \"year\": \"2000\",\r\n        \"sales-total\": \"pruebaString\",\r\n        \"sales-protected-housing\": \"5806\",\r\n        \"sales-new\": \"9165\",\r\n        \"sales-secondhand\": \"98636\"\r\n}\r\n ",
+					"raw": "{\r\n        \"location\": \"andalusia\",\r\n        \"year\": \"2000\",\r\n        \"total\": \"pruebaString\",\r\n        \"protectedhousing\": \"5806\",\r\n        \"new\": \"9165\",\r\n        \"secondhand\": \"98636\"\r\n}\r\n ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -177,7 +320,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales - add andalusia 2000",
+			"name": "/sales - add andalusia 2000",
 			"event": [
 				{
 					"listen": "test",
@@ -199,7 +342,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"sales-total\": \"109275\",\r\n    \"sales-protected-housing\": \"5806\",\r\n    \"sales-new\": \"9165\",\r\n    \"sales-secondhand\": \"98636\"\r\n}",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"total\": \"109275\",\r\n    \"protectedhousing\": \"5806\",\r\n    \"new\": \"9165\",\r\n    \"secondhand\": \"98636\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -225,7 +368,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/2000 - get andalusia 2000",
+			"name": "/sales/andalusia/2000 - get andalusia 2000",
 			"event": [
 				{
 					"listen": "test",
@@ -263,7 +406,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/1900 - get andalusia 1900 (error)",
+			"name": "/sales/andalusia/1900 - get andalusia 1900 (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -304,7 +447,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/2000 - del andalusia 2000",
+			"name": "/sales/andalusia/2000 - del andalusia 2000",
 			"event": [
 				{
 					"listen": "test",
@@ -353,7 +496,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/1900 - del andalusia 1900 (error)",
+			"name": "/sales/andalusia/1900 - del andalusia 1900 (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -402,7 +545,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/2015 - update andalusia 2015",
+			"name": "/sales/andalusia/2015 - update andalusia 2015",
 			"event": [
 				{
 					"listen": "test",
@@ -424,7 +567,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"2015\",\r\n    \"sales-total\":\"5000\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"2015\",\r\n    \"total\":\"5000\",\r\n    \"protectedhousing\":\"5806\",\r\n    \"new\":\"9165\",\r\n    \"secondhand\":\"98636\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -451,7 +594,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/1900 - update andalusia 1900 (error)",
+			"name": "/sales/andalusia/1900 - update andalusia 1900 (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -473,7 +616,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"1900\",\r\n    \"sales-total\":\"5000\",\r\n    \"sales-protected-housing\":\"5806\",\r\n    \"sales-new\":\"9165\",\r\n    \"sales-secondhand\":\"98636\"\r\n}",
+					"raw": "{\r\n    \"location\":\"andalusia\",\r\n    \"year\":\"1900\",\r\n    \"total\":\"5000\",\r\n    \"protectedhousing\":\"5806\",\r\n    \"new\":\"9165\",\r\n    \"secondhand\":\"98636\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -500,7 +643,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales/andalusia/2001 - add andalusia 2001 (error)",
+			"name": "/sales/andalusia/2001 - add andalusia 2001 (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -546,7 +689,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales - update sales (error)",
+			"name": "/sales - update sales (error)",
 			"event": [
 				{
 					"listen": "test",
@@ -590,7 +733,7 @@
 			"response": []
 		},
 		{
-			"name": "/api/v1/sales - del sales",
+			"name": "/sales - del sales",
 			"event": [
 				{
 					"listen": "test",
@@ -630,17 +773,14 @@
 	],
 	"variable": [
 		{
-			"id": "0c858463-83e4-4730-b389-3c9b7189bb44",
 			"key": "HOST",
 			"value": "localhost"
 		},
 		{
-			"id": "d4dcd008-fcbe-476a-9a02-824093e92b8a",
 			"key": "PORT",
 			"value": "10000"
 		},
 		{
-			"id": "ff98bb50-2c7a-4f11-8008-7e1a933f638a",
 			"key": "PROTOCOL",
 			"value": "http"
 		}
