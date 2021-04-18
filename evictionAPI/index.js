@@ -133,7 +133,7 @@ module.exports.register = (app) => {
     		console.log("No data found");
     		return res.sendStatus(404);	
     	}*/
-		db.find({}, (err,evictionsInDB)=>{
+		/*db.find({}, (err,evictionsInDB)=>{
 			if(err){
 				console.error("");
 				res.sendStatus(500);
@@ -143,7 +143,42 @@ module.exports.register = (app) => {
 				});
 				res.send(JSON.stringify(evictionsToSend,null,2));
 			}
-		})
+		})*/
+		var limit = parseInt(req.query.limit);
+		var offset = parseInt(req.query.offset);
+		var search = {};
+		
+		if(req.query.location) search["location"] = req.query.location;
+		if(req.query.year) search["year"] = req.query.year;
+		if(req.query.total) search["total"] = req.query.total;
+		if(req.query.rustic) search["rustic"] = req.query.rustic;
+		if(req.query.household) search["household"] = req.query.injure;
+		if(req.query.buildinglot) search["buildinglot"] = req.query.buildinglot;
+		if(req.query.other) search["other"] = req.query.other;
+		
+        db
+            .find(search)
+            .sort({ location: 1, year: -1 , total: -2, rustic: -3, household: -4, buildinglot: -5, other: -6})
+            .skip(offset)
+            .limit(limit)
+            .exec((err, docs) => {
+                if (docs.length == 0) {
+                    res.sendStatus(204);
+                    console.log('\nNO CONTENT TO SHOW');
+                } else {
+                    res.send(
+                        docs.map(ti => {
+                            delete ti._id;
+                            return ti;
+                        })
+                    );
+                    console.log(
+                        '\nSTART - SHOW ALL DATA OR AVAILABLE ON DB\n' +
+                            JSON.stringify(docs, null, 2) +
+                            '\nEND - SHOW ALL DATA OR AVAILABLE ON DB'
+                    );
+                }
+            });
     });
 
     //POST a la lista de recursoss -- CODIGO NUEVO
