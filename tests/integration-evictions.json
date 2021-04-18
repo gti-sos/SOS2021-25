@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "3485783c-a12c-4162-ad87-a8e43dbb16fd",
 		"name": "SOS2021-25-evictions TESTS",
+		"description": "Evictions management API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -101,7 +102,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"evictions-total\": \"10123\",\r\n    \"evictions-rustic\": \"518\",\r\n    \"evictions-household\": \"5154\",\r\n    \"evictions-buildinglot\": \"431\",\r\n    \"evictions-other\": \"4020\"\r\n}",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"518\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -222,7 +223,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"evictions-total\": \"10123\",\r\n    \"evictions-rustic\": \"0\",\r\n    \"evictions-household\": \"5154\",\r\n    \"evictions-buildinglot\": \"431\",\r\n    \"evictions-other\": \"4020\"\r\n}",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2001\",\r\n    \"total\": \"10123\",\r\n    \"rustic\": \"0\",\r\n    \"household\": \"5154\",\r\n    \"buildinglot\": \"431\",\r\n    \"other\": \"4020\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -304,7 +305,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions/andalusia/2001",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions/andalusia/2018",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -316,7 +317,7 @@
 						"v1",
 						"evictions",
 						"andalusia",
-						"2001"
+						"2018"
 					]
 				}
 			},
