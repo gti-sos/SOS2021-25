@@ -174,7 +174,7 @@ var rentalsInitial =
                             res.sendStatus(500);
                         } else if (rentalsInDB.length == 0) {
                             console.error("No data found");
-                            res.sendStatus(404);
+                            res.sendStatus(204);
                         } else {
                             console.log(`Requested rentals query dataset`);
                             res.status(200).send(JSON.stringify(rentalsInDB, null, 2));
