@@ -339,7 +339,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&limit=2&offset=2",
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&limit=2&offset=4",
 					"protocol": "{{PROTOCOL}}",
 					"host": [
 						"{{HOST}}"
@@ -361,7 +361,7 @@
 						},
 						{
 							"key": "offset",
-							"value": "2"
+							"value": "4"
 						}
 					]
 				},

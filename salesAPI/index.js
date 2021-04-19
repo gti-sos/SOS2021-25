@@ -335,7 +335,7 @@ module.exports.register = (app) => {
         var yearTA = req.body.year;
         db.find({ location: locationTA, year: yearTA }, (err, salesInDB) => {
             if (err) {
-                console.error("ERROR accessing DB in POST: " + err);
+                console.error("Error accessing DB in POST: " + err);
                 res.sendStatus(500);
             } else {
                 if (salesInDB.length == 0) {
