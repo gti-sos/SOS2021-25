@@ -174,6 +174,98 @@
 			"response": []
 		},
 		{
+			"name": "/sales - get sales find andalusia and 1950 (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&year=1950",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						},
+						{
+							"key": "year",
+							"value": "1950"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - get sales find sevilla and 2018 (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=sevilla&year=2018",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "sevilla"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
 			"name": "/sales - get sales find andalusia",
 			"event": [
 				{
@@ -247,7 +339,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&limit=2$offset=10",
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&limit=2&offset=10",
 					"protocol": "{{PROTOCOL}}",
 					"host": [
 						"{{HOST}}"
@@ -265,7 +357,197 @@
 						},
 						{
 							"key": "limit",
-							"value": "2$offset=10"
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "10"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - get sales find sevilla (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=sevilla",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "sevilla"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - get sales find 2018",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There are 18 resource\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(18);\r",
+							"});\r",
+							"pm.test(\"Body matches year: 2018\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?year=2018",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - get sales find 2018 limit=5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"There are 18 resource\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
+							"});\r",
+							"pm.test(\"Body matches year: 2018\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?year=2018&limit=5&offset=5",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2018"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "offset",
+							"value": "5"
+						}
+					]
+				},
+				"description": "GET a la lista de recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "/sales - get sales find 1984 (error)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?year=1984",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "1984"
 						}
 					]
 				},
