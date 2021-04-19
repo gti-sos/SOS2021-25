@@ -154,8 +154,8 @@ var rentalsInitial =
                             res.sendStatus(500);
                         } else {
                             if (rentalsInDB.length == 0) {
-                                console.error("No data found");
-                                res.sendStatus(404);
+                                res.sendStatus(204);
+                                console.log('NO CONTENT TO SHOW');
                             } else {
                                 console.log(`Requested rentals`);
                                 var rentalsToSend = rentalsInDB.map((c) => {
@@ -247,8 +247,8 @@ var rentalsInitial =
                             !(/^([0-9])*$/.test(newRentals['annualvariation'])) ||
                             !(/^([0-9])*$/.test(newRentals['alltimehigh'])) ||
                             !(/^([0-9])*$/.test(newRentals['maxvariation']))) {
-                            console.log(`Only numbers are allowed`);
-                            return res.sendStatus(409);
+                                console.log(`Number of parameters is incorrect`);
+                                return res.sendStatus(400);
                         }
                         else {
                             console.log("Inserting new rentals in db: " + JSON.stringify(newRentals, null, 2));
@@ -336,6 +336,13 @@ var rentalsInitial =
                             !newRentals['maxvariation']) {
                             console.log(`Number of parameters is incorrect`);
                             return res.sendStatus(400);
+                        }else if(!(/^([0-9])*$/.test(newRentals['pricesquaremeter'])) ||
+                        !(/^([0-9])*$/.test(newRentals['annualvariation'])) ||
+                        !(/^([0-9])*$/.test(newRentals['alltimehigh'])) ||
+                        !(/^([0-9])*$/.test(newRentals['maxvariation']))){
+                            console.log(`Only numbers are allowed`);
+						    return res.sendStatus(409);
+                
                         } else {
                             db.find({ location: locationTU, year: yearTU }, function (err, rentalsInDB) {
                                 console.log("buscando " + locationTU + " " + yearTU);
