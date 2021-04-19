@@ -1,82 +1,89 @@
 var BASE_RENTALS_API_PATH = "/api/v1";
+var path = require('path');
+
+var Datastore = require("nedb");
+var datafile = path.join(__dirname, 'rentals-stats.db');
+var db = new Datastore({ filename: datafile, autoload: true });
 
 var rentalsInitial =
 	[
-		{ "location": "andalusia", "year": "2019", "price-square-meter": "8.5", "annual-variation": "7", "all-time-high": "9.5", "max-variation": "-9.9" },
-		{ "location": "aragon", "year": "2019", "price-square-meter": "7.8", "annual-variation": "9.1", "all-time-high": "8.2", "max-variation": "-4" },
-		{ "location": "principality of asturias", "year": "2019", "price-square-meter": "7.2", "annual-variation": "4.6", "all-time-high": "10.8", "max-variation": "-33.2" },
-		{ "location": "balearic islands", "year": "2019", "price-square-meter": "12.6", "annual-variation": "2", "all-time-high": "14", "max-variation": "-9.6" },
-		{ "location": "canary islands", "year": "2019", "price-square-meter": "10", "annual-variation": "3.3", "all-time-high": "10.3", "max-variation": "-2.7" },
-		{ "location": "cantabria", "year": "2019", "price-square-meter": "7.6", "annual-variation": "4.3", "all-time-high": "12.7", "max-variation": "-40.2" },
-		{ "location": "castile and leon", "year": "2019", "price-square-meter": "6.5", "annual-variation": "5.8", "all-time-high": "7", "max-variation": "-7.7" },
-		{ "location": "castilla-la mancha", "year": "2019", "price-square-meter": "5.4", "annual-variation": "6.6", "all-time-high": "5.8", "max-variation": "-6.6" },
-		{ "location": "catalonia", "year": "2019", "price-square-meter": "14.2", "annual-variation": "4.4", "all-time-high": "15.2", "max-variation": "-6.8" },
-		{ "location": "valencian community", "year": "2019", "price-square-meter": "7.5", "annual-variation": "7.4", "all-time-high": "9.4", "max-variation": "-19.9" },
-		{ "location": "basque country", "year": "2019", "price-square-meter": "11.9", "annual-variation": "5.1", "all-time-high": "12.3", "max-variation": "-3.9" },
-		{ "location": "extremadura", "year": "2019", "price-square-meter": "5", "annual-variation": "5.3", "all-time-high": "5.4", "max-variation": "-6.5" },
-		{ "location": "galicia", "year": "2019", "price-square-meter": "6.6", "annual-variation": "0.7", "all-time-high": "8.7", "max-variation": "-24.8" },
-		{ "location": "la rioja", "year": "2019", "price-square-meter": "6.5", "annual-variation": "8.7", "all-time-high": "6.8", "max-variation": "-4.2" },
-		{ "location": "community of madrid", "year": "2019", "price-square-meter": "14.7", "annual-variation": "3.6", "all-time-high": "15.4", "max-variation": "-4" },
-		{ "location": "melilla", "year": "2019", "price-square-meter": "8.4", "annual-variation": "-0.6", "all-time-high": "9.5", "max-variation": "-11.3" },
-		{ "location": "region of murcia", "year": "2019", "price-square-meter": "6.1", "annual-variation": "7.5", "all-time-high": "7.1", "max-variation": "-13.9" },
-		{ "location": "community of navarre", "year": "2019", "price-square-meter": "8.5", "annual-variation": "10.6", "all-time-high": "8.8", "max-variation": "-3.4" },
-		{ "location": "andalusia", "year": "2018", "price-square-meter": "8", "annual-variation": "96", "all-time-high": "9.5", "max-variation": "-15.7" },
-		{ "location": "aragon", "year": "2018", "price-square-meter": "7.2", "annual-variation": "6.6", "all-time-high": "8.2", "max-variation": "-12" },
-		{ "location": "principality of asturias", "year": "2018", "price-square-meter": "6.9", "annual-variation": "3.9", "all-time-high": "10.8", "max-variation": "-36.1" },
-		{ "location": "balearic islands", "year": "2018", "price-square-meter": "12.4", "annual-variation": "4.2", "all-time-high": "14", "max-variation": "-11.4" },
-		{ "location": "canary islands", "year": "2018", "price-square-meter": "9.7", "annual-variation": "10.8", "all-time-high": "10.3", "max-variation": "-5.9" },
-		{ "location": "cantabria", "year": "2018", "price-square-meter": "7.3", "annual-variation": "7.7", "all-time-high": "12.7", "max-variation": "-42.6" },
-		{ "location": "castile and leon", "year": "2018", "price-square-meter": "6.1", "annual-variation": "6.1", "all-time-high": "7", "max-variation": "-12.8" },
-		{ "location": "castilla-la mancha", "year": "2018", "price-square-meter": "5.1", "annual-variation": "6.6", "all-time-high": "5.8", "max-variation": "-12.4" },
-		{ "location": "catalonia", "year": "2018", "price-square-meter": "13.6", "annual-variation": "-0.5", "all-time-high": "15.2", "max-variation": "-10.8" },
-		{ "location": "valencian community", "year": "2018", "price-square-meter": "7", "annual-variation": "7.2", "all-time-high": "9.4", "max-variation": "-25.4" },
-		{ "location": "basque country", "year": "2018", "price-square-meter": "11.3", "annual-variation": "3.5", "all-time-high": "12.3", "max-variation": "-8.5" },
-		{ "location": "extremadura", "year": "2018", "price-square-meter": "4.8", "annual-variation": "0.4", "all-time-high": "5.4", "max-variation": "-11.2" },
-		{ "location": "galicia", "year": "2018", "price-square-meter": "6.1", "annual-variation": "5.5", "all-time-high": "8.7", "max-variation": "-29.7" },
-		{ "location": "la rioja", "year": "2018", "price-square-meter": "6", "annual-variation": "0.9", "all-time-high": "6.8", "max-variation": "-11.9" },
-		{ "location": "community of madrid", "year": "2018", "price-square-meter": "14.2", "annual-variation": "9.6", "all-time-high": "15.4", "max-variation": "-7.3" },
-		{ "location": "melilla", "year": "2018", "price-square-meter": "8.5", "annual-variation": "-2", "all-time-high": "9.5", "max-variation": "-10.8" },
-		{ "location": "region of murcia", "year": "2018", "price-square-meter": "5.7", "annual-variation": "7.1", "all-time-high": "7.1", "max-variation": "-19.9" },
-		{ "location": "community of navarre", "year": "2018", "price-square-meter": "7.7", "annual-variation": "10.9", "all-time-high": "8.8", "max-variation": "-12.6" },
-		{ "location": "andalusia", "year": "2017", "price-square-meter": "7.3", "annual-variation": "11.2", "all-time-high": "9.5", "max-variation": "-23.1" },
-		{ "location": "aragon", "year": "2016", "price-square-meter": "6.7", "annual-variation": "5.6", "all-time-high": "8.2", "max-variation": "-17.5" },
-		{ "location": "principality of asturias", "year": "2016", "price-square-meter": "6.6", "annual-variation": "5.6", "all-time-high": "10.8", "max-variation": "-38.5" },
-		{ "location": "balearic islands", "year": "2016", "price-square-meter": "11.9", "annual-variation": "16.8", "all-time-high": "14", "max-variation": "-14.9" },
-		{ "location": "canary islands", "year": "2016", "price-square-meter": "8.7", "annual-variation": "19.8", "all-time-high": "10.3", "max-variation": "-15" },
-		{ "location": "cantabria", "year": "2016", "price-square-meter": "6.8", "annual-variation": "3.4", "all-time-high": "12.7", "max-variation": "-46.7" },
-		{ "location": "castile and leon", "year": "2016", "price-square-meter": "5.8", "annual-variation": "5.9", "all-time-high": "7", "max-variation": "-17.8" },
-		{ "location": "castilla-la mancha", "year": "2016", "price-square-meter": "4.8", "annual-variation": "4.8", "all-time-high": "5.8", "max-variation": "-17.8" },
-		{ "location": "catalonia", "year": "2016", "price-square-meter": "13.7", "annual-variation": "13.4", "all-time-high": "15.2", "max-variation": "-10.3" },
-		{ "location": "valencian community", "year": "2016", "price-square-meter": "6.5", "annual-variation": "10.9", "all-time-high": "9.4", "max-variation": "-30.4" },
-		{ "location": "basque country", "year": "2016", "price-square-meter": "10.9", "annual-variation": "6.4", "all-time-high": "12.3", "max-variation": "-11.6" },
-		{ "location": "extremadura", "year": "2016", "price-square-meter": "4.8", "annual-variation": "5", "all-time-high": "5.4", "max-variation": "-11.6" },
-		{ "location": "galicia", "year": "2016", "price-square-meter": "5.8", "annual-variation": "4.8", "all-time-high": "8.7", "max-variation": "-33.3" },
-		{ "location": "la rioja", "year": "2016", "price-square-meter": "5.5", "annual-variation": "5.7", "all-time-high": "6.8", "max-variation": "-19.2" },
-		{ "location": "community of madrid", "year": "2016", "price-square-meter": "13", "annual-variation": "10.6", "all-time-high": "15.4", "max-variation": "-15.5" },
-		{ "location": "melilla", "year": "2016", "price-square-meter": "8.7", "annual-variation": "7", "all-time-high": "9.5", "max-variation": "-9" },
-		{ "location": "region of murcia", "year": "2016", "price-square-meter": "5.3", "annual-variation": "7.9", "all-time-high": "7.1", "max-variation": "-25.2" },
-		{ "location": "community of navarre", "year": "2016", "price-square-meter": "6.9", "annual-variation": "6.9", "all-time-high": "8.8", "max-variation": "-21.2" },
-		{ "location": "andalusia", "year": "2015", "price-square-meter": "6.5", "annual-variation": "6", "all-time-high": "9.5", "max-variation": "-30.8" },
-		{ "location": "aragon", "year": "2015", "price-square-meter": "6.4", "annual-variation": "5.5", "all-time-high": "8.2", "max-variation": "-21.8" },
-		{ "location": "principality of asturias", "year": "2015", "price-square-meter": "6.3", "annual-variation": "5", "all-time-high": "10.8", "max-variation": "-41.8" },
-		{ "location": "balearic islands", "year": "2015", "price-square-meter": "10.2", "annual-variation": "23.8", "all-time-high": "14", "max-variation": "-27.2" },
-		{ "location": "canary islands", "year": "2015", "price-square-meter": "7.3", "annual-variation": "6.2", "all-time-high": "10.3", "max-variation": "-29" },
-		{ "location": "cantabria", "year": "2015", "price-square-meter": "6.6", "annual-variation": "6.8", "all-time-high": "12.7", "max-variation": "-48.5" },
-		{ "location": "castile and leon", "year": "2015", "price-square-meter": "5.4", "annual-variation": "4", "all-time-high": "7", "max-variation": "-22.4" },
-		{ "location": "castilla-la mancha", "year": "2015", "price-square-meter": "4.5", "annual-variation": "2", "all-time-high": "5.8", "max-variation": "-21.6" },
-		{ "location": "catalonia", "year": "2015", "price-square-meter": "12", "annual-variation": "19.9", "all-time-high": "15.2", "max-variation": "-20.9" },
-		{ "location": "valencian community", "year": "2015", "price-square-meter": "5.9", "annual-variation": "9.5", "all-time-high": "9.4", "max-variation": "-37.3" },
-		{ "location": "basque country", "year": "2015", "price-square-meter": "10.3", "annual-variation": "5", "all-time-high": "12.3", "max-variation": "-16.9" },
-		{ "location": "extremadura", "year": "2015", "price-square-meter": "4.5", "annual-variation": "6.8", "all-time-high": "5.4", "max-variation": "-15.8" },
-		{ "location": "galicia", "year": "2015", "price-square-meter": "5.6", "annual-variation": "2.7", "all-time-high": "8.7", "max-variation": "-36.4" },
-		{ "location": "la rioja", "year": "2015", "price-square-meter": "5.2", "annual-variation": "3.3", "all-time-high": "6.8", "max-variation": "-23.6" },
-		{ "location": "community of madrid", "year": "2015", "price-square-meter": "11.7", "annual-variation": "9.6", "all-time-high": "15.4", "max-variation": "-23.6" },
-		{ "location": "melilla", "year": "2015", "price-square-meter": "8.1", "annual-variation": "-3.3", "all-time-high": "9.5", "max-variation": "-15" },
-		{ "location": "region of murcia", "year": "2015", "price-square-meter": "4.9", "annual-variation": "1", "all-time-high": "7.1", "max-variation": "-30.7" },
-		{ "location": "community of navarre", "year": "2015", "price-square-meter": "6.5", "annual-variation": "2.8", "all-time-high": "8.8", "max-variation": "-26.3" }
+		{ "location": "andalusia", "year": "2019", "pricesquaremeter": "8.5", "annualvariation": "7", "alltimehigh": "9.5", "maxvariation": "-9.9" },
+		{ "location": "aragon", "year": "2019", "pricesquaremeter": "7.8", "annualvariation": "9.1", "alltimehigh": "8.2", "maxvariation": "-4" },
+		{ "location": "principality of asturias", "year": "2019", "pricesquaremeter": "7.2", "annualvariation": "4.6", "alltimehigh": "10.8", "maxvariation": "-33.2" },
+		{ "location": "balearic islands", "year": "2019", "pricesquaremeter": "12.6", "annualvariation": "2", "alltimehigh": "14", "maxvariation": "-9.6" },
+		{ "location": "canary islands", "year": "2019", "pricesquaremeter": "10", "annualvariation": "3.3", "alltimehigh": "10.3", "maxvariation": "-2.7" },
+		{ "location": "cantabria", "year": "2019", "pricesquaremeter": "7.6", "annualvariation": "4.3", "alltimehigh": "12.7", "maxvariation": "-40.2" },
+		{ "location": "castile and leon", "year": "2019", "pricesquaremeter": "6.5", "annualvariation": "5.8", "alltimehigh": "7", "maxvariation": "-7.7" },
+		{ "location": "castilla-la mancha", "year": "2019", "pricesquaremeter": "5.4", "annualvariation": "6.6", "alltimehigh": "5.8", "maxvariation": "-6.6" },
+		{ "location": "catalonia", "year": "2019", "pricesquaremeter": "14.2", "annualvariation": "4.4", "alltimehigh": "15.2", "maxvariation": "-6.8" },
+		{ "location": "valencian community", "year": "2019", "pricesquaremeter": "7.5", "annualvariation": "7.4", "alltimehigh": "9.4", "maxvariation": "-19.9" },
+		{ "location": "basque country", "year": "2019", "pricesquaremeter": "11.9", "annualvariation": "5.1", "alltimehigh": "12.3", "maxvariation": "-3.9" },
+		{ "location": "extremadura", "year": "2019", "pricesquaremeter": "5", "annualvariation": "5.3", "alltimehigh": "5.4", "maxvariation": "-6.5" },
+		{ "location": "galicia", "year": "2019", "pricesquaremeter": "6.6", "annualvariation": "0.7", "alltimehigh": "8.7", "maxvariation": "-24.8" },
+		{ "location": "la rioja", "year": "2019", "pricesquaremeter": "6.5", "annualvariation": "8.7", "alltimehigh": "6.8", "maxvariation": "-4.2" },
+		{ "location": "community of madrid", "year": "2019", "pricesquaremeter": "14.7", "annualvariation": "3.6", "alltimehigh": "15.4", "maxvariation": "-4" },
+		{ "location": "melilla", "year": "2019", "pricesquaremeter": "8.4", "annualvariation": "-0.6", "alltimehigh": "9.5", "maxvariation": "-11.3" },
+		{ "location": "region of murcia", "year": "2019", "pricesquaremeter": "6.1", "annualvariation": "7.5", "alltimehigh": "7.1", "maxvariation": "-13.9" },
+		{ "location": "community of navarre", "year": "2019", "pricesquaremeter": "8.5", "annualvariation": "10.6", "alltimehigh": "8.8", "maxvariation": "-3.4" },
+		{ "location": "andalusia", "year": "2018", "pricesquaremeter": "8", "annualvariation": "96", "alltimehigh": "9.5", "maxvariation": "-15.7" },
+		{ "location": "aragon", "year": "2018", "pricesquaremeter": "7.2", "annualvariation": "6.6", "alltimehigh": "8.2", "maxvariation": "-12" },
+		{ "location": "principality of asturias", "year": "2018", "pricesquaremeter": "6.9", "annualvariation": "3.9", "alltimehigh": "10.8", "maxvariation": "-36.1" },
+		{ "location": "balearic islands", "year": "2018", "pricesquaremeter": "12.4", "annualvariation": "4.2", "alltimehigh": "14", "maxvariation": "-11.4" },
+		{ "location": "canary islands", "year": "2018", "pricesquaremeter": "9.7", "annualvariation": "10.8", "alltimehigh": "10.3", "maxvariation": "-5.9" },
+		{ "location": "cantabria", "year": "2018", "pricesquaremeter": "7.3", "annualvariation": "7.7", "alltimehigh": "12.7", "maxvariation": "-42.6" },
+		{ "location": "castile and leon", "year": "2018", "pricesquaremeter": "6.1", "annualvariation": "6.1", "alltimehigh": "7", "maxvariation": "-12.8" },
+		{ "location": "castilla-la mancha", "year": "2018", "pricesquaremeter": "5.1", "annualvariation": "6.6", "alltimehigh": "5.8", "maxvariation": "-12.4" },
+		{ "location": "catalonia", "year": "2018", "pricesquaremeter": "13.6", "annualvariation": "-0.5", "alltimehigh": "15.2", "maxvariation": "-10.8" },
+		{ "location": "valencian community", "year": "2018", "pricesquaremeter": "7", "annualvariation": "7.2", "alltimehigh": "9.4", "maxvariation": "-25.4" },
+		{ "location": "basque country", "year": "2018", "pricesquaremeter": "11.3", "annualvariation": "3.5", "alltimehigh": "12.3", "maxvariation": "-8.5" },
+		{ "location": "extremadura", "year": "2018", "pricesquaremeter": "4.8", "annualvariation": "0.4", "alltimehigh": "5.4", "maxvariation": "-11.2" },
+		{ "location": "galicia", "year": "2018", "pricesquaremeter": "6.1", "annualvariation": "5.5", "alltimehigh": "8.7", "maxvariation": "-29.7" },
+		{ "location": "la rioja", "year": "2018", "pricesquaremeter": "6", "annualvariation": "0.9", "alltimehigh": "6.8", "maxvariation": "-11.9" },
+		{ "location": "community of madrid", "year": "2018", "pricesquaremeter": "14.2", "annualvariation": "9.6", "alltimehigh": "15.4", "maxvariation": "-7.3" },
+		{ "location": "melilla", "year": "2018", "pricesquaremeter": "8.5", "annualvariation": "-2", "alltimehigh": "9.5", "maxvariation": "-10.8" },
+		{ "location": "region of murcia", "year": "2018", "pricesquaremeter": "5.7", "annualvariation": "7.1", "alltimehigh": "7.1", "maxvariation": "-19.9" },
+		{ "location": "community of navarre", "year": "2018", "pricesquaremeter": "7.7", "annualvariation": "10.9", "alltimehigh": "8.8", "maxvariation": "-12.6" },
+		{ "location": "andalusia", "year": "2017", "pricesquaremeter": "7.3", "annualvariation": "11.2", "alltimehigh": "9.5", "maxvariation": "-23.1" },
+		{ "location": "aragon", "year": "2016", "pricesquaremeter": "6.7", "annualvariation": "5.6", "alltimehigh": "8.2", "maxvariation": "-17.5" },
+		{ "location": "principality of asturias", "year": "2016", "pricesquaremeter": "6.6", "annualvariation": "5.6", "alltimehigh": "10.8", "maxvariation": "-38.5" },
+		{ "location": "balearic islands", "year": "2016", "pricesquaremeter": "11.9", "annualvariation": "16.8", "alltimehigh": "14", "maxvariation": "-14.9" },
+		{ "location": "canary islands", "year": "2016", "pricesquaremeter": "8.7", "annualvariation": "19.8", "alltimehigh": "10.3", "maxvariation": "-15" },
+		{ "location": "cantabria", "year": "2016", "pricesquaremeter": "6.8", "annualvariation": "3.4", "alltimehigh": "12.7", "maxvariation": "-46.7" },
+		{ "location": "castile and leon", "year": "2016", "pricesquaremeter": "5.8", "annualvariation": "5.9", "alltimehigh": "7", "maxvariation": "-17.8" },
+		{ "location": "castilla-la mancha", "year": "2016", "pricesquaremeter": "4.8", "annualvariation": "4.8", "alltimehigh": "5.8", "maxvariation": "-17.8" },
+		{ "location": "catalonia", "year": "2016", "pricesquaremeter": "13.7", "annualvariation": "13.4", "alltimehigh": "15.2", "maxvariation": "-10.3" },
+		{ "location": "valencian community", "year": "2016", "pricesquaremeter": "6.5", "annualvariation": "10.9", "alltimehigh": "9.4", "maxvariation": "-30.4" },
+		{ "location": "basque country", "year": "2016", "pricesquaremeter": "10.9", "annualvariation": "6.4", "alltimehigh": "12.3", "maxvariation": "-11.6" },
+		{ "location": "extremadura", "year": "2016", "pricesquaremeter": "4.8", "annualvariation": "5", "alltimehigh": "5.4", "maxvariation": "-11.6" },
+		{ "location": "galicia", "year": "2016", "pricesquaremeter": "5.8", "annualvariation": "4.8", "alltimehigh": "8.7", "maxvariation": "-33.3" },
+		{ "location": "la rioja", "year": "2016", "pricesquaremeter": "5.5", "annualvariation": "5.7", "alltimehigh": "6.8", "maxvariation": "-19.2" },
+		{ "location": "community of madrid", "year": "2016", "pricesquaremeter": "13", "annualvariation": "10.6", "alltimehigh": "15.4", "maxvariation": "-15.5" },
+		{ "location": "melilla", "year": "2016", "pricesquaremeter": "8.7", "annualvariation": "7", "alltimehigh": "9.5", "maxvariation": "-9" },
+		{ "location": "region of murcia", "year": "2016", "pricesquaremeter": "5.3", "annualvariation": "7.9", "alltimehigh": "7.1", "maxvariation": "-25.2" },
+		{ "location": "community of navarre", "year": "2016", "pricesquaremeter": "6.9", "annualvariation": "6.9", "alltimehigh": "8.8", "maxvariation": "-21.2" },
+		{ "location": "andalusia", "year": "2015", "pricesquaremeter": "6.5", "annualvariation": "6", "alltimehigh": "9.5", "maxvariation": "-30.8" },
+		{ "location": "aragon", "year": "2015", "pricesquaremeter": "6.4", "annualvariation": "5.5", "alltimehigh": "8.2", "maxvariation": "-21.8" },
+		{ "location": "principality of asturias", "year": "2015", "pricesquaremeter": "6.3", "annualvariation": "5", "alltimehigh": "10.8", "maxvariation": "-41.8" },
+		{ "location": "balearic islands", "year": "2015", "pricesquaremeter": "10.2", "annualvariation": "23.8", "alltimehigh": "14", "maxvariation": "-27.2" },
+		{ "location": "canary islands", "year": "2015", "pricesquaremeter": "7.3", "annualvariation": "6.2", "alltimehigh": "10.3", "maxvariation": "-29" },
+		{ "location": "cantabria", "year": "2015", "pricesquaremeter": "6.6", "annualvariation": "6.8", "alltimehigh": "12.7", "maxvariation": "-48.5" },
+		{ "location": "castile and leon", "year": "2015", "pricesquaremeter": "5.4", "annualvariation": "4", "alltimehigh": "7", "maxvariation": "-22.4" },
+		{ "location": "castilla-la mancha", "year": "2015", "pricesquaremeter": "4.5", "annualvariation": "2", "alltimehigh": "5.8", "maxvariation": "-21.6" },
+		{ "location": "catalonia", "year": "2015", "pricesquaremeter": "12", "annualvariation": "19.9", "alltimehigh": "15.2", "maxvariation": "-20.9" },
+		{ "location": "valencian community", "year": "2015", "pricesquaremeter": "5.9", "annualvariation": "9.5", "alltimehigh": "9.4", "maxvariation": "-37.3" },
+		{ "location": "basque country", "year": "2015", "pricesquaremeter": "10.3", "annualvariation": "5", "alltimehigh": "12.3", "maxvariation": "-16.9" },
+		{ "location": "extremadura", "year": "2015", "pricesquaremeter": "4.5", "annualvariation": "6.8", "alltimehigh": "5.4", "maxvariation": "-15.8" },
+		{ "location": "galicia", "year": "2015", "pricesquaremeter": "5.6", "annualvariation": "2.7", "alltimehigh": "8.7", "maxvariation": "-36.4" },
+		{ "location": "la rioja", "year": "2015", "pricesquaremeter": "5.2", "annualvariation": "3.3", "alltimehigh": "6.8", "maxvariation": "-23.6" },
+		{ "location": "community of madrid", "year": "2015", "pricesquaremeter": "11.7", "annualvariation": "9.6", "alltimehigh": "15.4", "maxvariation": "-23.6" },
+		{ "location": "melilla", "year": "2015", "pricesquaremeter": "8.1", "annualvariation": "-3.3", "alltimehigh": "9.5", "maxvariation": "-15" },
+		{ "location": "region of murcia", "year": "2015", "pricesquaremeter": "4.9", "annualvariation": "1", "alltimehigh": "7.1", "maxvariation": "-30.7" },
+		{ "location": "community of navarre", "year": "2015", "pricesquaremeter": "6.5", "annualvariation": "2.8", "alltimehigh": "8.8", "maxvariation": "-26.3" }
 	];
 
 	var rentals = [];
+
+    // db.insert(rentals);
 
 
 
@@ -85,175 +92,289 @@ var rentalsInitial =
             
         app.get(BASE_RENTALS_API_PATH + "/rentals/loadInitialData", (req, res) => {
             //res.send(JSON.stringify(rentals));
-            if (rentals.length == 0){
-                for (var i=0; i<rentalsInitial.length; i++){
-                    rentals.push(rentalsInitial[i]);
+            db.find({}, function (err, rentalsInDB) {
+                if (err) {
+                    console.error("ERROR accesing DB in GET");
+                    res.sendStatus(500);
                 }
-                //console.log(`Loaded initial data: ${JSON.stringify(rentals)}`);
-                console.log(`Loaded initial data`);
-                return res.status(200).json(rentals);
-            }
+                else {
+                    if (rentalsInDB.length == 0) {
+                        db.insert(rentalsInitial);
+                        console.log(`Loaded initial data: ${JSON.stringify(rentalsInitial, null, 2)}`);
+                        return res.sendStatus(200);
+                    }
+                    else {
+                        console.log(`Dabase is not empty, please remove before`);
+                        return res.sendStatus(205);
+                    }
+                }
+            });
             
         });
 
         //GET a la lista de recursos
         app.get(BASE_RENTALS_API_PATH + "/rentals", (req, res) => {
-            if (rentals.length !=0) {
-                console.log(`Request rentals`);
-                return res.send(JSON.stringify(rentals));
+            var query = req.query;
+            var limit = parseInt(query.limit);
+            var offset = parseInt(query.offset);
+            var querySearch = [];
+
+            //busqueda
+            for (data in query) {
+                var queryObject = {};
+                if (data == 'location') {
+                    queryObject[data] = query[data];
+                } else if (data == 'year') {
+                    queryObject[data] = query[data];
+                } else if (data == 'pricesquaremeter') {
+                    queryObject[data] = query[data];
+                } else if (data == 'annualvariation') {
+                    queryObject[data] = query[data];
+                } else if (data == 'alltimehigh') {
+                    queryObject[data] = query[data];
+                } else if (data == 'maxvariation') {
+                    queryObject[data] = query[data];
+                }
+                if (data != 'limit' && data != 'offset') {
+                    querySearch.push(queryObject);
+                }
             }
-            else {
-                console.log("No data found");
-                return res.sendStatus(404);	
+
+            console.log("querysearch: " + JSON.stringify(querySearch, null, 2));
+            //Comprobamos si se ha utilizado limit o offset
+            if (!isNaN(limit) || !isNaN(offset)) {
+                console.log("with limit or offset - Limit: " + limit + " offset: " + offset);
+                //Comprobamos si ha habido una busqueda
+                if (Object.keys(query).length == 0) {
+                    console.log("Empty query");
+                    //Se devuelven todos los elementos
+                    db.find({}, (err, rentalsInDB) => {
+                        if (err) {
+                            console.error("ERROR accesing DB in GET");
+                            res.sendStatus(500);
+                        } else {
+                            if (rentalsInDB.length == 0) {
+                                console.error("No data found");
+                                res.sendStatus(404);
+                            } else {
+                                console.log(`Requested rentals`);
+                                var rentalsToSend = rentalsInDB.map((c) => {
+                                    return { location: c.location, year: c.year, "pricesquaremeter": c.pricesquaremeter, "annualvariation": c.annualvariation, "alltimehigh": c.alltimehigh, "maxvariation": c.maxvariation }
+                                });
+                                res.status(200).send(JSON.stringify(rentalsToSend, null, 2));
+                            }
+                        }
+                    });
+
+                } else {
+                    //Se pasan los paremetros de la busqueda
+                    db.find({ $and: querySearch }, { _id: 0 }).skip(offset).limit(limit).exec((err, rentalsInDB) => {
+                        if (err) {
+                            console.error("ERROR accesing DB in GET");
+                            res.sendStatus(500);
+                        } else if (rentalsInDB.length == 0) {
+                            console.error("No data found");
+                            res.sendStatus(404);
+                        } else {
+                            console.log(`Requested rentals query dataset`);
+                            res.status(200).send(JSON.stringify(rentalsInDB, null, 2));
+                        }
+                    });
+                }
+            } else {
+                console.log("without limit or offset - Limit: " + limit + " offset: " + offset);
+                if (Object.keys(query).length == 0) {
+                    console.log("Empty query");
+                    //Se devuelven todos los elementos
+                    db.find({}, function (err, rentalsInDB) {
+                        if (err) {
+                            console.error("Error accesing DB in GET");
+                            res.sendStatus(500);
+                        } else {
+                            if (rentalsInDB.length == 0) {
+                                console.error("No data found");
+                                res.sendStatus(404);
+                            } else {
+                                console.log(`Requested rentals`);
+                                var rentalsToSend = rentalsInDB.map((c) => {
+                                    return { location: c.location, year: c.year, "pricesquaremeter": c.pricesquaremeter, "annualvariation": c.annualvariation, "alltimehigh": c.alltimehigh, "maxvariation": c.maxvariation }
+                                });
+                                res.status(200).send(JSON.stringify(rentalsToSend, null, 2));
+                            }
+                        }
+                    });
+                } else {
+                    //Se pasan los paremetros de la busqueda
+                    db.find({ $and: querySearch }, { _id: 0 }, function (err, rentalsInDB) {
+                        if (err) {
+                            console.error("Error accesing DB in GET");
+                            res.sendStatus(500);
+                        } else if (rentalsInDB.length == 0) {
+                            console.error("No data found");
+                            res.sendStatus(404);
+                        } else {
+                            console.log(`Requested rentals`);
+                            var rentalsToSend = rentalsInDB.map((c) => {
+                                return { location: c.location, year: c.year, "pricesquaremeter": c.pricesquaremeter, "annualvariation": c.annualvariation, "alltimehigh": c.alltimehigh, "maxvariation": c.maxvariation }
+                            });
+                            res.status(200).send(JSON.stringify(rentalsToSend, null, 2));
+                        }
+                    });
+                }
             }
         });
         //POST a la lista de recursoss
         app.post(BASE_RENTALS_API_PATH + "/rentals", (req, res) => {
             var newRentals = req.body;
-            var location = req.body.location;
-            var year = parseInt(req.body.year);
-
-            //con datos
-            if (rentals.length != 0){
-                for (var status of rentals){
-                    if (status.location == location && status.year == year){
-                        console.log (`Location ${location} and Year ${year} are already in the database`);
-                        return res.sendStatus(403);
+            var locationTA = req.body.location;
+            var yearTA = req.body.year;
+            db.find({ location: locationTA, year: yearTA }, (err, rentalsInDB) => {
+                if (err) {
+                    console.error("Error accessing DB in POST: " + err);
+                    res.sendStatus(500);
+                } else {
+                    if (rentalsInDB.length == 0) {
+                        if (!newRentals.location ||
+                            !newRentals.year ||
+                            !newRentals['pricesquaremeter'] ||
+                            !newRentals['annualvariation'] ||
+                            !newRentals['alltimehigh'] ||
+                            !newRentals['maxvariation']) {
+                            console.log(`Number of parameters is incorrect`);
+                            return res.sendStatus(400);
+                        }
+                        else if (!(/^([0-9])*$/.test(newRentals['pricesquaremeter'])) ||
+                            !(/^([0-9])*$/.test(newRentals['annualvariation'])) ||
+                            !(/^([0-9])*$/.test(newRentals['alltimehigh'])) ||
+                            !(/^([0-9])*$/.test(newRentals['maxvariation']))) {
+                            console.log(`Only numbers are allowed`);
+                            return res.sendStatus(409);
+                        }
+                        else {
+                            console.log("Inserting new rentals in db: " + JSON.stringify(newRentals, null, 2));
+                            db.insert(newRentals);
+                            res.sendStatus(201); // CREATED	
+                        }
+                    } else {
+                        console.log("Conflit is detected");
+                        res.sendStatus(409); // CONFLICT
                     }
                 }
-                if (!newRentals.location ||
-                    !newRentals.year ||
-                    !newRentals['price-square-meter'] ||
-                    !newRentals['annual-variation'] ||
-                    !newRentals['all-time-high'] ||
-                    !newRentals['max-variation']){
-                        console.log(`Number of parameters is incorrect`);
-                        return res.sendStatus(400);
-                    }
-                    /*else if (newRentals['rentals-total'] != (/^([0-9])*$/) ||
-                    newRentals['rentals-protected-housing']!=/^([0-9])*$/ ||
-                    newRentals['rentals-new']!=/^([0-9])*$/ ||
-                    newRentals['rentals-secondhand']!=/^([0-9])*$/){
-                        console.log(`Only numbers are allowed`);
-                        console.log(`${newRentals['rentals-total']}`);
-                        console.log(`${newRentals['rentals-protected-housing']}`);
-                        console.log(`${newRentals['rentals-new']}`);
-                        console.log(`${newRentals['rentals-secondhand']}`);
-                        return res.sendStatus(400);
-                    }*/
-                
-                console.log(`new rentals to be added: <${JSON.stringify(newRentals, null, 2)}>`);
-                rentals.push(newRentals);
-                return res.sendStatus(201);
-            }
-            //sin datos
-            else if (!newRentals.location ||
-                !newRentals.year ||
-                !newRentals['price-square-meter'] ||
-                !newRentals['annual-variation'] ||
-                !newRentals['all-time-high'] ||
-                !newRentals['max-variation']){
-                    console.log(`Number of parameters is incorrect`);
-                    return res.sendStatus(400);
-                }
-            else {
-                console.log(`new rentals to be added: <${JSON.stringify(newRentals, null, 2)}>`);
-                rentals.push(newRentals);
-                return res.sendStatus(201);
-            }
+            })
         });
         //GET a un recurso
         app.get(BASE_RENTALS_API_PATH + "/rentals/:location/:year", (req, res) => {
-            var location = req.params.location;
-            var year = parseInt(req.params.year);
-
-            console.log(`get data by location: ${location} and year ${year}`);
-            for (var status of rentals){
-                if (status.location == location && status.year == year){
-                    return res.status(200).json(status);
+            var locationTF = req.params.location;
+            var yearTF = req.params.year;
+            db.find({ location: locationTF, year: yearTF }, function (err, rentalsInDB) {
+                console.log("Buscando " + locationTF + " " + yearTF);
+                if (err) {
+                    console.error(err);
+                    res.sendStatus(404);
                 }
-            }
-            console.log (`Data not found`);
-            return res.sendStatus(404);
+                if (rentalsInDB.length == 0) {
+                    console.log("Rentals not found: " + locationTF + " " + yearTF);
+                    res.sendStatus(404); // NOT FOUND
+                } else {
+                    
+                    var rentalsToSend = rentalsInDB.map((c) => {
+                        return { location: c.location, year: c.year, "pricesquaremeter": c.pricesquaremeter, "annualvariation": c.annualvariation, "alltimehigh": c.alltimehigh, "maxvariation": c.maxvariation }
+                    });
+                    console.log(rentalsToSend);
+                    res.status(200).send(JSON.stringify(rentalsToSend, null, 2));
+                }
+
+            })
         });
 
         //DELETE a un recurso
         app.delete(BASE_RENTALS_API_PATH + "/rentals/:location/:year", (req,res) => {
-            var location = req.params.location;
-            var year = parseInt(req.params.year);
-            
-            if (rentals.length!=0){
-                for (var i=0; i<rentals.length;i++){
-                    if(rentals[i]["location"]==location && rentals[i]["year"]==year){
-                        console.log (`DELETE location ${location} and year ${year}`);
-                        rentals.splice(i,1)
-                        return res.sendStatus(200);
-                    } 
+            var locationTD = req.params.location;
+            var yearTD = req.params.year;
+
+            db.remove({ location: locationTD, year: yearTD }, {}, (err, numRentalsRemoved) => {
+                if (err) {
+                    console.error("ERROR deleting DB rentals in DELETE: " + err);
+                    res.sendStatus(500);
+                } else {
+                    if (numRentalsRemoved == 0) {
+                        console.log("No data found");
+                        res.sendStatus(404); // NOT FOUND
+                    } else {
+                        console.log(`data ${locationTD} - ${yearTD} has been deleted`);
+                        res.sendStatus(200); // OK
+                    }
                 }
-                console.log (`No data found`);
-                return res.sendStatus(404);
-            }
-            else {
-                console.log (`Database is empty`);
-                return res.sendStatus(404);
-            }
+            })
 
         }); 
 
         //PUT a un recurso
-        app.put(BASE_RENTALS_API_PATH + "/rentals/:location/:year", (req,res) => {
-            var location = req.params.location;
-            var year = parseInt(req.params.year);
+        app.put(BASE_RENTALS_API_PATH + "/rentals/:location/:year", (req, res) => {
+            
+            var locationTU = req.params.location;
+            var yearTU = req.params.year;
             var newRentals = req.body;
-
-            console.log(`Edit ${newRentals.location} Selected ${location}`);
-            console.log(`Edit ${newRentals.year} Selected ${year}`);
-
-            if (rentals.length == 0){
-                console.log (`Database is empty`);
-                return res.sendStatus(404);
-            }
-            else {
-                if (!newRentals.location ||
-                    !newRentals.year ||
-                    !newRentals['price-square-meter'] ||
-                    !newRentals['annual-variation'] ||
-                    !newRentals['all-time-high'] ||
-                    !newRentals['max-variation']){
-                        console.log(`Number of parameters is incorrect`);
-                        return res.sendStatus(400);
-                    }
-                else{
-                    for (var i=0; i<rentals.length; i++){
-                        if (rentals[i]["location"]==location && rentals[i]["year"]==year){
-                            if (newRentals.location != location){
-                                console.log(`Error, location is not editable`);
-                                return res.sendStatus(403);	
-                            }
-                            else if (newRentals.year != year){
-                                console.log(`Error, year is not editable`);
-                                return res.sendStatus(403);
-                            }
-                            else{
-                                rentals[i]["location"] = location;
-                                rentals[i]["year"] = year;
-                                rentals[i]['price-square-meter'] = newRentals['price-square-meter'];
-                                rentals[i]['annual-variation'] = newRentals['annual-variation'];
-                                rentals[i]['all-time-high'] = newRentals['all-time-high'];
-                                rentals[i]['max-variation'] = newRentals['max-variation'];
-                                //rentals[i] = newRentals;
-                                //console.log(req.body);
-                                console.log(`PUT success`);
-                                return res.sendStatus(200);
-                            }
-
+    
+            console.log(`Edit ${newRentals.location} Selected ${locationTU}`);
+            console.log(`Edit ${newRentals.year} Selected ${yearTU}`);
+    
+            db.find({}, (err, rentalsInDB) => {
+                if (err) {
+                    console.error(err);
+                    res.sendStatus(500);
+                } else {
+                    if (rentalsInDB == 0) {
+                        console.log(`Database is empty`);
+                        return res.sendStatus(404);
+                    } else {
+                        if (!newRentals.location ||
+                            !newRentals.year ||
+                            !newRentals['pricesquaremeter'] ||
+                            !newRentals['annualvariation'] ||
+                            !newRentals['alltimehigh'] ||
+                            !newRentals['maxvariation']) {
+                            console.log(`Number of parameters is incorrect`);
+                            return res.sendStatus(400);
+                        } else {
+                            db.find({ location: locationTU, year: yearTU }, function (err, rentalsInDB) {
+                                console.log("buscando " + locationTU + " " + yearTU);
+                                if (err) {
+                                    console.error(err);
+                                    res.sendStatus(404);
+                                }
+                                if (rentalsInDB.length == 0) {
+                                    console.log("Rentals not found: " + locationTU + " " + yearTU);
+                                    res.sendStatus(404); // NOT FOUND
+                                } else {
+                                    console.log(rentalsInDB);
+                                    // Mantiene location y year, aunque en el body se le indiquen location y/o year distintos
+                                    db.update({ location: locationTU, year: yearTU },
+                                        {
+                                            location: locationTU,
+                                            year: yearTU,
+                                            pricesquaremeter: newRentals['pricesquaremeter'],
+                                            annualvariation: newRentals['annualvariation'],
+                                            alltimehigh: newRentals['alltimehigh'],
+                                            maxvariation: newRentals['maxvariation']
+                                        }, {}, function (err, numReplaced) {
+                                            if (err) {
+                                                console.error(err);
+                                                res.sendStatus(404);
+                                            } else {
+                                                res.sendStatus(200);
+                                                console.log("Rentals " + locationTU + " " + yearTU + " updated")
+                                            }
+                                        });
+                                }
+                            });
                         }
                     }
                 }
-            }
-            console.log(`Data not found`);
-            return res.sendStatus(404);           
-
+    
+            });
+    
+    
         });
 
         //POST a un recurso
@@ -269,15 +390,18 @@ var rentalsInitial =
         
         //DELETE a una lista de recursos
         app.delete(BASE_RENTALS_API_PATH + "/rentals", (req,res) => {
-            if (rentals.length==0){
-                console.log("Array is empty");
-                return res.sendStatus(404);
-            }
-            else{
-                rentals = [];
-                console.log("DELETE rentals success");
-                return res.sendStatus(200);
-            }
+            db.remove({}, { multi: true }, (err, numRentalsRemoved) => {
+                if (err) {
+                    console.error("ERROR deleting DB rentals: " + err);
+                    res.sendStatus(500);
+                } else {
+                    if (numRentalsRemoved == 0) {
+                        res.sendStatus(404);
+                    } else {
+                        console.log("Rentals deleted");
+                        res.sendStatus(200);
+                    }
+                }
+            })  
         });
     };
-	
