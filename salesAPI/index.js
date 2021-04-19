@@ -221,7 +221,7 @@ module.exports.register = (app) => {
                 //Se devuelven todos los elementos
                 db.find({}, function (err, salesInDB) {
                     if (err) {
-                        console.error("ERROR accesing DB in GET");
+                        console.error("Error accesing DB in GET");
                         res.sendStatus(500);
                     } else {
                         if (salesInDB.length == 0) {
@@ -240,13 +240,13 @@ module.exports.register = (app) => {
                 //Se pasan los paremetros de la busqueda
                 db.find({ $and: querySearch }, { _id: 0 }, function (err, salesInDB) {
                     if (err) {
-                        console.error("ERROR accesing DB in GET");
+                        console.error("Error accesing DB in GET");
                         res.sendStatus(500);
                     } else if (salesInDB.length == 0) {
                         console.error("No data found");
                         res.sendStatus(404);
                     } else {
-                        console.log(`requested sales`);
+                        console.log(`Requested sales`);
                         var salesToSend = salesInDB.map((c) => {
                             return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.seconhand }
                         });
@@ -385,7 +385,7 @@ module.exports.register = (app) => {
         var locationTF = req.params.location;
         var yearTF = req.params.year;
         db.find({ location: locationTF, year: yearTF }, function (err, salesInDB) {
-            console.log("buscando " + locationTF + " " + yearTF);
+            console.log("Buscando " + locationTF + " " + yearTF);
             if (err) {
                 console.error(err);
                 res.sendStatus(404);
