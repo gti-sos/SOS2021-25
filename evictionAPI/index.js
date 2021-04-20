@@ -298,7 +298,7 @@ module.exports.register = (app) => {
 				var evictionToSend = evictionsInDB.map((c)=>{
 					return {location : c.location, year : c.year, total : c.total, rustic : c.rustic, household : c.household, buildinglot : c.buildinglot, other : c.other};
 				});
-				res.status(200).send(JSON.stringify(evictionToSend,null,2)); // OK
+				res.status(200).send(JSON.stringify(evictionToSend[0],null,2)); // OK
 			}
 			
 		})
