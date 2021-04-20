@@ -250,7 +250,7 @@ module.exports.register = (app) => {
                         !(/^([0-9])*$/.test(newEviction['buildinglot'])) ||
                         !(/^([0-9])*$/.test(newEviction['other']))) {
                         console.log(`Only numbers are allowed`);
-                        return res.sendStatus(409);
+                        return res.sendStatus(409); // CONFLICT
                     }else{
 						console.log("Inserting new eviction in db: "+JSON.stringify(newEviction,null,2));
 						db.insert(newEviction);
@@ -298,7 +298,7 @@ module.exports.register = (app) => {
 				var evictionToSend = evictionsInDB.map((c)=>{
 					return {location : c.location, year : c.year, total : c.total, rustic : c.rustic, household : c.household, buildinglot : c.buildinglot, other : c.other};
 				});
-				res.status(200).send(JSON.stringify(evictionToSend,null,2));
+				res.status(200).send(JSON.stringify(evictionToSend,null,2)); // OK
 			}
 			
 		})
@@ -414,7 +414,7 @@ module.exports.register = (app) => {
 			}else{
 				if(evictionsInDB==0){
 					console.log (`Database is empty`);
-    				return res.sendStatus(404);
+    				return res.sendStatus(404); // NOT FOUND
 				}else{
 					if (!newEviction.location || !newEviction.year || !newEviction['total'] || !newEviction['rustic'] ||
     				!newEviction['household'] || !newEviction['buildinglot'] || !newEviction['other']){
@@ -447,7 +447,7 @@ module.exports.register = (app) => {
 											console.error(err);
 											res.sendStatus(404);
 										}else{
-											res.sendStatus(200);
+											res.sendStatus(200); // OK
 											console.log("Eviction "+locationTU+" "+yearTU+" updated")
 										}
 								});
@@ -472,7 +472,7 @@ module.exports.register = (app) => {
     	return res.sendStatus(405);
     });
 
-      //DELETE a una lista de recursos -- EL CODIGO NUEVO ES EL COMENTADO
+      //DELETE a una lista de recursos -- CÓDIGO NUEVO OK
     app.delete(BASE_EVICTION_API_PATH + "/evictions", (req,res) => {
       /*if (evictions.length==0){
     	  console.log("Array is empty");
