@@ -163,7 +163,7 @@ module.exports.register = (app) => {
             .limit(limit)
             .exec((err, docs) => {
                 if (docs.length == 0) {
-                    res.sendStatus(204);
+                    res.sendStatus(404);
                     console.log('\nNO CONTENT TO SHOW');
                 } else {
                     res.send(
