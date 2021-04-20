@@ -1,10 +1,47 @@
 {
 	"info": {
-		"_postman_id": "175151e3-6bd8-44dd-8624-c383785ed064",
-		"name": "SOS2021-25-rentals Tests",
+		"_postman_id": "b8652d21-cd38-4b24-8ba0-48d90e5e15e2",
+		"name": "SOS2021-25-rentals TESTS",
+		"description": "Evictions management API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "0. loadInitialData TEST - db empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "Comprobamos que la BBDD esta inicialmente vacia"
+			},
+			"response": []
+		},
 		{
 			"name": "0. loadInitialData TEST",
 			"event": [
@@ -37,7 +74,8 @@
 						"rentals",
 						"loadInitialData"
 					]
-				}
+				},
+				"description": "Lanzamos LoadInitialData para inicializar la BBDD con datos"
 			},
 			"response": []
 		},
@@ -77,7 +115,463 @@
 						"v1",
 						"rentals"
 					]
+				},
+				"description": "Hacemos un get con los datos que acabamos de insertar en LoadInitialData"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos andalusia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 4 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(4);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains andalusia\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"andalusia\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?location=andalusia",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						}
+					]
+				},
+				"description": "Realizamos una busqueda al recurso andalucia"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos 2015",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 18 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(18);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains 2015\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2015\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?year=2015",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2015"
+						}
+					]
+				},
+				"description": "Realizamos una busqueda al recurso año 2015"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos 2015 LIMIT=10",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 10 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(10);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains 2015\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2015\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?year=2015&limit=10$offset=100",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2015"
+						},
+						{
+							"key": "limit",
+							"value": "10$offset=100"
+						}
+					]
+				},
+				"description": "Misma busqueda pero esta vez paginando con un limite de 10 recursos"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos pricesquaremeter=7.3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 3 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains total=7.3\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"7.3\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?pricesquaremeter=7.3",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "pricesquaremeter",
+							"value": "7.3"
+						}
+					]
+				},
+				"description": "Filtramos para que busque el recurso concretado por la URL"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos annualvariation=5.7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body annualvariation=5.7\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"5.7\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?annualvariation=5.7",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "annualvariation",
+							"value": "5.7"
+						}
+					]
+				},
+				"description": "Filtramos para que busque el recurso concretado por la URL"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos alltimehigh=12.7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 4 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(4);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains alltimehigh=12.7\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"12.7\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?alltimehigh=12.7",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "alltimehigh",
+							"value": "12.7"
+						}
+					]
+				},
+				"description": "Filtramos para que busque el recurso concretado por la URL"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos maxvariation=-17.8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 2 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains maxvariation=-17.8\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"-17.8\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?maxvariation=-17.8",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "maxvariation",
+							"value": "-17.8"
+						}
+					]
+				},
+				"description": "Filtramos para que busque el recurso concretado por la URL"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos andalusia 2015",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 1 rentals\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?location=andalusia&year=2015",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "andalusia"
+						},
+						{
+							"key": "year",
+							"value": "2015"
+						}
+					]
+				},
+				"description": "Esta vez le indicamos dos filtros para realizar la busqueda"
+			},
+			"response": []
+		},
+		{
+			"name": "1a. GET lista recursos - busqueda de dato no existente - location=france",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?location=france",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "france"
+						}
+					]
+				},
+				"description": "Buscamos causar un error buscando un dato inexistente en la BBDD"
 			},
 			"response": []
 		},
@@ -101,7 +595,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"location\": \"prueba\",\r\n\"year\": \"2021\",\r\n\"price-square-meter\": \"8\",\r\n\"annual-variation\": \"96\",\r\n\"all-time-high\": \"9.5\",\r\n\"max-variation\": \"-15.7\"\r\n}",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"10\",\r\n    \"annualvariation\": \"10\", \r\n    \"alltimehigh\": \"10\", \r\n    \"maxvariation\": \"10\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -121,7 +615,143 @@
 						"v1",
 						"rentals"
 					]
+				},
+				"description": "Insertamos un registro a la BBDD"
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST nuevo recurso TEST - ERROR: letras en datos numericos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"casa\",\r\n    \"annualvariation\": \"10\", \r\n    \"alltimehigh\": \"10\", \r\n    \"maxvariation\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "Buscamos causar un error al realizar el POST"
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST nuevo recurso TEST - ERROR: faltan campos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"10\",\r\n    \"annualvariation\": \"10\", \r\n    \"alltimehigh\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "Buscamos causar un error al realizar el POST"
+			},
+			"response": []
+		},
+		{
+			"name": "2. POST nuevo recurso TEST - ERROR: ya existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"10\",\r\n    \"annualvariation\": \"10\", \r\n    \"alltimehigh\": \"10\", \r\n    \"maxvariation\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "Buscamos causar un error al realizar el POST"
 			},
 			"response": []
 		},
@@ -161,7 +791,8 @@
 						"v1",
 						"rentals"
 					]
-				}
+				},
+				"description": "Hacemos una búsqueda genérica para comprobar que el dato se ha insertado correctamente en la BBDD"
 			},
 			"response": []
 		},
@@ -184,7 +815,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2018",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -195,10 +826,49 @@
 						"api",
 						"v1",
 						"rentals",
-						"prueba",
-						"2021"
+						"andalusia",
+						"2018"
 					]
+				},
+				"description": "Buscamos un recurso especifico mediante Location y Year pasados por URL"
+			},
+			"response": []
+		},
+		{
+			"name": "3. GET recurso TEST - ERROR: no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/francia/2002",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"francia",
+						"2002"
+					]
+				},
+				"description": "Mismo ejemplo que el anterior pero para un registro inexistente en la BBDD"
 			},
 			"response": []
 		},
@@ -222,7 +892,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"location\": \"prueba\",\r\n\"year\": \"2021\",\r\n\"price-square-meter\": \"0\",\r\n\"annual-variation\": \"0\",\r\n\"all-time-high\": \"10\",\r\n\"max-variation\": \"2001\"\r\n}",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"20\",\r\n    \"annualvariation\": \"20\", \r\n    \"alltimehigh\": \"20\", \r\n    \"maxvariation\": \"20\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -230,7 +900,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2000",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -241,10 +911,152 @@
 						"api",
 						"v1",
 						"rentals",
-						"prueba",
-						"2021"
+						"andalusia",
+						"2000"
 					]
+				},
+				"description": "Actualizamos el recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT actualiza recurso TEST - ERROR: no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"20\",\r\n    \"annualvariation\": \"20\", \r\n    \"alltimehigh\": \"20\", \r\n    \"maxvariation\": \"20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2009",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"andalusia",
+						"2009"
+					]
+				},
+				"description": "Buscamos causar un error al actualizar el recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT actualiza recurso TEST - ERROR: faltan parametros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"20\",\r\n    \"annualvariation\": \"20\", \r\n    \"alltimehigh\": \"20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2000",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"andalusia",
+						"2000"
+					]
+				},
+				"description": "Buscamos causar un error al actualizar el recurso"
+			},
+			"response": []
+		},
+		{
+			"name": "4. PUT actualiza recurso TEST - ERROR: letras en parametros numericos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\": \"andalusia\",\r\n    \"year\": \"2000\",\r\n    \"pricesquaremeter\": \"20\",\r\n    \"annualvariation\": \"20\", \r\n    \"alltimehigh\": \"20\", \r\n    \"maxvariation\": \"casa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2000",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"andalusia",
+						"2000"
+					]
+				},
+				"description": "Buscamos causar un error al actualizar el recurso"
 			},
 			"response": []
 		},
@@ -267,7 +1079,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2000",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -278,10 +1090,49 @@
 						"api",
 						"v1",
 						"rentals",
-						"prueba",
-						"2021"
+						"andalusia",
+						"2000"
 					]
+				},
+				"description": "Borramos el recurso que habíamos hecho Post en la Prueba"
+			},
+			"response": []
+		},
+		{
+			"name": "5. DELETE recurso TEST - ERROR: no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2000",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"andalusia",
+						"2000"
+					]
+				},
+				"description": "Como el recurso ya esta borrado pues causa un error el volver a intentar borrarlo de la BBDD"
 			},
 			"response": []
 		},
@@ -292,7 +1143,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 405\", function () {\r",
+							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(405);\r",
 							"});"
 						],
@@ -303,17 +1154,8 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\"location\": \"prueba\",\r\n\"year\": \"2021\",\r\n\"price-square-meter\": \"0\",\r\n\"annual-variation\": \"0\",\r\n\"all-time-high\": \"10\",\r\n\"max-variation\": \"2001\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/prueba/2021",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/andalusia/2018",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -324,10 +1166,11 @@
 						"api",
 						"v1",
 						"rentals",
-						"prueba",
-						"2021"
+						"andalusia",
+						"2018"
 					]
-				}
+				},
+				"description": "Metodo no permitido en nuestra API"
 			},
 			"response": []
 		},
@@ -350,7 +1193,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -360,9 +1203,11 @@
 					"path": [
 						"api",
 						"v1",
-						"rentals"
+						"rentals",
+						""
 					]
-				}
+				},
+				"description": "Metodo no permitido en nuestra API"
 			},
 			"response": []
 		},
@@ -397,26 +1242,82 @@
 						"v1",
 						"rentals"
 					]
-				}
+				},
+				"description": "Borramos todos los datos que hay en la BBDD"
 			},
 			"response": []
-		}
-	],
-	"variable": [
-		{
-			"id": "ac989af0-7a37-430e-aef3-8e7384549cc6",
-			"key": "HOST",
-			"value": "https://sos2021-25.herokuapp.com"
 		},
 		{
-			"id": "7b12503c-2d45-45b5-ac0e-01eac4eed75d",
-			"key": "host",
-			"value": "localhost"
+			"name": "8. DELETE lista recursos TEST - ERROR: db vacia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "Error ya que no hay datos que borrar"
+			},
+			"response": []
 		},
 		{
-			"id": "68af6b0b-a84d-44cb-9d36-c13453d9d061",
-			"key": "port",
-			"value": "10000"
+			"name": "8. GET db vacia",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "Comprobamos mediante una busqueda que no hay datos en la BBDD puesto que se han borrado"
+			},
+			"response": []
 		}
 	]
 }
