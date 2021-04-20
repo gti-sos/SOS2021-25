@@ -245,7 +245,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?year=2017&limit=10$offset=100",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions?year=2017&limit=10&offset=5",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -264,7 +264,11 @@
 						},
 						{
 							"key": "limit",
-							"value": "10$offset=100"
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "5"
 						}
 					]
 				}
