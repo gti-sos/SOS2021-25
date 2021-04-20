@@ -281,7 +281,7 @@ var rentalsInitial =
                         return { location: c.location, year: c.year, "pricesquaremeter": c.pricesquaremeter, "annualvariation": c.annualvariation, "alltimehigh": c.alltimehigh, "maxvariation": c.maxvariation }
                     });
                     console.log(rentalsToSend);
-                    res.status(200).send(JSON.stringify(rentalsToSend, null, 2));
+                    res.status(200).send(JSON.stringify(rentalsToSend[0], null, 2));
                 }
 
             })
