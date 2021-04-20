@@ -399,7 +399,7 @@ module.exports.register = (app) => {
                     return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.seconhand };
                 });
                 console.log(salesToSend);
-                res.status(200).send(JSON.stringify(salesToSend, null, 2));
+                res.status(200).send(JSON.stringify(salesToSend[0], null, 2));
             }
 
         })
