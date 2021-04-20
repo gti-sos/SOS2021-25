@@ -580,10 +580,6 @@
 						"exec": [
 							"pm.test(\"Status code is 404\", function () {\r",
 							"    pm.response.to.have.status(404);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Body is empty\", function () {\r",
-							"    pm.response.to.have.body(\"\");\r",
 							"});"
 						],
 						"type": "text/javascript"
