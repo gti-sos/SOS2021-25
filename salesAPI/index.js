@@ -173,17 +173,17 @@ module.exports.register = (app) => {
             }
         }
 
-        console.log("querysearch: " + JSON.stringify(querySearch, null, 2));
+        console.log("Querysearch: " + JSON.stringify(querySearch, null, 2));
         //Comprobamos si se ha utilizado limit o offset
         if (!isNaN(limit) || !isNaN(offset)) {
-            console.log("with limit or offset - Limit: " + limit + " offset: " + offset);
+            console.log("With limit or offset - Limit: " + limit + " offset: " + offset);
             //Comprobamos si ha habido una busqueda
             if (Object.keys(query).length == 0) {
                 console.log("Empty query");
                 //Se devuelven todos los elementos
                 db.find({}, (err, salesInDB) => {
                     if (err) {
-                        console.error("ERROR accesing DB in GET");
+                        console.error("Error accesing DB in GET");
                         res.sendStatus(500);
                     } else {
                         if (salesInDB.length == 0) {
@@ -203,7 +203,7 @@ module.exports.register = (app) => {
                 //Se pasan los paremetros de la busqueda
                 db.find({ $and: querySearch }, { _id: 0 }).skip(offset).limit(limit).exec((err, salesInDB) => {
                     if (err) {
-                        console.error("ERROR accesing DB in GET");
+                        console.error("Error accesing DB in GET");
                         res.sendStatus(500);
                     } else if (salesInDB.length == 0) {
                         console.error("No data found");
@@ -215,7 +215,7 @@ module.exports.register = (app) => {
                 });
             }
         } else {
-            console.log("without limit or offset - Limit: " + limit + " offset: " + offset);
+            console.log("Without limit or offset - Limit: " + limit + " offset: " + offset);
             if (Object.keys(query).length == 0) {
                 console.log("Empty query");
                 //Se devuelven todos los elementos
