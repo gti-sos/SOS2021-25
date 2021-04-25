@@ -40,22 +40,20 @@ import {
             <CardTitle><h5>Sales</h5></CardTitle>
          </cardHeader>
          <cardBody>
-            <a href="https://sos2021-25.herokuapp.com/api/v1/sales"><Button color="primary">Backend</Button></a>
-           <a href="https://sos2021-25.herokuapp.com/#/sales"><Button color="primary">Frontend</Button></a>
+            <a href="/api/v1/sales"><Button color="primary">Backend</Button></a>
+           <a href="/#/sales"><Button color="primary">Frontend</Button></a>
            <a href="https://documenter.getpostman.com/view/14947805/TzJoDg1U"><Button color="primary">Postman Documentation</Button></a>
           </cardBody>
          <CardFooter>
             developed by <a href="https://github.com/AlbertoTNJ">José Alberto Trancoso Nieto</a>
           </CardFooter>
         </card>
-        <p>- <a href="https://sos2021-25.herokuapp.com/api/v1/sales">[https://sos2021-25.herokuapp.com/api/v1/sales]</a> (developed by <a href="https://github.com/AlbertoTNJ">José Alberto Trancoso Nieto)</a></p>
         <p>- <a href="https://sos2021-25.herokuapp.com/api/v1/evictions">[https://sos2021-25.herokuapp.com/api/v1/evictions]</a> (developed by <a href="https://github.com/ajpalma28">Antonio Javier Palma Guerrero)</a></p>
         <p>- <a href="https://sos2021-25.herokuapp.com/api/v1/rentals">[https://sos2021-25.herokuapp.com/api/v1/rentals]</a> (developed by <a href="https://github.com/PepeDeSoto">José María de Soto Oncins</a>)</p>
       </div>
 
       <div class="postman">
         <h3>-Postman:</h3>
-        <p>- <a href="https://documenter.getpostman.com/view/14947805/TzJoDg1U">[https://documenter.getpostman.com/view/14947805/TzJoDg1U]</a> (developed by <a href="https://github.com/AlbertoTNJ">José Alberto Trancoso Nieto)</a></p>
         <p>- <a href="https://documenter.getpostman.com/view/14966088/TzJoDKvD">[https://documenter.getpostman.com/view/14966088/TzJoDKvD]</a> (developed by <a href="https://github.com/ajpalma28">Antonio Javier Palma Guerrero)</a></p>
         <p>- <a href="https://documenter.getpostman.com/view/10637326/TzJu9xPa">[https://documenter.getpostman.com/view/10637326/TzJu9xPa]</a> (developed by <a href="https://github.com/PepeDeSoto">José María de Soto Oncins</a>)</p>
       </div>

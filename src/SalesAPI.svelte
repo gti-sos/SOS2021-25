@@ -1,58 +1,196 @@
 <script>
     import {
-        onMount
-    } from "svelte";
+        Nav,
+        Modal,
+        ModalBody,
+        ModalFooter,
+        ModalHeader,
+        NavItem,
+        NavLink,
+        Button,
+        Table,
+        UncontrolledAlert,
+    } from "sveltestrap";
 
-    import Table from "sveltestrap/src/Table.svelte"
+    //Load
+    let open1 = false;
+    const toggle1 = () => (open1 = !open1);
+    const toggle1P = () => {
+        open1 = !open1;
+        loadData();
+    };
+    //Delete
+    let open2 = false;
+    const toggle2 = () => (open2 = !open2);
+    const toggle2P = () => {
+        open2 = !open2;
+        deleteData();
+    };
+    //Alerts
+    let visible = true;
 
-    let getData = [];
+    let salesData = [];
+    let error = null;
 
-    async function loadData(){
+    async function loadData() {
+        console.log("Loading data...");
+        const res = await fetch("api/v1/sales/loadInitialData").then(function (
+            res
+        ) {
+            if (res.ok) {
+                console.log("Ok");
+                getData();
+                error = 0;
+            } else if (res.status == 409) {
+                error = 409;
+                console.log("Conflict");
+            } else {
+                error = 404;
+                console.log("Error");
+            }
+        });
+    }
+
+    async function getData() {
         console.log("Fetching data...");
-        const res = await fetch("/api/v1/sales/loadInitialData");
-
-        if (res.ok){
+        const res = await fetch("api/v1/sales/");
+        if (res.ok) {
             console.log("Ok");
             const json = await res.json();
-            getData = json;
-            console.log(`We have received ${getData.length} resources`);
-        }else{
+            salesData = json;
+            console.log(`We have received ${salesData.length} resources.`);
+        } else {
             console.log("Error");
         }
     }
-
-    onMount(loadData);
-
-    console.log("Before loadData");
-    loadData();
-    console.log("After loadData");
-
-
-
+    async function deleteData() {
+        console.log("Deleting data...");
+        const res = await fetch("api/v1/sales/", {
+            method: "DELETE",
+        }).then(function (res) {
+            if (res.ok) {
+                console.log("OK");
+                salesData = [];
+                error = 0;
+            } else if ((res.status = 404)) {
+                error = 404;
+                console.log("Error Data not found");
+            } else {
+                error = 1000;
+                console.log("Error");
+            }
+        });
+    }
 </script>
 
 <main>
-    <Table bordered>
-        <thead>
-            <tr>
-                <td>Localizacion</td>
-                <td>Año</td>
-                <td>Total</td>
-                <td>Viviendas protegidas</td>
-                <td>Nuevas</td>
-                <td>Segunda mano</td>
-            </tr>
-        </thead>
-        <tbody>
-            {#each getData as data}
+    <Nav>
+        <NavItem>
+            <NavLink href="/">Volver</NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink href="#" on:click={toggle1}>Cargar datos inciales</NavLink>
+            <Modal isOpen={open1} {toggle1}>
+                <ModalHeader {toggle1}>¿Cargar los datos iniciales?</ModalHeader
+                >
+                <ModalBody>
+                    Esta acción cargará los datos siempre y cuando no existan
+                    previamente.
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" on:click={toggle1P}>Cargar</Button>
+                    <Button color="secondary" on:click={toggle1}
+                        >Cancelar</Button
+                    >
+                </ModalFooter>
+            </Modal>
+        </NavItem>
+        <NavItem>
+            {#if salesData.length == 0}
+                <NavLink disabled href="#" on:click={toggle2}
+                    >Borrar todos los datos</NavLink
+                >
+            {:else}
+                <NavLink href="#" on:click={toggle2}
+                    >Borrar todos los datos</NavLink
+                >
+                <Modal isOpen={open2} {toggle2}>
+                    <ModalHeader {toggle2}>¿Borrar todos los datos?</ModalHeader
+                    >
+                    <ModalBody>Esta acción no se puede deshacer.</ModalBody>
+                    <ModalFooter>
+                        <Button color="danger" on:click={toggle2P}
+                            >Borrar</Button
+                        >
+                        <Button color="secondary" on:click={toggle2}
+                            >Cancelar</Button
+                        >
+                    </ModalFooter>
+                </Modal>
+            {/if}
+        </NavItem>
+    </Nav>
+    <h2>Sales</h2>
+
+    <!-- Alerts -->
+    {#if error == 0}
+        <UncontrolledAlert color="success">
+            Operación realizada correctamente.
+        </UncontrolledAlert>
+    {/if}
+
+    {#if error == 409}
+        <UncontrolledAlert color="warning">
+            Los datos ya se encuentran cargados.
+        </UncontrolledAlert>
+    {:else if error == 404}
+        <UncontrolledAlert color="danger">
+            No se encuentra en la base de datos.
+        </UncontrolledAlert>
+    {:else if error == 1000}
+        <UncontrolledAlert color="danger">Error desconocido.</UncontrolledAlert>
+    {/if}
+
+    <!-- Table -->
+    {#if salesData.length == 0}
+        <p>No se han encontrado datos, por favor carga los datos iniciales.</p>
+    {:else}
+        <Table borderer>
+            <thead>
                 <tr>
-                    <td>data.location</td>
-                    <td>data.year</td>
-                    <td>data.total</td>
-                    <td>data.protectedHousing</td>
-                    <td>data.secondHand</td>
+                    <td>Localizacion</td>
+                    <td>Año</td>
+                    <td>Total</td>
+                    <td>Viviendas protegidas</td>
+                    <td>Nuevas</td>
+                    <td>Segunda mano</td>
                 </tr>
-            {/each}
-        </tbody>
-    </Table>
+            </thead>
+            <tbody>
+                {#each salesData as data}
+                    <tr>
+                        <td>{data.location}</td>
+                        <td>{data.year}</td>
+                        <td>{data["total"]}</td>
+                        <td>{data["protectedhousing"]}</td>
+                        <td>{data["new"]}</td>
+                        <td>{data["secondhand"]}</td>
+                    </tr>
+                {/each}
+            </tbody>
+        </Table>
+    {/if}
 </main>
+
+<style>
+    main {
+        text-align: center;
+        padding: 1em;
+        margin: 0 auto;
+    }
+    h2 {
+        text-transform: uppercase;
+        font-size: 4em;
+        font-weight: 100;
+    }
+</style>
