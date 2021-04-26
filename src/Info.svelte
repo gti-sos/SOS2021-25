@@ -76,7 +76,7 @@ import {
            <a href="https://documenter.getpostman.com/view/14947805/TzJoDg1U"><Button color="info">Postman Documentation</Button></a>
           </CardBody>
          <CardFooter>
-            developed by <a href="https://github.com/AlbertoTNJ">José Alberto Trancoso Nieto</a>
+            Developed by <a href="https://github.com/AlbertoTNJ">José Alberto Trancoso Nieto</a>
           </CardFooter>
         </Card>
         <Card class="mb-3">

@@ -10,6 +10,13 @@
         Button,
         Table,
         UncontrolledAlert,
+        Card,
+        CardBody,
+        CardFooter,
+        CardHeader,
+        CardSubtitle,
+        CardText,
+        CardTitle,
     } from "sveltestrap";
     
 
@@ -88,6 +95,7 @@
 </script>
 
 <main>
+    <h2>Sales</h2>
     <Nav>
         <NavItem>
             <NavLink href="/">Volver</NavLink>
@@ -134,7 +142,7 @@
             {/if}
         </NavItem>
     </Nav>
-    <h2>Sales</h2>
+   
 
     <!-- Alerts -->
     {#if error == 0}
