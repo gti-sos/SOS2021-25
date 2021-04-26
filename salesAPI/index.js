@@ -136,14 +136,6 @@ module.exports.register = (app) => {
 
     //GET a la lista de recursos
     app.get(BASE_SALES_API_PATH + "/sales", (req, res) => {
-        /*if (sales.length != 0) {
-            console.log(`Request sales`);
-            return res.send(JSON.stringify(sales));
-        }
-        else {
-            console.log("No data found");
-            return res.send(JSON.stringify(sales));
-        }*/
 
         //GET a la lista de recursos consultando a DB
 
@@ -165,7 +157,7 @@ module.exports.register = (app) => {
                 queryObject[data] = query[data];
             } else if (data == 'new') {
                 queryObject[data] = query[data];
-            } else if (data == 'seconhand') {
+            } else if (data == 'secondhand') {
                 queryObject[data] = query[data];
             }
             if (data != 'limit' && data != 'offset') {
@@ -192,7 +184,7 @@ module.exports.register = (app) => {
                         } else {
                             console.log(`Requested sales`);
                             var salesToSend = salesInDB.map((c) => {
-                                return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.seconhand }
+                                return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.secondhand }
                             });
                             res.status(200).send(JSON.stringify(salesToSend, null, 2));
                         }
@@ -230,7 +222,7 @@ module.exports.register = (app) => {
                         } else {
                             console.log(`Requested sales`);
                             var salesToSend = salesInDB.map((c) => {
-                                return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.seconhand }
+                                return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.secondhand }
                             });
                             res.status(200).send(JSON.stringify(salesToSend, null, 2));
                         }
@@ -248,7 +240,7 @@ module.exports.register = (app) => {
                     } else {
                         console.log(`Requested sales`);
                         var salesToSend = salesInDB.map((c) => {
-                            return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.seconhand }
+                            return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.secondhand }
                         });
                         res.status(200).send(JSON.stringify(salesToSend, null, 2));
                     }
@@ -396,7 +388,7 @@ module.exports.register = (app) => {
             } else {
                 
                 var salesToSend = salesInDB.map((c) => {
-                    return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.seconhand };
+                    return { location: c.location, year: c.year, "total": c.total, "protectedhousing": c.protectedhousing, "new": c.new, "secondhand": c.secondhand };
                 });
                 console.log(salesToSend);
                 res.status(200).send(JSON.stringify(salesToSend[0], null, 2));

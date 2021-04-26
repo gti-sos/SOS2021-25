@@ -11,6 +11,7 @@
         Table,
         UncontrolledAlert,
     } from "sveltestrap";
+    
 
     //Load
     let open1 = false;
@@ -58,6 +59,9 @@
             console.log("Ok");
             const json = await res.json();
             salesData = json;
+            //ordenar tabla
+            salesData.sort((a, b) => new Date(a.year) > new Date(b.year));
+            salesData.sort((a, b) => new String(a.location) > new String(b.location));
             console.log(`We have received ${salesData.length} resources.`);
         } else {
             console.log("Error");
