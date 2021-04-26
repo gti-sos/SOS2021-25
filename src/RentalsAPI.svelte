@@ -33,7 +33,7 @@
     let error = null;
 
     async function loadData() {
-        console.log("Loading data...");
+        console.log("Loading data..."); 
         const res = await fetch("api/v1/rentals/loadInitialData").then(function (
             res
         ) {
