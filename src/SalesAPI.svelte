@@ -78,7 +78,7 @@
                 error = 0;
             } else if ((res.status = 404)) {
                 error = 404;
-                console.log("Error Data not found");
+                console.log("Error: Data not found");
             } else {
                 error = 1000;
                 console.log("Error");

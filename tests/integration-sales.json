@@ -323,9 +323,9 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"There are 2 resource\", function () {\r",
+							"pm.test(\"There are 1 resource\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
 							"});\r",
 							"pm.test(\"Body matches string: andalusia\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"andalusia\");\r",
@@ -339,7 +339,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&limit=2&offset=2",
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales?location=andalusia&limit=2&offset=4",
 					"protocol": "{{PROTOCOL}}",
 					"host": [
 						"{{HOST}}"
@@ -361,7 +361,7 @@
 						},
 						{
 							"key": "offset",
-							"value": "2"
+							"value": "4"
 						}
 					]
 				},
