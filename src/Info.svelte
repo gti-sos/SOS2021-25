@@ -35,16 +35,16 @@
       <b><h2>Project description</h2></b>
       <div class="parraf">
         <p>
-          - Venta de pisos: comunidad, año, total de ventas, ventas de viviendas
+          <b>- Venta de pisos:</b><br>comunidad, año, total de ventas, ventas de viviendas
           protegidas, ventas de pisos nuevos y ventas de casas de segunda mano
         </p>
         <p>
-          - Ejecuciones hipotecarias: comunidad, año, total de desahucios,
+          <b>- Ejecuciones hipotecarias:</b><br>comunidad, año, total de desahucios,
           desahucios de fincas rústicas, desahucios de viviendas urbanas,
           desahucios de solares y otros desahucios
         </p>
         <p>
-          - Alquileres de pisos: comunidad, año, precio por metro cuadrado,
+          <b>- Alquileres de pisos:</b><br>comunidad, año, precio por metro cuadrado,
           porcentaje de variación anual de precio, máximo histórico de precio
           del metro cuadrado, y variación del precio máximo
         </p>
