@@ -34,21 +34,21 @@
 
     async function loadData() {
         console.log("Loading data...");
-        const res = await fetch("api/v1/rentals/loadInitialData").then(function (
-            res
-        ) {
-            if (res.ok) {
-                console.log("Ok");
-                getData();
-                error = 0;
-            } else if (res.status == 409) {
-                error = 409;
-                console.log("Conflict");
-            } else {
-                error = 404;
-                console.log("Error");
+        const res = await fetch("api/v1/rentals/loadInitialData").then(
+            function (res) {
+                if (res.ok) {
+                    console.log("Ok");
+                    getData();
+                    error = 0;
+                } else if (res.status == 409) {
+                    error = 409;
+                    console.log("Conflict");
+                } else {
+                    error = 404;
+                    console.log("Error");
+                }
             }
-        });
+        );
     }
 
     async function getData() {
@@ -84,6 +84,10 @@
 </script>
 
 <main>
+    <div class="container">
+        <h2>Rentals</h2>
+    </div>
+
     <Nav>
         <NavItem>
             <NavLink href="/">Volver</NavLink>
@@ -130,7 +134,6 @@
             {/if}
         </NavItem>
     </Nav>
-    <h2>Rentals</h2>
 
     <!-- Alerts -->
     {#if error == 0}
@@ -155,7 +158,8 @@
     {#if rentalsData.length == 0}
         <p>No se han encontrado datos, por favor carga los datos iniciales.</p>
     {:else}
-        <Table borderer>
+    <div class="container">
+        <table>
             <thead>
                 <tr>
                     <td>Localizacion</td>
@@ -178,7 +182,8 @@
                     </tr>
                 {/each}
             </tbody>
-        </Table>
+        </table>
+    </div>
     {/if}
 </main>
 
@@ -192,5 +197,91 @@
         text-transform: uppercase;
         font-size: 4em;
         font-weight: 100;
+    }
+    main {
+        text-align: center;
+        padding: 1%;
+        padding-left: 15%;
+        padding-right: 15%;
+        margin: 0 auto;
+        color: rgb(226, 226, 226);
+        background: #e2e2e2;
+    }
+
+    .container {
+        padding: 45px;
+        background: #191919;
+        margin-top: 50px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    }
+    h2 {
+        padding: 5px;
+        color: #fdfd96;
+    }
+
+    a {
+        text-decoration: none;
+        color: #e2e2e2;
+        transition: 0.2s ease-in-out;
+    }
+    a:hover {
+        color: #fdfd96;
+    }
+
+    p,
+    a {
+        font-size: 20px;
+        line-height: 30px;
+        margin: 15px;
+    }
+    .repourl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .group {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 1080px) {
+        .group {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+    }
+
+    table {
+        background: #191919;
+        font-size: 12px;
+        margin: 45px;
+        width: 90%;
+        text-align: left;
+        border-collapse: collapse;
+    }
+
+    th {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 8px;
+        border-top: 4px solid #242323;
+        border-bottom: 4px solid #242323;
+        color: #fdfd96;
+    }
+
+    td {
+        font-size: larger;
+        padding: 8px;
+        border-bottom: 4px solid #242323;
+        color: #e2e2e2;
+        border-top: 1px solid transparent;
+        transition: 0.2s ease-in-out;
+    }
+
+    tr:hover td {
+        background: #242323;
+        color: #fdfd96;
     }
 </style>
