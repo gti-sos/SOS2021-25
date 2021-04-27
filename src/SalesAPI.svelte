@@ -96,7 +96,7 @@
 
 <main>
     <div class="container">
-        <h2>Sales</h2>
+        <h2>Ventas</h2>
     </div>
     
     <Nav>

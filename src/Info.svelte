@@ -16,7 +16,7 @@
     <h1>SOS2021-25</h1>
   </div>
   <div class="team container">
-    <b><h2>Team</h2></b>
+    <b><h2>Equipo</h2></b>
     <div class="group">
       <p>
         <a href="https://github.com/AlbertoTNJ">José Alberto Trancoso Nieto</a>
@@ -32,7 +32,7 @@
 
   <div class="description">
     <div class="container">
-      <b><h2>Project description</h2></b>
+      <b><h2>Descripcion del proyecto</h2></b>
       <div class="parraf">
         <p>
           <b>- Venta de pisos:</b><br>comunidad, año, total de ventas, ventas de viviendas
@@ -53,7 +53,7 @@
     <div class="repository container">
       <div class="repourl">
         <div class="article">
-          <b><h2>Repository</h2></b>
+          <b><h2>Repositorio</h2></b>
           <a href="https://github.com/gti-sos/SOS2021-25">gti-sos/SOS2021-25</a>
         </div>
         <div class="article">
@@ -68,42 +68,42 @@
       <b><h2>API</h2></b>
       <div class="group">
         <div class="article">
-          <CardTitle><h5>Sales</h5></CardTitle>
+          <CardTitle><h5>Ventas</h5></CardTitle>
           <a href="/api/v1/sales"><Button color="secondary">Backend</Button></a>
           <a href="/#/sales"><Button color="secondary">Frontend</Button></a><br><br>
           <a href="https://documenter.getpostman.com/view/14947805/TzJoDg1U"
-            ><Button color="info">Postman Documentation</Button></a
+            ><Button color="info">Pocumentacion Postman</Button></a
           >
           <CardFooter>
-            Developed by <a href="https://github.com/AlbertoTNJ"
+            Desarrollado por <a href="https://github.com/AlbertoTNJ"
               >José Alberto Trancoso Nieto</a
             >
           </CardFooter>
         </div>
         <div class="article">
-          <CardTitle><h5>Evictions</h5></CardTitle>
+          <CardTitle><h5>Deshaucios</h5></CardTitle>
           <a href="/api/v1/evictions"
             ><Button color="secondary">Backend</Button></a
           >
           <a href="/#/evictions"><Button color="secondary">Frontend</Button></a><br><br>
           <a href="https://documenter.getpostman.com/view/14966088/TzJoDKvD"
-            ><Button color="info">Postman Documentation</Button></a
+            ><Button color="info">Documentacion Postman</Button></a
           >
           <CardFooter>
-            Developed by <a href="https://github.com/ajpalma28"
+            Desarrollado por <a href="https://github.com/ajpalma28"
               >Antonio Javier Palma Guerrero</a
             >
           </CardFooter>
         </div>
         <div class="article">
-          <CardTitle><h5>Rentals</h5></CardTitle>
+          <CardTitle><h5>Alquileres</h5></CardTitle>
           <a href="/api/v1/rentals"><Button color="secondary">Backend</Button></a>
           <a href="/#/rentals"><Button color="secondary">Frontend</Button></a><br><br>
           <a href="https://sos2021-25.herokuapp.com/api/v1/rentals"
-            ><Button color="info">Postman Documentation</Button></a
+            ><Button color="info">Documentacion Postman</Button></a
           >
           <CardFooter>
-            Developed by <a href="https://github.com/PepeDeSoto"
+            Desarrollado por <a href="https://github.com/PepeDeSoto"
               >José María de Soto Oncins</a
             >
           </CardFooter>

@@ -85,7 +85,7 @@
 
 <main>
     <div class="container">
-        <h2>Evictions</h2>
+        <h2>Deshaucios</h2>
     </div>
     <Nav>
         <NavItem>

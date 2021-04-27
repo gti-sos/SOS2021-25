@@ -85,7 +85,7 @@
 
 <main>
     <div class="container">
-        <h2>Rentals</h2>
+        <h2>Alquileres</h2>
     </div>
 
     <Nav>
