@@ -142,6 +142,8 @@
   .parraf {
     padding-left: 5%;
     text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   h1 {
     font-size: 4em;
