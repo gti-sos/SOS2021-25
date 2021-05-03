@@ -30,6 +30,15 @@
     let visible = true;
 
     let evictionsData = [];
+    let newEviction = {
+        location:"",
+        year:"",
+        total:"",
+        rustic:"",
+        household:"",
+        buildinglot:"",
+        other:""
+    }
     let error = null;
 
     async function loadData() {
@@ -63,6 +72,31 @@
             console.log("Error");
         }
     }
+
+    async function insertEviction() {
+        console.log("Inserting eviction "+JSON.stringify(newEviction));
+        const res = await fetch("api/v1/evictions/", 
+                    {
+                        method: "POST",
+                        body: JSON.stringify(newEviction),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then( (res) => {
+                        getData();
+                    })
+    }
+
+    async function deleteEviction(data) {
+        console.log("Deleting eviction "+JSON.stringify(data));
+        const res = await fetch("api/v1/evictions/"+data.location+"/"+data.year, 
+                    {
+                        method: "DELETE"
+                    }).then( (res) => {
+                        getData();
+                    })
+    }
+
     async function deleteData() {
         console.log("Deleting data...");
         const res = await fetch("api/v1/evictions/", {
@@ -161,16 +195,27 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Localización</td>
-                        <td>Año</td>
-                        <td>Total</td>
-                        <td>Rústicas</td>
-                        <td>Viviendas</td>
-                        <td>Solares</td>
-                        <td>Otros</td>
+                        <th>Localización</th>
+                        <th>Año</th>
+                        <th>Total</th>
+                        <th>Rústicas</th>
+                        <th>Viviendas</th>
+                        <th>Solares</th>
+                        <th>Otros</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td><input bind:value="{newEviction.location}"></td>
+                        <td><input bind:value="{newEviction.year}"></td>
+                        <td><input bind:value="{newEviction.total}"></td>
+                        <td><input bind:value="{newEviction.rustic}"></td>
+                        <td><input bind:value="{newEviction.household}"></td>
+                        <td><input bind:value="{newEviction.buildinglot}"></td>
+                        <td><input bind:value="{newEviction.other}"></td>
+                        <td><Button on:click={insertEviction}>Insertar</Button></td>
+                    </tr>
                     {#each evictionsData as data}
                         <tr>
                             <td>{data.location}</td>
@@ -180,6 +225,7 @@
                             <td>{data["household"]}</td>
                             <td>{data["buildinglot"]}</td>
                             <td>{data["other"]}</td>
+                            <td><Button on:click={deleteEviction(data)}>Eliminar</Button></td>
                         </tr>
                     {/each}
                 </tbody>

@@ -13,8 +13,7 @@
 		"/info": Info,
 		"/sales": SalesApi,
 		"/rentals": RentalsApi,
-		"/evictions": EvictionsApi,
-		"/info": Info
+		"/evictions": EvictionsApi
 	};
 
 </script>
