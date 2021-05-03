@@ -1053,15 +1053,15 @@
 	"variable": [
 		{
 			"key": "HOST",
-			"value": "localhost"
+			"value": "sos2021-25.herokuapp.com"
 		},
 		{
 			"key": "PORT",
-			"value": "10000"
+			"value": ""
 		},
 		{
 			"key": "PROTOCOL",
-			"value": "http"
+			"value": "https"
 		}
 	]
 }
