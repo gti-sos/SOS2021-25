@@ -134,7 +134,7 @@
         });
     }
     async function deleteResource(location, year) {
-        console.log(`Deleting data...`);
+        console.log(`Deleting data`);
         const res = await fetch("/api/v1/sales/" + location + "/" + year,
             {
                 method: "DELETE",
