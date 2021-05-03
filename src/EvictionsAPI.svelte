@@ -225,6 +225,7 @@
                             <td>{data["household"]}</td>
                             <td>{data["buildinglot"]}</td>
                             <td>{data["other"]}</td>
+                            <td><a href="#/evictions/{data.location}/{data.year}"><Button color="primary">Editar</Button></a></td>
                             <td><Button on:click={deleteEviction(data)}>Eliminar</Button></td>
                         </tr>
                     {/each}
