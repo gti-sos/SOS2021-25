@@ -10,6 +10,7 @@
 
 	const routes = {
 		"/": Info,
+		"/info": Info,
 		"/sales": SalesApi,
 		"/rentals": RentalsApi,
 		"/evictions": EvictionsApi
