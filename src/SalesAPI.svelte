@@ -286,7 +286,6 @@
                                 <!--<td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>-->
                                 <td><a href="#/sales/{data.location}/{data.year}"><Button color="primary">Editar</Button></a></td>
                                 <td><Button color="danger" on:click={deleteResource(data.location, data.year)}>Borrar</Button></td>
-                                <td><Button color="danger" on:click={deleteResource(data.location, data.year)}>Borrar</Button></td>
                             </tr>
                         {/each}
                     </tbody>
