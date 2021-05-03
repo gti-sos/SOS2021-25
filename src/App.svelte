@@ -7,13 +7,15 @@
 
 
 	import Info from "./Info.svelte";
+import SalesApiEdit from './SalesAPIEdit.svelte';
 
 	const routes = {
 		"/": Info,
 		"/info": Info,
 		"/sales": SalesApi,
 		"/rentals": RentalsApi,
-		"/evictions": EvictionsApi
+		"/evictions": EvictionsApi,
+		"/sales/:location/:year":SalesApiEdit
 	};
 
 </script>

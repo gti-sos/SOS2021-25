@@ -1,4 +1,5 @@
 <script>
+    
     import {
         Nav,
         Modal,
@@ -18,7 +19,6 @@
         CardText,
         CardTitle,
     } from "sveltestrap";
-    
 
     //Load
     let open1 = false;
@@ -34,12 +34,51 @@
         open2 = !open2;
         deleteData();
     };
+
     //Alerts
     let visible = true;
 
     let salesData = [];
+    let newSales = {
+        location: "",
+        year: "",
+        total: "",
+        protectedhousing: "",
+        new: "",
+        secondhand: "",
+    };
     let error = null;
 
+    async function insertData() {
+        console.log("Inserting data: " + JSON.stringify(newSales));
+
+        const res = await fetch("api/v1/sales/", {
+            method: "POST",
+            body: JSON.stringify(newSales),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(function (res) {
+            if (res.ok) {
+                console.log("OK");
+                getData();
+                console.log(
+                    `${newSales.location} ${newSales.year} has been inserted`
+                );
+            } else {
+                if (res.status == 409) {
+                    console.log(
+                        `${newSales.location} ${newSales.year} ya se encuentra cargado`
+                    );
+                } else if (res.status == 500) {
+                    console.log(`Database error`);
+                } else {
+                    console.log(`All fields must be filled out correctly`);
+                }
+            }
+        });
+        resetInputs(2);
+    }
     async function loadData() {
         console.log("Loading data...");
         const res = await fetch("api/v1/sales/loadInitialData").then(function (
@@ -68,7 +107,9 @@
             salesData = json;
             //ordenar tabla
             salesData.sort((a, b) => new Date(a.year) > new Date(b.year));
-            salesData.sort((a, b) => new String(a.location) > new String(b.location));
+            salesData.sort(
+                (a, b) => new String(a.location) > new String(b.location)
+            );
             console.log(`We have received ${salesData.length} resources.`);
         } else {
             console.log("Error");
@@ -92,111 +133,168 @@
             }
         });
     }
+    async function deleteResource(location, year) {
+        console.log(`Deleting data`);
+        const res = await fetch("/api/v1/sales/" + location + "/" + year,
+            {
+                method: "DELETE",
+            }
+        ).then(function (res) {
+            if (res.ok) {
+                console.log("OK");
+                if (salesData.length == 1) {
+                    salesData = [];
+                    currentPage = 1;
+                }
+                console.log(`Resource has been deleted`);
+                getData();
+            } else {
+                if (res.status == 404) {
+                    console.log=(`Resource not found`);
+                } else if (res.status == 500) {
+                    console.log(`Database error`);
+                }
+            }
+        });
+    }
 </script>
 
 <main>
     <div class="container">
         <h2>Ventas</h2>
     </div>
-    
-    <Nav>
-        <NavItem>
-            <NavLink href="/">Volver</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink href="#" on:click={toggle1}>Cargar datos inciales</NavLink>
-            <Modal isOpen={open1} {toggle1}>
-                <ModalHeader {toggle1}>¿Cargar los datos iniciales?</ModalHeader
+    <div class="container">
+        <Nav>
+            <NavItem>
+                <NavLink href="/">Volver</NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink href="#" on:click={toggle1}
+                    >Cargar datos inciales</NavLink
                 >
-                <ModalBody>
-                    Esta acción cargará los datos siempre y cuando no existan
-                    previamente.
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" on:click={toggle1P}>Cargar</Button>
-                    <Button color="secondary" on:click={toggle1}
-                        >Cancelar</Button
+                <Modal isOpen={open1} {toggle1}>
+                    <ModalHeader {toggle1}
+                        >¿Cargar los datos iniciales?</ModalHeader
                     >
-                </ModalFooter>
-            </Modal>
-        </NavItem>
-        <NavItem>
-            {#if salesData.length == 0}
-                <NavLink disabled href="#" on:click={toggle2}
-                    >Borrar todos los datos</NavLink
-                >
-            {:else}
-                <NavLink href="#" on:click={toggle2}
-                    >Borrar todos los datos</NavLink
-                >
-                <Modal isOpen={open2} {toggle2}>
-                    <ModalHeader {toggle2}>¿Borrar todos los datos?</ModalHeader
-                    >
-                    <ModalBody>Esta acción no se puede deshacer.</ModalBody>
+                    <ModalBody>
+                        Esta acción cargará los datos siempre y cuando no
+                        existan previamente.
+                    </ModalBody>
                     <ModalFooter>
-                        <Button color="danger" on:click={toggle2P}
-                            >Borrar</Button
+                        <Button color="primary" on:click={toggle1P}
+                            >Cargar</Button
                         >
-                        <Button color="secondary" on:click={toggle2}
+                        <Button color="secondary" on:click={toggle1}
                             >Cancelar</Button
                         >
                     </ModalFooter>
                 </Modal>
-            {/if}
-        </NavItem>
-    </Nav>
-   
+            </NavItem>
+            <NavItem>
+                {#if salesData.length == 0}
+                    <NavLink disabled href="#" on:click={toggle2}
+                        >Borrar todos los datos</NavLink
+                    >
+                {:else}
+                    <NavLink href="#" on:click={toggle2}
+                        >Borrar todos los datos</NavLink
+                    >
+                    <Modal isOpen={open2} {toggle2}>
+                        <ModalHeader {toggle2}
+                            >¿Borrar todos los datos?</ModalHeader
+                        >
+                        <ModalBody>Esta acción no se puede deshacer.</ModalBody>
+                        <ModalFooter>
+                            <Button color="danger" on:click={toggle2P}
+                                >Borrar</Button
+                            >
+                            <Button color="secondary" on:click={toggle2}
+                                >Cancelar</Button
+                            >
+                        </ModalFooter>
+                    </Modal>
+                {/if}
+            </NavItem>
+        </Nav>
 
-    <!-- Alerts -->
-    {#if error == 0}
-        <UncontrolledAlert color="success">
-            Operación realizada correctamente.
-        </UncontrolledAlert>
-    {/if}
+        <!-- Alerts -->
+        {#if error == 0}
+            <UncontrolledAlert color="success">
+                Operación realizada correctamente.
+            </UncontrolledAlert>
+        {/if}
 
-    {#if error == 409}
-        <UncontrolledAlert color="warning">
-            Los datos ya se encuentran cargados.
-        </UncontrolledAlert>
-    {:else if error == 404}
-        <UncontrolledAlert color="danger">
-            No se encuentra en la base de datos.
-        </UncontrolledAlert>
-    {:else if error == 1000}
-        <UncontrolledAlert color="danger">Error desconocido.</UncontrolledAlert>
-    {/if}
+        {#if error == 409}
+            <UncontrolledAlert color="warning">
+                Los datos ya se encuentran cargados.
+            </UncontrolledAlert>
+        {:else if error == 404}
+            <UncontrolledAlert color="danger">
+                No se encuentra en la base de datos.
+            </UncontrolledAlert>
+        {:else if error == 1000}
+            <UncontrolledAlert color="danger"
+                >Error desconocido.</UncontrolledAlert
+            >
+        {/if}
 
-    <!-- Table -->
-    {#if salesData.length == 0}
-        <p>No se han encontrado datos, por favor carga los datos iniciales.</p>
-    {:else}
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <td>Localizacion</td>
-                    <td>Año</td>
-                    <td>Total</td>
-                    <td>Viviendas protegidas</td>
-                    <td>Nuevas</td>
-                    <td>Segunda mano</td>
-                </tr>
-            </thead>
-            <tbody>
-                {#each salesData as data}
-                    <tr>
-                        <td>{data.location}</td>
-                        <td>{data.year}</td>
-                        <td>{data["total"]}</td>
-                        <td>{data["protectedhousing"]}</td>
-                        <td>{data["new"]}</td>
-                        <td>{data["secondhand"]}</td>
-                    </tr>
-                {/each}
-            </tbody>
-        </table>
+        <!-- Table -->
+        {#if salesData.length == 0}
+        <tr>
+            <td><input type="text" placeholder="Localizacion" bind:value={newSales.location}/></td>
+            <td><input type="text" placeholder="Año" bind:value={newSales.year}/></td>
+            <td><input type="text" placeholder="Total" min="0" bind:value={newSales["total"]}/></td>
+            <td><input type="text" placeholder="Viviendas protegidas" min="0" bind:value={newSales["protectedhousing"]}/></td>
+            <td><input type="text" placeholder="Nuevas" min="0" bind:value={newSales["new"]}/></td>
+            <td><input type="text" placeholder="Segunda mano" min="0" bind:value={newSales["secondhand"]}/></td>
+            <td><Button color="primary" on:click={insertData}>Insertar</Button></td>
+        </tr>
+            <p>
+                No se han encontrado datos, por favor carga los datos iniciales.
+            </p>
+        {:else}
+            <div class="container">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Localizacion</td>
+                            <td>Año</td>
+                            <td>Total</td>
+                            <td>Viviendas protegidas</td>
+                            <td>Nuevas</td>
+                            <td>Segunda mano</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" placeholder="Localizacion" bind:value={newSales.location}/></td>
+                            <td><input type="text" placeholder="Año" bind:value={newSales.year}/></td>
+                            <td><input type="text" placeholder="Total" min="0" bind:value={newSales["total"]}/></td>
+                            <td><input type="text" placeholder="Viviendas protegidas" min="0" bind:value={newSales["protectedhousing"]}/></td>
+                            <td><input type="text" placeholder="Nuevas" min="0" bind:value={newSales["new"]}/></td>
+                            <td><input type="text" placeholder="Segunda mano" min="0" bind:value={newSales["secondhand"]}/></td>
+                            <td><Button color="primary" on:click={insertData}>Insertar</Button></td>
+                        </tr>
+                        {#each salesData as data}
+                            <tr>
+                                <td>{data.location}</td>
+                                <td>{data.year}</td>
+                                <td>{data["total"]}</td>
+                                <td>{data["protectedhousing"]}</td>
+                                <td>{data["new"]}</td>
+                                <td>{data["secondhand"]}</td>
+                                <!--<td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>-->
+                                <td><a href="#/sales/{data.location}/{data.year}"><Button color="primary">Editar</Button></a></td>
+                                <td><Button color="danger" on:click={deleteResource(data.location, data.year)}>Borrar</Button></td>
+                                <td><Button color="danger" on:click={deleteResource(data.location, data.year)}>Borrar</Button></td>
+                            </tr>
+                        {/each}
+                    </tbody>
+                </table>
+                <div id="contenedorForm"></div>
+            </div>
+        {/if}
     </div>
-    {/if}
 </main>
 
 <style>
