@@ -170,23 +170,20 @@
             </NavItem>
             <NavItem>
                 <NavLink href="#" on:click={toggle1}
-                    >Cargar datos inciales</NavLink
-                >
+                    >Cargar datos inciales</NavLink>
                 <Modal isOpen={open1} {toggle1}>
-                    <ModalHeader {toggle1}
-                        >¿Cargar los datos iniciales?</ModalHeader
-                    >
+                    <ModalHeader {toggle1}>
+                        <p style="color:black"><b>¿Cargar los datos iniciales?</b></p></ModalHeader>
                     <ModalBody>
-                        Esta acción cargará los datos siempre y cuando no
-                        existan previamente.
+                        <p style="color:black"><b>Esta acción cargará los datos siempre y cuando no
+                            existan previamente.</b></p>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" on:click={toggle1P}
-                            >Cargar</Button
-                        >
-                        <Button color="secondary" on:click={toggle1}
-                            >Cancelar</Button
-                        >
+                            >Cargar</Button>
+                        <Button color="secondary" on:click={toggle1}>
+                            Cancelar
+                        </Button>
                     </ModalFooter>
                 </Modal>
             </NavItem>
@@ -237,66 +234,58 @@
                 >Error desconocido.</UncontrolledAlert
             >
         {/if}
-
+    <p>
+        No se han encontrado datos, por favor carga los datos iniciales.
+    </p>
         <!-- Table -->
-        {#if salesData.length == 0}
-        <tr>
-            <td><input type="text" placeholder="Localizacion" bind:value={newSales.location}/></td>
-            <td><input type="text" placeholder="Año" bind:value={newSales.year}/></td>
-            <td><input type="text" placeholder="Total" min="0" bind:value={newSales["total"]}/></td>
-            <td><input type="text" placeholder="Viviendas protegidas" min="0" bind:value={newSales["protectedhousing"]}/></td>
-            <td><input type="text" placeholder="Nuevas" min="0" bind:value={newSales["new"]}/></td>
-            <td><input type="text" placeholder="Segunda mano" min="0" bind:value={newSales["secondhand"]}/></td>
-            <td><Button color="primary" on:click={insertData}>Insertar</Button></td>
-        </tr>
-            <p>
-                No se han encontrado datos, por favor carga los datos iniciales.
-            </p>
-        {:else}
-            <div class="container">
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Localizacion</td>
-                            <td>Año</td>
-                            <td>Total</td>
-                            <td>Viviendas protegidas</td>
-                            <td>Nuevas</td>
-                            <td>Segunda mano</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="text" placeholder="Localizacion" bind:value={newSales.location}/></td>
-                            <td><input type="text" placeholder="Año" bind:value={newSales.year}/></td>
-                            <td><input type="text" placeholder="Total" min="0" bind:value={newSales["total"]}/></td>
-                            <td><input type="text" placeholder="Viviendas protegidas" min="0" bind:value={newSales["protectedhousing"]}/></td>
-                            <td><input type="text" placeholder="Nuevas" min="0" bind:value={newSales["new"]}/></td>
-                            <td><input type="text" placeholder="Segunda mano" min="0" bind:value={newSales["secondhand"]}/></td>
-                            <td><Button color="primary" on:click={insertData}>Insertar</Button></td>
-                        </tr>
-                        {#each salesData as data}
-                            <tr>
-                                <td>{data.location}</td>
-                                <td>{data.year}</td>
-                                <td>{data["total"]}</td>
-                                <td>{data["protectedhousing"]}</td>
-                                <td>{data["new"]}</td>
-                                <td>{data["secondhand"]}</td>
-                                <!--<td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>-->
-                                <td><a href="#/sales/{data.location}/{data.year}"><Button color="primary">Editar</Button></a></td>
-                                <td><Button color="danger" on:click={deleteResource(data.location, data.year)}>Borrar</Button></td>
-                            </tr>
-                        {/each}
-                    </tbody>
-                </table>
-                <div id="contenedorForm"></div>
-            </div>
-        {/if}
+    <table responsive="true" bordered="true">
+        <thead>
+            <tr>
+                <th>Localizacion</th>
+                <th>Año</th>
+                <th>Total</th>
+                <th>Viviendas protegidas</th>
+                <th>Nuevas</th>
+                <th>Segunda mano</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="insertadatos">
+                <td><input type="text" placeholder="Localizacion" bind:value={newSales.location}/></td>
+                <td><input type="text" placeholder="Año" bind:value={newSales.year}/></td>
+                <td><input type="text" placeholder="Total" min="0" bind:value={newSales["total"]}/></td>
+                <td><input type="text" placeholder="Viviendas protegidas" min="0" bind:value={newSales["protectedhousing"]}/></td>
+                <td><input type="text" placeholder="Nuevas" min="0" bind:value={newSales["new"]}/></td>
+                <td><input type="text" placeholder="Segunda mano" min="0" bind:value={newSales["secondhand"]}/></td>
+                <td><Button color="primary" on:click={insertData}>Insertar</Button></td>
+            </tr>
+            {#if salesData.length != 0}
+                {#each salesData as data}
+                    <tr>
+                        <td>{data.location}</td>
+                        <td>{data.year}</td>
+                        <td>{data["total"]}</td>
+                        <td>{data["protectedhousing"]}</td>
+                        <td>{data["new"]}</td>
+                        <td>{data["secondhand"]}</td>
+                        <!--<td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>-->
+                        <td><a href="#/sales/{data.location}/{data.year}"><Button color="primary">Editar</Button></a></td>
+                        <td><Button color="danger" on:click={deleteResource(data.location, data.year)}>Borrar</Button></td>
+                    </tr>
+                {/each}
+            {/if}
+        </tbody>
+    </table>
+    <div id="contenedorForm"></div>
+       
     </div>
 </main>
 
 <style>
+    *{
+        margin:0;
+        padding: 0;
+    }
     main {
         text-align: center;
         padding: 1em;
@@ -309,17 +298,15 @@
     }
     main {
         text-align: center;
-        padding: 1%;
-        padding-left: 15%;
-        padding-right: 15%;
         margin: 0 auto;
         color: rgb(226, 226, 226);
         background: #e2e2e2;
     }
 
     .container {
-        padding: 45px;
+        padding: 45px 0;
         background: #191919;
+        width: 100%;
         margin-top: 50px;
         border-radius: 5px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
@@ -366,8 +353,8 @@
         border-radius: 5px;
         background: #191919;
         font-size: 12px;
-        margin: 45px;
-        width: 90%;
+        margin: 45px 10px;
+        width: 0 auto;
         text-align: left;
         border-collapse: collapse;
     }
