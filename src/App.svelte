@@ -8,6 +8,7 @@
 
 	import Info from "./Info.svelte";
 import SalesApiEdit from './SalesAPIEdit.svelte';
+import EvictionsApiEdit from './EvictionsAPIEdit.svelte';
 
 	const routes = {
 		"/": Info,
@@ -15,7 +16,8 @@ import SalesApiEdit from './SalesAPIEdit.svelte';
 		"/sales": SalesApi,
 		"/rentals": RentalsApi,
 		"/evictions": EvictionsApi,
-		"/sales/:location/:year":SalesApiEdit
+		"/sales/:location/:year":SalesApiEdit,
+		"/evictions/:location/:year": EvictionsApiEdit
 	};
 
 </script>
