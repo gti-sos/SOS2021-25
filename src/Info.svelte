@@ -61,6 +61,9 @@
           <a href="http://sos2021-25.herokuapp.com">
             http://sos2021-25.herokuapp.com</a
           >
+          <a href="http://sos2021-25.herokuapp.com/#/info">
+            http://sos2021-25.herokuapp.com/#/info</a
+          >
         </div>
       </div>
     </div>
