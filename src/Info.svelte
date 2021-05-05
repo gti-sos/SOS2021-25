@@ -15,18 +15,34 @@
   <div class="container">
     <h1>SOS2021-25</h1>
   </div>
-  <div class="team container">
+  <div class="container">
     <b><h2>Equipo</h2></b>
     <div class="group">
-      <p>
-        <a href="https://github.com/AlbertoTNJ">José Alberto Trancoso Nieto</a>
-      </p>
-      <p>
-        <a href="https://github.com/ajpalma28">Antonio Javier Palma Guerrero</a>
-      </p>
-      <p>
-        <a href=" https://github.com/PepeDeSoto">José María de Soto Oncins</a>
-      </p>
+      <a href="https://github.com/AlbertoTNJ">
+        <div class="article cambioNegro">
+          <img style="border-radius: 15px;" src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imgaen GitHub">
+          <p>
+            José Alberto Trancoso Nieto
+          </p>
+        </div>
+      </a>
+      <a href="https://github.com/ajpalma28">
+        <div class="article cambioNegro">
+          <img style="border-radius: 15px;" src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+          <p>
+            Antonio Javier Palma Guerrero
+          </p>
+        </div>
+      </a>
+      <a href=" https://github.com/PepeDeSoto">
+        <div class="article cambioNegro">
+          <img style="border-radius: 15px;" src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+          <p>
+            José María de Soto Oncins
+          </p>
+        </div>
+      </a>
+        
     </div>
   </div>
 
@@ -141,6 +157,10 @@
     border-radius: 5px;
     margin: 3px;
     padding: 5px;
+    transition: 0.4s ease-in-out;
+  }
+  .article:hover{
+    background-color: #e2e2e2;
   }
   .parraf {
     padding-left: 5%;
@@ -176,6 +196,23 @@
     font-size: 20px;
     line-height: 30px;
     margin: 15px;
+  }
+  .cambioNegro,.cambioNegro p{
+    
+    transition: 0.4s ease-in-out;
+  }
+  .cambioNegro:hover,.cambioNegro:hover p{
+    font-size: 24px;
+    font-weight: 600;
+    color: #191919;
+  }
+  .cambioNegro img{
+    transition: 0.4s ease-in-out;
+    transform: scale(.7);
+    width: 200px;
+  }
+  .cambioNegro:hover img{
+    transform: scale(1);
   }
   .repourl{
     display: grid;
