@@ -1,4 +1,6 @@
 <script>
+import { onMount } from "svelte";
+
     import {
         Nav,
         Modal,
@@ -115,6 +117,7 @@
             }
         });
     }
+    onMount(getData);
 </script>
 
 <main>

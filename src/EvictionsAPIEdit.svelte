@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import { pop } from "svelte-spa-router";
     import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     const BASE_CONTACT_API_PATH = "/api/v1";
     export let params = {};
@@ -93,7 +94,8 @@
   <main>
     <Nav>
       <NavItem>
-        <NavLink href="#/evictions/">Volver</NavLink>
+        <!--<NavLink href="#/evictions/">Volver</NavLink>-->
+        <NavLink on:click="{pop}">Volver</NavLink>
       </NavItem>
     </Nav>
   
