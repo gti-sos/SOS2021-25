@@ -243,10 +243,10 @@ var rentalsInitial =
                             console.log(`Number of parameters is incorrect`);
                             return res.sendStatus(400);
                         }
-                        else if (!(/^([0-9])*$/.test(newRentals['pricesquaremeter'])) ||
-                            !(/^([0-9])*$/.test(newRentals['annualvariation'])) ||
-                            !(/^([0-9])*$/.test(newRentals['alltimehigh'])) ||
-                            !(/^([0-9])*$/.test(newRentals['maxvariation']))) {
+                        else if (!isNumeric(newRentals['pricesquaremeter']) ||
+                            !isNumeric(newRentals['annualvariation']) ||
+                            !isNumeric(newRentals['alltimehigh']) ||
+                            !isNumeric(newRentals['maxvariation'])) {
                                 console.log(`Number of parameters is incorrect`);
                                 return res.sendStatus(400);
                         }
@@ -262,6 +262,11 @@ var rentalsInitial =
                 }
             })
         });
+
+        function isNumeric(num) {
+            return !isNaN(parseFloat(num)) && isFinite(num);
+            }
+
         //GET a un recurso
         app.get(BASE_RENTALS_API_PATH + "/rentals/:location/:year", (req, res) => {
             var locationTF = req.params.location;
@@ -336,10 +341,10 @@ var rentalsInitial =
                             !newRentals['maxvariation']) {
                             console.log(`Number of parameters is incorrect`);
                             return res.sendStatus(400);
-                        }else if(!(/^([0-9])*$/.test(newRentals['pricesquaremeter'])) ||
-                        !(/^([0-9])*$/.test(newRentals['annualvariation'])) ||
-                        !(/^([0-9])*$/.test(newRentals['alltimehigh'])) ||
-                        !(/^([0-9])*$/.test(newRentals['maxvariation']))){
+                        }else if(!isNumeric(newRentals['pricesquaremeter']) ||
+                        !isNumeric(newRentals['annualvariation']) ||
+                        !isNumeric(newRentals['alltimehigh']) ||
+                        !isNumeric(newRentals['maxvariation'])){
                             console.log(`Only numbers are allowed`);
 						    return res.sendStatus(409);
                 
