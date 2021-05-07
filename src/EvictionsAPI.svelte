@@ -12,6 +12,9 @@ import { onMount } from "svelte";
         Button,
         Table,
         UncontrolledAlert,
+        Pagination,
+        PaginationItem,
+        PaginationLink
     } from "sveltestrap";
 
     //Load
@@ -43,6 +46,13 @@ import { onMount } from "svelte";
     }
     let error = null;
 
+    //Pagination
+    let current_offset = 0;
+    let limit = 10;
+    let current_page = 1;
+    let last_page = 1;
+    let total = 0;
+
     async function loadData() {
         console.log("Loading data...");
         const res = await fetch("api/v1/evictions/loadInitialData").then(
@@ -50,6 +60,7 @@ import { onMount } from "svelte";
                 if (res.ok) {
                     console.log("Ok");
                     getData();
+                    getNumData();
                     error = 0;
                 } else if (res.status == 409) {
                     error = 409;
@@ -64,7 +75,7 @@ import { onMount } from "svelte";
 
     async function getData() {
         console.log("Fetching data...");
-        const res = await fetch("api/v1/evictions/");
+        const res = await fetch("api/v1/evictions?limit="+limit+"&offset="+current_offset);
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
@@ -73,6 +84,42 @@ import { onMount } from "svelte";
         } else {
             console.log("Error");
         }
+    }
+
+    async function getNumData() {
+        const res = await fetch("api/v1/evictions");
+        if (res.ok) {
+            const json = await res.json();
+            total = json.length;
+            console.log("Number of stats : " + total);
+            changePage(current_page, current_offset);
+        } else if(res.status==404) {
+            total = 0;
+            changePage(current_page, current_offset);
+        } else {
+            alertError = "No se han encontrado datos.";
+        }
+    }
+
+    //Calcula el rango entre dos valores
+    function range(size, startAt = 0) {
+        return [...Array(size).keys()].map((i) => i + startAt);
+    }
+
+    function changePage(page, offset) {
+        console.log("------Change page------");
+        console.log("Params page: " + page + " offset: " + offset);
+        last_page = Math.ceil(total / 10);
+        console.log("new last page: " + last_page);
+        if (page !== current_page) {
+            current_offset = offset;
+            current_page = page;
+            console.log("page: " + page);
+            console.log("current_offset: " + current_offset);
+            console.log("current_page: " + current_page);
+            getData();
+        }
+        console.log("---------Exit change page-------");
     }
 
     async function insertEviction() {
@@ -96,6 +143,7 @@ import { onMount } from "svelte";
                         method: "DELETE"
                     }).then( (res) => {
                         getData();
+                        getNumData();
                     })
     }
 
@@ -108,6 +156,8 @@ import { onMount } from "svelte";
                 console.log("OK");
                 evictionsData = [];
                 error = 0;
+                getData();
+                getNumData();
             } else if ((res.status = 404)) {
                 error = 404;
                 console.log("Error Data not found");
@@ -118,6 +168,7 @@ import { onMount } from "svelte";
         });
     }
     onMount(getData);
+    getNumData();
 </script>
 
 <main>
@@ -218,6 +269,7 @@ import { onMount } from "svelte";
                         <td><input bind:value="{newEviction.buildinglot}"></td>
                         <td><input bind:value="{newEviction.other}"></td>
                         <td><Button on:click={insertEviction}>Insertar</Button></td>
+                        
                     </tr>
                     {#each evictionsData as data}
                         <tr>
@@ -236,6 +288,32 @@ import { onMount } from "svelte";
             </table>
         </div>
     {/if}
+    <Pagination ariaLabel="Web pagination">
+        <PaginationItem class={current_page == 1 ? "disabled" : ""}>
+          <PaginationLink
+            previous
+            href="#/evictions"
+            on:click={() => changePage(current_page - 1, current_offset - 10)}
+          />
+        </PaginationItem>
+        {#each range(last_page, 1) as page}
+          <PaginationItem class={current_page == page ? "active" : ""}>
+            <PaginationLink
+              previous
+              href="#/evictions"
+              on:click={() => changePage(page, (page - 1) * 10)}
+              >{page}</PaginationLink
+            >
+          </PaginationItem>
+        {/each}
+        <PaginationItem class={current_page == last_page ? "disabled" : ""}>
+          <PaginationLink
+            next
+            href="#/evictions"           
+            on:click={() => changePage(current_page + 1, current_offset + 10)}
+          />
+        </PaginationItem>
+      </Pagination>
 </main>
 
 <style>
