@@ -57,6 +57,9 @@
     let alertError = "";
     let alertOk = "";
     let fullQuery = "";
+    var queryT = "";
+    let busqueda = "no";
+    let evictionsDataTocho = [];
 
     async function loadData() {
         console.log("Loading data...");
@@ -84,6 +87,7 @@
             "api/v1/evictions?limit=" + limit + "&offset=" + current_offset
         );
         if (res.ok) {
+            busqueda = "no";
             console.log("Ok");
             const json = await res.json();
             evictionsData = json;
@@ -108,19 +112,23 @@
             const json = await res.json();
             evictionsData = json;
             console.log(`We have received ${evictionsData.length} resources.`);
+            busqueda = "si";
         } else {
             console.log("Error");
         }
-        getNumDataSearch(query);
+        //getNumDataSearch(query);
     }
 
     async function getNumDataSearch(query) {
         console.log("LA QUERY: " + query + "LIMITE: " + limit + "OFFSET: " + current_offset);
-        const res = await fetch("api/v1/evictions" + query + "&limit=" + limit);
+        //const res = await fetch("api/v1/evictions" + query + "&limit=" + limit + "&offset="+current_offset);
+        const res = await fetch("api/v1/evictions" + query);
         if (res.ok) {
             const json = await res.json();
             total = json.length;
             console.log("Number of stats : " + total);
+            queryT = query;
+            console.log("queryT = " + queryT);
 
             changePageSearch(current_page, current_offset, query, total);
         } else if (res.status == 404) {
@@ -179,7 +187,24 @@
             console.log("page: " + page);
             console.log("current_offset: " + current_offset);
             console.log("current_page: " + current_page);
-            getData();
+            //NUEVO
+            var campos = new Map(
+                Object.entries(newEviction).filter((o) => {
+                    return o[1] != "";
+                })
+            );
+            let querySymbol = "?";
+            for (var [clave, valor] of campos.entries()) {
+                querySymbol += clave + "=" + valor + "&";
+            }
+            fullQuery = querySymbol.slice(0, -1);
+            if (fullQuery != "") {
+                searchData();
+            }else{
+                getData();
+                getNumData();
+            }
+            
         }
         console.log("---------Exit change page-------");
     }
@@ -211,12 +236,16 @@
         }
         fullQuery = querySymbol.slice(0, -1);
         if (fullQuery != "") {
-            const res = await fetch("api/v1/evictions" + fullQuery);
-            console.log(fullQuery);
+            const limityOffset = "&limit=" + limit +
+                    "&offset="+current_offset;
+            const res = await fetch("api/v1/evictions" + fullQuery + limityOffset);
+            console.log("FULL QUERY: "+fullQuery + limityOffset);
             if (res.ok) {
                 console.log("OK");
                 const json = await res.json();
+                evictionsDataTocho = evictionsData;
                 evictionsData = json;
+                console.log(`We have received ${evictionsData.length} resources.`);
                 alertError = "";
                 alertOk = "Búsqueda realizada con éxito";
             } else {
@@ -233,7 +262,7 @@
         } else {
             alertError = "";
             alertOk = "Búsqueda realizada con éxito";
-            getDataSearch();
+            //getDataSearch();
             //getData();
         }
         
