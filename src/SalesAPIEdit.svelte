@@ -10,8 +10,8 @@
     let updateProtectedhousing = 999;
     let updateNew = 999;
     let updateSecondhand = 999.9;
-    let errorMsg = "";
-    let okMsg = "";
+    let alertError = "";
+    let alertOk = "";
     
     async function getData() {
       console.log("Fetching stat..." + params.location + " " + params.year);
@@ -32,12 +32,12 @@
         
       } else {
         if(res.status==404){
-            errorMsg = "No se encuentra el dato solicitado";
+            alertError = "No se encuentra el dato solicitado";
           }else if(res.status ==500){
-            errorMsg = "No se han podido acceder a la base de datos";
+            alertError = "No se han podido acceder a la base de datos";
           }        
-          okMsg = "";
-          console.log("ERROR!" + errorMsg);
+          alertOk = "";
+          console.log("ERROR!" + alertError);
       }
     }
     async function updateStat() {
@@ -70,17 +70,17 @@
         if (res.ok) {
           console.log("OK");
           getData();
-          errorMsg = "";
-          okMsg = `${params.location} ${params.year} ha sido actualizado correctamente`;
+          alertError = "";
+          alertOk = `${params.location} ${params.year} ha sido actualizado correctamente`;
         } else {
            if(res.status ==500){
-            errorMsg = "No se han podido acceder a la base de datos";
+            alertError = "No se han podido acceder a la base de datos";
           }else if(res.status ==404){
-            errorMsg = "No se han encontrado el dato solicitado";
+            alertError = "No se han encontrado el dato solicitado";
           }        
-          okMsg = "";
+          alertOk = "";
           getData();
-          console.log("ERROR!" + errorMsg);
+          console.log("ERROR!" + alertError);
         }
       });
     }
@@ -101,9 +101,8 @@
     <Table bordered>
       <thead>
         <tr>
-          <th> País </th>
+          <th>Localizacion </th>
           <th>Año </th>
-          <th>Nacimientos </th>
           <th>Total </th>
           <th>Viviendas protegidas </th>
           <th>Nuevas </th>
@@ -124,11 +123,11 @@
         </tr>
       </tbody>
     </Table>
-    {#if errorMsg}
-      <p style="color: red">ERROR: {errorMsg}</p>
+    {#if alertError}
+      <p style="color: red">ERROR: {alertError}</p>
     {/if}
-    {#if okMsg}
-    <p style="color: green">{okMsg}</p>
+    {#if alertOk}
+    <p style="color: green">{alertOk}</p>
     {/if}
   
   </main>
