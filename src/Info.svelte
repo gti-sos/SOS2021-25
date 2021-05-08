@@ -20,7 +20,7 @@
     <div class="group">
       <a href="https://github.com/AlbertoTNJ">
         <div class="article cambioNegro">
-          <img style="border-radius: 15px;" src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imgaen GitHub">
+          <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
           <p>
             José Alberto Trancoso Nieto
           </p>
@@ -28,7 +28,7 @@
       </a>
       <a href="https://github.com/ajpalma28">
         <div class="article cambioNegro">
-          <img style="border-radius: 15px;" src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+          <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
           <p>
             Antonio Javier Palma Guerrero
           </p>
@@ -36,7 +36,7 @@
       </a>
       <a href=" https://github.com/PepeDeSoto">
         <div class="article cambioNegro">
-          <img style="border-radius: 15px;" src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+          <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
           <p>
             José María de Soto Oncins
           </p>
@@ -68,23 +68,24 @@
     </div>
     <div class="repository container">
       <div class="repourl">
-        <div class="article">
-          <b><h2>Repositorio</h2></b>
-          <a href="https://github.com/gti-sos/SOS2021-25">gti-sos/SOS2021-25</a>
-        </div>
-        <div class="article">
-          <b><h2>URL</h2></b>
-          <a href="http://sos2021-25.herokuapp.com">
-            http://sos2021-25.herokuapp.com</a
-          >
-          <a href="http://sos2021-25.herokuapp.com/#/info">
-            http://sos2021-25.herokuapp.com/#/info</a
-          >
-        </div>
+        <a href="https://github.com/gti-sos/SOS2021-25">
+          <div class="article cambioNegro">
+            <img src="https://img.icons8.com/ios/452/repository.png" alt="Imagen Repositorio">
+            <h2>
+              Repositorio
+            </h2>
+          </div>
+        </a>
+        <a href="http://sos2021-25.herokuapp.com/#/info">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/44/44493.png" alt="Imagen URL">
+            <h2><b>URL</b></h2>
+          </div>
+        </a>
       </div>
     </div>
     <div class="api container">
-      <b><h2>API</h2></b>
+      <h2><b>API</b></h2>
       <div class="group">
         <div class="article">
           <CardTitle><h5>Ventas</h5></CardTitle>
@@ -181,6 +182,9 @@
     padding: 5px;
     color: #fdfd96;
   }
+  h2:hover{
+    color: #191919;
+  }
 
   a {
     text-decoration: none;
@@ -213,6 +217,12 @@
   }
   .cambioNegro:hover img{
     transform: scale(1);
+  }
+  .api h2:hover{
+    color: #fdfd96;
+  }
+  .api .group .article:hover{
+    background-color: #242424;
   }
   .repourl{
     display: grid;
