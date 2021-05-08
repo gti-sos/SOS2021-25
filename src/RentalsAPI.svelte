@@ -316,7 +316,7 @@ import { get } from "svelte/store";
 
 <main>
     <div class="container">
-        <h2>Ventas</h2>
+        <h2>Alquileres</h2>
     </div>
     <div class="container">
         <Nav>
