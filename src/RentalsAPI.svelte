@@ -173,6 +173,7 @@ import { get } from "svelte/store";
         }
     }
     async function getNumDataSearch(query) {
+        botonCancelar();
         console.log("LA QUERY: "+query+ "LIMITE: "+limit+"OFFSET: ");
         const res = await fetch("api/v1/rentals"+query+"&limit="+limit);
         if (res.ok) {
@@ -187,6 +188,7 @@ import { get } from "svelte/store";
         } else {
             alertError = "No se han encontrado datos.";
         }
+        
     }
     function changePageSearch(page, offset, query, total) {
         console.log("------Change page------");
@@ -280,7 +282,7 @@ import { get } from "svelte/store";
             }
         } else {
             alertError = "";
-            alertOk = "Búsqueda realizada con éxito";
+            alertOk = "No se ha insertado ningun filtro para buscar";
             getDataSearch();
         }
         
@@ -290,7 +292,7 @@ import { get } from "svelte/store";
     function botonCancelar(){
         var cancelar = document.getElementById("cancelar").innerHTML;
             console.log("Boton cancelar "+cancelar);
-            document.getElementById("cancelar").innerHTML = '<button onclick="CargaraLaVista()">Cancelar</button>';
+            document.getElementById("cancelar").innerHTML = '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
     }
 
     async function deleteResource(location, year) {
