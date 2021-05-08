@@ -1,360 +1,72 @@
-{"location":"extremadura","year":"2018","pricesquaremeter":"4.8","annualvariation":"0.4","alltimehigh":"5.4","maxvariation":"-11.2","_id":"07mzlegKkp4IBLde"}
-{"location":"andalusia","year":"2019","pricesquaremeter":"8.5","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9.9","_id":"0qNAz8RBxvHKYMDZ"}
-{"location":"community of navarre","year":"2019","pricesquaremeter":"8.5","annualvariation":"10.6","alltimehigh":"8.8","maxvariation":"-3.4","_id":"2v4JNu6rfsINEzW5"}
-{"location":"region of murcia","year":"2015","pricesquaremeter":"4.9","annualvariation":"1","alltimehigh":"7.1","maxvariation":"-30.7","_id":"37YoPcFSCRkPLxYo"}
-{"location":"la rioja","year":"2015","pricesquaremeter":"5.2","annualvariation":"3.3","alltimehigh":"6.8","maxvariation":"-23.6","_id":"3sIJ8RfeuHbQMOZo"}
-{"location":"balearic islands","year":"2019","pricesquaremeter":"12.6","annualvariation":"2","alltimehigh":"14","maxvariation":"-9.6","_id":"4ztVORyN1YZ7lOfh"}
-{"location":"extremadura","year":"2015","pricesquaremeter":"4.5","annualvariation":"6.8","alltimehigh":"5.4","maxvariation":"-15.8","_id":"5YzQojpARCABNOkl"}
-{"location":"community of navarre","year":"2015","pricesquaremeter":"6.5","annualvariation":"2.8","alltimehigh":"8.8","maxvariation":"-26.3","_id":"6DbL8v1fDN6YbGdO"}
-{"location":"aragon","year":"2016","pricesquaremeter":"6.7","annualvariation":"5.6","alltimehigh":"8.2","maxvariation":"-17.5","_id":"6yKGkFJQPKxyyQ9q"}
-{"location":"community of madrid","year":"2018","pricesquaremeter":"14.2","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-7.3","_id":"7ShUHtBqXrQNhtBQ"}
-{"location":"cantabria","year":"2019","pricesquaremeter":"7.6","annualvariation":"4.3","alltimehigh":"12.7","maxvariation":"-40.2","_id":"8GX15g1fauhYaC0n"}
-{"location":"basque country","year":"2016","pricesquaremeter":"10.9","annualvariation":"6.4","alltimehigh":"12.3","maxvariation":"-11.6","_id":"95Ep8sLwDX7MXQWU"}
-{"location":"region of murcia","year":"2016","pricesquaremeter":"5.3","annualvariation":"7.9","alltimehigh":"7.1","maxvariation":"-25.2","_id":"9oyNRictsY3eR5JE"}
-{"location":"andalusia","year":"2018","pricesquaremeter":"8","annualvariation":"96","alltimehigh":"9.5","maxvariation":"-15.7","_id":"9q6dYwt547swqHPL"}
-{"location":"principality of asturias","year":"2015","pricesquaremeter":"6.3","annualvariation":"5","alltimehigh":"10.8","maxvariation":"-41.8","_id":"9tywOTgfIyGojLPr"}
-{"location":"aragon","year":"2018","pricesquaremeter":"7.2","annualvariation":"6.6","alltimehigh":"8.2","maxvariation":"-12","_id":"9zr47S9cwH5q6zMs"}
-{"location":"galicia","year":"2019","pricesquaremeter":"6.6","annualvariation":"0.7","alltimehigh":"8.7","maxvariation":"-24.8","_id":"A464IJREOmkICwct"}
-{"location":"aragon","year":"2019","pricesquaremeter":"7.8","annualvariation":"9.1","alltimehigh":"8.2","maxvariation":"-4","_id":"AncWglaveOwu3YlL"}
-{"location":"basque country","year":"2015","pricesquaremeter":"10.3","annualvariation":"5","alltimehigh":"12.3","maxvariation":"-16.9","_id":"Asc9gl3upb48Hqyv"}
-{"location":"basque country","year":"2019","pricesquaremeter":"11.9","annualvariation":"5.1","alltimehigh":"12.3","maxvariation":"-3.9","_id":"E87rhhYXscvkTrFe"}
-{"location":"principality of asturias","year":"2016","pricesquaremeter":"6.6","annualvariation":"5.6","alltimehigh":"10.8","maxvariation":"-38.5","_id":"FCKv1wdoZwV851fI"}
-{"location":"la rioja","year":"2016","pricesquaremeter":"5.5","annualvariation":"5.7","alltimehigh":"6.8","maxvariation":"-19.2","_id":"FzakEZzHHNZDcECK"}
-{"location":"community of madrid","year":"2016","pricesquaremeter":"13","annualvariation":"10.6","alltimehigh":"15.4","maxvariation":"-15.5","_id":"G0cP9IODwEStJ1h9"}
-{"location":"balearic islands","year":"2018","pricesquaremeter":"12.4","annualvariation":"4.2","alltimehigh":"14","maxvariation":"-11.4","_id":"GELEzNgJaDapTjgD"}
-{"location":"galicia","year":"2016","pricesquaremeter":"5.8","annualvariation":"4.8","alltimehigh":"8.7","maxvariation":"-33.3","_id":"GICm0QTN6sJTORbg"}
-{"location":"canary islands","year":"2015","pricesquaremeter":"7.3","annualvariation":"6.2","alltimehigh":"10.3","maxvariation":"-29","_id":"H4zmJu3OMkaFOjqX"}
-{"location":"castilla-la mancha","year":"2015","pricesquaremeter":"4.5","annualvariation":"2","alltimehigh":"5.8","maxvariation":"-21.6","_id":"JajHF0ABJXvCnkG0"}
-{"location":"basque country","year":"2018","pricesquaremeter":"11.3","annualvariation":"3.5","alltimehigh":"12.3","maxvariation":"-8.5","_id":"LO92tq1HuIhiaeqf"}
-{"location":"valencian community","year":"2019","pricesquaremeter":"7.5","annualvariation":"7.4","alltimehigh":"9.4","maxvariation":"-19.9","_id":"LOCGnyiVuB9OxiTd"}
-{"location":"principality of asturias","year":"2019","pricesquaremeter":"7.2","annualvariation":"4.6","alltimehigh":"10.8","maxvariation":"-33.2","_id":"LSHFBb4oFekHPMMG"}
-{"location":"castile and leon","year":"2019","pricesquaremeter":"6.5","annualvariation":"5.8","alltimehigh":"7","maxvariation":"-7.7","_id":"NPC3Sa5xfLXhrJjs"}
-{"location":"valencian community","year":"2018","pricesquaremeter":"7","annualvariation":"7.2","alltimehigh":"9.4","maxvariation":"-25.4","_id":"NdtWx3JvF4csYOGU"}
-{"location":"cantabria","year":"2015","pricesquaremeter":"6.6","annualvariation":"6.8","alltimehigh":"12.7","maxvariation":"-48.5","_id":"NqZwMWmBGVWCw8fk"}
-{"location":"extremadura","year":"2019","pricesquaremeter":"5","annualvariation":"5.3","alltimehigh":"5.4","maxvariation":"-6.5","_id":"Nrf8uMN0RRAYxqD8"}
-{"location":"principality of asturias","year":"2018","pricesquaremeter":"6.9","annualvariation":"3.9","alltimehigh":"10.8","maxvariation":"-36.1","_id":"O10k15b3fr781gCI"}
-{"location":"canary islands","year":"2016","pricesquaremeter":"8.7","annualvariation":"19.8","alltimehigh":"10.3","maxvariation":"-15","_id":"ONG1VV54yCebHzdP"}
-{"location":"melilla","year":"2019","pricesquaremeter":"8.4","annualvariation":"-0.6","alltimehigh":"9.5","maxvariation":"-11.3","_id":"OWjXCbTD5M8w9WTQ"}
-{"location":"community of navarre","year":"2016","pricesquaremeter":"6.9","annualvariation":"6.9","alltimehigh":"8.8","maxvariation":"-21.2","_id":"OoEinBMRfg8daxPD"}
-{"location":"valencian community","year":"2016","pricesquaremeter":"6.5","annualvariation":"10.9","alltimehigh":"9.4","maxvariation":"-30.4","_id":"SOdyNNUTmwuQzIzV"}
-{"location":"catalonia","year":"2018","pricesquaremeter":"13.6","annualvariation":"-0.5","alltimehigh":"15.2","maxvariation":"-10.8","_id":"UGEKMAI0zmZhVGxM"}
-{"location":"castilla-la mancha","year":"2016","pricesquaremeter":"4.8","annualvariation":"4.8","alltimehigh":"5.8","maxvariation":"-17.8","_id":"V10f11EfaHmoqQlC"}
-{"location":"balearic islands","year":"2016","pricesquaremeter":"11.9","annualvariation":"16.8","alltimehigh":"14","maxvariation":"-14.9","_id":"WrBPHzPrRWh23XF2"}
-{"location":"melilla","year":"2016","pricesquaremeter":"8.7","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9","_id":"WxXH1DjLyOug4ibj"}
-{"location":"catalonia","year":"2015","pricesquaremeter":"12","annualvariation":"19.9","alltimehigh":"15.2","maxvariation":"-20.9","_id":"XKfZOw9FfFUHhcVv"}
-{"location":"aragon","year":"2015","pricesquaremeter":"6.4","annualvariation":"5.5","alltimehigh":"8.2","maxvariation":"-21.8","_id":"XmS6370zt4xFvvrC"}
-{"location":"valencian community","year":"2015","pricesquaremeter":"5.9","annualvariation":"9.5","alltimehigh":"9.4","maxvariation":"-37.3","_id":"ZDlQiPMU5Sx5CIJj"}
-{"location":"la rioja","year":"2019","pricesquaremeter":"6.5","annualvariation":"8.7","alltimehigh":"6.8","maxvariation":"-4.2","_id":"ZWp90CfiMDH9Z6ct"}
-{"location":"community of madrid","year":"2019","pricesquaremeter":"14.7","annualvariation":"3.6","alltimehigh":"15.4","maxvariation":"-4","_id":"ef8mMto6WegJ2ac2"}
-{"location":"balearic islands","year":"2015","pricesquaremeter":"10.2","annualvariation":"23.8","alltimehigh":"14","maxvariation":"-27.2","_id":"h4aKmjvdekOocoiM"}
-{"location":"castile and leon","year":"2015","pricesquaremeter":"5.4","annualvariation":"4","alltimehigh":"7","maxvariation":"-22.4","_id":"hO5HcQy5fIyXjX8H"}
-{"location":"andalusia","year":"2017","pricesquaremeter":"7.3","annualvariation":"11.2","alltimehigh":"9.5","maxvariation":"-23.1","_id":"izkHxPaqnyIL31p7"}
-{"location":"la rioja","year":"2018","pricesquaremeter":"6","annualvariation":"0.9","alltimehigh":"6.8","maxvariation":"-11.9","_id":"lfofCcje7LzR8l3T"}
-{"location":"castile and leon","year":"2016","pricesquaremeter":"5.8","annualvariation":"5.9","alltimehigh":"7","maxvariation":"-17.8","_id":"mDOtGJDBSz0zwt16"}
-{"location":"galicia","year":"2018","pricesquaremeter":"6.1","annualvariation":"5.5","alltimehigh":"8.7","maxvariation":"-29.7","_id":"mXs1NHOdN2tCAHd8"}
-{"location":"galicia","year":"2015","pricesquaremeter":"5.6","annualvariation":"2.7","alltimehigh":"8.7","maxvariation":"-36.4","_id":"me8WTMVAPXqjcIg1"}
-{"location":"community of navarre","year":"2018","pricesquaremeter":"7.7","annualvariation":"10.9","alltimehigh":"8.8","maxvariation":"-12.6","_id":"nq5wnk28OeaBpNCW"}
-{"location":"cantabria","year":"2016","pricesquaremeter":"6.8","annualvariation":"3.4","alltimehigh":"12.7","maxvariation":"-46.7","_id":"ns9TjbxFPEEH4xtt"}
-{"location":"melilla","year":"2018","pricesquaremeter":"8.5","annualvariation":"-2","alltimehigh":"9.5","maxvariation":"-10.8","_id":"oOlVhH6iCRMOqRCF"}
-{"location":"canary islands","year":"2019","pricesquaremeter":"10","annualvariation":"3.3","alltimehigh":"10.3","maxvariation":"-2.7","_id":"ofjhcB45KjPdpqQ9"}
-{"location":"region of murcia","year":"2019","pricesquaremeter":"6.1","annualvariation":"7.5","alltimehigh":"7.1","maxvariation":"-13.9","_id":"sWcnumOUoEJOxURH"}
-{"location":"andalusia","year":"2015","pricesquaremeter":"6.5","annualvariation":"6","alltimehigh":"9.5","maxvariation":"-30.8","_id":"t8SbtNAD9RKMe7LV"}
-{"location":"castile and leon","year":"2018","pricesquaremeter":"6.1","annualvariation":"6.1","alltimehigh":"7","maxvariation":"-12.8","_id":"uvCpkFzpE91cYlTK"}
-{"location":"extremadura","year":"2016","pricesquaremeter":"4.8","annualvariation":"5","alltimehigh":"5.4","maxvariation":"-11.6","_id":"v1saFLeTMgoGBKzm"}
-{"location":"canary islands","year":"2018","pricesquaremeter":"9.7","annualvariation":"10.8","alltimehigh":"10.3","maxvariation":"-5.9","_id":"vsf3WptYyaPi65Tj"}
-{"location":"cantabria","year":"2018","pricesquaremeter":"7.3","annualvariation":"7.7","alltimehigh":"12.7","maxvariation":"-42.6","_id":"wklPx3Ozbr4xxUS6"}
-{"location":"region of murcia","year":"2018","pricesquaremeter":"5.7","annualvariation":"7.1","alltimehigh":"7.1","maxvariation":"-19.9","_id":"wvxGej3JyosifYYr"}
-{"location":"catalonia","year":"2016","pricesquaremeter":"13.7","annualvariation":"13.4","alltimehigh":"15.2","maxvariation":"-10.3","_id":"xIfBA2oyLs9o9MjA"}
-{"location":"melilla","year":"2015","pricesquaremeter":"8.1","annualvariation":"-3.3","alltimehigh":"9.5","maxvariation":"-15","_id":"xdaXZ4osswsPa5IG"}
-{"location":"community of madrid","year":"2015","pricesquaremeter":"11.7","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-23.6","_id":"xy6icWrz56i33ZXr"}
-{"location":"castilla-la mancha","year":"2018","pricesquaremeter":"5.1","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-12.4","_id":"yuZJzJK0nHEKuzoW"}
-{"location":"catalonia","year":"2019","pricesquaremeter":"14.2","annualvariation":"4.4","alltimehigh":"15.2","maxvariation":"-6.8","_id":"zKprf2AiFGKob5Ax"}
-{"location":"castilla-la mancha","year":"2019","pricesquaremeter":"5.4","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-6.6","_id":"zkTemt2YybSYqx6Q"}
-{"$$deleted":true,"_id":"07mzlegKkp4IBLde"}
-{"$$deleted":true,"_id":"0qNAz8RBxvHKYMDZ"}
-{"$$deleted":true,"_id":"2v4JNu6rfsINEzW5"}
-{"$$deleted":true,"_id":"37YoPcFSCRkPLxYo"}
-{"$$deleted":true,"_id":"3sIJ8RfeuHbQMOZo"}
-{"$$deleted":true,"_id":"4ztVORyN1YZ7lOfh"}
-{"$$deleted":true,"_id":"5YzQojpARCABNOkl"}
-{"$$deleted":true,"_id":"6DbL8v1fDN6YbGdO"}
-{"$$deleted":true,"_id":"6yKGkFJQPKxyyQ9q"}
-{"$$deleted":true,"_id":"7ShUHtBqXrQNhtBQ"}
-{"$$deleted":true,"_id":"8GX15g1fauhYaC0n"}
-{"$$deleted":true,"_id":"95Ep8sLwDX7MXQWU"}
-{"$$deleted":true,"_id":"9oyNRictsY3eR5JE"}
-{"$$deleted":true,"_id":"9q6dYwt547swqHPL"}
-{"$$deleted":true,"_id":"9tywOTgfIyGojLPr"}
-{"$$deleted":true,"_id":"9zr47S9cwH5q6zMs"}
-{"$$deleted":true,"_id":"A464IJREOmkICwct"}
-{"$$deleted":true,"_id":"AncWglaveOwu3YlL"}
-{"$$deleted":true,"_id":"Asc9gl3upb48Hqyv"}
-{"$$deleted":true,"_id":"E87rhhYXscvkTrFe"}
-{"$$deleted":true,"_id":"FCKv1wdoZwV851fI"}
-{"$$deleted":true,"_id":"FzakEZzHHNZDcECK"}
-{"$$deleted":true,"_id":"G0cP9IODwEStJ1h9"}
-{"$$deleted":true,"_id":"GELEzNgJaDapTjgD"}
-{"$$deleted":true,"_id":"GICm0QTN6sJTORbg"}
-{"$$deleted":true,"_id":"H4zmJu3OMkaFOjqX"}
-{"$$deleted":true,"_id":"JajHF0ABJXvCnkG0"}
-{"$$deleted":true,"_id":"LO92tq1HuIhiaeqf"}
-{"$$deleted":true,"_id":"LOCGnyiVuB9OxiTd"}
-{"$$deleted":true,"_id":"LSHFBb4oFekHPMMG"}
-{"$$deleted":true,"_id":"NPC3Sa5xfLXhrJjs"}
-{"$$deleted":true,"_id":"NdtWx3JvF4csYOGU"}
-{"$$deleted":true,"_id":"NqZwMWmBGVWCw8fk"}
-{"$$deleted":true,"_id":"Nrf8uMN0RRAYxqD8"}
-{"$$deleted":true,"_id":"O10k15b3fr781gCI"}
-{"$$deleted":true,"_id":"ONG1VV54yCebHzdP"}
-{"$$deleted":true,"_id":"OWjXCbTD5M8w9WTQ"}
-{"$$deleted":true,"_id":"OoEinBMRfg8daxPD"}
-{"$$deleted":true,"_id":"SOdyNNUTmwuQzIzV"}
-{"$$deleted":true,"_id":"UGEKMAI0zmZhVGxM"}
-{"$$deleted":true,"_id":"V10f11EfaHmoqQlC"}
-{"$$deleted":true,"_id":"WrBPHzPrRWh23XF2"}
-{"$$deleted":true,"_id":"WxXH1DjLyOug4ibj"}
-{"$$deleted":true,"_id":"XKfZOw9FfFUHhcVv"}
-{"$$deleted":true,"_id":"XmS6370zt4xFvvrC"}
-{"$$deleted":true,"_id":"ZDlQiPMU5Sx5CIJj"}
-{"$$deleted":true,"_id":"ZWp90CfiMDH9Z6ct"}
-{"$$deleted":true,"_id":"ef8mMto6WegJ2ac2"}
-{"$$deleted":true,"_id":"h4aKmjvdekOocoiM"}
-{"$$deleted":true,"_id":"hO5HcQy5fIyXjX8H"}
-{"$$deleted":true,"_id":"izkHxPaqnyIL31p7"}
-{"$$deleted":true,"_id":"lfofCcje7LzR8l3T"}
-{"$$deleted":true,"_id":"mDOtGJDBSz0zwt16"}
-{"$$deleted":true,"_id":"mXs1NHOdN2tCAHd8"}
-{"$$deleted":true,"_id":"me8WTMVAPXqjcIg1"}
-{"$$deleted":true,"_id":"nq5wnk28OeaBpNCW"}
-{"$$deleted":true,"_id":"ns9TjbxFPEEH4xtt"}
-{"$$deleted":true,"_id":"oOlVhH6iCRMOqRCF"}
-{"$$deleted":true,"_id":"ofjhcB45KjPdpqQ9"}
-{"$$deleted":true,"_id":"sWcnumOUoEJOxURH"}
-{"$$deleted":true,"_id":"t8SbtNAD9RKMe7LV"}
-{"$$deleted":true,"_id":"uvCpkFzpE91cYlTK"}
-{"$$deleted":true,"_id":"v1saFLeTMgoGBKzm"}
-{"$$deleted":true,"_id":"vsf3WptYyaPi65Tj"}
-{"$$deleted":true,"_id":"wklPx3Ozbr4xxUS6"}
-{"$$deleted":true,"_id":"wvxGej3JyosifYYr"}
-{"$$deleted":true,"_id":"xIfBA2oyLs9o9MjA"}
-{"$$deleted":true,"_id":"xdaXZ4osswsPa5IG"}
-{"$$deleted":true,"_id":"xy6icWrz56i33ZXr"}
-{"$$deleted":true,"_id":"yuZJzJK0nHEKuzoW"}
-{"$$deleted":true,"_id":"zKprf2AiFGKob5Ax"}
-{"$$deleted":true,"_id":"zkTemt2YybSYqx6Q"}
-{"location":"andalusia","year":"2019","pricesquaremeter":"8.5","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9.9","_id":"FhV74MCb38kKPAkR"}
-{"location":"aragon","year":"2019","pricesquaremeter":"7.8","annualvariation":"9.1","alltimehigh":"8.2","maxvariation":"-4","_id":"KLQ4XnMFrq4v8pL4"}
-{"location":"principality of asturias","year":"2019","pricesquaremeter":"7.2","annualvariation":"4.6","alltimehigh":"10.8","maxvariation":"-33.2","_id":"eTBFSvmGHuK28sQb"}
-{"location":"balearic islands","year":"2019","pricesquaremeter":"12.6","annualvariation":"2","alltimehigh":"14","maxvariation":"-9.6","_id":"XB2ibdFMnOX8KEFs"}
-{"location":"canary islands","year":"2019","pricesquaremeter":"10","annualvariation":"3.3","alltimehigh":"10.3","maxvariation":"-2.7","_id":"uRSPosrUfQEhYa9E"}
-{"location":"cantabria","year":"2019","pricesquaremeter":"7.6","annualvariation":"4.3","alltimehigh":"12.7","maxvariation":"-40.2","_id":"tRvrSDphbiBz8BUH"}
-{"location":"castile and leon","year":"2019","pricesquaremeter":"6.5","annualvariation":"5.8","alltimehigh":"7","maxvariation":"-7.7","_id":"lj4Ri4DVHZQY1gUi"}
-{"location":"castilla-la mancha","year":"2019","pricesquaremeter":"5.4","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-6.6","_id":"BtRoYOBcPfqpmf6D"}
-{"location":"catalonia","year":"2019","pricesquaremeter":"14.2","annualvariation":"4.4","alltimehigh":"15.2","maxvariation":"-6.8","_id":"mYD8ZIQinZ55tyqt"}
-{"location":"valencian community","year":"2019","pricesquaremeter":"7.5","annualvariation":"7.4","alltimehigh":"9.4","maxvariation":"-19.9","_id":"Br6GZ6PsInlI9uTy"}
-{"location":"basque country","year":"2019","pricesquaremeter":"11.9","annualvariation":"5.1","alltimehigh":"12.3","maxvariation":"-3.9","_id":"H3gBLbmiSCRkRWPy"}
-{"location":"extremadura","year":"2019","pricesquaremeter":"5","annualvariation":"5.3","alltimehigh":"5.4","maxvariation":"-6.5","_id":"PKCRaOhNk3paoHus"}
-{"location":"galicia","year":"2019","pricesquaremeter":"6.6","annualvariation":"0.7","alltimehigh":"8.7","maxvariation":"-24.8","_id":"uBDAvc4fldQoQ1sA"}
-{"location":"la rioja","year":"2019","pricesquaremeter":"6.5","annualvariation":"8.7","alltimehigh":"6.8","maxvariation":"-4.2","_id":"4W1rfvJJQD3XIILz"}
-{"location":"community of madrid","year":"2019","pricesquaremeter":"14.7","annualvariation":"3.6","alltimehigh":"15.4","maxvariation":"-4","_id":"HD2Hg8cYZOQhZ882"}
-{"location":"melilla","year":"2019","pricesquaremeter":"8.4","annualvariation":"-0.6","alltimehigh":"9.5","maxvariation":"-11.3","_id":"yxOqLVvma1twTIXB"}
-{"location":"region of murcia","year":"2019","pricesquaremeter":"6.1","annualvariation":"7.5","alltimehigh":"7.1","maxvariation":"-13.9","_id":"bMuIfL2ra3SnP5ln"}
-{"location":"community of navarre","year":"2019","pricesquaremeter":"8.5","annualvariation":"10.6","alltimehigh":"8.8","maxvariation":"-3.4","_id":"H3I8Mw8v22zazkI5"}
-{"location":"andalusia","year":"2018","pricesquaremeter":"8","annualvariation":"96","alltimehigh":"9.5","maxvariation":"-15.7","_id":"ZM1rnDbmEKxIspN0"}
-{"location":"aragon","year":"2018","pricesquaremeter":"7.2","annualvariation":"6.6","alltimehigh":"8.2","maxvariation":"-12","_id":"2bWTxT4IZippZtwW"}
-{"location":"principality of asturias","year":"2018","pricesquaremeter":"6.9","annualvariation":"3.9","alltimehigh":"10.8","maxvariation":"-36.1","_id":"iKGRBgoPxE8iM6lm"}
-{"location":"balearic islands","year":"2018","pricesquaremeter":"12.4","annualvariation":"4.2","alltimehigh":"14","maxvariation":"-11.4","_id":"gudlmw5uMnijFao2"}
-{"location":"canary islands","year":"2018","pricesquaremeter":"9.7","annualvariation":"10.8","alltimehigh":"10.3","maxvariation":"-5.9","_id":"EuQl2zKrKfOeRmdr"}
-{"location":"cantabria","year":"2018","pricesquaremeter":"7.3","annualvariation":"7.7","alltimehigh":"12.7","maxvariation":"-42.6","_id":"SLds2aCY00IlUq9t"}
-{"location":"castile and leon","year":"2018","pricesquaremeter":"6.1","annualvariation":"6.1","alltimehigh":"7","maxvariation":"-12.8","_id":"TA1MrofVTAlxVrvW"}
-{"location":"castilla-la mancha","year":"2018","pricesquaremeter":"5.1","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-12.4","_id":"9K4S83Qpj6EY6Hgq"}
-{"location":"catalonia","year":"2018","pricesquaremeter":"13.6","annualvariation":"-0.5","alltimehigh":"15.2","maxvariation":"-10.8","_id":"Wgq9QMwFIA147cED"}
-{"location":"valencian community","year":"2018","pricesquaremeter":"7","annualvariation":"7.2","alltimehigh":"9.4","maxvariation":"-25.4","_id":"BTKONUemeb40klCi"}
-{"location":"basque country","year":"2018","pricesquaremeter":"11.3","annualvariation":"3.5","alltimehigh":"12.3","maxvariation":"-8.5","_id":"bPvoIUYOZaxkh2vG"}
-{"location":"extremadura","year":"2018","pricesquaremeter":"4.8","annualvariation":"0.4","alltimehigh":"5.4","maxvariation":"-11.2","_id":"zUWqCiagiszXVOjy"}
-{"location":"galicia","year":"2018","pricesquaremeter":"6.1","annualvariation":"5.5","alltimehigh":"8.7","maxvariation":"-29.7","_id":"LN3eltCXQet4IdPI"}
-{"location":"la rioja","year":"2018","pricesquaremeter":"6","annualvariation":"0.9","alltimehigh":"6.8","maxvariation":"-11.9","_id":"MNxDYHsuMYAxFxyd"}
-{"location":"community of madrid","year":"2018","pricesquaremeter":"14.2","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-7.3","_id":"3g6KzrkHpdJRPvIE"}
-{"location":"melilla","year":"2018","pricesquaremeter":"8.5","annualvariation":"-2","alltimehigh":"9.5","maxvariation":"-10.8","_id":"0wwb2YeClsYNx4ay"}
-{"location":"region of murcia","year":"2018","pricesquaremeter":"5.7","annualvariation":"7.1","alltimehigh":"7.1","maxvariation":"-19.9","_id":"JF3ioPWINszsJ0XY"}
-{"location":"community of navarre","year":"2018","pricesquaremeter":"7.7","annualvariation":"10.9","alltimehigh":"8.8","maxvariation":"-12.6","_id":"ZzBLcqruvdHxmfBE"}
-{"location":"andalusia","year":"2017","pricesquaremeter":"7.3","annualvariation":"11.2","alltimehigh":"9.5","maxvariation":"-23.1","_id":"355qZFH6z3Fw9aiQ"}
-{"location":"aragon","year":"2016","pricesquaremeter":"6.7","annualvariation":"5.6","alltimehigh":"8.2","maxvariation":"-17.5","_id":"ZVnJCITqQj409zUr"}
-{"location":"principality of asturias","year":"2016","pricesquaremeter":"6.6","annualvariation":"5.6","alltimehigh":"10.8","maxvariation":"-38.5","_id":"ahoF9T0AyHNWlO7M"}
-{"location":"balearic islands","year":"2016","pricesquaremeter":"11.9","annualvariation":"16.8","alltimehigh":"14","maxvariation":"-14.9","_id":"BqBWSOyLeeKU9R2I"}
-{"location":"canary islands","year":"2016","pricesquaremeter":"8.7","annualvariation":"19.8","alltimehigh":"10.3","maxvariation":"-15","_id":"ewmU2Jj4cknxyqO3"}
-{"location":"cantabria","year":"2016","pricesquaremeter":"6.8","annualvariation":"3.4","alltimehigh":"12.7","maxvariation":"-46.7","_id":"7ylalv7ptb98rkst"}
-{"location":"castile and leon","year":"2016","pricesquaremeter":"5.8","annualvariation":"5.9","alltimehigh":"7","maxvariation":"-17.8","_id":"9MPW491ZB4ixQAfI"}
-{"location":"castilla-la mancha","year":"2016","pricesquaremeter":"4.8","annualvariation":"4.8","alltimehigh":"5.8","maxvariation":"-17.8","_id":"8G7VhmOxsm1bIRq0"}
-{"location":"catalonia","year":"2016","pricesquaremeter":"13.7","annualvariation":"13.4","alltimehigh":"15.2","maxvariation":"-10.3","_id":"lhkNcWAP3qj3YH1q"}
-{"location":"valencian community","year":"2016","pricesquaremeter":"6.5","annualvariation":"10.9","alltimehigh":"9.4","maxvariation":"-30.4","_id":"9L3rd0SGks5K6Pql"}
-{"location":"basque country","year":"2016","pricesquaremeter":"10.9","annualvariation":"6.4","alltimehigh":"12.3","maxvariation":"-11.6","_id":"awvd3OTqcCSyC91d"}
-{"location":"extremadura","year":"2016","pricesquaremeter":"4.8","annualvariation":"5","alltimehigh":"5.4","maxvariation":"-11.6","_id":"YMo8J8nnjS9Ljlft"}
-{"location":"galicia","year":"2016","pricesquaremeter":"5.8","annualvariation":"4.8","alltimehigh":"8.7","maxvariation":"-33.3","_id":"hcFbJRlSxhyHVLi8"}
-{"location":"la rioja","year":"2016","pricesquaremeter":"5.5","annualvariation":"5.7","alltimehigh":"6.8","maxvariation":"-19.2","_id":"aAFMTeZI32LskjMG"}
-{"location":"community of madrid","year":"2016","pricesquaremeter":"13","annualvariation":"10.6","alltimehigh":"15.4","maxvariation":"-15.5","_id":"VirjKNQxwGRB9U9j"}
-{"location":"melilla","year":"2016","pricesquaremeter":"8.7","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9","_id":"YGifL002eRIAmO8k"}
-{"location":"region of murcia","year":"2016","pricesquaremeter":"5.3","annualvariation":"7.9","alltimehigh":"7.1","maxvariation":"-25.2","_id":"WrgQLFxqWmUC0bN0"}
-{"location":"community of navarre","year":"2016","pricesquaremeter":"6.9","annualvariation":"6.9","alltimehigh":"8.8","maxvariation":"-21.2","_id":"MZY1YcomHA61YOPN"}
-{"location":"andalusia","year":"2015","pricesquaremeter":"6.5","annualvariation":"6","alltimehigh":"9.5","maxvariation":"-30.8","_id":"hraI2u8V3tYx0bQE"}
-{"location":"aragon","year":"2015","pricesquaremeter":"6.4","annualvariation":"5.5","alltimehigh":"8.2","maxvariation":"-21.8","_id":"ZvfBotjlCtbBhw1z"}
-{"location":"principality of asturias","year":"2015","pricesquaremeter":"6.3","annualvariation":"5","alltimehigh":"10.8","maxvariation":"-41.8","_id":"eRnXfnKEjFKA1uID"}
-{"location":"balearic islands","year":"2015","pricesquaremeter":"10.2","annualvariation":"23.8","alltimehigh":"14","maxvariation":"-27.2","_id":"AlLnxTSjUEgz9A4b"}
-{"location":"canary islands","year":"2015","pricesquaremeter":"7.3","annualvariation":"6.2","alltimehigh":"10.3","maxvariation":"-29","_id":"FEQvuRoFPlxKNups"}
-{"location":"cantabria","year":"2015","pricesquaremeter":"6.6","annualvariation":"6.8","alltimehigh":"12.7","maxvariation":"-48.5","_id":"xkCjPmAhjSsxfBSQ"}
-{"location":"castile and leon","year":"2015","pricesquaremeter":"5.4","annualvariation":"4","alltimehigh":"7","maxvariation":"-22.4","_id":"9Bfk7m5p7lTIlub5"}
-{"location":"castilla-la mancha","year":"2015","pricesquaremeter":"4.5","annualvariation":"2","alltimehigh":"5.8","maxvariation":"-21.6","_id":"glX2Mv3M5lKfQRPa"}
-{"location":"catalonia","year":"2015","pricesquaremeter":"12","annualvariation":"19.9","alltimehigh":"15.2","maxvariation":"-20.9","_id":"BWQw9yAQVbhEr4BO"}
-{"location":"valencian community","year":"2015","pricesquaremeter":"5.9","annualvariation":"9.5","alltimehigh":"9.4","maxvariation":"-37.3","_id":"VvWmxb1TUXuZT7gW"}
-{"location":"basque country","year":"2015","pricesquaremeter":"10.3","annualvariation":"5","alltimehigh":"12.3","maxvariation":"-16.9","_id":"9J7S6ueaTUcx2S6o"}
-{"location":"extremadura","year":"2015","pricesquaremeter":"4.5","annualvariation":"6.8","alltimehigh":"5.4","maxvariation":"-15.8","_id":"EiZKh4qzOEQAsrl4"}
-{"location":"galicia","year":"2015","pricesquaremeter":"5.6","annualvariation":"2.7","alltimehigh":"8.7","maxvariation":"-36.4","_id":"Ia9Mh5uMxHU3uuKy"}
-{"location":"la rioja","year":"2015","pricesquaremeter":"5.2","annualvariation":"3.3","alltimehigh":"6.8","maxvariation":"-23.6","_id":"nnbQ5b5T2axejmbX"}
-{"location":"community of madrid","year":"2015","pricesquaremeter":"11.7","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-23.6","_id":"T0SGtVzuU3G74vKW"}
-{"location":"melilla","year":"2015","pricesquaremeter":"8.1","annualvariation":"-3.3","alltimehigh":"9.5","maxvariation":"-15","_id":"EcqVZuCbfH4zWlLO"}
-{"location":"region of murcia","year":"2015","pricesquaremeter":"4.9","annualvariation":"1","alltimehigh":"7.1","maxvariation":"-30.7","_id":"rXvkktvTszs5pmvA"}
-{"location":"community of navarre","year":"2015","pricesquaremeter":"6.5","annualvariation":"2.8","alltimehigh":"8.8","maxvariation":"-26.3","_id":"oebwTlIqmzHt25BM"}
-{"$$deleted":true,"_id":"0wwb2YeClsYNx4ay"}
-{"$$deleted":true,"_id":"2bWTxT4IZippZtwW"}
-{"$$deleted":true,"_id":"355qZFH6z3Fw9aiQ"}
-{"$$deleted":true,"_id":"3g6KzrkHpdJRPvIE"}
-{"$$deleted":true,"_id":"4W1rfvJJQD3XIILz"}
-{"$$deleted":true,"_id":"7ylalv7ptb98rkst"}
-{"$$deleted":true,"_id":"8G7VhmOxsm1bIRq0"}
-{"$$deleted":true,"_id":"9Bfk7m5p7lTIlub5"}
-{"$$deleted":true,"_id":"9J7S6ueaTUcx2S6o"}
-{"$$deleted":true,"_id":"9K4S83Qpj6EY6Hgq"}
-{"$$deleted":true,"_id":"9L3rd0SGks5K6Pql"}
-{"$$deleted":true,"_id":"9MPW491ZB4ixQAfI"}
-{"$$deleted":true,"_id":"AlLnxTSjUEgz9A4b"}
-{"$$deleted":true,"_id":"BTKONUemeb40klCi"}
-{"$$deleted":true,"_id":"BWQw9yAQVbhEr4BO"}
-{"$$deleted":true,"_id":"BqBWSOyLeeKU9R2I"}
-{"$$deleted":true,"_id":"Br6GZ6PsInlI9uTy"}
-{"$$deleted":true,"_id":"BtRoYOBcPfqpmf6D"}
-{"$$deleted":true,"_id":"EcqVZuCbfH4zWlLO"}
-{"$$deleted":true,"_id":"EiZKh4qzOEQAsrl4"}
-{"$$deleted":true,"_id":"EuQl2zKrKfOeRmdr"}
-{"$$deleted":true,"_id":"FEQvuRoFPlxKNups"}
-{"$$deleted":true,"_id":"FhV74MCb38kKPAkR"}
-{"$$deleted":true,"_id":"H3I8Mw8v22zazkI5"}
-{"$$deleted":true,"_id":"H3gBLbmiSCRkRWPy"}
-{"$$deleted":true,"_id":"HD2Hg8cYZOQhZ882"}
-{"$$deleted":true,"_id":"Ia9Mh5uMxHU3uuKy"}
-{"$$deleted":true,"_id":"JF3ioPWINszsJ0XY"}
-{"$$deleted":true,"_id":"KLQ4XnMFrq4v8pL4"}
-{"$$deleted":true,"_id":"LN3eltCXQet4IdPI"}
-{"$$deleted":true,"_id":"MNxDYHsuMYAxFxyd"}
-{"$$deleted":true,"_id":"MZY1YcomHA61YOPN"}
-{"$$deleted":true,"_id":"PKCRaOhNk3paoHus"}
-{"$$deleted":true,"_id":"SLds2aCY00IlUq9t"}
-{"$$deleted":true,"_id":"T0SGtVzuU3G74vKW"}
-{"$$deleted":true,"_id":"TA1MrofVTAlxVrvW"}
-{"$$deleted":true,"_id":"VirjKNQxwGRB9U9j"}
-{"$$deleted":true,"_id":"VvWmxb1TUXuZT7gW"}
-{"$$deleted":true,"_id":"Wgq9QMwFIA147cED"}
-{"$$deleted":true,"_id":"WrgQLFxqWmUC0bN0"}
-{"$$deleted":true,"_id":"XB2ibdFMnOX8KEFs"}
-{"$$deleted":true,"_id":"YGifL002eRIAmO8k"}
-{"$$deleted":true,"_id":"YMo8J8nnjS9Ljlft"}
-{"$$deleted":true,"_id":"ZM1rnDbmEKxIspN0"}
-{"$$deleted":true,"_id":"ZVnJCITqQj409zUr"}
-{"$$deleted":true,"_id":"ZvfBotjlCtbBhw1z"}
-{"$$deleted":true,"_id":"ZzBLcqruvdHxmfBE"}
-{"$$deleted":true,"_id":"aAFMTeZI32LskjMG"}
-{"$$deleted":true,"_id":"ahoF9T0AyHNWlO7M"}
-{"$$deleted":true,"_id":"awvd3OTqcCSyC91d"}
-{"$$deleted":true,"_id":"bMuIfL2ra3SnP5ln"}
-{"$$deleted":true,"_id":"bPvoIUYOZaxkh2vG"}
-{"$$deleted":true,"_id":"eRnXfnKEjFKA1uID"}
-{"$$deleted":true,"_id":"eTBFSvmGHuK28sQb"}
-{"$$deleted":true,"_id":"ewmU2Jj4cknxyqO3"}
-{"$$deleted":true,"_id":"glX2Mv3M5lKfQRPa"}
-{"$$deleted":true,"_id":"gudlmw5uMnijFao2"}
-{"$$deleted":true,"_id":"hcFbJRlSxhyHVLi8"}
-{"$$deleted":true,"_id":"hraI2u8V3tYx0bQE"}
-{"$$deleted":true,"_id":"iKGRBgoPxE8iM6lm"}
-{"$$deleted":true,"_id":"lhkNcWAP3qj3YH1q"}
-{"$$deleted":true,"_id":"lj4Ri4DVHZQY1gUi"}
-{"$$deleted":true,"_id":"mYD8ZIQinZ55tyqt"}
-{"$$deleted":true,"_id":"nnbQ5b5T2axejmbX"}
-{"$$deleted":true,"_id":"oebwTlIqmzHt25BM"}
-{"$$deleted":true,"_id":"rXvkktvTszs5pmvA"}
-{"$$deleted":true,"_id":"tRvrSDphbiBz8BUH"}
-{"$$deleted":true,"_id":"uBDAvc4fldQoQ1sA"}
-{"$$deleted":true,"_id":"uRSPosrUfQEhYa9E"}
-{"$$deleted":true,"_id":"xkCjPmAhjSsxfBSQ"}
-{"$$deleted":true,"_id":"yxOqLVvma1twTIXB"}
-{"$$deleted":true,"_id":"zUWqCiagiszXVOjy"}
-{"location":"andalusia","year":"2019","pricesquaremeter":"8.5","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9.9","_id":"U53PzG606tT178Tm"}
-{"location":"aragon","year":"2019","pricesquaremeter":"7.8","annualvariation":"9.1","alltimehigh":"8.2","maxvariation":"-4","_id":"tSXLJoW3Xy7A5IXn"}
-{"location":"principality of asturias","year":"2019","pricesquaremeter":"7.2","annualvariation":"4.6","alltimehigh":"10.8","maxvariation":"-33.2","_id":"UzT4aAmxOJJvqPHs"}
-{"location":"balearic islands","year":"2019","pricesquaremeter":"12.6","annualvariation":"2","alltimehigh":"14","maxvariation":"-9.6","_id":"ifWrlRTu3bmwJJiz"}
-{"location":"canary islands","year":"2019","pricesquaremeter":"10","annualvariation":"3.3","alltimehigh":"10.3","maxvariation":"-2.7","_id":"aYaGeeHE8m6MR23z"}
-{"location":"cantabria","year":"2019","pricesquaremeter":"7.6","annualvariation":"4.3","alltimehigh":"12.7","maxvariation":"-40.2","_id":"ZvRLeLpgbkXn50av"}
-{"location":"castile and leon","year":"2019","pricesquaremeter":"6.5","annualvariation":"5.8","alltimehigh":"7","maxvariation":"-7.7","_id":"5nA4nzgXOyKCqBg1"}
-{"location":"castilla-la mancha","year":"2019","pricesquaremeter":"5.4","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-6.6","_id":"Y4JFHacw46Bq0hz8"}
-{"location":"catalonia","year":"2019","pricesquaremeter":"14.2","annualvariation":"4.4","alltimehigh":"15.2","maxvariation":"-6.8","_id":"CJCVzHHRpMm05ADM"}
-{"location":"valencian community","year":"2019","pricesquaremeter":"7.5","annualvariation":"7.4","alltimehigh":"9.4","maxvariation":"-19.9","_id":"aeA4ITRK61Bde1nL"}
-{"location":"basque country","year":"2019","pricesquaremeter":"11.9","annualvariation":"5.1","alltimehigh":"12.3","maxvariation":"-3.9","_id":"qSLaP1jB2sUw58sK"}
-{"location":"extremadura","year":"2019","pricesquaremeter":"5","annualvariation":"5.3","alltimehigh":"5.4","maxvariation":"-6.5","_id":"TrxYNFR0qONTDgLU"}
-{"location":"galicia","year":"2019","pricesquaremeter":"6.6","annualvariation":"0.7","alltimehigh":"8.7","maxvariation":"-24.8","_id":"ZkYTsu7MiM6qghR9"}
-{"location":"la rioja","year":"2019","pricesquaremeter":"6.5","annualvariation":"8.7","alltimehigh":"6.8","maxvariation":"-4.2","_id":"Jdu9420pfjOYUxL4"}
-{"location":"community of madrid","year":"2019","pricesquaremeter":"14.7","annualvariation":"3.6","alltimehigh":"15.4","maxvariation":"-4","_id":"otoViW6qKnhum4VA"}
-{"location":"melilla","year":"2019","pricesquaremeter":"8.4","annualvariation":"-0.6","alltimehigh":"9.5","maxvariation":"-11.3","_id":"grsG7JmzLgmJeMvM"}
-{"location":"region of murcia","year":"2019","pricesquaremeter":"6.1","annualvariation":"7.5","alltimehigh":"7.1","maxvariation":"-13.9","_id":"JrsCCgWYjBPLVlaN"}
-{"location":"community of navarre","year":"2019","pricesquaremeter":"8.5","annualvariation":"10.6","alltimehigh":"8.8","maxvariation":"-3.4","_id":"BND6RGpmWVkNRKgE"}
-{"location":"andalusia","year":"2018","pricesquaremeter":"8","annualvariation":"96","alltimehigh":"9.5","maxvariation":"-15.7","_id":"2gzT3woVYSR5cZEr"}
-{"location":"aragon","year":"2018","pricesquaremeter":"7.2","annualvariation":"6.6","alltimehigh":"8.2","maxvariation":"-12","_id":"YSeuWpAu8I44Jolb"}
-{"location":"principality of asturias","year":"2018","pricesquaremeter":"6.9","annualvariation":"3.9","alltimehigh":"10.8","maxvariation":"-36.1","_id":"HM1UEI3yEiZGGc2Q"}
-{"location":"balearic islands","year":"2018","pricesquaremeter":"12.4","annualvariation":"4.2","alltimehigh":"14","maxvariation":"-11.4","_id":"1qsMvb01Nyv5X5Xu"}
-{"location":"canary islands","year":"2018","pricesquaremeter":"9.7","annualvariation":"10.8","alltimehigh":"10.3","maxvariation":"-5.9","_id":"tuRqypXcEaaFGwOT"}
-{"location":"cantabria","year":"2018","pricesquaremeter":"7.3","annualvariation":"7.7","alltimehigh":"12.7","maxvariation":"-42.6","_id":"zb23FKg9GUtwNPtQ"}
-{"location":"castile and leon","year":"2018","pricesquaremeter":"6.1","annualvariation":"6.1","alltimehigh":"7","maxvariation":"-12.8","_id":"yjm1zP0B3njeCrwG"}
-{"location":"castilla-la mancha","year":"2018","pricesquaremeter":"5.1","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-12.4","_id":"EacniqrhYVcCGIsY"}
-{"location":"catalonia","year":"2018","pricesquaremeter":"13.6","annualvariation":"-0.5","alltimehigh":"15.2","maxvariation":"-10.8","_id":"kDhayoPTRk36u8MA"}
-{"location":"valencian community","year":"2018","pricesquaremeter":"7","annualvariation":"7.2","alltimehigh":"9.4","maxvariation":"-25.4","_id":"yh9sz9rv1RAA0GaJ"}
-{"location":"basque country","year":"2018","pricesquaremeter":"11.3","annualvariation":"3.5","alltimehigh":"12.3","maxvariation":"-8.5","_id":"hTCz6HxhbLoGK8LU"}
-{"location":"extremadura","year":"2018","pricesquaremeter":"4.8","annualvariation":"0.4","alltimehigh":"5.4","maxvariation":"-11.2","_id":"MXta4Jt1A3xMEAPt"}
-{"location":"galicia","year":"2018","pricesquaremeter":"6.1","annualvariation":"5.5","alltimehigh":"8.7","maxvariation":"-29.7","_id":"luxCY60kJwYJGMvK"}
-{"location":"la rioja","year":"2018","pricesquaremeter":"6","annualvariation":"0.9","alltimehigh":"6.8","maxvariation":"-11.9","_id":"SkRYyss3zhAGHjjO"}
-{"location":"community of madrid","year":"2018","pricesquaremeter":"14.2","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-7.3","_id":"lImXAf51kzXwAh1f"}
-{"location":"melilla","year":"2018","pricesquaremeter":"8.5","annualvariation":"-2","alltimehigh":"9.5","maxvariation":"-10.8","_id":"tUkbGT6Jz3g5tpEA"}
-{"location":"region of murcia","year":"2018","pricesquaremeter":"5.7","annualvariation":"7.1","alltimehigh":"7.1","maxvariation":"-19.9","_id":"nv6LKvo02J3jvGpF"}
-{"location":"community of navarre","year":"2018","pricesquaremeter":"7.7","annualvariation":"10.9","alltimehigh":"8.8","maxvariation":"-12.6","_id":"PogBJBrI0ziJV3Ow"}
-{"location":"andalusia","year":"2017","pricesquaremeter":"7.3","annualvariation":"11.2","alltimehigh":"9.5","maxvariation":"-23.1","_id":"sS4vd5cV06Y27DJF"}
-{"location":"aragon","year":"2016","pricesquaremeter":"6.7","annualvariation":"5.6","alltimehigh":"8.2","maxvariation":"-17.5","_id":"fJ6xLoOnIjSZxLmk"}
-{"location":"principality of asturias","year":"2016","pricesquaremeter":"6.6","annualvariation":"5.6","alltimehigh":"10.8","maxvariation":"-38.5","_id":"gqLOHHhGruSuqAtA"}
-{"location":"balearic islands","year":"2016","pricesquaremeter":"11.9","annualvariation":"16.8","alltimehigh":"14","maxvariation":"-14.9","_id":"3lGhap2kujmZxkvw"}
-{"location":"canary islands","year":"2016","pricesquaremeter":"8.7","annualvariation":"19.8","alltimehigh":"10.3","maxvariation":"-15","_id":"ut0kltYzNVPTQN0h"}
-{"location":"cantabria","year":"2016","pricesquaremeter":"6.8","annualvariation":"3.4","alltimehigh":"12.7","maxvariation":"-46.7","_id":"McMbswqcbKJog2Kt"}
-{"location":"castile and leon","year":"2016","pricesquaremeter":"5.8","annualvariation":"5.9","alltimehigh":"7","maxvariation":"-17.8","_id":"AFtJERkH9r0UXxS3"}
-{"location":"castilla-la mancha","year":"2016","pricesquaremeter":"4.8","annualvariation":"4.8","alltimehigh":"5.8","maxvariation":"-17.8","_id":"4IOeTzKrjWKrqopX"}
-{"location":"catalonia","year":"2016","pricesquaremeter":"13.7","annualvariation":"13.4","alltimehigh":"15.2","maxvariation":"-10.3","_id":"XuZcKOAI5RdgkQmX"}
-{"location":"valencian community","year":"2016","pricesquaremeter":"6.5","annualvariation":"10.9","alltimehigh":"9.4","maxvariation":"-30.4","_id":"qhlEMA3M4fL8D82L"}
-{"location":"basque country","year":"2016","pricesquaremeter":"10.9","annualvariation":"6.4","alltimehigh":"12.3","maxvariation":"-11.6","_id":"7ndciP9a2JN0sH1F"}
-{"location":"extremadura","year":"2016","pricesquaremeter":"4.8","annualvariation":"5","alltimehigh":"5.4","maxvariation":"-11.6","_id":"Lp1CWsvxoxIGONFp"}
-{"location":"galicia","year":"2016","pricesquaremeter":"5.8","annualvariation":"4.8","alltimehigh":"8.7","maxvariation":"-33.3","_id":"xF3567027XJLODXU"}
-{"location":"la rioja","year":"2016","pricesquaremeter":"5.5","annualvariation":"5.7","alltimehigh":"6.8","maxvariation":"-19.2","_id":"UEGyzwF4Uz8z4FSq"}
-{"location":"community of madrid","year":"2016","pricesquaremeter":"13","annualvariation":"10.6","alltimehigh":"15.4","maxvariation":"-15.5","_id":"dBUKrRLWkcvfYCya"}
-{"location":"melilla","year":"2016","pricesquaremeter":"8.7","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9","_id":"uoBP4mlkkk6YFWzn"}
-{"location":"region of murcia","year":"2016","pricesquaremeter":"5.3","annualvariation":"7.9","alltimehigh":"7.1","maxvariation":"-25.2","_id":"wBIspqjnG3YrGHbY"}
-{"location":"community of navarre","year":"2016","pricesquaremeter":"6.9","annualvariation":"6.9","alltimehigh":"8.8","maxvariation":"-21.2","_id":"rR6638lquABkXDMo"}
-{"location":"andalusia","year":"2015","pricesquaremeter":"6.5","annualvariation":"6","alltimehigh":"9.5","maxvariation":"-30.8","_id":"gksj0H2WbExD3atd"}
-{"location":"aragon","year":"2015","pricesquaremeter":"6.4","annualvariation":"5.5","alltimehigh":"8.2","maxvariation":"-21.8","_id":"bJH1uKTyFeqVyFXF"}
-{"location":"principality of asturias","year":"2015","pricesquaremeter":"6.3","annualvariation":"5","alltimehigh":"10.8","maxvariation":"-41.8","_id":"QQxFV0CIeFE9AGgx"}
-{"location":"balearic islands","year":"2015","pricesquaremeter":"10.2","annualvariation":"23.8","alltimehigh":"14","maxvariation":"-27.2","_id":"nAAQEw5uiuKrPe3m"}
-{"location":"canary islands","year":"2015","pricesquaremeter":"7.3","annualvariation":"6.2","alltimehigh":"10.3","maxvariation":"-29","_id":"kGHenBfLSL1PJGN0"}
-{"location":"cantabria","year":"2015","pricesquaremeter":"6.6","annualvariation":"6.8","alltimehigh":"12.7","maxvariation":"-48.5","_id":"BmUVw2TQSLOtLJ1f"}
-{"location":"castile and leon","year":"2015","pricesquaremeter":"5.4","annualvariation":"4","alltimehigh":"7","maxvariation":"-22.4","_id":"6bUKa9canBiwFlHT"}
-{"location":"castilla-la mancha","year":"2015","pricesquaremeter":"4.5","annualvariation":"2","alltimehigh":"5.8","maxvariation":"-21.6","_id":"ySpsPAopjOykRjkX"}
-{"location":"catalonia","year":"2015","pricesquaremeter":"12","annualvariation":"19.9","alltimehigh":"15.2","maxvariation":"-20.9","_id":"o2YDEkEBM0rgukCl"}
-{"location":"valencian community","year":"2015","pricesquaremeter":"5.9","annualvariation":"9.5","alltimehigh":"9.4","maxvariation":"-37.3","_id":"43FMZu1zUPdd7EpY"}
-{"location":"basque country","year":"2015","pricesquaremeter":"10.3","annualvariation":"5","alltimehigh":"12.3","maxvariation":"-16.9","_id":"96ak4OvgcE5fk1Jc"}
-{"location":"extremadura","year":"2015","pricesquaremeter":"4.5","annualvariation":"6.8","alltimehigh":"5.4","maxvariation":"-15.8","_id":"d9j3CxAdqydMdFbv"}
-{"location":"galicia","year":"2015","pricesquaremeter":"5.6","annualvariation":"2.7","alltimehigh":"8.7","maxvariation":"-36.4","_id":"P7RlY2vGVdERS4YS"}
-{"location":"la rioja","year":"2015","pricesquaremeter":"5.2","annualvariation":"3.3","alltimehigh":"6.8","maxvariation":"-23.6","_id":"P2t9aV7RdlzmJD1D"}
-{"location":"community of madrid","year":"2015","pricesquaremeter":"11.7","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-23.6","_id":"tfQ9l8ZNp051PwEs"}
-{"location":"melilla","year":"2015","pricesquaremeter":"8.1","annualvariation":"-3.3","alltimehigh":"9.5","maxvariation":"-15","_id":"zlUXznMVOGkBiRFL"}
-{"location":"region of murcia","year":"2015","pricesquaremeter":"4.9","annualvariation":"1","alltimehigh":"7.1","maxvariation":"-30.7","_id":"I0l3yLhR2ClGrMdU"}
 {"location":"community of navarre","year":"2015","pricesquaremeter":"6.5","annualvariation":"2.8","alltimehigh":"8.8","maxvariation":"-26.3","_id":"1a199UkKNkQGN9F1"}
+{"location":"balearic islands","year":"2018","pricesquaremeter":"12.4","annualvariation":"4.2","alltimehigh":"14","maxvariation":"-11.4","_id":"1qsMvb01Nyv5X5Xu"}
+{"location":"andalusia","year":"2018","pricesquaremeter":"8","annualvariation":"96","alltimehigh":"9.5","maxvariation":"-15.7","_id":"2gzT3woVYSR5cZEr"}
+{"location":"balearic islands","year":"2016","pricesquaremeter":"11.9","annualvariation":"16.8","alltimehigh":"14","maxvariation":"-14.9","_id":"3lGhap2kujmZxkvw"}
+{"location":"valencian community","year":"2015","pricesquaremeter":"5.9","annualvariation":"9.5","alltimehigh":"9.4","maxvariation":"-37.3","_id":"43FMZu1zUPdd7EpY"}
+{"location":"castilla-la mancha","year":"2016","pricesquaremeter":"4.8","annualvariation":"4.8","alltimehigh":"5.8","maxvariation":"-17.8","_id":"4IOeTzKrjWKrqopX"}
+{"location":"castile and leon","year":"2019","pricesquaremeter":"6.5","annualvariation":"5.8","alltimehigh":"7","maxvariation":"-7.7","_id":"5nA4nzgXOyKCqBg1"}
+{"location":"castile and leon","year":"2015","pricesquaremeter":"5.4","annualvariation":"4","alltimehigh":"7","maxvariation":"-22.4","_id":"6bUKa9canBiwFlHT"}
+{"location":"basque country","year":"2016","pricesquaremeter":"10.9","annualvariation":"6.4","alltimehigh":"12.3","maxvariation":"-11.6","_id":"7ndciP9a2JN0sH1F"}
+{"location":"basque country","year":"2015","pricesquaremeter":"10.3","annualvariation":"5","alltimehigh":"12.3","maxvariation":"-16.9","_id":"96ak4OvgcE5fk1Jc"}
+{"location":"castile and leon","year":"2016","pricesquaremeter":"5.8","annualvariation":"5.9","alltimehigh":"7","maxvariation":"-17.8","_id":"AFtJERkH9r0UXxS3"}
+{"location":"community of navarre","year":"2019","pricesquaremeter":"8.5","annualvariation":"10.6","alltimehigh":"8.8","maxvariation":"-3.4","_id":"BND6RGpmWVkNRKgE"}
+{"location":"cantabria","year":"2015","pricesquaremeter":"6.6","annualvariation":"6.8","alltimehigh":"12.7","maxvariation":"-48.5","_id":"BmUVw2TQSLOtLJ1f"}
+{"location":"catalonia","year":"2019","pricesquaremeter":"14.2","annualvariation":"4.4","alltimehigh":"15.2","maxvariation":"-6.8","_id":"CJCVzHHRpMm05ADM"}
+{"location":"castilla-la mancha","year":"2018","pricesquaremeter":"5.1","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-12.4","_id":"EacniqrhYVcCGIsY"}
+{"location":"principality of asturias","year":"2018","pricesquaremeter":"6.9","annualvariation":"3.9","alltimehigh":"10.8","maxvariation":"-36.1","_id":"HM1UEI3yEiZGGc2Q"}
+{"location":"region of murcia","year":"2015","pricesquaremeter":"4.9","annualvariation":"1","alltimehigh":"7.1","maxvariation":"-30.7","_id":"I0l3yLhR2ClGrMdU"}
+{"location":"la rioja","year":"2019","pricesquaremeter":"6.5","annualvariation":"8.7","alltimehigh":"6.8","maxvariation":"-4.2","_id":"Jdu9420pfjOYUxL4"}
+{"location":"region of murcia","year":"2019","pricesquaremeter":"6.1","annualvariation":"7.5","alltimehigh":"7.1","maxvariation":"-13.9","_id":"JrsCCgWYjBPLVlaN"}
+{"location":"extremadura","year":"2016","pricesquaremeter":"4.8","annualvariation":"5","alltimehigh":"5.4","maxvariation":"-11.6","_id":"Lp1CWsvxoxIGONFp"}
+{"location":"extremadura","year":"2018","pricesquaremeter":"4.8","annualvariation":"0.4","alltimehigh":"5.4","maxvariation":"-11.2","_id":"MXta4Jt1A3xMEAPt"}
+{"location":"cantabria","year":"2016","pricesquaremeter":"6.8","annualvariation":"3.4","alltimehigh":"12.7","maxvariation":"-46.7","_id":"McMbswqcbKJog2Kt"}
+{"location":"la rioja","year":"2015","pricesquaremeter":"5.2","annualvariation":"3.3","alltimehigh":"6.8","maxvariation":"-23.6","_id":"P2t9aV7RdlzmJD1D"}
+{"location":"galicia","year":"2015","pricesquaremeter":"5.6","annualvariation":"2.7","alltimehigh":"8.7","maxvariation":"-36.4","_id":"P7RlY2vGVdERS4YS"}
+{"location":"community of navarre","year":"2018","pricesquaremeter":"7.7","annualvariation":"10.9","alltimehigh":"8.8","maxvariation":"-12.6","_id":"PogBJBrI0ziJV3Ow"}
+{"location":"principality of asturias","year":"2015","pricesquaremeter":"6.3","annualvariation":"5","alltimehigh":"10.8","maxvariation":"-41.8","_id":"QQxFV0CIeFE9AGgx"}
+{"location":"la rioja","year":"2018","pricesquaremeter":"6","annualvariation":"0.9","alltimehigh":"6.8","maxvariation":"-11.9","_id":"SkRYyss3zhAGHjjO"}
+{"location":"extremadura","year":"2019","pricesquaremeter":"5","annualvariation":"5.3","alltimehigh":"5.4","maxvariation":"-6.5","_id":"TrxYNFR0qONTDgLU"}
+{"location":"andalusia","year":"2019","pricesquaremeter":"8.5","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9.9","_id":"U53PzG606tT178Tm"}
+{"location":"la rioja","year":"2016","pricesquaremeter":"5.5","annualvariation":"5.7","alltimehigh":"6.8","maxvariation":"-19.2","_id":"UEGyzwF4Uz8z4FSq"}
+{"location":"principality of asturias","year":"2019","pricesquaremeter":"7.2","annualvariation":"4.6","alltimehigh":"10.8","maxvariation":"-33.2","_id":"UzT4aAmxOJJvqPHs"}
+{"location":"catalonia","year":"2016","pricesquaremeter":"13.7","annualvariation":"13.4","alltimehigh":"15.2","maxvariation":"-10.3","_id":"XuZcKOAI5RdgkQmX"}
+{"location":"castilla-la mancha","year":"2019","pricesquaremeter":"5.4","annualvariation":"6.6","alltimehigh":"5.8","maxvariation":"-6.6","_id":"Y4JFHacw46Bq0hz8"}
+{"location":"aragon","year":"2018","pricesquaremeter":"7.2","annualvariation":"6.6","alltimehigh":"8.2","maxvariation":"-12","_id":"YSeuWpAu8I44Jolb"}
+{"location":"galicia","year":"2019","pricesquaremeter":"6.6","annualvariation":"0.7","alltimehigh":"8.7","maxvariation":"-24.8","_id":"ZkYTsu7MiM6qghR9"}
+{"location":"cantabria","year":"2019","pricesquaremeter":"7.6","annualvariation":"4.3","alltimehigh":"12.7","maxvariation":"-40.2","_id":"ZvRLeLpgbkXn50av"}
+{"location":"canary islands","year":"2019","pricesquaremeter":"10","annualvariation":"3.3","alltimehigh":"10.3","maxvariation":"-2.7","_id":"aYaGeeHE8m6MR23z"}
+{"location":"valencian community","year":"2019","pricesquaremeter":"7.5","annualvariation":"7.4","alltimehigh":"9.4","maxvariation":"-19.9","_id":"aeA4ITRK61Bde1nL"}
+{"location":"aragon","year":"2015","pricesquaremeter":"6.4","annualvariation":"5.5","alltimehigh":"8.2","maxvariation":"-21.8","_id":"bJH1uKTyFeqVyFXF"}
+{"location":"extremadura","year":"2015","pricesquaremeter":"4.5","annualvariation":"6.8","alltimehigh":"5.4","maxvariation":"-15.8","_id":"d9j3CxAdqydMdFbv"}
+{"location":"community of madrid","year":"2016","pricesquaremeter":"13","annualvariation":"10.6","alltimehigh":"15.4","maxvariation":"-15.5","_id":"dBUKrRLWkcvfYCya"}
+{"location":"aragon","year":"2016","pricesquaremeter":"6.7","annualvariation":"5.6","alltimehigh":"8.2","maxvariation":"-17.5","_id":"fJ6xLoOnIjSZxLmk"}
+{"location":"andalusia","year":"2015","pricesquaremeter":"6.5","annualvariation":"6","alltimehigh":"9.5","maxvariation":"-30.8","_id":"gksj0H2WbExD3atd"}
+{"location":"principality of asturias","year":"2016","pricesquaremeter":"6.6","annualvariation":"5.6","alltimehigh":"10.8","maxvariation":"-38.5","_id":"gqLOHHhGruSuqAtA"}
+{"location":"melilla","year":"2019","pricesquaremeter":"8.4","annualvariation":"-0.6","alltimehigh":"9.5","maxvariation":"-11.3","_id":"grsG7JmzLgmJeMvM"}
+{"location":"basque country","year":"2018","pricesquaremeter":"11.3","annualvariation":"3.5","alltimehigh":"12.3","maxvariation":"-8.5","_id":"hTCz6HxhbLoGK8LU"}
+{"location":"balearic islands","year":"2019","pricesquaremeter":"12.6","annualvariation":"2","alltimehigh":"14","maxvariation":"-9.6","_id":"ifWrlRTu3bmwJJiz"}
+{"location":"catalonia","year":"2018","pricesquaremeter":"13.6","annualvariation":"-0.5","alltimehigh":"15.2","maxvariation":"-10.8","_id":"kDhayoPTRk36u8MA"}
+{"location":"canary islands","year":"2015","pricesquaremeter":"7.3","annualvariation":"6.2","alltimehigh":"10.3","maxvariation":"-29","_id":"kGHenBfLSL1PJGN0"}
+{"location":"community of madrid","year":"2018","pricesquaremeter":"14.2","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-7.3","_id":"lImXAf51kzXwAh1f"}
+{"location":"galicia","year":"2018","pricesquaremeter":"6.1","annualvariation":"5.5","alltimehigh":"8.7","maxvariation":"-29.7","_id":"luxCY60kJwYJGMvK"}
+{"location":"balearic islands","year":"2015","pricesquaremeter":"10.2","annualvariation":"23.8","alltimehigh":"14","maxvariation":"-27.2","_id":"nAAQEw5uiuKrPe3m"}
+{"location":"region of murcia","year":"2018","pricesquaremeter":"5.7","annualvariation":"7.1","alltimehigh":"7.1","maxvariation":"-19.9","_id":"nv6LKvo02J3jvGpF"}
+{"location":"catalonia","year":"2015","pricesquaremeter":"12","annualvariation":"19.9","alltimehigh":"15.2","maxvariation":"-20.9","_id":"o2YDEkEBM0rgukCl"}
+{"location":"community of madrid","year":"2019","pricesquaremeter":"14.7","annualvariation":"3.6","alltimehigh":"15.4","maxvariation":"-4","_id":"otoViW6qKnhum4VA"}
+{"location":"basque country","year":"2019","pricesquaremeter":"11.9","annualvariation":"5.1","alltimehigh":"12.3","maxvariation":"-3.9","_id":"qSLaP1jB2sUw58sK"}
+{"location":"valencian community","year":"2016","pricesquaremeter":"6.5","annualvariation":"10.9","alltimehigh":"9.4","maxvariation":"-30.4","_id":"qhlEMA3M4fL8D82L"}
+{"location":"community of navarre","year":"2016","pricesquaremeter":"6.9","annualvariation":"6.9","alltimehigh":"8.8","maxvariation":"-21.2","_id":"rR6638lquABkXDMo"}
+{"location":"andalusia","year":"2017","pricesquaremeter":"7.3","annualvariation":"11.2","alltimehigh":"9.5","maxvariation":"-23.1","_id":"sS4vd5cV06Y27DJF"}
+{"location":"aragon","year":"2019","pricesquaremeter":"7.8","annualvariation":"9.1","alltimehigh":"8.2","maxvariation":"-4","_id":"tSXLJoW3Xy7A5IXn"}
+{"location":"melilla","year":"2018","pricesquaremeter":"8.5","annualvariation":"-2","alltimehigh":"9.5","maxvariation":"-10.8","_id":"tUkbGT6Jz3g5tpEA"}
+{"location":"community of madrid","year":"2015","pricesquaremeter":"11.7","annualvariation":"9.6","alltimehigh":"15.4","maxvariation":"-23.6","_id":"tfQ9l8ZNp051PwEs"}
+{"location":"canary islands","year":"2018","pricesquaremeter":"9.7","annualvariation":"10.8","alltimehigh":"10.3","maxvariation":"-5.9","_id":"tuRqypXcEaaFGwOT"}
+{"location":"melilla","year":"2016","pricesquaremeter":"8.7","annualvariation":"7","alltimehigh":"9.5","maxvariation":"-9","_id":"uoBP4mlkkk6YFWzn"}
+{"location":"canary islands","year":"2016","pricesquaremeter":"8.7","annualvariation":"19.8","alltimehigh":"10.3","maxvariation":"-15","_id":"ut0kltYzNVPTQN0h"}
+{"location":"region of murcia","year":"2016","pricesquaremeter":"5.3","annualvariation":"7.9","alltimehigh":"7.1","maxvariation":"-25.2","_id":"wBIspqjnG3YrGHbY"}
+{"location":"galicia","year":"2016","pricesquaremeter":"5.8","annualvariation":"4.8","alltimehigh":"8.7","maxvariation":"-33.3","_id":"xF3567027XJLODXU"}
+{"location":"castilla-la mancha","year":"2015","pricesquaremeter":"4.5","annualvariation":"2","alltimehigh":"5.8","maxvariation":"-21.6","_id":"ySpsPAopjOykRjkX"}
+{"location":"valencian community","year":"2018","pricesquaremeter":"7","annualvariation":"7.2","alltimehigh":"9.4","maxvariation":"-25.4","_id":"yh9sz9rv1RAA0GaJ"}
+{"location":"castile and leon","year":"2018","pricesquaremeter":"6.1","annualvariation":"6.1","alltimehigh":"7","maxvariation":"-12.8","_id":"yjm1zP0B3njeCrwG"}
+{"location":"cantabria","year":"2018","pricesquaremeter":"7.3","annualvariation":"7.7","alltimehigh":"12.7","maxvariation":"-42.6","_id":"zb23FKg9GUtwNPtQ"}
+{"location":"melilla","year":"2015","pricesquaremeter":"8.1","annualvariation":"-3.3","alltimehigh":"9.5","maxvariation":"-15","_id":"zlUXznMVOGkBiRFL"}
