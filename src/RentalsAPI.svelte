@@ -92,6 +92,7 @@ import { get } from "svelte/store";
         });
         resetInputs(2);
     }
+
     async function loadData() {
         console.log("Loading data...");
         const res = await fetch("api/v1/rentals/loadInitialData").then(function (
@@ -154,6 +155,7 @@ import { get } from "svelte/store";
             console.log("Error");
         }
         getNumDataSearch(query);
+        
     }
 
     async function getNumData() {
@@ -283,6 +285,12 @@ import { get } from "svelte/store";
         }
         
         getNumDataSearch(fullQuery);
+    }
+
+    function botonCancelar(){
+        var cancelar = document.getElementById("cancelar").innerHTML;
+            console.log("Boton cancelar "+cancelar);
+            document.getElementById("cancelar").innerHTML = '<button onclick="CargaraLaVista()">Cancelar</button>';
     }
 
     async function deleteResource(location, year) {
@@ -416,6 +424,97 @@ import { get } from "svelte/store";
                 <p>
                 No se han encontrado datos, por favor carga los datos iniciales.</p>
             </div>
+
+
+            <table responsive="true" bordered="true">
+                <thead>
+                    <tr>
+                        <th>Localizacion </th>
+                        <th>Año </th>
+                        <th>Precio m2 </th>
+                        <th>Variacion Anual</th>
+                        <th>Mas Alto Historico </th>
+                        <th>Maxima Variacion </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="insertadatos">
+                        <td
+                            ><input
+                                type="text"
+                                placeholder="Localizacion"
+                                bind:value={newRentals.location}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                type="text"
+                                placeholder="Año"
+                                bind:value={newRentals.year}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                type="text"
+                                placeholder="Precio m2"
+                                min="0"
+                                bind:value={newRentals["pricesquaremeter"]}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                type="text"
+                                placeholder="Viviendas protegidas"
+                                min="0"
+                                bind:value={newRentals["annualvariation"]}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                type="text"
+                                placeholder="Nuevas"
+                                min="0"
+                                bind:value={newRentals["alltimehigh"]}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                type="text"
+                                placeholder="Segunda mano"
+                                min="0"
+                                bind:value={newRentals["maxvariation"]}
+                            /></td
+                        >
+                        <td>
+                            <div id="cancelar">
+                                <Button color="primary" on:click={insertData}>Insertar</Button>
+                            </div>
+                        </td>
+                        <td>
+                            <Button color="primary" on:click={searchData}>Buscar</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ejemplo</td>
+                        <td>XXXX</td>
+                        <td>01.23</td>
+                        <td>12.34</td>
+                        <td>23.45</td>
+                        <td>0</td>
+                        <!--<td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>-->
+                        <td>
+                            <a href="/">
+                                <Button color="primary">Editar</Button>
+                            </a>
+                        </td>
+                        <td>
+                            <Button color="danger">Borrar</Button>
+                        </td
+                        >
+                    </tr>
+                </tbody>
+            </table>
         {:else}
         <!--{#if alertError}
             <UncontrolledAlert color="success">
@@ -483,11 +582,11 @@ import { get } from "svelte/store";
                                 bind:value={newRentals["maxvariation"]}
                             /></td
                         >
-                        <td
-                            ><Button color="primary" on:click={insertData}
-                                >Insertar</Button
-                            ></td
-                        >
+                        <td>
+                            <div id="cancelar">
+                                <Button color="primary" on:click={insertData}>Insertar</Button>
+                            </div>
+                        </td>
                         <td
                             ><Button color="primary" on:click={searchData}
                                 >Buscar</Button
