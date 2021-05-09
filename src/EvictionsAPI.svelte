@@ -58,7 +58,6 @@
     let alertOk = "";
     let fullQuery = "";
     var queryT = "";
-    let busqueda = "no";
     let evictionsDataTocho = [];
 
     async function loadData() {
@@ -87,7 +86,6 @@
             "api/v1/evictions?limit=" + limit + "&offset=" + current_offset
         );
         if (res.ok) {
-            busqueda = "no";
             console.log("Ok");
             const json = await res.json();
             evictionsData = json;
@@ -112,7 +110,6 @@
             const json = await res.json();
             evictionsData = json;
             console.log(`We have received ${evictionsData.length} resources.`);
-            busqueda = "si";
         } else {
             console.log("Error");
         }
@@ -120,6 +117,7 @@
     }
 
     async function getNumDataSearch(query) {
+        botonCancelar();
         console.log("LA QUERY: " + query + "LIMITE: " + limit + "OFFSET: " + current_offset);
         //const res = await fetch("api/v1/evictions" + query + "&limit=" + limit + "&offset="+current_offset);
         const res = await fetch("api/v1/evictions" + query);
@@ -270,6 +268,12 @@
         //getNumData(fullQuery);
     }
 
+    function botonCancelar(){
+        var cancelar = document.getElementById("cancelar").innerHTML;
+            console.log("Boton cancelar "+cancelar);
+            document.getElementById("cancelar").innerHTML = '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
+    }
+
     async function deleteEviction(data) {
         console.log("Deleting eviction " + JSON.stringify(data));
         const res = await fetch(
@@ -404,8 +408,8 @@
                         <td><input bind:value={newEviction.household} /></td>
                         <td><input bind:value={newEviction.buildinglot} /></td>
                         <td><input bind:value={newEviction.other} /></td>
-                        <td><Button on:click={insertEviction}>Insertar</Button></td>
-                        <td><Button on:click={searchData}>Buscar</Button></td>
+                        <td><div id="cancelar"><Button color="primary" on:click={insertEviction}>Insertar</Button></div></td>
+                        <td><Button color="primary" on:click={searchData}>Buscar</Button></td>
                     </tr>
                     {#each evictionsData as data}
                         <tr>
@@ -416,17 +420,11 @@
                             <td>{data["household"]}</td>
                             <td>{data["buildinglot"]}</td>
                             <td>{data["other"]}</td>
-                            <td
-                                ><a
-                                    href="#/evictions/{data.location}/{data.year}"
-                                    ><Button color="primary">Editar</Button></a
-                                ></td
-                            >
-                            <td
-                                ><Button on:click={deleteEviction(data)}
-                                    >Eliminar</Button
-                                ></td
-                            >
+                            <td>
+                                <a href="#/evictions/{data.location}/{data.year}">
+                                    <Button color="primary">Editar</Button></a></td>
+                            <td><Button color="danger" on:click={deleteEviction(data)}>
+                                Eliminar</Button></td>
                         </tr>
                     {/each}
                 </tbody>
@@ -538,14 +536,14 @@
         border-collapse: collapse;
     }
 
-    /*th {
+    th {
             font-size: 16px;
             font-weight: bold;
             padding: 8px;
             border-top: 4px solid #242323;
             border-bottom: 4px solid #242323;
             color: #fdfd96;
-        }*/
+        }
 
     td {
         font-size: larger;
