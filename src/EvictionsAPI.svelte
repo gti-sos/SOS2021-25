@@ -62,6 +62,8 @@
 
     async function loadData() {
         console.log("Loading data...");
+        alertOk="";
+        alertError="";
         const res = await fetch("api/v1/evictions/loadInitialData").then(
             function (res) {
                 if (res.ok) {
@@ -215,9 +217,40 @@
             headers: {
                 "Content-Type": "application/json",
             },
-        }).then((res) => {
-            getData();
+        }).then(function (res) {
+            if (res.ok) {
+                console.log("OK");
+                getData();
+                alertError = "";
+                alertOk = `${newEviction.location} ${newEviction.year} ha sido insertado correctamente`;
+                resetImputs();
+            } else {
+                if (res.status == 409) {
+                    alertOk = "";
+                    alertError = `${newSales.location} ${newSales.year} ya se encuentra cargado`;
+                } else if (res.status == 500) {
+                    alertOk = "";
+                    alertError = "Error al acceder a la base de datos";
+                } else {
+                    alertOk = "";
+                    alertError = "Todas las casillas deben ser rellenas correctamente";
+                }
+            }
+            console.log("Error: "+ alertError);
         });
+    }
+
+    async function resetImputs(){
+        let resetEviction = {
+            location: "",
+            year: "",
+            total: "",
+            rustic: "",
+            household: "",
+            buildinglot: "",
+            other: "",
+        };
+        newEviction = resetEviction;
     }
 
     async function searchData() {
@@ -229,8 +262,24 @@
             })
         );
         let querySymbol = "?";
+        let aux="";
         for (var [clave, valor] of campos.entries()) {
             querySymbol += clave + "=" + valor + "&";
+            if(clave=="year"){
+                aux=aux+"Año="+valor+" ";
+            } else if(clave=="location") {
+                aux=aux+"Localización="+valor+" ";
+            } else if(clave=="total") {
+                aux=aux+"Total="+valor+" ";
+            } else if(clave=="rustic") {
+                aux=aux+"Rústicas="+valor+" ";
+            } else if(clave=="household"){
+                aux=aux+"Viviendas="+valor+" ";
+            } else if(clave=="buildinglot"){
+                aux=aux+"Solares="+valor+" ";
+            } else {
+                aux=aux+"Otras="+valor+" ";
+            }
         }
         fullQuery = querySymbol.slice(0, -1);
         if (fullQuery != "") {
@@ -245,11 +294,11 @@
                 evictionsData = json;
                 console.log(`We have received ${evictionsData.length} resources.`);
                 alertError = "";
-                alertOk = "Búsqueda realizada con éxito";
+                alertOk = "Búsqueda realizada con éxito: "+aux;
             } else {
                 if (res.status == 404) {
                     alertOk = "";
-                    alertError = "No se encuentra el dato solicitado: "+ valor;
+                    alertError = "No se encuentra el dato solicitado: "+ aux;
                 } else if (res.status == 500) {
                     alertOk = "";
                     alertError = "No se han podido acceder a la base de datos";
@@ -281,9 +330,25 @@
             {
                 method: "DELETE",
             }
-        ).then((res) => {
-            getData();
-            getNumData();
+        ).then(function (res) {
+            if (res.ok) {
+                alertError = "";
+                alertOk = data.location + " " + data.year +" ha sido borrado correctamente";
+                if (evictionsData.length == 1) {
+                    evictionsData = [];
+                    currentPage = 1;
+                }
+                console.log(`Resource has been deleted`);
+                getData();
+                getNumData();
+            } else {
+                if (res.status == 404) {
+                    console.log = `Resource not found`;
+                } else if (res.status == 500) {
+                    console.log(`Database error`);
+                }
+            }
+            console.log("Error: "+alertError);
         });
     }
 
@@ -298,6 +363,7 @@
                 error = 0;
                 getData();
                 getNumData();
+                alertOk="Todos los datos se han borrado correctamente";
             } else if ((res.status = 404)) {
                 error = 404;
                 console.log("Error Data not found");
@@ -315,52 +381,50 @@
     <div class="container">
         <h2>Deshaucios</h2>
     </div>
-    <Nav>
-        <NavItem>
-            <NavLink href="/">Volver</NavLink>
-        </NavItem>
-        <NavItem>
-            <NavLink href="#" on:click={toggle1}>Cargar datos inciales</NavLink>
-            <Modal isOpen={open1} {toggle1}>
-                <ModalHeader {toggle1}>¿Cargar los datos iniciales?</ModalHeader
-                >
-                <ModalBody>
-                    Esta acción cargará los datos siempre y cuando no existan
-                    previamente.
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" on:click={toggle1P}>Cargar</Button>
-                    <Button color="secondary" on:click={toggle1}
-                        >Cancelar</Button
-                    >
-                </ModalFooter>
-            </Modal>
-        </NavItem>
-        <NavItem>
-            {#if evictionsData.length == 0}
-                <NavLink disabled href="#" on:click={toggle2}
-                    >Borrar todos los datos</NavLink
-                >
-            {:else}
-                <NavLink href="#" on:click={toggle2}
-                    >Borrar todos los datos</NavLink
-                >
-                <Modal isOpen={open2} {toggle2}>
-                    <ModalHeader {toggle2}>¿Borrar todos los datos?</ModalHeader
-                    >
-                    <ModalBody>Esta acción no se puede deshacer.</ModalBody>
+    <div class="container">
+        <Nav>
+            <NavItem>
+                <a href="/"><Button color="primary">Volver</Button></a>
+            </NavItem>
+            <NavItem>
+                {#if evictionsData.length == 0}
+                <Button color="success" on:click={toggle1}>
+                    Cargar datos iniciales</Button>
+                <Modal isOpen={open1} {toggle1}>
+                    <ModalHeader {toggle1}>¿Cargar los datos iniciales?</ModalHeader>
+                    <ModalBody>
+                        Esta acción cargará los datos siempre y cuando no existan
+                        previamente.
+                    </ModalBody>
                     <ModalFooter>
-                        <Button color="danger" on:click={toggle2P}
-                            >Borrar</Button
-                        >
-                        <Button color="secondary" on:click={toggle2}
-                            >Cancelar</Button
-                        >
+                        <Button color="primary" on:click={toggle1P}>Cargar</Button>
+                        <Button color="secondary" on:click={toggle1}>Cancelar</Button>
                     </ModalFooter>
                 </Modal>
-            {/if}
-        </NavItem>
-    </Nav>
+                {:else}
+                <Button color="success" disabled on:click={toggle1}>
+                    Cargar datos iniciales</Button>
+                {/if}
+            </NavItem>
+            <NavItem>
+                {#if evictionsData.length == 0}
+                    <Button color="danger" disabled on:click={toggle2}>
+                        Borrar todos los datos</Button>
+                {:else}
+                    <Button color="danger" on:click={toggle2}>
+                        Borrar todos los datos</Button>
+                    <Modal isOpen={open2} {toggle2}>
+                        <ModalHeader {toggle2}>¿Borrar todos los datos?</ModalHeader>
+                        <ModalBody>Esta acción no se puede deshacer.</ModalBody>
+                        <ModalFooter>
+                            <Button color="danger" on:click={toggle2P}>Borrar</Button>
+                            <Button color="secondary" on:click={toggle2}>Cancelar</Button>
+                        </ModalFooter>
+                    </Modal>
+                {/if}
+            </NavItem>
+        </Nav>
+    
 
     <!-- Alerts -->
     {#if error == 0}
@@ -380,12 +444,17 @@
     {:else if error == 1000}
         <UncontrolledAlert color="danger">Error desconocido.</UncontrolledAlert>
     {/if}
+    
+    {#if alertError}
+    <p>{alertError}</p>
+    {:else if alertOk}
+    <p>{alertOk}</p>
+    {/if}
 
     <!-- Table -->
     {#if evictionsData.length == 0}
         <p>No se han encontrado datos, por favor carga los datos iniciales.</p>
     {:else}
-        <div class="container">
             <table>
                 <thead>
                     <tr>
@@ -401,13 +470,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input bind:value={newEviction.location} /></td>
-                        <td><input bind:value={newEviction.year} /></td>
-                        <td><input bind:value={newEviction.total} /></td>
-                        <td><input bind:value={newEviction.rustic} /></td>
-                        <td><input bind:value={newEviction.household} /></td>
-                        <td><input bind:value={newEviction.buildinglot} /></td>
-                        <td><input bind:value={newEviction.other} /></td>
+                        <td><input id="nuevalocation" bind:value={newEviction.location} /></td>
+                        <td><input id="nuevoyear" bind:value={newEviction.year} /></td>
+                        <td><input id="nuevototal" bind:value={newEviction.total} /></td>
+                        <td><input id="nuevorustic" bind:value={newEviction.rustic} /></td>
+                        <td><input id="nuevohousehold" bind:value={newEviction.household} /></td>
+                        <td><input id="nuevobuildinglot" bind:value={newEviction.buildinglot} /></td>
+                        <td><input id="nuevoother" bind:value={newEviction.other} /></td>
                         <td><div id="cancelar"><Button color="primary" on:click={insertEviction}>Insertar</Button></div></td>
                         <td><Button color="primary" on:click={searchData}>Buscar</Button></td>
                     </tr>
@@ -429,7 +498,6 @@
                     {/each}
                 </tbody>
             </table>
-        </div>
     {/if}
     <Pagination ariaLabel="Web pagination">
         <PaginationItem class={current_page == 1 ? "disabled" : ""}>
@@ -459,12 +527,18 @@
             />
         </PaginationItem>
     </Pagination>
+    </div>
+    
 </main>
 
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
     main {
         text-align: center;
-        padding: 1em;
+        padding: 10%;
         margin: 0 auto;
     }
     h2 {
@@ -485,6 +559,7 @@
     .container {
         padding: 45px;
         background: #191919;
+        width: 100%;
         margin-top: 50px;
         border-radius: 5px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
@@ -530,8 +605,8 @@
     table {
         background: #191919;
         font-size: 12px;
-        margin: 45px;
-        width: 90%;
+        margin: 45px 10px;
+        width: 80%;
         text-align: left;
         border-collapse: collapse;
     }
