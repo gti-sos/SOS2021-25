@@ -22,7 +22,6 @@
         PaginationLink,
     } from "sveltestrap";
     import { onMount } from "svelte";
-import { get } from "svelte/store";
     //Load
     let open1 = false;
     const toggle1 = () => (open1 = !open1);
@@ -37,7 +36,18 @@ import { get } from "svelte/store";
         open2 = !open2;
         deleteData();
     };
-
+    function resetInputs() {
+        console.log("Reseting inputs");
+        let resetData = {
+        location: "",
+        year: "",
+        "total": "",
+        "protectedhousing": "",
+        "new": "",
+        "secondhand": "",
+        };
+        newSales = resetData;
+    }
     //Alerts
     let visible = true;
 
@@ -60,6 +70,7 @@ import { get } from "svelte/store";
     let last_page = 1;
     let total = 0;
     let fullQuery = "";
+    let busqueda = "no";
 
     async function insertData() {
         console.log("Inserting data: " + JSON.stringify(newSales));
@@ -79,18 +90,19 @@ import { get } from "svelte/store";
             } else {
                 if (res.status == 409) {
                     alertOk = "";
-                    alertError = `${newSales.location} ${newSales.year} ya se encuentra cargado`;
+                    alertError = `${newSales.location} ${newSales.year} es una entrada conflictiva`;
                 } else if (res.status == 500) {
                     alertOk = "";
                     alertError = "Error al acceder a la base de datos";
                 } else {
                     alertOk = "";
-                    alertError = "Todas las casillas deben ser rellenas correctamente";
+                    alertError =
+                        "Todas las casillas deben ser rellenas correctamente";
                 }
             }
-            console.log("Error: "+ alertError);
+            console.log("Error: " + alertError);
         });
-        resetInputs(2);
+        resetInputs();
     }
     async function loadData() {
         console.log("Loading data...");
@@ -102,13 +114,13 @@ import { get } from "svelte/store";
                 getData();
                 //error = 0;
                 alertError = "";
-                alertOk ="Datos cargados correctamente";
-            /*} else if (res.status == 409) {
+                alertOk = "Datos cargados correctamente";
+                /*} else if (res.status == 409) {
                 error = 409;
                 console.log("Conflict");*/
-            } else if (res.status == 409){
+            } else if (res.status == 409) {
                 alertOk = "";
-                alertError = "Hay un conflicto al cargar los datos";        
+                alertError = "Hay un conflicto al cargar los datos";
             } else {
                 /*error = 404;
                 console.log("Error");*/
@@ -118,19 +130,21 @@ import { get } from "svelte/store";
             getNumData();
         });
     }
-
+      
     async function getData() {
         console.log("Fetching data...");
-        const res = await fetch("api/v1/sales?limit=" + limit + "&offset=" + current_offset);
+        const res = await fetch(
+            "api/v1/sales?limit=" + limit + "&offset=" + current_offset
+        );
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
             salesData = json;
             //ordenar tabla
+            
             salesData.sort((a, b) => new Date(a.year) > new Date(b.year));
-            salesData.sort(
-                (a, b) => new String(a.location) > new String(b.location)
-            );
+            salesData.sort((a, b) => new String(a.location) > new String(b.location));
+
             console.log(`We have received ${salesData.length} resources.`);
         } else {
             console.log("Error");
@@ -139,7 +153,14 @@ import { get } from "svelte/store";
     }
     async function getDataSearch(query) {
         console.log("Fetching data...");
-        const res = await fetch("api/v1/sales?"+query+"&limit=" + limit + "&offset=" + current_offset);
+        const res = await fetch(
+            "api/v1/sales?" +
+                query +
+                "&limit=" +
+                limit +
+                "&offset=" +
+                current_offset
+        );
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
@@ -149,6 +170,7 @@ import { get } from "svelte/store";
             salesData.sort(
                 (a, b) => new String(a.location) > new String(b.location)
             );
+            busqueda = "si";
             console.log(`We have received ${salesData.length} resources.`);
         } else {
             console.log("Error");
@@ -170,18 +192,25 @@ import { get } from "svelte/store";
             alertError = "No se han encontrado datos.";
         }
     }
+    function botonCancelar() {
+        var cancelar = document.getElementById("cancelar").innerHTML;
+        console.log("Boton cancelar " + cancelar);
+        document.getElementById("cancelar").innerHTML =
+            '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
+    }
     async function getNumDataSearch(query) {
-        console.log("LA QUERY: "+query+ "LIMITE: "+limit+"OFFSET: ");
-        const res = await fetch("api/v1/sales"+query+"&limit="+limit);
+        botonCancelar();
+        console.log("LA QUERY: " + query + "LIMITE: " + limit + " OFFSET: ");
+        const res = await fetch("api/v1/sales" + query);
         if (res.ok) {
             const json = await res.json();
             total = json.length;
             console.log("Number of stats : " + total);
-            
-            changePageSearch(current_page, current_offset,query,total);
+
+            changePageSearch(current_page, current_offset, query, total);
         } else if (res.status == 404) {
             total = 0;
-            changePageSearch(current_page, current_offset,query,total);
+            changePageSearch(current_page, current_offset, query, total);
         } else {
             alertError = "No se han encontrado datos.";
         }
@@ -191,15 +220,32 @@ import { get } from "svelte/store";
         console.log("Params page: " + page + " offset: " + offset);
         last_page = Math.ceil(total / 10);
         console.log("new last page: " + last_page);
-        console.log(page,current_page, offset,query, total);
+        console.log(page, current_page, offset, query, total);
         if (page !== current_page) {
             current_offset = offset;
             current_page = page;
             console.log("page: " + page);
             console.log("current_offset: " + current_offset);
             console.log("current_page: " + current_page);
-            console.log("la query es: "+query);
+            console.log("la query es: " + query);
             getDataSearch(query);
+            //NUEVO
+            var campos = new Map(
+                Object.entries(newSales).filter((o) => {
+                    return o[1] != "";
+                })
+            );
+            let querySymbol = "?";
+            for (var [clave, valor] of campos.entries()) {
+                querySymbol += clave + "=" + valor + "&";
+            }
+            fullQuery = querySymbol.slice(0, -1);
+            if (fullQuery != "") {
+                searchData();
+            } else {
+                getData();
+                getNumData();
+            }
         }
         console.log("---------Exit change page-------");
     }
@@ -218,8 +264,25 @@ import { get } from "svelte/store";
             console.log("page: " + page);
             console.log("current_offset: " + current_offset);
             console.log("current_page: " + current_page);
-            getData();
+            //NUEVO
+            var campos = new Map(
+                Object.entries(newSales).filter((o) => {
+                    return o[1] != "";
+                })
+            );
+            let querySymbol = "?";
+            for (var [clave, valor] of campos.entries()) {
+                querySymbol += clave + "=" + valor + "&";
+            }
+            fullQuery = querySymbol.slice(0, -1);
+            if (fullQuery != "") {
+                searchData();
+            } else {
+                getData();
+                getNumData();
+            }
         }
+
         console.log("---------Exit change page-------");
     }
     async function deleteData() {
@@ -232,7 +295,7 @@ import { get } from "svelte/store";
                 alertOk = "OK";
                 salesData = [];
                 getNumData();
-               // error = 0;
+                // error = 0;
             } else if ((res.status = 404)) {
                 //error = 404;
                 alertError = "Error: Data not found";
@@ -244,7 +307,7 @@ import { get } from "svelte/store";
         });
     }
     async function searchData() {
-        visitado="si";
+        visitado = "si";
         console.log("Searching data...");
         var campos = new Map(
             Object.entries(newSales).filter((o) => {
@@ -252,23 +315,39 @@ import { get } from "svelte/store";
             })
         );
         let querySymbol = "?";
+        let aux = "";
         for (var [clave, valor] of campos.entries()) {
             querySymbol += clave + "=" + valor + "&";
+            if (clave=="year"){
+                aux=aux+"Año="+valor+" ";
+            } else if (clave=="location"){
+                aux=aux+"Localizacion="+valor+" ";
+            } else if (clave=="total"){
+                aux=aux+"Total="+valor+" ";
+            } else if (clave=="protectedhousing"){
+                aux=aux+"Viviendas protegidas="+valor+" ";
+            } else if (clave=="new"){
+                aux=aux+"Nuevas="+valor+" ";
+            } else if (clave=="secondhand"){
+                aux=aux+"Segunda mano="+valor+" ";
+            }
         }
         fullQuery = querySymbol.slice(0, -1);
         if (fullQuery != "") {
-            const res = await fetch("api/v1/sales" + fullQuery);
+            const limityOffset =
+                "&limit=" + limit + "&offset=" + current_offset;
+            const res = await fetch("api/v1/sales" + fullQuery + limityOffset);
             console.log(fullQuery);
             if (res.ok) {
                 console.log("OK");
                 const json = await res.json();
                 salesData = json;
                 alertError = "";
-                alertOk = "Búsqueda realizada con éxito";
+                alertOk = "Búsqueda realizada con éxito: "+aux;
             } else {
                 if (res.status == 404) {
                     alertOk = "";
-                    alertError = "No se encuentra el dato solicitado: "+ valor;
+                    alertError = "No se encuentra el dato solicitado: " + aux;
                 } else if (res.status == 500) {
                     alertOk = "";
                     alertError = "No se han podido acceder a la base de datos";
@@ -279,9 +358,9 @@ import { get } from "svelte/store";
         } else {
             alertError = "";
             alertOk = "Búsqueda realizada con éxito";
-            getDataSearch();
+            //getDataSearch();
         }
-        
+
         getNumDataSearch(fullQuery);
     }
 
@@ -292,7 +371,11 @@ import { get } from "svelte/store";
         }).then(function (res) {
             if (res.ok) {
                 alertError = "";
-                alertOk = location + " y año " + year +" ha sido borrado correctamente";
+                alertOk =
+                    location +
+                    " y año " +
+                    year +
+                    " ha sido borrado correctamente";
                 if (salesData.length == 1) {
                     salesData = [];
                     currentPage = 1;
@@ -307,7 +390,7 @@ import { get } from "svelte/store";
                     console.log(`Database error`);
                 }
             }
-            console.log("Error: "+alertError);
+            console.log("Error: " + alertError);
         });
     }
     onMount(getData);
@@ -406,18 +489,20 @@ import { get } from "svelte/store";
             >
         {/if} -->
         {#if alertError}
-        <p>{alertError}</p>
+            <p>{alertError}</p>
         {:else if alertOk}
-        <p>{alertOk}</p>
-        <!-- Table -->
+            <p>{alertOk}</p>
+            <!-- Table -->
         {/if}
-        {#if salesData.length == 0 && visitado=="no"}
+        {#if salesData.length == 0 && visitado == "no"}
             <div class="borrado">
                 <p>
-                No se han encontrado datos, por favor carga los datos iniciales.</p>
+                    No se han encontrado datos, por favor carga los datos
+                    iniciales.
+                </p>
             </div>
         {:else}
-        <!--{#if alertError}
+            <!--{#if alertError}
             <UncontrolledAlert color="success">
                 Operación realizada correctamente.
             </UncontrolledAlert>
@@ -475,18 +560,12 @@ import { get } from "svelte/store";
                                 bind:value={newSales["new"]}
                             /></td
                         >
-                        <td
-                            ><input
-                                type="text"
-                                placeholder="Segunda mano"
-                                min="0"
-                                bind:value={newSales["secondhand"]}
-                            /></td
-                        >
-                        <td
-                            ><Button color="primary" on:click={insertData}
-                                >Insertar</Button
-                            ></td
+                        <td><input type="text" placeholder="Segunda mano" min="0" bind:value={newSales["secondhand"]}/></td>
+                        <td><div id="cancelar">
+                                <Button color="primary" on:click={insertData}
+                                    >Insertar</Button
+                                >
+                            </div></td
                         >
                         <td
                             ><Button color="primary" on:click={searchData}

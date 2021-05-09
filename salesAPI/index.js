@@ -164,7 +164,6 @@ module.exports.register = (app) => {
                 querySearch.push(queryObject);
             }
         }
-
         console.log("Querysearch: " + JSON.stringify(querySearch, null, 2));
         //Comprobamos si se ha utilizado limit o offset
         if (!isNaN(limit) || !isNaN(offset)) {
