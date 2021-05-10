@@ -24,9 +24,8 @@ import RentalsApiEdit from './RentalsAPIEdit.svelte';
 
 </script>
 
-<main>
+
 	<Router {routes}> </Router>
-</main>
 
 <style>
 </style>

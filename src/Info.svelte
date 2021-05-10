@@ -154,6 +154,7 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   }
   .article{
+    min-height: 300px;
     background: #242424;
     border-radius: 5px;
     margin: 3px;

@@ -38,6 +38,19 @@ import { get } from "svelte/store";
         deleteData();
     };
 
+    function resetInputs() {
+        console.log("Reseting inputs");
+        let resetData = {
+        location: "",
+        year: "",
+        "pricesquaremeter": "",
+        "annualvariation": "",
+        "alltimehigh": "",
+        "maxvariation": "",
+        };
+        newRentals = resetData;
+    }
+
     //Alerts
     let visible = true;
 
@@ -63,7 +76,6 @@ import { get } from "svelte/store";
 
     async function insertData() {
         console.log("Inserting data: " + JSON.stringify(newRentals));
-
         const res = await fetch("api/v1/rentals/", {
             method: "POST",
             body: JSON.stringify(newRentals),
@@ -92,7 +104,6 @@ import { get } from "svelte/store";
         });
         resetInputs(2);
     }
-
     async function loadData() {
         console.log("Loading data...");
         const res = await fetch("api/v1/rentals/loadInitialData").then(function (
@@ -140,7 +151,14 @@ import { get } from "svelte/store";
     }
     async function getDataSearch(query) {
         console.log("Fetching data...");
-        const res = await fetch("api/v1/rentals?"+query+"&limit=" + limit + "&offset=" + current_offset);
+        const res = await fetch(
+            "api/v1/rentals?" +
+                query +
+                "&limit=" +
+                limit +
+                "&offset=" +
+                current_offset
+        );
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
@@ -150,12 +168,12 @@ import { get } from "svelte/store";
             rentalsData.sort(
                 (a, b) => new String(a.location) > new String(b.location)
             );
+            busqueda = "si";
             console.log(`We have received ${rentalsData.length} resources.`);
         } else {
             console.log("Error");
         }
         getNumDataSearch(query);
-        
     }
 
     async function getNumData() {
@@ -172,38 +190,60 @@ import { get } from "svelte/store";
             alertError = "No se han encontrado datos.";
         }
     }
+    function botonCancelar() {
+        var cancelar = document.getElementById("cancelar").innerHTML;
+        console.log("Boton cancelar " + cancelar);
+        document.getElementById("cancelar").innerHTML =
+            '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
+    }
     async function getNumDataSearch(query) {
         botonCancelar();
-        console.log("LA QUERY: "+query+ "LIMITE: "+limit+"OFFSET: ");
-        const res = await fetch("api/v1/rentals"+query+"&limit="+limit);
+        console.log("LA QUERY: " + query + "LIMITE: " + limit + " OFFSET: ");
+        const res = await fetch("api/v1/rentals" + query);
         if (res.ok) {
             const json = await res.json();
             total = json.length;
             console.log("Number of stats : " + total);
-            
-            changePageSearch(current_page, current_offset,query,total);
+
+            changePageSearch(current_page, current_offset, query, total);
         } else if (res.status == 404) {
             total = 0;
-            changePageSearch(current_page, current_offset,query,total);
+            changePageSearch(current_page, current_offset, query, total);
         } else {
             alertError = "No se han encontrado datos.";
         }
-        
     }
     function changePageSearch(page, offset, query, total) {
         console.log("------Change page------");
         console.log("Params page: " + page + " offset: " + offset);
         last_page = Math.ceil(total / 10);
         console.log("new last page: " + last_page);
-        console.log(page,current_page, offset,query, total);
+        console.log(page, current_page, offset, query, total);
         if (page !== current_page) {
             current_offset = offset;
             current_page = page;
             console.log("page: " + page);
             console.log("current_offset: " + current_offset);
             console.log("current_page: " + current_page);
-            console.log("la query es: "+query);
+            console.log("la query es: " + query);
             getDataSearch(query);
+            //NUEVO
+            var campos = new Map(
+                Object.entries(newRentals).filter((o) => {
+                    return o[1] != "";
+                })
+            );
+            let querySymbol = "?";
+            for (var [clave, valor] of campos.entries()) {
+                querySymbol += clave + "=" + valor + "&";
+            }
+            fullQuery = querySymbol.slice(0, -1);
+            if (fullQuery != "") {
+                searchData();
+            } else {
+                getData();
+                getNumData();
+            }
         }
         console.log("---------Exit change page-------");
     }
@@ -222,8 +262,25 @@ import { get } from "svelte/store";
             console.log("page: " + page);
             console.log("current_offset: " + current_offset);
             console.log("current_page: " + current_page);
-            getData();
+            //NUEVO
+            var campos = new Map(
+                Object.entries(newRentals).filter((o) => {
+                    return o[1] != "";
+                })
+            );
+            let querySymbol = "?";
+            for (var [clave, valor] of campos.entries()) {
+                querySymbol += clave + "=" + valor + "&";
+            }
+            fullQuery = querySymbol.slice(0, -1);
+            if (fullQuery != "") {
+                searchData();
+            } else {
+                getData();
+                getNumData();
+            }
         }
+
         console.log("---------Exit change page-------");
     }
     async function deleteData() {
@@ -248,7 +305,7 @@ import { get } from "svelte/store";
         });
     }
     async function searchData() {
-        visitado="si";
+        visitado = "si";
         console.log("Searching data...");
         var campos = new Map(
             Object.entries(newRentals).filter((o) => {
@@ -256,23 +313,39 @@ import { get } from "svelte/store";
             })
         );
         let querySymbol = "?";
+        let aux = "";
         for (var [clave, valor] of campos.entries()) {
             querySymbol += clave + "=" + valor + "&";
+            if (clave=="year"){
+                aux=aux+"Año="+valor+" ";
+            } else if (clave=="location"){
+                aux=aux+"Localizacion="+valor+" ";
+            } else if (clave=="pricesquaremeter"){
+                aux=aux+"Precio m2="+valor+" ";
+            } else if (clave=="annualvariation"){
+                aux=aux+" Variacion anual="+valor+" ";
+            } else if (clave=="alltimehigh"){
+                aux=aux+"Mas Alto Historico="+valor+" ";
+            } else if (clave=="maxvariation"){
+                aux=aux+"Variacion maxima="+valor+" ";
+            }
         }
         fullQuery = querySymbol.slice(0, -1);
         if (fullQuery != "") {
-            const res = await fetch("api/v1/rentals" + fullQuery);
+            const limityOffset =
+                "&limit=" + limit + "&offset=" + current_offset;
+            const res = await fetch("api/v1/rentals" + fullQuery + limityOffset);
             console.log(fullQuery);
             if (res.ok) {
                 console.log("OK");
                 const json = await res.json();
                 rentalsData = json;
                 alertError = "";
-                alertOk = "Búsqueda realizada con éxito";
+                alertOk = "Búsqueda realizada con éxito: "+aux;
             } else {
                 if (res.status == 404) {
                     alertOk = "";
-                    alertError = "No se encuentra el dato solicitado: "+ valor;
+                    alertError = "No se encuentra el dato solicitado: " + aux;
                 } else if (res.status == 500) {
                     alertOk = "";
                     alertError = "No se han podido acceder a la base de datos";
@@ -282,17 +355,11 @@ import { get } from "svelte/store";
             }
         } else {
             alertError = "";
-            alertOk = "No se ha insertado ningun filtro para buscar";
-            getDataSearch();
+            alertOk = "No ha insertado valores para buscar. Por favor, introduzaca algun dato";
+            //getDataSearch();
         }
-        
-        getNumDataSearch(fullQuery);
-    }
 
-    function botonCancelar(){
-        var cancelar = document.getElementById("cancelar").innerHTML;
-            console.log("Boton cancelar "+cancelar);
-            document.getElementById("cancelar").innerHTML = '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
+        getNumDataSearch(fullQuery);
     }
 
     async function deleteResource(location, year) {
@@ -331,24 +398,22 @@ import { get } from "svelte/store";
     <div class="container">
         <Nav>
             <NavItem>
-                <a href="/"><Button color="primary">Volver</Button></a>
+                <a href="/"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
             </NavItem>
             <NavItem>
-                <Button color="success" on:click={toggle1}
+                <Button style="margin: 0 25px 5px 0;" color="success" on:click={toggle1}
                     >Cargar datos inciales</Button
                 >
                 <Modal isOpen={open1} {toggle1}>
                     <ModalHeader {toggle1}>
                         <p style="color:black">
-                            <b>¿Cargar los datos iniciales?</b>
+                            ¿Cargar los datos iniciales?
                         </p></ModalHeader
                     >
                     <ModalBody>
                         <p style="color:black">
-                            <b
-                                >Esta acción cargará los datos siempre y cuando
-                                no existan previamente.</b
-                            >
+                            Esta acción cargará los datos siempre y cuando
+                                no existan previamente.
                         </p>
                     </ModalBody>
                     <ModalFooter>
@@ -363,7 +428,7 @@ import { get } from "svelte/store";
             </NavItem>
             <NavItem>
                 {#if rentalsData.length == 0}
-                    <Button color="danger" on:click={toggle2}
+                    <Button style="margin: 0 5px 5px 15px;" color="danger" on:click={toggle2}
                         >Borrar todos los datos</Button
                     >
                     <!--  <NavLink disabled href="#" on:click={toggle2}
@@ -378,9 +443,13 @@ import { get } from "svelte/store";
                     >-->
                     <Modal isOpen={open2} {toggle2}>
                         <ModalHeader {toggle2}
-                            >¿Borrar todos los datos?</ModalHeader
+                            ><p style="color:black">
+                                ¿Borrar todos los datos?
+                            </p></ModalHeader
                         >
-                        <ModalBody>Esta acción no se puede deshacer.</ModalBody>
+                        <ModalBody><p style="color:black">
+                            Esta acción no se puede deshacer.s
+                        </p></ModalBody>
                         <ModalFooter>
                             <Button color="danger" on:click={toggle2P}
                                 >Borrar</Button
@@ -395,26 +464,6 @@ import { get } from "svelte/store";
         </Nav>
 
         <!-- Alerts -->
-        <!--{#if error == 0}
-            <UncontrolledAlert color="success">
-                Operación realizada correctamente.
-            </UncontrolledAlert>
-        {/if}
-
-        {#if error == 409}
-            <UncontrolledAlert color="warning">
-                Los datos ya se encuentran cargados.
-            </UncontrolledAlert>
-        {:else if error == 404}
-            <UncontrolledAlert color="danger">
-                No se encuentra en la base de datos.
-            </UncontrolledAlert>
-            
-        {:else if error == 1000}
-            <UncontrolledAlert color="danger"
-                >Error desconocido.</UncontrolledAlert
-            >
-        {/if} -->
         {#if alertError}
         <p>{alertError}</p>
         {:else if alertOk}
@@ -518,11 +567,6 @@ import { get } from "svelte/store";
                 </tbody>
             </table>
         {:else}
-        <!--{#if alertError}
-            <UncontrolledAlert color="success">
-                Operación realizada correctamente.
-            </UncontrolledAlert>
-        {/if}-->
 
             <table responsive="true" bordered="true">
                 <thead>
@@ -668,28 +712,29 @@ import { get } from "svelte/store";
         text-align: center;
         padding: 1em;
         margin: 0 auto;
+        color: rgb(226, 226, 226);
+        background: #e2e2e2;
+        padding-left: auto;
+        padding-right: auto;
+        margin: 0 auto;
+        
     }
     h2 {
         text-transform: uppercase;
         font-size: 4em;
         font-weight: 100;
     }
-    main {
-        text-align: center;
-        margin: 0 auto;
-        color: rgb(226, 226, 226);
-        background: #e2e2e2;
-    }
 
     .container {
-        padding: 45px 0;
+        min-width: 100%;
+        padding: 60px 0;
         background: #191919;
-        width: 100%;
         margin-top: 50px;
         border-radius: 5px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        text-align: center;
     }
     h2 {
         padding: 5px;
@@ -707,38 +752,27 @@ import { get } from "svelte/store";
 
     p,
     a {
+        
         font-size: 20px;
         line-height: 30px;
         margin: 15px;
     }
-    /*.repourl {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }*/
-    /*.group {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }*/
 
-    @media (max-width: 1080px) {
-        /*.group {
-            display: grid;
-            grid-template-columns: 1fr;
-        }*/
-    }
 
     table {
         border-radius: 5px;
         background: #191919;
         font-size: 12px;
-        margin: 45px 10px;
         width: 0 auto;
         text-align: left;
         border-collapse: collapse;
+        padding: 10px;
+        margin: 0 auto;
+        text-align: left;
     }
 
     th {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: bold;
         padding: 8px;
         border-top: 4px solid #242323;
@@ -747,7 +781,8 @@ import { get } from "svelte/store";
     }
 
     td {
-        font-size: larger;
+        font-size: 18px;
+        font-weight: 600;
         padding: 8px;
         border-bottom: 4px solid #242323;
         color: #e2e2e2;
@@ -759,4 +794,11 @@ import { get } from "svelte/store";
         background: #242323;
         color: #fdfd96;
     }
+
+    @media (max-width: 1290px) {
+        input{
+            width: 100px;
+        }
+    }
+
 </style>
