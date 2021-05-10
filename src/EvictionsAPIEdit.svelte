@@ -35,7 +35,7 @@
         
       } else {
         if(res.status==404){
-            errorMsg = "No se encuentra el dato solicitado";
+            errorMsg = `No se encuentra el dato solicitado: ${params.location} ${params.year}`;
           }else if(res.status ==500){
             errorMsg = "No se han podido acceder a la base de datos";
           }        
@@ -80,8 +80,12 @@
            if(res.status ==500){
             errorMsg = "No se han podido acceder a la base de datos";
           }else if(res.status ==404){
-            errorMsg = "No se han encontrado el dato solicitado";
-          }        
+            errorMsg = `No se han encontrado el dato solicitado: ${params.location} ${params.year}`;
+          }else if(res.status==409){
+            errorMsg = "Por favor, revise que los campos numéricos están rellenos con datos numéricos";
+          }else if(res.status==400){
+            errorMsg = "Por favor, no deje campos vacíos";
+          }
           okMsg = "";
           getData();
           console.log("ERROR!" + errorMsg);

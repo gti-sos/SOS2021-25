@@ -227,10 +227,13 @@
             } else {
                 if (res.status == 409) {
                     alertOk = "";
-                    alertError = `${newSales.location} ${newSales.year} ya se encuentra cargado`;
+                    alertError = `Revise que los campos numéricos de ${newEviction.location} ${newEviction.year} contienen datos numéricos.`;
                 } else if (res.status == 500) {
                     alertOk = "";
                     alertError = "Error al acceder a la base de datos";
+                } else if (res.status==400){
+                    alertOk = "";
+                    alertError = "Dato no añadido. Revise que no haya campos vacíos.";
                 } else {
                     alertOk = "";
                     alertError = "Todas las casillas deben ser rellenas correctamente";
@@ -343,9 +346,12 @@
                 getNumData();
             } else {
                 if (res.status == 404) {
+                    alertOk="";
                     console.log = `Resource not found`;
+                    alertError = data.location + " " + data.year +" no se ha borrado. Elemento no encontrado.";
                 } else if (res.status == 500) {
                     console.log(`Database error`);
+                    alertOk="";
                 }
             }
             console.log("Error: "+alertError);
@@ -364,9 +370,14 @@
                 getData();
                 getNumData();
                 alertOk="Todos los datos se han borrado correctamente";
-            } else if ((res.status = 404)) {
+            } else if ((res.status==404)) {
                 error = 404;
                 console.log("Error Data not found");
+                alertError = "No se han encontrado datos. No hay nada para borrar.";
+                alertOk="";
+            } else if ((res.status==500)){
+                console.log("Error al acceder a la base de datos");
+                alertOk="";
             } else {
                 error = 1000;
                 console.log("Error");
