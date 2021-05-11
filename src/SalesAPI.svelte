@@ -404,10 +404,10 @@
     <div class="container">
         <Nav>
             <NavItem>
-                <a href="/"><Button color="primary">Volver</Button></a>
+                <a href="/"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
             </NavItem>
             <NavItem>
-                <Button color="success" on:click={toggle1}
+                <Button style="margin: 0 25px 5px 0;" color="success" on:click={toggle1}
                     >Cargar datos inciales</Button
                 >
                 <Modal isOpen={open1} {toggle1}>
@@ -436,7 +436,7 @@
             </NavItem>
             <NavItem>
                 {#if salesData.length == 0}
-                    <Button color="danger" on:click={toggle2}
+                    <Button style="margin: 0 5px 5px 15px;" color="danger" on:click={toggle2}
                         >Borrar todos los datos</Button
                     >
                     <!--  <NavLink disabled href="#" on:click={toggle2}
@@ -646,28 +646,29 @@
         text-align: center;
         padding: 1em;
         margin: 0 auto;
+        color: rgb(226, 226, 226);
+        background: #e2e2e2;
+        padding-left: auto;
+        padding-right: auto;
+        margin: 0 auto;
+        
     }
     h2 {
         text-transform: uppercase;
         font-size: 4em;
         font-weight: 100;
     }
-    main {
-        text-align: center;
-        margin: 0 auto;
-        color: rgb(226, 226, 226);
-        background: #e2e2e2;
-    }
 
     .container {
-        padding: 45px 0;
+        min-width: 100%;
+        padding: 60px 0;
         background: #191919;
-        width: 100%;
         margin-top: 50px;
         border-radius: 5px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        text-align: center;
     }
     h2 {
         padding: 5px;
@@ -685,38 +686,27 @@
 
     p,
     a {
+        
         font-size: 20px;
         line-height: 30px;
         margin: 15px;
     }
-    /*.repourl {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }*/
-    /*.group {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }*/
 
-    @media (max-width: 1080px) {
-        /*.group {
-            display: grid;
-            grid-template-columns: 1fr;
-        }*/
-    }
 
     table {
         border-radius: 5px;
         background: #191919;
         font-size: 12px;
-        margin: 45px 10px;
         width: 0 auto;
         text-align: left;
         border-collapse: collapse;
+        padding: 10px;
+        margin: 0 auto;
+        text-align: left;
     }
 
     th {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: bold;
         padding: 8px;
         border-top: 4px solid #242323;
@@ -725,7 +715,8 @@
     }
 
     td {
-        font-size: larger;
+        font-size: 18px;
+        font-weight: 600;
         padding: 8px;
         border-bottom: 4px solid #242323;
         color: #e2e2e2;
@@ -737,4 +728,11 @@
         background: #242323;
         color: #fdfd96;
     }
+
+    @media (max-width: 1290px) {
+        input{
+            width: 100px;
+        }
+    }
+
 </style>
