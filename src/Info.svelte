@@ -119,7 +119,7 @@
           <CardTitle><h5>Alquileres</h5></CardTitle>
           <a href="/api/v1/rentals"><Button color="secondary">Backend</Button></a>
           <a href="/#/rentals"><Button color="secondary">Frontend</Button></a><br><br>
-          <a href="https://sos2021-25.herokuapp.com/api/v1/rentals"
+          <a href="https://documenter.getpostman.com/view/10637326/TzJu9xPa"
             ><Button color="info">Documentacion Postman</Button></a
           >
           <CardFooter>
