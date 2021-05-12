@@ -253,7 +253,7 @@ var rentalsInitial =
                         else {
                             console.log("Inserting new rentals in db: " + JSON.stringify(newRentals, null, 2));
                             db.insert(newRentals);
-                            res.sendStatus(201); // CREATED	
+                            res.sendStatus(201); // CREATED
                         }
                     } else {
                         console.log("Conflit is detected");
