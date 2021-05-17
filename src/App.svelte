@@ -11,7 +11,8 @@
 	import RentalsApiEdit from "./RentalsAPIEdit.svelte";
 
 	import EvictionsApiGraph from "./EvictionsAPIGraph.svelte";
-import SalesApiGraph from "./SalesAPIGraph.svelte";
+	import SalesApiGraph from "./SalesAPIGraph.svelte";
+	import CommomGraph from "./CommonGraph.svelte";
 
 	const routes = {
 		"/": Info,
@@ -22,6 +23,7 @@ import SalesApiGraph from "./SalesAPIGraph.svelte";
 		"/sales/:location/:year": SalesApiEdit,
 		"/evictions/:location/:year": EvictionsApiEdit,
 		"/rentals/:location/:year": RentalsApiEdit,
+		"/commomGraph": CommomGraph,
 		"/evictions/evictionsGraph": EvictionsApiGraph,
 		"/sales/salesGraph": SalesApiGraph,
 	};
