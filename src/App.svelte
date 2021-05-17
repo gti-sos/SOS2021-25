@@ -11,6 +11,7 @@
 	import RentalsApiEdit from "./RentalsAPIEdit.svelte";
 
 	import EvictionsApiGraph from "./EvictionsAPIGraph.svelte";
+import SalesApiGraph from "./SalesAPIGraph.svelte";
 
 	const routes = {
 		"/": Info,
@@ -22,6 +23,7 @@
 		"/evictions/:location/:year": EvictionsApiEdit,
 		"/rentals/:location/:year": RentalsApiEdit,
 		"/evictions/evictionsGraph": EvictionsApiGraph,
+		"/sales/salesGraph": SalesApiGraph,
 	};
 </script>
 

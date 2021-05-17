@@ -91,6 +91,7 @@
           <CardTitle><h5>Ventas</h5></CardTitle>
           <a href="/api/v1/sales"><Button color="secondary">Backend</Button></a>
           <a href="/#/sales"><Button color="secondary">Frontend</Button></a><br><br>
+          <a href="/#/sales/salesGraph"><Button color="success">Graficas</Button></a><br><br>
           <a href="https://documenter.getpostman.com/view/14947805/TzJoDg1U"
             ><Button color="info">Pocumentacion Postman</Button></a
           >
@@ -106,6 +107,7 @@
             ><Button color="secondary">Backend</Button></a
           >
           <a href="/#/evictions"><Button color="secondary">Frontend</Button></a><br><br>
+          <a href="/#/evictions/evictionsGraph"><Button color="success">Graficas</Button></a><br><br>
           <a href="https://documenter.getpostman.com/view/14966088/TzJoDKvD"
             ><Button color="info">Documentacion Postman</Button></a
           >
@@ -119,6 +121,7 @@
           <CardTitle><h5>Alquileres</h5></CardTitle>
           <a href="/api/v1/rentals"><Button color="secondary">Backend</Button></a>
           <a href="/#/rentals"><Button color="secondary">Frontend</Button></a><br><br>
+          <a href="/#/rentals/rentalsGraph"><Button color="success">Graficas</Button></a><br><br>
           <a href="https://documenter.getpostman.com/view/10637326/TzJu9xPa"
             ><Button color="info">Documentacion Postman</Button></a
           >
