@@ -1,5 +1,11 @@
 <script>
     import { onMount } from "svelte";
+    import {
+        Nav,
+        NavItem,
+        NavLink,
+        Button,
+    } from "sveltestrap";
 
     let salesData = [];
     let salesYear = [];
@@ -33,7 +39,7 @@
 
         Highcharts.chart("container", {
             title: {
-                text: "Desahucios en España",
+                text: "Venta de viviendas en España",
             },
 
             subtitle: {
@@ -42,7 +48,7 @@
 
             yAxis: {
                 title: {
-                    text: "Número de desahucios",
+                    text: "Número de ventas",
                 },
             },
 
@@ -131,6 +137,13 @@
 </svelte:head>
 
 <main>
+    <div class="container">
+        <Nav>
+            <NavItem>
+                <a href="/#/info"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
+            </NavItem>
+        </Nav>
+     </div> 
     <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
@@ -140,6 +153,7 @@
             enhanced readability.
         </p>
     </figure>
+  
 </main>
 
 <style>
