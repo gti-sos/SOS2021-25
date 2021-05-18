@@ -86,6 +86,9 @@
     </div>
     <div class="api container">
       <h2><b>API</b></h2>
+      <div class="container">
+        <a href="/#/commonGraph"><Button color="success">Gráfica en común</Button></a>
+      </div>
       <div class="group">
         <div class="article">
           <CardTitle><h5>Ventas</h5></CardTitle>

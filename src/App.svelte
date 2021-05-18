@@ -12,7 +12,7 @@
 
 	import EvictionsApiGraph from "./EvictionsAPIGraph.svelte";
 	import SalesApiGraph from "./SalesAPIGraph.svelte";
-	import CommomGraph from "./CommonGraph.svelte";
+	import CommonGraph from "./CommonGraph.svelte";
 
 	const routes = {
 		"/": Info,
@@ -23,7 +23,7 @@
 		"/sales/:location/:year": SalesApiEdit,
 		"/evictions/:location/:year": EvictionsApiEdit,
 		"/rentals/:location/:year": RentalsApiEdit,
-		"/commomGraph": CommomGraph,
+		"/commonGraph": CommonGraph,
 		"/evictions/evictionsGraph": EvictionsApiGraph,
 		"/sales/salesGraph": SalesApiGraph,
 	};

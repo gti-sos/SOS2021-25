@@ -1,6 +1,10 @@
 <script>
     import { onMount } from "svelte";
 
+    import {
+        Nav, NavItem, Button,
+    } from "sveltestrap";
+
     let evictionsData = [];
     let evictionsKey = [];
     let evictionsTotal = [];
@@ -110,6 +114,14 @@
 </svelte:head>
 
 <main>
+    <div class="container">
+        <Nav>
+            <NavItem>
+                <a href="/#/info"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
+                <a href="/#/evictions"><Button style="margin: 0 5px 10px 50px;" color="dark">Ver datos</Button></a>
+            </NavItem>
+        </Nav>
+     </div> 
     <div>
         <figure class="highcharts-figure">
             <div id="container" />
@@ -123,5 +135,7 @@
 </main>
 
 <style>
-
+    .highcharts-description{
+        text-align: center;
+    }
 </style>

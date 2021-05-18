@@ -62,8 +62,8 @@
 
     async function loadData() {
         console.log("Loading data...");
-        alertOk="";
-        alertError="";
+        alertOk = "";
+        alertError = "";
         const res = await fetch("api/v1/evictions/loadInitialData").then(
             function (res) {
                 if (res.ok) {
@@ -120,7 +120,14 @@
 
     async function getNumDataSearch(query) {
         botonCancelar();
-        console.log("LA QUERY: " + query + "LIMITE: " + limit + "OFFSET: " + current_offset);
+        console.log(
+            "LA QUERY: " +
+                query +
+                "LIMITE: " +
+                limit +
+                "OFFSET: " +
+                current_offset
+        );
         //const res = await fetch("api/v1/evictions" + query + "&limit=" + limit + "&offset="+current_offset);
         const res = await fetch("api/v1/evictions" + query);
         if (res.ok) {
@@ -200,11 +207,10 @@
             fullQuery = querySymbol.slice(0, -1);
             if (fullQuery != "") {
                 searchData();
-            }else{
+            } else {
                 getData();
                 getNumData();
             }
-            
         }
         console.log("---------Exit change page-------");
     }
@@ -231,19 +237,21 @@
                 } else if (res.status == 500) {
                     alertOk = "";
                     alertError = "Error al acceder a la base de datos";
-                } else if (res.status==400){
+                } else if (res.status == 400) {
                     alertOk = "";
-                    alertError = "Dato no añadido. Revise que no haya campos vacíos.";
+                    alertError =
+                        "Dato no añadido. Revise que no haya campos vacíos.";
                 } else {
                     alertOk = "";
-                    alertError = "Todas las casillas deben ser rellenas correctamente";
+                    alertError =
+                        "Todas las casillas deben ser rellenas correctamente";
                 }
             }
-            console.log("Error: "+ alertError);
+            console.log("Error: " + alertError);
         });
     }
 
-    async function resetImputs(){
+    async function resetImputs() {
         let resetEviction = {
             location: "",
             year: "",
@@ -257,7 +265,7 @@
     }
 
     async function searchData() {
-        visitado="si";
+        visitado = "si";
         console.log("Searching data...");
         var campos = new Map(
             Object.entries(newEviction).filter((o) => {
@@ -265,43 +273,47 @@
             })
         );
         let querySymbol = "?";
-        let aux="";
+        let aux = "";
         for (var [clave, valor] of campos.entries()) {
             querySymbol += clave + "=" + valor + "&";
-            if(clave=="year"){
-                aux=aux+"Año="+valor+" ";
-            } else if(clave=="location") {
-                aux=aux+"Localización="+valor+" ";
-            } else if(clave=="total") {
-                aux=aux+"Total="+valor+" ";
-            } else if(clave=="rustic") {
-                aux=aux+"Rústicas="+valor+" ";
-            } else if(clave=="household"){
-                aux=aux+"Viviendas="+valor+" ";
-            } else if(clave=="buildinglot"){
-                aux=aux+"Solares="+valor+" ";
+            if (clave == "year") {
+                aux = aux + "Año=" + valor + " ";
+            } else if (clave == "location") {
+                aux = aux + "Localización=" + valor + " ";
+            } else if (clave == "total") {
+                aux = aux + "Total=" + valor + " ";
+            } else if (clave == "rustic") {
+                aux = aux + "Rústicas=" + valor + " ";
+            } else if (clave == "household") {
+                aux = aux + "Viviendas=" + valor + " ";
+            } else if (clave == "buildinglot") {
+                aux = aux + "Solares=" + valor + " ";
             } else {
-                aux=aux+"Otras="+valor+" ";
+                aux = aux + "Otras=" + valor + " ";
             }
         }
         fullQuery = querySymbol.slice(0, -1);
         if (fullQuery != "") {
-            const limityOffset = "&limit=" + limit +
-                    "&offset="+current_offset;
-            const res = await fetch("api/v1/evictions" + fullQuery + limityOffset);
-            console.log("FULL QUERY: "+fullQuery + limityOffset);
+            const limityOffset =
+                "&limit=" + limit + "&offset=" + current_offset;
+            const res = await fetch(
+                "api/v1/evictions" + fullQuery + limityOffset
+            );
+            console.log("FULL QUERY: " + fullQuery + limityOffset);
             if (res.ok) {
                 console.log("OK");
                 const json = await res.json();
                 evictionsDataTocho = evictionsData;
                 evictionsData = json;
-                console.log(`We have received ${evictionsData.length} resources.`);
+                console.log(
+                    `We have received ${evictionsData.length} resources.`
+                );
                 alertError = "";
-                alertOk = "Búsqueda realizada con éxito: "+aux;
+                alertOk = "Búsqueda realizada con éxito: " + aux;
             } else {
                 if (res.status == 404) {
                     alertOk = "";
-                    alertError = "No se encuentra el dato solicitado: "+ aux;
+                    alertError = "No se encuentra el dato solicitado: " + aux;
                 } else if (res.status == 500) {
                     alertOk = "";
                     alertError = "No se han podido acceder a la base de datos";
@@ -315,15 +327,16 @@
             //getDataSearch();
             //getData();
         }
-        
+
         getNumDataSearch(fullQuery);
         //getNumData(fullQuery);
     }
 
-    function botonCancelar(){
+    function botonCancelar() {
         var cancelar = document.getElementById("cancelar").innerHTML;
-            console.log("Boton cancelar "+cancelar);
-            document.getElementById("cancelar").innerHTML = '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
+        console.log("Boton cancelar " + cancelar);
+        document.getElementById("cancelar").innerHTML =
+            '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
     }
 
     async function deleteEviction(data) {
@@ -336,7 +349,11 @@
         ).then(function (res) {
             if (res.ok) {
                 alertError = "";
-                alertOk = data.location + " " + data.year +" ha sido borrado correctamente";
+                alertOk =
+                    data.location +
+                    " " +
+                    data.year +
+                    " ha sido borrado correctamente";
                 if (evictionsData.length == 1) {
                     evictionsData = [];
                     currentPage = 1;
@@ -346,15 +363,19 @@
                 getNumData();
             } else {
                 if (res.status == 404) {
-                    alertOk="";
+                    alertOk = "";
                     console.log = `Resource not found`;
-                    alertError = data.location + " " + data.year +" no se ha borrado. Elemento no encontrado.";
+                    alertError =
+                        data.location +
+                        " " +
+                        data.year +
+                        " no se ha borrado. Elemento no encontrado.";
                 } else if (res.status == 500) {
                     console.log(`Database error`);
-                    alertOk="";
+                    alertOk = "";
                 }
             }
-            console.log("Error: "+alertError);
+            console.log("Error: " + alertError);
         });
     }
 
@@ -369,15 +390,16 @@
                 error = 0;
                 getData();
                 getNumData();
-                alertOk="Todos los datos se han borrado correctamente";
-            } else if ((res.status==404)) {
+                alertOk = "Todos los datos se han borrado correctamente";
+            } else if (res.status == 404) {
                 error = 404;
                 console.log("Error Data not found");
-                alertError = "No se han encontrado datos. No hay nada para borrar.";
-                alertOk="";
-            } else if ((res.status==500)){
+                alertError =
+                    "No se han encontrado datos. No hay nada para borrar.";
+                alertOk = "";
+            } else if (res.status == 500) {
                 console.log("Error al acceder a la base de datos");
-                alertOk="";
+                alertOk = "";
             } else {
                 error = 1000;
                 console.log("Error");
@@ -395,77 +417,98 @@
     <div class="container">
         <Nav>
             <NavItem>
-                <a href="/"><Button color="primary">Volver</Button></a>
-            </NavItem>
-            <NavItem>
+                <a href="/#/info"><Button color="primary">Volver</Button></a>
+                <a href="/#/evictions/evictionsGraph"
+                    ><Button color="light">Ver gráfica</Button></a
+                >
+
                 {#if evictionsData.length == 0}
-                <Button color="success" on:click={toggle1}>
-                    Cargar datos iniciales</Button>
-                <Modal isOpen={open1} {toggle1}>
-                    <ModalHeader {toggle1}>¿Cargar los datos iniciales?</ModalHeader>
-                    <ModalBody>
-                        Esta acción cargará los datos siempre y cuando no existan
-                        previamente.
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="primary" on:click={toggle1P}>Cargar</Button>
-                        <Button color="secondary" on:click={toggle1}>Cancelar</Button>
-                    </ModalFooter>
-                </Modal>
+                    <Button color="success" on:click={toggle1}>
+                        Cargar datos iniciales</Button
+                    >
+                    <Modal isOpen={open1} {toggle1}>
+                        <ModalHeader {toggle1}
+                            >¿Cargar los datos iniciales?</ModalHeader
+                        >
+                        <ModalBody>
+                            Esta acción cargará los datos siempre y cuando no
+                            existan previamente.
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" on:click={toggle1P}
+                                >Cargar</Button
+                            >
+                            <Button color="secondary" on:click={toggle1}
+                                >Cancelar</Button
+                            >
+                        </ModalFooter>
+                    </Modal>
                 {:else}
-                <Button color="success" disabled on:click={toggle1}>
-                    Cargar datos iniciales</Button>
+                    <Button color="success" disabled on:click={toggle1}>
+                        Cargar datos iniciales</Button
+                    >
                 {/if}
             </NavItem>
             <NavItem>
                 {#if evictionsData.length == 0}
                     <Button color="danger" disabled on:click={toggle2}>
-                        Borrar todos los datos</Button>
+                        Borrar todos los datos</Button
+                    >
                 {:else}
                     <Button color="danger" on:click={toggle2}>
-                        Borrar todos los datos</Button>
+                        Borrar todos los datos</Button
+                    >
                     <Modal isOpen={open2} {toggle2}>
-                        <ModalHeader {toggle2}>¿Borrar todos los datos?</ModalHeader>
+                        <ModalHeader {toggle2}
+                            >¿Borrar todos los datos?</ModalHeader
+                        >
                         <ModalBody>Esta acción no se puede deshacer.</ModalBody>
                         <ModalFooter>
-                            <Button color="danger" on:click={toggle2P}>Borrar</Button>
-                            <Button color="secondary" on:click={toggle2}>Cancelar</Button>
+                            <Button color="danger" on:click={toggle2P}
+                                >Borrar</Button
+                            >
+                            <Button color="secondary" on:click={toggle2}
+                                >Cancelar</Button
+                            >
                         </ModalFooter>
                     </Modal>
                 {/if}
             </NavItem>
         </Nav>
-    
 
-    <!-- Alerts -->
-    {#if error == 0}
-        <UncontrolledAlert color="success">
-            Operación realizada correctamente.
-        </UncontrolledAlert>
-    {/if}
+        <!-- Alerts -->
+        {#if error == 0}
+            <UncontrolledAlert color="success">
+                Operación realizada correctamente.
+            </UncontrolledAlert>
+        {/if}
 
-    {#if error == 409}
-        <UncontrolledAlert color="warning">
-            Los datos ya se encuentran cargados.
-        </UncontrolledAlert>
-    {:else if error == 404}
-        <UncontrolledAlert color="danger">
-            No se encuentra en la base de datos.
-        </UncontrolledAlert>
-    {:else if error == 1000}
-        <UncontrolledAlert color="danger">Error desconocido.</UncontrolledAlert>
-    {/if}
-    
-    {#if alertError}
-    <p>{alertError}</p>
-    {:else if alertOk}
-    <p>{alertOk}</p>
-    {/if}
+        {#if error == 409}
+            <UncontrolledAlert color="warning">
+                Los datos ya se encuentran cargados.
+            </UncontrolledAlert>
+        {:else if error == 404}
+            <UncontrolledAlert color="danger">
+                No se encuentra en la base de datos.
+            </UncontrolledAlert>
+        {:else if error == 1000}
+            <UncontrolledAlert color="danger"
+                >Error desconocido.</UncontrolledAlert
+            >
+        {/if}
 
-    <!-- Table -->
-    {#if evictionsData.length == 0}
-        <p>No se han encontrado datos, por favor carga los datos iniciales.</p>
-    {:else}
+        {#if alertError}
+            <p>{alertError}</p>
+        {:else if alertOk}
+            <p>{alertOk}</p>
+        {/if}
+
+        <!-- Table -->
+        {#if evictionsData.length == 0}
+            <p>
+                No se han encontrado datos, por favor carga los datos iniciales.
+            </p>
+        {:else}
             <table>
                 <thead>
                     <tr>
@@ -481,15 +524,61 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input id="nuevalocation" bind:value={newEviction.location} /></td>
-                        <td><input id="nuevoyear" bind:value={newEviction.year} /></td>
-                        <td><input id="nuevototal" bind:value={newEviction.total} /></td>
-                        <td><input id="nuevorustic" bind:value={newEviction.rustic} /></td>
-                        <td><input id="nuevohousehold" bind:value={newEviction.household} /></td>
-                        <td><input id="nuevobuildinglot" bind:value={newEviction.buildinglot} /></td>
-                        <td><input id="nuevoother" bind:value={newEviction.other} /></td>
-                        <td><div id="cancelar"><Button color="primary" on:click={insertEviction}>Insertar</Button></div></td>
-                        <td><Button color="primary" on:click={searchData}>Buscar</Button></td>
+                        <td
+                            ><input
+                                id="nuevalocation"
+                                bind:value={newEviction.location}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                id="nuevoyear"
+                                bind:value={newEviction.year}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                id="nuevototal"
+                                bind:value={newEviction.total}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                id="nuevorustic"
+                                bind:value={newEviction.rustic}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                id="nuevohousehold"
+                                bind:value={newEviction.household}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                id="nuevobuildinglot"
+                                bind:value={newEviction.buildinglot}
+                            /></td
+                        >
+                        <td
+                            ><input
+                                id="nuevoother"
+                                bind:value={newEviction.other}
+                            /></td
+                        >
+                        <td
+                            ><div id="cancelar">
+                                <Button
+                                    color="primary"
+                                    on:click={insertEviction}>Insertar</Button
+                                >
+                            </div></td
+                        >
+                        <td
+                            ><Button color="primary" on:click={searchData}
+                                >Buscar</Button
+                            ></td
+                        >
                     </tr>
                     {#each evictionsData as data}
                         <tr>
@@ -501,98 +590,115 @@
                             <td>{data["buildinglot"]}</td>
                             <td>{data["other"]}</td>
                             <td>
-                                <a href="#/evictions/{data.location}/{data.year}">
-                                    <Button color="primary">Editar</Button></a></td>
-                            <td><Button color="danger" on:click={deleteEviction(data)}>
-                                Eliminar</Button></td>
+                                <a
+                                    href="#/evictions/{data.location}/{data.year}"
+                                >
+                                    <Button color="primary">Editar</Button></a
+                                ></td
+                            >
+                            <td
+                                ><Button
+                                    color="danger"
+                                    on:click={deleteEviction(data)}
+                                >
+                                    Eliminar</Button
+                                ></td
+                            >
                         </tr>
                     {/each}
                 </tbody>
             </table>
-    {/if}
-    <Pagination ariaLabel="Web pagination">
-        <PaginationItem class={current_page == 1 ? "disabled" : ""}>
-            <PaginationLink
-                previous
-                href="#/evictions"
-                on:click={() =>
-                    changePage(current_page - 1, current_offset - 10)}
-            />
-        </PaginationItem>
-        {#each range(last_page, 1) as page}
-            <PaginationItem class={current_page == page ? "active" : ""}>
-                <PaginationLink
-                    previous
-                    href="#/evictions"
-                    on:click={() => changePage(page, (page - 1) * 10)}
-                    >{page}</PaginationLink
+        {/if}
+        <div class="paginacion">
+            <Pagination ariaLabel="Web pagination">
+                <PaginationItem class={current_page == 1 ? "disabled" : ""}>
+                    <PaginationLink
+                        previous
+                        href="#/evictions"
+                        on:click={() =>
+                            changePage(current_page - 1, current_offset - 10)}
+                    />
+                </PaginationItem>
+                {#each range(last_page, 1) as page}
+                    <PaginationItem
+                        class={current_page == page ? "active" : ""}
+                    >
+                        <PaginationLink
+                            previous
+                            href="#/evictions"
+                            on:click={() => changePage(page, (page - 1) * 10)}
+                            >{page}</PaginationLink
+                        >
+                    </PaginationItem>
+                {/each}
+                <PaginationItem
+                    class={current_page == last_page ? "disabled" : ""}
                 >
-            </PaginationItem>
-        {/each}
-        <PaginationItem class={current_page == last_page ? "disabled" : ""}>
-            <PaginationLink
-                next
-                href="#/evictions"
-                on:click={() =>
-                    changePage(current_page + 1, current_offset + 10)}
-            />
-        </PaginationItem>
-    </Pagination>
+                    <PaginationLink
+                        next
+                        href="#/evictions"
+                        on:click={() =>
+                            changePage(current_page + 1, current_offset + 10)}
+                    />
+                </PaginationItem>
+            </Pagination>
+        </div>
     </div>
-    
 </main>
 
 <style>
     * {
-        margin: 0;
+        margin: 10px;
         padding: 0;
-    }
-    main {
-        text-align: center;
-        padding: 10%;
-        margin: 0 auto;
     }
     h2 {
         text-transform: uppercase;
         font-size: 4em;
         font-weight: 100;
     }
+
     main {
         text-align: center;
-        padding: 1%;
-        padding-left: 15%;
-        padding-right: 15%;
+        padding: 1em;
         margin: 0 auto;
         color: rgb(226, 226, 226);
         background: #e2e2e2;
+        padding-left: auto;
+        padding-right: auto;
+        margin: 0 auto;
     }
 
     .container {
-        padding: 45px;
+        min-width: 100%;
+        padding: 60px 0;
         background: #191919;
-        width: 100%;
         margin-top: 50px;
         border-radius: 5px;
         -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        text-align: center;
+        display: grid;
+        justify-content: center;
+        align-items: center;
     }
+
     h2 {
         padding: 5px;
         color: #fdfd96;
     }
 
-    /*a {
+    a {
             text-decoration: none;
             color: #e2e2e2;
             transition: 0.2s ease-in-out;
-        }*/
-    /*a:hover {
+        }
+    a:hover {
             color: #fdfd96;
-        }*/
+        }
 
-    p/*,
-        a*/ {
+    p,
+    a {
         font-size: 20px;
         line-height: 30px;
         margin: 15px;
@@ -623,13 +729,13 @@
     }
 
     th {
-            font-size: 16px;
-            font-weight: bold;
-            padding: 8px;
-            border-top: 4px solid #242323;
-            border-bottom: 4px solid #242323;
-            color: #fdfd96;
-        }
+        font-size: 16px;
+        font-weight: bold;
+        padding: 8px;
+        border-top: 4px solid #242323;
+        border-bottom: 4px solid #242323;
+        color: #fdfd96;
+    }
 
     td {
         font-size: larger;
