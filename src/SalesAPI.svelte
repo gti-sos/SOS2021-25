@@ -405,6 +405,7 @@
         <Nav>
             <NavItem>
                 <a href="/"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
+                <a href="/#/sales/salesGraph"><Button color="light">Ver gráfica</Button></a>
             </NavItem>
             <NavItem>
                 <Button style="margin: 0 25px 5px 0;" color="success" on:click={toggle1}

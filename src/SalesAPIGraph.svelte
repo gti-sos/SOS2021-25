@@ -141,6 +141,7 @@
         <Nav>
             <NavItem>
                 <a href="/#/info"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
+                <a href="/#/sales"><Button style="margin: 0 5px 10px 50px;" color="dark">Ver datos</Button></a>
             </NavItem>
         </Nav>
      </div> 
