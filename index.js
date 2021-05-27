@@ -4,12 +4,16 @@ var path = require("path");
 var bodyParser = require("body-parser");
 const { DefaultDeserializer } = require("v8");
 
+var cors = require("cors");
+
 var salesAPI = require("./salesAPI");
 var evictionAPI = require("./evictionAPI");
 var rentalsAPI = require("./rentalsAPI");
 
 var app = express();
 var PORT = (process.env.PORT || 10000);
+
+app.use(cors());
 
 // app.get("/cool",(request,response) => {
 // 	response.send(cool());
