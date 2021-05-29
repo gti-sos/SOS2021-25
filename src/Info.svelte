@@ -88,6 +88,7 @@
       <h2><b>API</b></h2>
       <div class="container">
         <a href="/#/commonGraph"><Button color="success">Gráfica en común</Button></a>
+        <a href="/#/integrations"><Button color="danger">Integraciones</Button></a><br><br>
       </div>
       <div class="group">
         <div class="article">

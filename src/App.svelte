@@ -14,6 +14,11 @@
 	import SalesApiGraph from "./SalesAPIGraph.svelte";
 	import CommonGraph from "./CommonGraph.svelte";
 
+
+	import SalesUnemployement from "./Integrations/SalesUnemployement.svelte";
+	import Integrations from "./Integrations/Integrations.svelte";
+
+
 	const routes = {
 		"/": Info,
 		"/info": Info,
@@ -26,6 +31,8 @@
 		"/commonGraph": CommonGraph,
 		"/evictions/evictionsGraph": EvictionsApiGraph,
 		"/sales/salesGraph": SalesApiGraph,
+		"/Integrations": Integrations,
+		"/Integrations/unenployementIntegrationGraph": SalesUnemployement,
 	};
 </script>
 

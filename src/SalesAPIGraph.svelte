@@ -22,6 +22,8 @@
             console.log("Ok");
             const json = await res.json();
             salesData = json;
+            salesData.sort((a, b) => (a.year > b.year) ? 1 : -1)
+            salesData.sort((a, b) => (a.location > b.location) ? 1 : -1)
             console.log(`We have received ${salesData.length} resources.`);
             salesData.forEach((data) => {
                 salesYear.push(data.location + "-" + data.year);
