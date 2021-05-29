@@ -37,7 +37,7 @@
             console.log("Error");
         }
 
-        Highcharts.chart("container", {
+        /*Highcharts.chart("container", {
             title: {
                 text: "Venta de viviendas en España",
             },
@@ -122,7 +122,75 @@
                     },
                 ],
             },
-        });
+        });*/
+        Highcharts.chart('container', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Venta de viviendas en España'
+    },
+    subtitle: {
+        text: 'Fuente: Instituto Nacional de Estadística'
+    },
+    xAxis: {
+        categories: salesYear,
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Número de ventas',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' millions'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Total',
+        data: salesTotal
+    }, {
+        name: 'Proteccion Oficial',
+        data: salesProtectedhousing
+    }, {
+        name: 'Nuevas',
+        data: salesNew
+    }, {
+        name: 'Segunda mano',
+        data: salesSecondhand
+    }, {
+        name: 'Otros',
+        data: salesOther
+    }]
+});
     }
 </script>
 
@@ -148,10 +216,7 @@
     <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
-            Basic line chart showing trends in a dataset. This chart includes
-            the
-            <code>series-label</code> module, which adds a label to each line for
-            enhanced readability.
+            Información acerca de la cantidad de Ventas que tienen lugar a lo largo del año en cada comunidad autónoma, separándolos por tipo.
         </p>
     </figure>
   
