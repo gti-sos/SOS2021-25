@@ -17,6 +17,7 @@
 
 	import SalesUnemployement from "./Integrations/SalesUnemployement.svelte";
 	import Integrations from "./Integrations/Integrations.svelte";
+	import SalesSanity from "./Integrations/SalesSanity.svelte";
 
 
 	const routes = {
@@ -33,6 +34,7 @@
 		"/sales/salesGraph": SalesApiGraph,
 		"/Integrations": Integrations,
 		"/Integrations/unenployementIntegrationGraph": SalesUnemployement,
+		"/Integrations/sanityIntegrationGraph": SalesSanity,
 	};
 </script>
 
