@@ -10,22 +10,21 @@
     let UnemploymentData = [];
     let UnemploymentLocation = []
     let UnemploymentYear = [];
-    let unemploymentRate = [];
+    let unemploymentTotal = 0;
     let salesData = [];
     let salesLocation = [];
-    let salesYear = [];
-    let salesTotal = [];
+    let salesYear = [2015, 2016, 2017, 2018, 2019];
+    let salesTotalData2015 = 0;
+    let salesTotalData2016 = 0;
+    let salesTotalData2017 = 0;
+    let salesTotalData2018 = 0;
+    let salesTotalData2019 = 0;
+    
 
-
-    function distinctRecords(MYJSON, prop) {
-    return MYJSON.filter((obj, pos, arr) => {
-      return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
-    });
-  }
 
     async function getDataGraph() {
         console.log("Fetching data...");
-        const res = await fetch("https://sos2021-07.herokuapp.com/api/v2/unemployment");
+        const res = await fetch("https://sos2021-07.herokuapp.com/api/integration/unemployment");
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
@@ -34,12 +33,13 @@
             UnemploymentData.sort((a, b) => (a.location > b.location) ? 1 : -1)
             console.log(`We have received ${UnemploymentData.length} resources.`);
             UnemploymentData.forEach((data) => {
-                UnemploymentYear.push(data.autonomous_community+"-"+data.year);
-                unemploymentRate.push(parseFloat(data["unemployment_rate"]));
+                if (data.year == 2020){
+                    unemploymentTotal=unemploymentTotal+parseFloat(data["unemployment_rate"]);
+                }
             });
-            console.log("totales: "+UnemploymentData.length);
-            console.log("años: "+UnemploymentYear+UnemploymentLocation);
-            console.log("Rate: "+unemploymentRate);
+            console.log("Rate: "+unemploymentTotal);
+
+            
         } else {
             console.log("Error");
         }
@@ -51,87 +51,77 @@
             salesData.sort((a, b) => (a.year > b.year) ? 1 : -1)
             salesData.sort((a, b) => (a.location > b.location) ? 1 : -1)
             console.log(`We have received ${salesData.length} resources.`);
+            
             salesData.forEach((data) => {
-                salesYear.push(data.year);
-                salesLocation.push(data.location+"-"+data.year);
-                salesTotal.push(parseInt(data["total"]));
+                
+                if (data.year == 2015){
+                    salesTotalData2015=salesTotalData2015+parseInt(data["total"]);
+                }
+                if (data.year == 2016){
+                    salesTotalData2016=salesTotalData2016+parseInt(data["total"]);
+                }
+                if (data.year == 2017){    
+                    salesTotalData2017=salesTotalData2017+parseInt(data["total"]);
+                }
+                if (data.year == 2018){
+                    salesTotalData2018=salesTotalData2018+parseInt(data["total"]);
+                }
+                if (data.year == 2019){
+                    salesTotalData2019=salesTotalData2019+parseInt(data["total"]);
+                }
+
+                //salesYear.push(data.year);
+                //salesLocation.push(data.location+"-"+data.year);
+                //salesTotal.push(parseInt(data["total"]));
             });
-            console.log("años y localidad: "+salesLocation);
-            console.log("total totales: "+salesTotal.length);
+            //console.log("años y localidad: "+salesLocation);
+            //console.log("total totales: "+salesTotal.length);
+            // console.log("total totales: "+salesTotalData);
         } else {
             console.log("Error");
         }
 
-    Highcharts.chart('container', {
-    chart: {
-        type: 'bar'
+var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+        x : 'x',
+      columns: [
+        ['x', 2015, 2016, 2017, 2018, 2019, 2020],
+        ['Ventas totales',salesTotalData2015,salesTotalData2016,salesTotalData2017,salesTotalData2018,salesTotalData2019 ],
+        ['Desempleo', 0,0,0,0,0,unemploymentTotal],
+      ],
+      axes: {
+        Desempleo: 'y2'
+      },
+      types: {
+        Desempleo: 'bar'
+      }
     },
-    title: {
-        text: 'Desempleo en España'
-    },
-    subtitle: {
-        text: 'Fuente: Instituto Nacional de Estadística'
-    },
-    xAxis: {
-        categories: UnemploymentYear,//['2015', '2016', '2017', '2018', '2019', '2020'],
-        title: {
-            text: (null)
-        }
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Número de Desempleo (x1000)',
-            align: 'high'
+    axis: {
+      y: {
+        label: {
+          text: 'Total ventas',
+          position: 'outer-middle'
         },
-        labels: {
-            overflow: 'justify'
+      },
+      y2: {
+        show: true,
+        label: {
+          text: 'Total desempleo',
+          position: 'outer-middle'
         }
-    },
-    tooltip: {
-        valueSuffix: 'millions'
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
-        }
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
-    },
-    credits: {
-        enabled: false
-    },
-    series: [{
-        name: 'Desempleo',
-        data: unemploymentRate
-    }, {
-        name: 'Total Ventas',
-        data: salesTotal
-    }]
+      }
+    }
 });
+
     }
 </script>
 
 <svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script
-        src="https://code.highcharts.com/modules/accessibility.js"
-        on:load={getDataGraph}></script>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js" on:load={getDataGraph}></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.js" on:load={getDataGraph}></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.css" rel="stylesheet" type="text/css">
 </svelte:head>
 
 <main>
@@ -142,12 +132,7 @@
             </NavItem>
         </Nav>
      </div> 
-    <figure class="highcharts-figure">
-        <div id="container" />
-        <p class="highcharts-description">
-            Información acerca de el desempleo en España por Comunidad autónoma.
-        </p>
-    </figure>
+     <div id="chart"></div>
   
 </main>
 

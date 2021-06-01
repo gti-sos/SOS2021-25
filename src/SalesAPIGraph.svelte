@@ -9,6 +9,7 @@
 
     let salesData = [];
     let salesYear = [];
+    let salesLocation = [];
     let salesTotal = [];
     let salesProtectedhousing = [];
     let salesNew = [];
@@ -27,105 +28,21 @@
             console.log(`We have received ${salesData.length} resources.`);
             salesData.forEach((data) => {
                 salesYear.push(data.location + "-" + data.year);
+                salesLocation.push(data.location);
                 salesTotal.push(parseInt(data["total"],10));
                 salesProtectedhousing.push(parseInt(data["protectedhousing"],10));
                 salesNew.push(parseInt(data["new"],10));
                 salesSecondhand.push(parseInt(data["secondhand"],10));
                 salesOther.push(parseInt(data["other]"],10));
             });
+            console.log("años: "+salesYear);
             console.log("totales: "+salesTotal);
             console.log("total totales: "+salesTotal.length);
         } else {
             console.log("Error");
         }
 
-        /*Highcharts.chart("container", {
-            title: {
-                text: "Venta de viviendas en España",
-            },
-
-            subtitle: {
-                text: "Fuente: Instituto Nacional de Estadística",
-            },
-
-            yAxis: {
-                title: {
-                    text: "Número de ventas",
-                },
-            },
-
-            xAxis: {
-                accessibility: {
-                    rangeDescription: "Rango: 2015 a 2019",
-                },
-                title: {
-                    text: "Comunidad-Año",
-                },
-                categories: salesYear,
-            },
-
-            legend: {
-                layout: "vertical",
-                align: "right",
-                verticalAlign: "middle",
-            },
-
-            annotations: [
-                {
-                    labels: [
-                        {
-                            point: "date",
-                            text: "",
-                        },
-                        {
-                            point: "min",
-                            text: "Min",
-                            backgroundColor: "white",
-                        },
-                    ],
-                },
-            ],
-            series: [
-                        {
-                            name: "Total ventas",
-                            data: salesTotal,
-                        },
-                        {
-                            name: "Ventas viviendas proteccion oficial",
-                            data: salesProtectedhousing,
-                        },
-                        {
-                            name: "Ventas viviendas nuevas",
-                            data: salesNew,
-                        },
-                        {
-                            name: "Ventas viviendas segunda mano",
-                            data: salesSecondhand,
-                        },
-                        {
-                            name: "Otros",
-                            data: salesOther,
-                        },
-            ],
-
-            responsive: {
-                rules: [
-                    {
-                        condition: {
-                            maxWidth: 5000,
-                        },
-                        chartOptions: {
-                            legend: {
-                                layout: "horizontal",
-                                align: "center",
-                                verticalAlign: "bottom",
-                            },
-                        },
-                    },
-                ],
-            },
-        });*/
-        Highcharts.chart('container', {
+    Highcharts.chart('container', {
     chart: {
         type: 'bar'
     },
@@ -138,7 +55,7 @@
     xAxis: {
         categories: salesYear,
         title: {
-            text: null
+            text: "localizacion y año"
         }
     },
     yAxis: {
