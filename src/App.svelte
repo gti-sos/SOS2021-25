@@ -20,6 +20,8 @@
 	import Integrations from "./Integrations/Integrations.svelte";
 	import SalesSanity from "./Integrations/SalesSanity.svelte";
 
+	import EvictionsRentals from "./Integrations/EvictionsRentals.svelte";
+
 
 	const routes = {
 		"/": Info,
@@ -37,6 +39,7 @@
 		"/Integrations": Integrations,
 		"/Integrations/unenployementIntegrationGraph": SalesUnemployement,
 		"/Integrations/sanityIntegrationGraph": SalesSanity,
+		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 	};
 </script>
 

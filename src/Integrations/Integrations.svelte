@@ -39,7 +39,7 @@
     <div class="container">
       <b><h2>Apis Evictions</h2></b>
       <div class="group">
-        <a href="/#/salesIntegrations/integrations/unenployementIntegrationGraph">
+        <a href="/#/Integrations/rentalsIntegrationGraph">
           <div class="article cambioNegro">
             <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
             <p>
