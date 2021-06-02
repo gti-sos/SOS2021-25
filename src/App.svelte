@@ -12,6 +12,7 @@
 
 	import EvictionsApiGraph from "./EvictionsAPIGraph.svelte";
 	import SalesApiGraph from "./SalesAPIGraph.svelte";
+	import RentalsApiGraph from "./RentalsAPIGraph.svelte";
 	import CommonGraph from "./CommonGraph.svelte";
 
 
@@ -32,6 +33,7 @@
 		"/commonGraph": CommonGraph,
 		"/evictions/evictionsGraph": EvictionsApiGraph,
 		"/sales/salesGraph": SalesApiGraph,
+		"/rentals/rentalsGraph": RentalsApiGraph,
 		"/Integrations": Integrations,
 		"/Integrations/unenployementIntegrationGraph": SalesUnemployement,
 		"/Integrations/sanityIntegrationGraph": SalesSanity,

@@ -25,7 +25,7 @@ var rentalsInitial =
 		{ "location": "melilla", "year": "2019", "pricesquaremeter": "8.4", "annualvariation": "-0.6", "alltimehigh": "9.5", "maxvariation": "-11.3" },
 		{ "location": "region of murcia", "year": "2019", "pricesquaremeter": "6.1", "annualvariation": "7.5", "alltimehigh": "7.1", "maxvariation": "-13.9" },
 		{ "location": "community of navarre", "year": "2019", "pricesquaremeter": "8.5", "annualvariation": "10.6", "alltimehigh": "8.8", "maxvariation": "-3.4" },
-		{ "location": "andalusia", "year": "2018", "pricesquaremeter": "8", "annualvariation": "96", "alltimehigh": "9.5", "maxvariation": "-15.7" },
+		{ "location": "andalusia", "year": "2018", "pricesquaremeter": "8", "annualvariation": "6", "alltimehigh": "9.5", "maxvariation": "-15.7" },
 		{ "location": "aragon", "year": "2018", "pricesquaremeter": "7.2", "annualvariation": "6.6", "alltimehigh": "8.2", "maxvariation": "-12" },
 		{ "location": "principality of asturias", "year": "2018", "pricesquaremeter": "6.9", "annualvariation": "3.9", "alltimehigh": "10.8", "maxvariation": "-36.1" },
 		{ "location": "balearic islands", "year": "2018", "pricesquaremeter": "12.4", "annualvariation": "4.2", "alltimehigh": "14", "maxvariation": "-11.4" },

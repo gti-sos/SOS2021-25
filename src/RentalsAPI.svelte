@@ -615,7 +615,7 @@ import { get } from "svelte/store";
                         <td
                             ><input
                                 type="text"
-                                placeholder="Nuevas"
+                                placeholder="Alto Historico"
                                 min="0"
                                 bind:value={newRentals["alltimehigh"]}
                             /></td
@@ -623,7 +623,7 @@ import { get } from "svelte/store";
                         <td
                             ><input
                                 type="text"
-                                placeholder="Segunda mano"
+                                placeholder="Maxima Variacion"
                                 min="0"
                                 bind:value={newRentals["maxvariation"]}
                             /></td
