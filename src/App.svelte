@@ -30,7 +30,7 @@
 		"/sales/:location/:year": SalesApiEdit,
 		"/evictions/:location/:year": EvictionsApiEdit,
 		"/rentals/:location/:year": RentalsApiEdit,
-		"/commonGraph": CommonGraph,
+		"/analytics": CommonGraph,
 		"/evictions/evictionsGraph": EvictionsApiGraph,
 		"/sales/salesGraph": SalesApiGraph,
 		"/rentals/rentalsGraph": RentalsApiGraph,
