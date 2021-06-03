@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
 const { DefaultDeserializer } = require("v8");
+const request = require("request");
 
 var cors = require("cors");
 
@@ -2576,3 +2577,12 @@ app.get("/info/evictions", (req, res) => {
 app.listen(PORT, () => {
 	console.log(`Server ready lintening on port ${PORT}`);
 })
+
+app.use("/proxyEvictions", function(req, res) {
+	var apiServerHost = 'https://sos2021-26.herokuapp.com';
+
+	var url = apiServerHost + req.baseUrl + req.url;
+	console.log(`piped: /proxyEvictions -> ${url}`);
+
+	req.pipe(request(url)).pipe(res);
+});
