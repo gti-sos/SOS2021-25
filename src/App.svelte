@@ -21,6 +21,8 @@
 	import SalesSanity from "./Integrations/SalesSanity.svelte";
 	import RentalBuySell from "./Integrations/RentalBuySell.svelte";
 
+	import EvictionsRentals from "./Integrations/EvictionsRentals.svelte";
+
 
 	const routes = {
 		"/": Info,
@@ -31,7 +33,7 @@
 		"/sales/:location/:year": SalesApiEdit,
 		"/evictions/:location/:year": EvictionsApiEdit,
 		"/rentals/:location/:year": RentalsApiEdit,
-		"/commonGraph": CommonGraph,
+		"/analytics": CommonGraph,
 		"/evictions/evictionsGraph": EvictionsApiGraph,
 		"/sales/salesGraph": SalesApiGraph,
 		"/rentals/rentalsGraph": RentalsApiGraph,
@@ -39,7 +41,7 @@
 		"/Integrations/unenployementIntegrationGraph": SalesUnemployement,
 		"/Integrations/sanityIntegrationGraph": SalesSanity,
 		"/Integrations/buySellIntegrationGraph": RentalBuySell,
-
+		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 	};
 </script>
 

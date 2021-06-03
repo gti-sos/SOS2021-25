@@ -39,14 +39,22 @@
     <div class="container">
       <b><h2>Apis Evictions</h2></b>
       <div class="group">
+        <a href="/#/Integrations/rentalsIntegrationGraph">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              Grupo 07 - Alquileres
+            </p>
+          </div>
+        </a>
         <a href="/#/salesIntegrations/integrations/unenployementIntegrationGraph">
           <div class="article cambioNegro">
             <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
             <p>
-              Grupo 07  Desempleados
+              Grupo 26 - CulturaBASE
             </p>
           </div>
-        </a>      
+        </a>         
       </div>
     </div>
     <div class="container">
