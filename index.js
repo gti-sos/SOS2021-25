@@ -2586,3 +2586,12 @@ app.use("/proxyEvictions", function(req, res) {
 
 	req.pipe(request(url)).pipe(res);
 });
+
+app.use("/proxySales", function(req, res) {
+	var apiServerHost = 'https://sanity-integration.herokuapp.com/sanity-stats';
+
+	var url = apiServerHost + req.baseUrl + req.url;
+	console.log(`piped: /proxySales -> ${url}`);
+
+	req.pipe(request(url)).pipe(res);
+});
