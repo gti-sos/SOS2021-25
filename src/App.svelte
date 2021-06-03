@@ -19,11 +19,12 @@
 	import SalesUnemployement from "./Integrations/SalesUnemployement.svelte";
 	import Integrations from "./Integrations/Integrations.svelte";
 	import SalesSanity from "./Integrations/SalesSanity.svelte";
+	import SalesExtExpenses from "./Integrations/SalesExtExpenses.svelte"
 	import RentalBuySell from "./Integrations/RentalBuySell.svelte";
 
 	import EvictionsRentals from "./Integrations/EvictionsRentals.svelte";
 	import EvictionsCultura from "./Integrations/EvictionsCulturaBASE.svelte";
-import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
+	import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
 
 
 	const routes = {
@@ -42,6 +43,7 @@ import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
 		"/Integrations": Integrations,
 		"/Integrations/unenployementIntegrationGraph": SalesUnemployement,
 		"/Integrations/sanityIntegrationGraph": SalesSanity,
+		"/Integrations/expensesIntegrationGraph": SalesExtExpenses,
 		"/Integrations/buySellIntegrationGraph": RentalBuySell,
 		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 		"/Integrations/culturaBASEIntegrationGraph": EvictionsCulturaBase,

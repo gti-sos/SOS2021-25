@@ -33,7 +33,15 @@
               Grupo 10 - Sanidad
             </p>
           </div>
-        </a>           
+        </a>          
+        <a href="/#/Integrations/expensesIntegrationGraph">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              Externa - Gasto medio
+            </p>
+          </div>
+        </a>  
       </div>
     </div>
     <div class="container">
