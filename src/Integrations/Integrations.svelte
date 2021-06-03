@@ -47,7 +47,7 @@
             </p>
           </div>
         </a>
-        <a href="/#/salesIntegrations/integrations/unenployementIntegrationGraph">
+        <a href="/#/Integrations/culturaBASEIntegrationGraph">
           <div class="article cambioNegro">
             <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
             <p>
