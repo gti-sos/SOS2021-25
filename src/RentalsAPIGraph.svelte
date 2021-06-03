@@ -3,8 +3,6 @@
     import { Nav, NavItem, NavLink, Button } from "sveltestrap";
 
     let rentalsData = [];
-    let rentalsYear = [];
-    let rentalsLocation = [];
     let rentalsPricesquaremeter = [];
     let rentalsAnnualvariation = [];
     let rentalsAlltimehigh = [];
@@ -21,20 +19,11 @@
             rentalsData.sort((a, b) => (a.location > b.location ? 1 : -1));
             console.log(`We have received ${rentalsData.length} resources.`);
             rentalsData.forEach((data) => {
-                rentalsYear.push(data.location + "-" + data.year);
-                rentalsLocation.push(data.location);
-                rentalsPricesquaremeter.push(
-                    parseInt(data["pricesquaremeter"], 10)
-                );
-                rentalsAnnualvariation.push(
-                    parseInt(data["annualvariation"], 10)
-                );
-                rentalsAlltimehigh.push(parseInt(data["alltimehigh"], 10));
-                rentalsMaxvariation.push(parseInt(data["maxvariation"], 10));
+                rentalsPricesquaremeter.push([data.location + "-" + data.year,parseInt(data["pricesquaremeter"], 10)]);
+                rentalsAnnualvariation.push([data.location + "-" + data.year,parseInt(data["annualvariation"], 10)]);
+                rentalsAlltimehigh.push([data.location + "-" + data.year,parseInt(data["alltimehigh"], 10)]);
+                rentalsMaxvariation.push([data.location + "-" + data.year,parseInt(data["maxvariation"], 10)]);
             });
-            console.log("años: " + rentalsYear);
-            console.log("Precio m2: " + rentalsPricesquaremeter);
-            console.log("total totales: " + rentalsPricesquaremeter.length);
         } else {
             console.log("Error");
         }
@@ -80,7 +69,7 @@
                 area: {
                     depth: 100, //Separacion de las graficas
                     marker: {
-                        enabled: false, //Puntos de la grafica, po dato introducido
+                        enabled: false, //Puntos de la grafica, por dato introducido
                     },
                     states: {
                         inactive: {
@@ -141,7 +130,7 @@
             <NavItem>
                 <a href="/#/info"
                     ><Button style="margin: 0 5px 10px 50px;" color="primary"
-                        >Volver</Button
+                        >Inicio</Button
                     ></a
                 >
                 <a href="/#/rentals"
@@ -156,7 +145,7 @@
         <div id="container"></div>
         <p class="highcharts-description">
             Información acerca de los precios de los alquileres que tienen lugar a lo
-            largo del año en cada comunidad autónoma, incluyendo la variacion en comparacion con el año anterior, el maximo historico y la maxima variacion.
+            largo del año en cada comunidad autónoma, incluyendo la variación en comparación con el año anterior, el maximo historico y la maxima variacion.
         </p>
     </figure>
 </main>
