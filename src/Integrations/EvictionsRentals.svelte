@@ -1,50 +1,41 @@
 <script>
-
     import { onMount } from "svelte";
-    import {
-        Nav,
-        NavItem,
-        Button,
-    } from "sveltestrap";
+    import { Nav, NavItem, Button } from "sveltestrap";
 
     let evictionsData = [];
-    let evictionsKey = [];
     let evictionsTotal = [];
-    let evictionsRustic = [];
-    let evictionsHousehold = [];
-    let evictionsBuildinglot = [];
-    let evictionsOther = [];
     let rentalsKey = [];
     let rentalsData = [];
     let rentalsRent = [];
 
     async function getDataGraph() {
         console.log("Fetching data...");
-        const res = await fetch("https://sos2021-07.herokuapp.com/api/v1/rentals");
+        const res = await fetch(
+            "https://sos2021-07.herokuapp.com/api/v1/rentals"
+        );
         if (res.ok) {
             console.log("Ok");
             rentalsData = await res.json();
             console.log(`We have received ${rentalsData.length} resources.`);
             rentalsData.forEach((data) => {
                 let comunidad = "";
-                if(data.year!=2020){
-                    if(data.autonomous_community=="comunidad de madrid"){
+                if (data.year != 2020) {
+                    if (data.autonomous_community == "comunidad de madrid") {
                         comunidad = "community of madrid";
-                    }else if(data.autonomous_community=="castilla y león"){
+                    } else if (data.autonomous_community == "castilla y león") {
                         comunidad = "castile and leon";
-                    }else if(data.autonomous_community=="cataluña"){
+                    } else if (data.autonomous_community == "cataluña") {
                         comunidad = "catalonia";
-                    }else if(data.autonomous_community=="andalucía"){
+                    } else if (data.autonomous_community == "andalucía") {
                         comunidad = "andalusia";
                     }
-                    rentalsKey.push(comunidad+"-"+data.year);
-                    console.log(comunidad+"-"+data.year);
+                    rentalsKey.push(comunidad + "-" + data.year);
+                    console.log(comunidad + "-" + data.year);
                     rentalsRent.push(parseInt(data.rent, 10));
                 }
-                
             });
-//            console.log("totales: " + evictionsTotal);
-//            console.log("total totales: " + evictionsTotal.length);
+            //            console.log("totales: " + evictionsTotal);
+            //            console.log("total totales: " + evictionsTotal.length);
         }
         const res1 = await fetch("api/v1/evictions");
         if (res1.ok) {
@@ -53,79 +44,132 @@
             console.log(`We have received ${evictionsData.length} resources.`);
             let evictionsAux = [rentalsKey.length];
             evictionsData.forEach((data) => {
-                let indice = rentalsKey.indexOf(data.location + "-" + data.year);
-                evictionsAux[indice] = (parseInt(data["total"], 10));
+                let indice = rentalsKey.indexOf(
+                    data.location + "-" + data.year
+                );
+                evictionsAux[indice] = parseInt(data["total"], 10);
             });
             evictionsTotal = evictionsAux;
             //console.log("totales: " + evictionsTotal);
             //console.log("total totales: " + evictionsTotal.length);
         }
 
+        
+        var chart = Highcharts.chart("container", {
+            chart: {
+                type: "column",
+            },
 
-        new Morris.Bar({
-            // ID of the element in which to draw the chart.
-            element: "myfirstchart",
-            // Chart data records -- each entry in this array corresponds to a point on
-            // the chart.
-            data: [
+            title: {
+                text: "Integración de G25-Desahucios con G07-Alquileres",
+            },
+
+            subtitle: {
+                text: "Relación de la renta media per cápita con la cantidad de desahucios",
+            },
+
+            legend: {
+                align: "right",
+                verticalAlign: "middle",
+                layout: "vertical",
+            },
+
+            xAxis: {
+                categories: rentalsKey,
+                labels: {
+                    x: -10,
+                },
+            },
+
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: "Valores",
+                },
+            },
+
+            series: [
                 {
-                    com: rentalsKey[0],
-                    a: evictionsTotal[0],
-                    b: rentalsRent[0]
+                    name: "Renta media per cápita",
+                    data: rentalsRent,
                 },
                 {
-                    com: rentalsKey[1],
-                    a: evictionsTotal[1],
-                    b: rentalsRent[1]
-                },
-                {
-                    com: rentalsKey[2],
-                    a: evictionsTotal[2],
-                    b: rentalsRent[2]
+                    name: "Total desahucios",
+                    data: evictionsTotal,
                 }
             ],
-            // The name of the data record attribute that contains x-values.
-            xkey: "com",
-            // A list of names of data record attributes that contain y-values.
-            ykeys: ["a", "b"],
-            // Labels for the ykeys -- will be displayed when you hover over the
-            // chart.
-            labels: ["Total Desahucios", "Renta media"],
-            stacked: false,
+
+            responsive: {
+                rules: [
+                    {
+                        condition: {
+                            maxWidth: 500,
+                        },
+                        chartOptions: {
+                            legend: {
+                                align: "center",
+                                verticalAlign: "bottom",
+                                layout: "horizontal",
+                            },
+                            yAxis: {
+                                labels: {
+                                    align: "left",
+                                    x: 0,
+                                    y: -5,
+                                },
+                                title: {
+                                    text: null,
+                                },
+                            },
+                            subtitle: {
+                                text: null,
+                            },
+                            credits: {
+                                enabled: false,
+                            },
+                        },
+                    },
+                ],
+            },
         });
     }
-
 </script>
 
 <svelte:head>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js" on:load={getDataGraph}></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script
+        src="https://code.highcharts.com/modules/accessibility.js"
+        on:load={getDataGraph}></script>
 </svelte:head>
 
 <main>
-
     <div class="container">
         <Nav>
             <NavItem>
                 <a href="/#/info">
-                    <Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
+                    <Button style="margin: 0 5px 10px 50px;" color="primary"
+                        >Volver</Button
+                    ></a
+                >
                 <a href="/#/evictions">
-                    <Button style="margin: 0 5px 10px 50px;" color="dark">Ver datos</Button></a>
+                    <Button style="margin: 0 5px 10px 50px;" color="dark"
+                        >Ver datos</Button
+                    ></a
+                >
             </NavItem>
         </Nav>
     </div>
-    <div>
-        <figure class="highcharts-figure">
-            <div id="container" />
-            <p class="highcharts-description">
-                Información acerca de la cantidad de desahucios que tienen lugar
-                a lo largo del año en cada comunidad autónoma, separándolos por
-                tipo.
-            </p>
-        </figure>
-    </div>
-    <div id="myfirstchart" style="height: 250px;" />
-
+    
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            En esta gráfica se observa la relación entre la renta media per cápita
+            por Comunidad Autónoma y año con la cantidad de desahucios totales que
+            han tenido lugar en dicha Comunidad Autónoma y año, con los datos en común
+            de las APIs de la asignatura Sistemas Orientados a Servicios (SOS), curso
+            2020-2021: G07-Alquileres y G25-Desahucios.            
+        </p>
+    </figure>
 </main>
