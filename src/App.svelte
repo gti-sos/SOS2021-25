@@ -25,6 +25,7 @@
 	import EvictionsRentals from "./Integrations/EvictionsRentals.svelte";
 	import EvictionsCultura from "./Integrations/EvictionsCulturaBASE.svelte";
 	import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
+	import SalesRent from "./Integrations/SalesRent.svelte";
 
 
 	const routes = {
@@ -44,6 +45,7 @@
 		"/Integrations/unenployementIntegrationGraph": SalesUnemployement,
 		"/Integrations/sanityIntegrationGraph": SalesSanity,
 		"/Integrations/expensesIntegrationGraph": SalesExtExpenses,
+		"/Integrations/rentIntegrationGraph": SalesRent,
 		"/Integrations/buySellIntegrationGraph": RentalBuySell,
 		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 		"/Integrations/culturaBASEIntegrationGraph": EvictionsCulturaBase,

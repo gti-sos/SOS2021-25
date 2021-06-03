@@ -7,14 +7,14 @@
         Button,
     } from "sveltestrap";
 
-    let sanitytData = [];
-    let sanityLocation = []
-    let sanityYear = [2007, 2008, 2009, 2010, 2011];
-    let sanityTotal2007 = 0;
-    let sanityTotal2008 = 0;
-    let sanityTotal2009 = 0;
-    let sanityTotal2010 = 0;
-    let sanityTotal2011 = 0;
+    let renttData = [];
+    let rentLocation = []
+    let rentYear = [2012, 2013, 2014, 2015, 2016];
+    let rentTotal2012 = 0;
+    let rentTotal2013 = 0;
+    let rentTotal2014 = 0;
+    let rentTotal2015 = 0;
+    let rentTotal2016 = 0;
     let salesData = [];
     let salesLocation = [];
     let salesYear = [2015, 2016, 2017, 2018, 2019];
@@ -28,28 +28,32 @@
 
     async function getDataGraph() {
         console.log("Fetching data...");
-        const res = await fetch("https://sanity-integration.herokuapp.com/sanity-stats");
+        const res = await fetch("https://servicios.ine.es/wstempus/js/es/DATOS_TABLA/t35/p010/base2010/ch/01001.px?tip=AM");
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
-            sanitytData = json;
-            sanitytData.sort((a, b) => (a.year > b.year) ? 1 : -1)
-            console.log(`We have received ${sanitytData.length} resources.`);
-            sanitytData.forEach((data) => {
-                if (data.year == 2007){
-                    sanityTotal2007=sanityTotal2007+parseInt(data["hospital_bed"]);
-                }
-                if (data.year == 2008){
-                    sanityTotal2008=sanityTotal2008+parseInt(data["hospital_bed"]);
-                }
-                if (data.year == 2009){
-                    sanityTotal2009=sanityTotal2009+parseInt(data["hospital_bed"]);
-                }
-                if (data.year == 2010){
-                    sanityTotal2010=sanityTotal2010+parseInt(data["hospital_bed"]);
-                }
-                if (data.year == 2011){
-                    sanityTotal2011=sanityTotal2011+parseInt(data["hospital_bed"]);
+            renttData = json;
+            renttData.sort((a, b) => (a.year > b.year) ? 1 : -1)
+            console.log(`We have received ${renttData.length} resources.`);
+            renttData.forEach((data) => {
+                if(data.Nombre==["Andalucía, RECURSOS: Excedente de explotación bruto / Renta mixta bruta"]){
+                    if (data.Data[4]){
+                    rentTotal2012=rentTotal2012+parseFloat(data.Data[4]["Valor"]);
+                    }
+                    if (data.Data[3]){
+                    rentTotal2013=rentTotal2013+parseFloat(data.Data[3]["Valor"]);
+                    }
+                    if (data.Data[2]){
+                    rentTotal2014=rentTotal2014+parseFloat(data.Data[2]["Valor"]);
+                    }
+                    if (data.Data[1]){
+                    rentTotal2015=rentTotal2015+parseFloat(data.Data[1]["Valor"]);
+
+                    }
+                    if (data.Data[0]){
+                    rentTotal2016=rentTotal2016+parseFloat(data.Data[0]["Valor"]);
+                    }
+                    
                 }
                 
             });
@@ -102,30 +106,38 @@ Highcharts.chart('container', {
     },
 
     title: {
-        text: 'Integracion venta de viviendas con pacientes en camas de hospital'
+        text: 'Venta de pisos y Renta bruta mixta anual'
     },
 
     subtitle: {
-        text: ''
+        text: 'Source: WebAIM. Click on points to visit official screen reader website'
     },
 
-    yAxis: {
+    yAxis: [{
         title: {
-            text: 'Número total'
+            text: 'Venta total de pisos'
         },
         accessibility: {
-            description: 'Número total'
+            description: 'Unidades'
         }
-    },
+    }, {
+        title: {
+            text: 'Renta bruta mixta'
+        },
+        opposite: true
+       
+    }],
+    
 
     xAxis: {
         title: {
-            text: 'Año'
+            text: 'Time'
         },
         accessibility: {
-            description: 'Desde 2007 a 2019'
+            description: 'Time from December 2010 to September 2019'
         },
-        categories: ['2007', '2008', '2009', '2010', '2011', '2015', '2016', '2017', '2018', '2019']
+        categories:['2012', '2013', '2014' ,'2015', '2016', '2017', '2018', '2019'],
+        
     },
 
     tooltip: {
@@ -147,18 +159,19 @@ Highcharts.chart('container', {
 
     series: [
         {
-            name: 'Venta de viviendas',
-            data: ["","","","","",salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
+            name: 'Venta totales de pisos',
+            data: [salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
             color: colors[2],
             accessibility: {
-                description: 'Venta totales de vivienda por año'
+                description: ''
             }
         }, {
-            name: 'Pacientes en cama',
-            data: [sanityTotal2007, sanityTotal2008, sanityTotal2009, sanityTotal2010, sanityTotal2011],
-            dashStyle: 'ShortDashDot',
-            color: colors[0]
-        },            
+            name: 'Renta bruta mixta anual',
+            data: [rentTotal2012, rentTotal2013, rentTotal2014, rentTotal2015, rentTotal2016],
+            dashStyle: 'ShortDash',
+            color: colors[3],
+            yAxis: 1
+        }
     ],
 
     responsive: {
@@ -175,7 +188,7 @@ Highcharts.chart('container', {
                     itemWidth: 150
                 },
                 xAxis: {
-                    categories: ['Dec. 2010', 'May 2012', 'Jan. 2014', 'July 2015', 'Oct. 2017', 'Sep. 2019'],
+                    categories: ['2012', '2013', '2014' ,'2015', '2016', '2017', '2018', '2019'],
                     title: ''
                 },
                 yAxis: {
@@ -185,6 +198,7 @@ Highcharts.chart('container', {
         }]
     }
 });
+
     }
 </script>
 
@@ -209,7 +223,7 @@ Highcharts.chart('container', {
      <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta gráfica nos muestra el número de pacientes en cama en comparación con el número de venta de viviendas en diferentes años
+            Esta gráfica nos muestra el número de venta de pisos con la renta anual mixta bruta
         </p>
     </figure>
   

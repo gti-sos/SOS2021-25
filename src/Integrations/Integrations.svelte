@@ -42,6 +42,14 @@
             </p>
           </div>
         </a>  
+        <a href="/#/Integrations/rentIntegrationGraph">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              Externa - Renta media mixta
+            </p>
+          </div>
+        </a>  
       </div>
     </div>
     <div class="container">

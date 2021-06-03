@@ -91,109 +91,67 @@
         }
         
         var colors = Highcharts.getOptions().colors;
+        Highcharts.chart('container', {
 
-Highcharts.chart('container', {
-    chart: {
-        type: 'spline'
-    },
+chart: {
+    type: 'bubble',
+    plotBorderWidth: 1,
+    zoomType: 'xy'
+},
 
-    legend: {
-        symbolWidth: 40
-    },
+title: {
+    text: 'Venta de pisos y pacientes en cama'
+},
 
-    title: {
-        text: 'Integracion venta de viviendas con pacientes en camas de hospital'
-    },
-
-    subtitle: {
-        text: ''
-    },
-
-    yAxis: {
-        title: {
-            text: 'Número total'
-        },
-        accessibility: {
-            description: 'Número total'
-        }
-    },
-
-    xAxis: {
-        title: {
-            text: 'Año'
-        },
-        accessibility: {
-            description: 'Desde 2007 a 2019'
-        },
-        categories: ['2007', '2008', '2009', '2010', '2011', '2015', '2016', '2017', '2018', '2019']
-    },
-
-    tooltip: {
-        valueSuffix: ''
-    },
-
-    plotOptions: {
-        series: {
-            point: {
-                events: {
-                    click: function () {
-                        window.location.href = this.series.options.website;
-                    }
-                }
-            },
-            cursor: 'pointer'
-        }
-    },
-
-    series: [
-        {
-            name: 'Venta de viviendas',
-            data: ["","","","","",salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
-            color: colors[2],
-            accessibility: {
-                description: 'Venta totales de vivienda por año'
-            }
-        }, {
-            name: 'Pacientes en cama',
-            data: [sanityTotal2007, sanityTotal2008, sanityTotal2009, sanityTotal2010, sanityTotal2011],
-            dashStyle: 'ShortDashDot',
-            color: colors[0]
-        },            
-    ],
-
-    responsive: {
-        rules: [{
-            condition: {
-                maxWidth: 550
-            },
-            chartOptions: {
-                chart: {
-                    spacingLeft: 3,
-                    spacingRight: 3
-                },
-                legend: {
-                    itemWidth: 150
-                },
-                xAxis: {
-                    categories: ['Dec. 2010', 'May 2012', 'Jan. 2014', 'July 2015', 'Oct. 2017', 'Sep. 2019'],
-                    title: ''
-                },
-                yAxis: {
-                    visible: false
-                }
-            }
-        }]
+xAxis: {
+    gridLineWidth: 1,
+    accessibility: {
+        rangeDescription: 'Range: 0 to 100.'
     }
+},
+
+yAxis: {
+    startOnTick: false,
+    endOnTick: false,
+    accessibility: {
+        rangeDescription: 'Range: 0 to 100.'
+    }
+},
+
+series: [{
+    data: ["","","","","",salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
+    marker: {
+        fillColor: {
+            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, 'rgba(255,255,255,0.5)'],
+                [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+            ]
+        }
+    }
+}, {
+    data: [sanityTotal2007, sanityTotal2008, sanityTotal2009, sanityTotal2010, sanityTotal2011,"","","","",""],
+    marker: {
+        fillColor: {
+            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, 'rgba(255,255,255,0.5)'],
+                [1, Highcharts.color(Highcharts.getOptions().colors[1]).setOpacity(0.5).get('rgba')]
+            ]
+        }
+    }
+}]
+
 });
+
     }
 </script>
 
 <svelte:head>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/themes/high-contrast-light.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"
         on:load={getDataGraph}></script>
 </svelte:head>
