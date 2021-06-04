@@ -39,12 +39,12 @@
     function resetInputs() {
         console.log("Reseting inputs");
         let resetData = {
-        location: "",
-        year: "",
-        "total": "",
-        "protectedhousing": "",
-        "new": "",
-        "secondhand": "",
+            location: "",
+            year: "",
+            total: "",
+            protectedhousing: "",
+            new: "",
+            secondhand: "",
         };
         newSales = resetData;
     }
@@ -130,7 +130,7 @@
             getNumData();
         });
     }
-      
+
     async function getData() {
         console.log("Fetching data...");
         const res = await fetch(
@@ -141,9 +141,11 @@
             const json = await res.json();
             salesData = json;
             //ordenar tabla
-            
+
             salesData.sort((a, b) => new Date(a.year) > new Date(b.year));
-            salesData.sort((a, b) => new String(a.location) > new String(b.location));
+            salesData.sort(
+                (a, b) => new String(a.location) > new String(b.location)
+            );
 
             console.log(`We have received ${salesData.length} resources.`);
         } else {
@@ -318,18 +320,18 @@
         let aux = "";
         for (var [clave, valor] of campos.entries()) {
             querySymbol += clave + "=" + valor + "&";
-            if (clave=="year"){
-                aux=aux+"Año="+valor+" ";
-            } else if (clave=="location"){
-                aux=aux+"Localizacion="+valor+" ";
-            } else if (clave=="total"){
-                aux=aux+"Total="+valor+" ";
-            } else if (clave=="protectedhousing"){
-                aux=aux+"Viviendas protegidas="+valor+" ";
-            } else if (clave=="new"){
-                aux=aux+"Nuevas="+valor+" ";
-            } else if (clave=="secondhand"){
-                aux=aux+"Segunda mano="+valor+" ";
+            if (clave == "year") {
+                aux = aux + "Año=" + valor + " ";
+            } else if (clave == "location") {
+                aux = aux + "Localizacion=" + valor + " ";
+            } else if (clave == "total") {
+                aux = aux + "Total=" + valor + " ";
+            } else if (clave == "protectedhousing") {
+                aux = aux + "Viviendas protegidas=" + valor + " ";
+            } else if (clave == "new") {
+                aux = aux + "Nuevas=" + valor + " ";
+            } else if (clave == "secondhand") {
+                aux = aux + "Segunda mano=" + valor + " ";
             }
         }
         fullQuery = querySymbol.slice(0, -1);
@@ -343,7 +345,7 @@
                 const json = await res.json();
                 salesData = json;
                 alertError = "";
-                alertOk = "Búsqueda realizada con éxito: "+aux;
+                alertOk = "Búsqueda realizada con éxito: " + aux;
             } else {
                 if (res.status == 404) {
                     alertOk = "";
@@ -404,12 +406,20 @@
     <div class="container">
         <Nav>
             <NavItem>
-                <a href="/"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
-                <a href="/#/sales/salesGraph"><Button color="light">Ver gráfica</Button></a>
+                <a href="/"
+                    ><Button style="margin: 0 5px 10px 50px;" color="primary"
+                        >Volver</Button
+                    ></a
+                >
+                <a href="/#/sales/salesGraph"
+                    ><Button color="light">Ver gráfica</Button></a
+                >
             </NavItem>
             <NavItem>
-                <Button style="margin: 0 25px 5px 0;" color="success" on:click={toggle1}
-                    >Cargar datos inciales</Button
+                <Button
+                    style="margin: 0 25px 5px 0;"
+                    color="success"
+                    on:click={toggle1}>Cargar datos inciales</Button
                 >
                 <Modal isOpen={open1} {toggle1}>
                     <ModalHeader {toggle1}>
@@ -437,8 +447,10 @@
             </NavItem>
             <NavItem>
                 {#if salesData.length == 0}
-                    <Button style="margin: 0 5px 5px 15px;" color="danger" on:click={toggle2}
-                        >Borrar todos los datos</Button
+                    <Button
+                        style="margin: 0 5px 5px 15px;"
+                        color="danger"
+                        on:click={toggle2}>Borrar todos los datos</Button
                     >
                     <!--  <NavLink disabled href="#" on:click={toggle2}
                         >Borrar todos los datos</NavLink
@@ -561,13 +573,19 @@
                                 bind:value={newSales["new"]}
                             /></td
                         >
-                        <td><input type="text" placeholder="Segunda mano" min="0" bind:value={newSales["secondhand"]}/></td>
-                        <td><div id="cancelar">
-                                <Button color="primary" on:click={insertData}
-                                    >Insertar</Button
-                                >
-                            </div></td
+                        <td
+                            ><input
+                                type="text"
+                                placeholder="Segunda mano"
+                                min="0"
+                                bind:value={newSales["secondhand"]}
+                            /></td
                         >
+                        <td>
+                            <Button color="primary" on:click={insertData}
+                                >Insertar</Button
+                            >
+                        </td>
                         <td
                             ><Button color="primary" on:click={searchData}
                                 >Buscar</Button
@@ -652,7 +670,6 @@
         padding-left: auto;
         padding-right: auto;
         margin: 0 auto;
-        
     }
     h2 {
         text-transform: uppercase;
@@ -687,12 +704,10 @@
 
     p,
     a {
-        
         font-size: 20px;
         line-height: 30px;
         margin: 15px;
     }
-
 
     table {
         border-radius: 5px;
@@ -731,9 +746,8 @@
     }
 
     @media (max-width: 1290px) {
-        input{
+        input {
             width: 100px;
         }
     }
-
 </style>
