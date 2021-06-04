@@ -120,6 +120,7 @@ yAxis: {
 
 series: [{
     data: ["","","","","",salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
+    name: "Venta total de pisos",
     marker: {
         fillColor: {
             radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
@@ -131,6 +132,7 @@ series: [{
     }
 }, {
     data: [sanityTotal2007, sanityTotal2008, sanityTotal2009, sanityTotal2010, sanityTotal2011,"","","","",""],
+    name: "Pacientes en cama",
     marker: {
         fillColor: {
             radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
