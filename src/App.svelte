@@ -21,6 +21,7 @@
 	import SalesSanity from "./Integrations/SalesSanity.svelte";
 	import SalesExtExpenses from "./Integrations/SalesExtExpenses.svelte"
 	import RentalBuySell from "./Integrations/RentalBuySell.svelte";
+	import RentalCuts from "./Integrations/RentalCuts.svelte";
 
 	import EvictionsRentals from "./Integrations/EvictionsRentals.svelte";
 	import EvictionsCultura from "./Integrations/EvictionsCulturaBASE.svelte";
@@ -47,6 +48,7 @@
 		"/Integrations/expensesIntegrationGraph": SalesExtExpenses,
 		"/Integrations/rentIntegrationGraph": SalesRent,
 		"/Integrations/buySellIntegrationGraph": RentalBuySell,
+		"/Integrations/cutstegrationGraph": RentalCuts,
 		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 		"/Integrations/culturaBASEIntegrationGraph": EvictionsCulturaBase,
 	};
