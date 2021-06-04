@@ -2590,8 +2590,17 @@ app.use("/proxyEvictions", function(req, res) {
 app.use("/proxySales", function(req, res) {
 	var apiServerHost = 'https://sanity-integration.herokuapp.com/sanity-stats';
 
-	var url = apiServerHost + req.baseUrl + req.url;
-	console.log(`piped: /proxySales -> ${url}`);
+	var url = apiServerHost + req.url;
+	console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
+
+	req.pipe(request(url)).pipe(res);
+});
+
+app.use("/proxyRentals", function(req, res) {
+	var apiServerHost = 'https://sos2021-09.herokuapp.com/api/v2/cut-off-marks-by-degrees-us/cuts';
+
+	var url = apiServerHost + req.url;
+	console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
 
 	req.pipe(request(url)).pipe(res);
 });
