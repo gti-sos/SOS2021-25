@@ -86,6 +86,62 @@
         } else {
             console.log("Error");
         }
+        
+        var colors = Highcharts.getOptions().colors;
+        Highcharts.chart('container', {
+
+chart: {
+    type: 'bubble',
+    plotBorderWidth: 1,
+    zoomType: 'xy'
+},
+
+title: {
+    text: 'Venta de pisos y pacientes en cama'
+},
+
+xAxis: {
+    gridLineWidth: 1,
+    accessibility: {
+        rangeDescription: 'Range: 0 to 100.'
+    }
+},
+
+yAxis: {
+    startOnTick: false,
+    endOnTick: false,
+    accessibility: {
+        rangeDescription: 'Range: 0 to 100.'
+    }
+},
+
+series: [{
+    data: ["","","","","",salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
+    name: "Venta total de pisos",
+    marker: {
+        fillColor: {
+            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, 'rgba(255,255,255,0.5)'],
+                [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+            ]
+        }
+    }
+}, {
+    data: [sanityTotal2007, sanityTotal2008, sanityTotal2009, sanityTotal2010, sanityTotal2011,"","","","",""],
+    name: "Pacientes en cama",
+    marker: {
+        fillColor: {
+            radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, 'rgba(255,255,255,0.5)'],
+                [1, Highcharts.color(Highcharts.getOptions().colors[1]).setOpacity(0.5).get('rgba')]
+            ]
+        }
+    }
+}]
+
+});
 
         var colors = Highcharts.getOptions().colors;
         Highcharts.chart("container", {

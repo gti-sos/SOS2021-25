@@ -24,7 +24,6 @@
 	import RentalCuts from "./Integrations/RentalCuts.svelte";
 
 	import EvictionsRentals from "./Integrations/EvictionsRentals.svelte";
-	import EvictionsCultura from "./Integrations/EvictionsCulturaBASE.svelte";
 	import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
 	import SalesRent from "./Integrations/SalesRent.svelte";
 
