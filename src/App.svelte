@@ -48,7 +48,7 @@
 		"/Integrations/expensesIntegrationGraph": SalesExtExpenses,
 		"/Integrations/rentIntegrationGraph": SalesRent,
 		"/Integrations/buySellIntegrationGraph": RentalBuySell,
-		"/Integrations/cutstegrationGraph": RentalCuts,
+		"/Integrations/cutsIntegrationGraph": RentalCuts,
 		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 		"/Integrations/culturaBASEIntegrationGraph": EvictionsCulturaBase,
 	};
