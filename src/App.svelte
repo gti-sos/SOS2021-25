@@ -22,8 +22,7 @@
 	import RentalBuySell from "./Integrations/RentalBuySell.svelte";
 
 	import EvictionsRentals from "./Integrations/EvictionsRentals.svelte";
-	import EvictionsCultura from "./Integrations/EvictionsCulturaBASE.svelte";
-import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
+	import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
 
 
 	const routes = {

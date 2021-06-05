@@ -54,7 +54,7 @@
               Grupo 26 - CulturaBASE
             </p>
           </div>
-        </a>         
+        </a>       
       </div>
     </div>
     <div class="container">
