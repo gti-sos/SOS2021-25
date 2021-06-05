@@ -537,6 +537,7 @@
                     <tr class="insertadatos">
                         <td
                             ><input
+                                id="location"
                                 type="text"
                                 placeholder="Localizacion"
                                 bind:value={newSales.location}
@@ -587,7 +588,7 @@
                             >
                         </td>
                         <td
-                            ><Button color="primary" on:click={searchData}
+                            ><Button id="search" color="primary" on:click={searchData}
                                 >Buscar</Button
                             ></td
                         >
