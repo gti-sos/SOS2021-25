@@ -8,11 +8,18 @@
       CardSubtitle,
       CardText,
       CardTitle,
+      Nav,
+      NavItem,
     } from "sveltestrap";
   </script>
   
   <main class="main">
     <div class="container">
+      <Nav>
+        <NavItem>
+            <a href="/#/info"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
+        </NavItem>
+    </Nav>
       <h1>INTEGRACIONES</h1>
     </div>
     <div class="container">
