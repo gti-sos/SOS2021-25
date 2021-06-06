@@ -89,15 +89,14 @@
       <div class="container">
         <a href="/#/analytics"><Button color="success">Analytics</Button></a>
         <a href="/#/integrations"><Button color="danger">Integraciones</Button></a><br><br>
+        <a href="/#/about"><Button color="info">Videos</Button></a><br><br>
       </div>
       <div class="group">
         <div class="article">
           <CardTitle><h5>Ventas</h5></CardTitle>
           <a href="/api/v1/sales"><Button color="secondary">Backend</Button></a>
           <a href="/#/sales"><Button color="secondary">Frontend</Button></a><br><br>
-          <a href="/#/sales/salesGraph"><Button color="success">Analytics</Button></a><br><br>
-          <a href="https://youtu.be/GjMcAGP6Sio"><Button color="success">Video</Button></a><br><br>
-          
+          <a href="/#/sales/salesGraph"><Button color="success">Analytics</Button></a><br><br>     
           <a href="https://documenter.getpostman.com/view/14947805/TzJoDg1U"
             ><Button color="info">Pocumentacion Postman</Button></a
           >

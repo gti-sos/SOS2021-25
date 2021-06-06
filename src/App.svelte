@@ -27,12 +27,14 @@
 	import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
 	import SalesRent from "./Integrations/SalesRent.svelte";
 	import EvictionsGames from "./Integrations/EvictionsUseGames.svelte";
-import EvictionsUseGames from "./Integrations/EvictionsUseGames.svelte";
+	import EvictionsUseGames from "./Integrations/EvictionsUseGames.svelte";
+	import About from "./About.svelte";
 
 
 	const routes = {
 		"/": Info,
 		"/info": Info,
+		"/about": About,	
 		"/sales": SalesApi,
 		"/rentals": RentalsApi,
 		"/evictions": EvictionsApi,
