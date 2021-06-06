@@ -98,6 +98,29 @@ const screenshotPath = './tests/e2e_screenshoots/';
     console.log("Taking an screenshot searched data");
     await page.screenshot({ path: screenshotPath + '05_SearchedData.png' });
 
+    console.log("To delete Andalusia 2014 data in Sales");
+    await page.focus('.insertadatos > td:nth-child(2) > input:nth-child(1)');
+    await page.keyboard.type("2014");
+    await page.waitForTimeout(2000);
+    await page.focus("#search");
+    await page.click('#search');
+    await page.waitForTimeout(2000);
+    
+    await page.focus("tr.svelte-u62nji:nth-child(2) > td:nth-child(8) > button:nth-child(1)");
+    await page.click('tr.svelte-u62nji:nth-child(2) > td:nth-child(8) > button:nth-child(1)');
+    await page.waitForTimeout(2000);
+    
+    console.log("Taking an screenshot with data (after delete)");
+
+    await page.screenshot({ path: screenshotPath + '06_AfterDeleteDataSale.png' });
+
+    var searchSalesRowCount = (await page.$$("tr:nth-child(n)")).length;
+    console.log(`search andalusia 2014 row count = ${searchSalesRowCount}`);
+    if (searchSalesRowCount!=2){
+        console.error("searchSalesRowCount is not 2");
+        process.exit(1);
+    }
+
 
 
     //Evictions
@@ -119,8 +142,6 @@ const screenshotPath = './tests/e2e_screenshoots/';
         process.exit(1);
     }
         
-
-
 
     console.log ("Search cataluña before insert");
     await page.focus('#nuevalocation');
@@ -207,6 +228,8 @@ const screenshotPath = './tests/e2e_screenshoots/';
         console.error("searchEvictionsRowCount is not 7");
         process.exit(1);
     }
+
+    // Fin Evictions
 
     await browser.close();
     console.log("Browser closed!");

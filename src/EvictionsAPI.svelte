@@ -412,7 +412,7 @@
 
 <main>
     <div class="container">
-        <h2>Deshaucios</h2>
+        <h2>Desahucios</h2>
     </div>
     <div class="container">
         <Nav>

@@ -1412,6 +1412,41 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "8. GET db llena",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/evictions",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"evictions"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
