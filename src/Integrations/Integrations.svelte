@@ -90,7 +90,7 @@
           <div class="article cambioNegro">
             <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
             <p>
-              API Externa - Videojuegos
+              API Externa - Uso Videojuegos
             </p>
           </div>
         </a>   

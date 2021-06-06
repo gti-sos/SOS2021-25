@@ -64,7 +64,7 @@
         console.log("Loading data...");
         alertOk = "";
         alertError = "";
-        const res = await fetch("https://www.cheapshark.com/api/1.0/deals").then(
+        const res = await fetch("https://www.freetogame.com/api/games").then(
             function (res) {
                 if (res.ok) {
                     console.log("Ok");
@@ -85,10 +85,8 @@
     async function getData() {
         console.log("Fetching data...");
         const res = await fetch(
-            "https://www.cheapshark.com/api/1.0/deals?limit=" + limit + "&offset=" + current_offset
+            "https://www.freetogame.com/api/games?limit=" + limit + "&offset=" + current_offset
         );
-        /*const res = await fetch(
-            "https://jsonplaceholder.typicode.com/users");*/
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
@@ -102,7 +100,7 @@
     async function getDataSearch(query) {
         console.log("Fetching data...");
         const res = await fetch(
-            "https://www.cheapshark.com/api/1.0/deals" +
+            "https://www.freetogame.com/api/games" +
                 query +
                 "&limit=" +
                 limit +
@@ -131,7 +129,7 @@
                 current_offset
         );
         //const res = await fetch("api/v1/evictions" + query + "&limit=" + limit + "&offset="+current_offset);
-        const res = await fetch("https://www.cheapshark.com/api/1.0/deals" + query);
+        const res = await fetch("https://www.freetogame.com/api/games" + query);
         if (res.ok) {
             const json = await res.json();
             total = json.length;
@@ -166,7 +164,7 @@
     }
 
     async function getNumData() {
-        const res = await fetch("https://www.cheapshark.com/api/1.0/deals");
+        const res = await fetch("https://www.freetogame.com/api/games");
         if (res.ok) {
             const json = await res.json();
             total = json.length;
@@ -250,7 +248,7 @@
             const limityOffset =
                 "&limit=" + limit + "&offset=" + current_offset;
             const res = await fetch(
-                "https://www.cheapshark.com/api/1.0/deals" + fullQuery + limityOffset
+                "api/v1/evictions" + fullQuery + limityOffset
             );
             console.log("FULL QUERY: " + fullQuery + limityOffset);
             if (res.ok) {
@@ -292,24 +290,6 @@
             '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
     }
 
-    function convertToDataURLviaCanvas(url, callback, outputFormat){
-        var img = new Image();
-        img.crossOrigin = 'Anonymous';
-        img.onload = function(){
-            var canvas = document.createElement('CANVAS');
-            var ctx = canvas.getContext('2d');
-            var dataURL;
-            canvas.height = this.height;
-            canvas.width = this.width;
-            ctx.drawImage(this, 0, 0);
-            dataURL = canvas.toDataURL(outputFormat);
-            callback(dataURL);
-            canvas = null; 
-        };
-        img.src = url;
-    }
-
-
     
     onMount(getData);
     getNumData();
@@ -322,8 +302,8 @@
     <div class="container">
         <Nav>
             <NavItem>
-                <a href="/#/integrations"><Button color="primary">Volver</Button></a>
-                <!--<a href="/#/evictions/evictionsGraph"
+                <a href="/#/info"><Button color="primary">Volver</Button></a>
+                <a href="/#/evictions/evictionsGraph"
                     ><Button color="light">Ver gráfica</Button></a
                 >
 
@@ -377,7 +357,7 @@
                             >
                         </ModalFooter>
                     </Modal>
-                {/if}-->
+                {/if}
             </NavItem>
         </Nav>
 
@@ -417,38 +397,38 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Portada</th>
-                        <th>Nombre</th>
-                        <th>Precio de venta</th>
-                        <th>Precio habitual</th>
-                        <th>Puntuación</th>
-                        <th>Valoración</th>
-                        <th>Ranking en Steam</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Género</th>
+                        <th>Plataforma</th>
+                        <th>Publicador</th>
+                        <th>Desarrollador</th>
+                        <th>Fecha</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                     {#each evictionsData as data}
                         <tr>
-                            <td id="laPortadita"><img src="{data.thumb}" alt="Portada del juego {data.title}"></td>
                             <td>{data.title}</td>
-                            <td id="precioVenta">{data.salePrice} €</td>
-                            <td style="text-decoration: line-through;">{data.normalPrice} €</td>
-                            <td>{data.metacriticScore}</td>
-                            <td>{data.steamRatingText}</td>
-                            <td>{data.steamRatingPercent} %</td>
+                            <td>{data.short_description}</td>
+                            <td>{data["genre"]}</td>
+                            <td>{data["platform"]}</td>
+                            <td>{data["publisher"]}</td>
+                            <td>{data["developer"]}</td>
+                            <td>{data["release_date"]}</td>
                             
                         </tr>
                     {/each}
                 </tbody>
             </table>
         {/if}
-        <!--<div class="paginacion">
+        <div class="paginacion">
             <Pagination ariaLabel="Web pagination">
                 <PaginationItem class={current_page == 1 ? "disabled" : ""}>
                     <PaginationLink
                         previous
-                        href="#/Integrations/evictionsUseSportsCenters"
+                        href="#/Integrations/useGames"
                         on:click={() =>
                             changePage(current_page - 1, current_offset - 10)}
                     />
@@ -459,7 +439,7 @@
                     >
                         <PaginationLink
                             previous
-                            href="#/Integrations/evictionsUseSportsCenters"
+                            href="#/Integrations/useGames"
                             on:click={() => changePage(page, (page - 1) * 10)}
                             >{page}</PaginationLink
                         >
@@ -470,13 +450,13 @@
                 >
                     <PaginationLink
                         next
-                        href="#/Integrations/evictionsUseSportsCenters"
+                        href="#/Integrations/useGames"
                         on:click={() =>
                             changePage(current_page + 1, current_offset + 10)}
                     />
                 </PaginationItem>
             </Pagination>
-        </div>-->
+        </div>
     </div>
 </main>
 
@@ -578,14 +558,6 @@
         color: #e2e2e2;
         border-top: 1px solid transparent;
         transition: 0.2s ease-in-out;
-    }
-
-    #laPortadita{
-        text-align:center;
-    }
-
-    #precioVenta{
-        font-weight: bolder;
     }
 
     tr:hover td {

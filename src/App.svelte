@@ -27,7 +27,7 @@
 	import EvictionsCulturaBase from "./Integrations/EvictionsCulturaBASE.svelte";
 	import SalesRent from "./Integrations/SalesRent.svelte";
 	import EvictionsGames from "./Integrations/EvictionsUseGames.svelte";
-	import EvictionsUseGames from "./Integrations/EvictionsUseGames.svelte";
+	import EvictionsUseGames from "./Integrations/EvictionsUseGames-fail.svelte";
 	import About from "./About.svelte";
 	import EvictionsUsePeople from "./Integrations/EvictionsUsePeople.svelte";
 
@@ -55,8 +55,9 @@
 		"/Integrations/cutsIntegrationGraph": RentalCuts,
 		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 		"/Integrations/culturaBASEIntegrationGraph": EvictionsCulturaBase,
-		"/Integrations/useGames": EvictionsUseGames,
+		"/Integrations/useGames": EvictionsGames,
 		"/Integrations/evictionsUsePeople": EvictionsUsePeople,
+		
 	};
 </script>
 
