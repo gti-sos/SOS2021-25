@@ -1,452 +1,90 @@
-{"location":"principality of asturias","year":"2015","total":"6516","protectedhousing":"537","new":"554","secondhand":"5865","_id":"1199KogAP6H3VxMZ"}
-{"location":"castilla-la mancha","year":"2015","total":"14288","protectedhousing":"1058","new":"1624","secondhand":"12180","_id":"2939Y4Y0o0w5BqeC"}
-{"location":"region of murcia","year":"2018","total":"18213","protectedhousing":"508","new":"1494","secondhand":"16656","_id":"2oJviWJcYS4eCLGg"}
-{"location":"castilla-la mancha","year":"2016","total":"16265","protectedhousing":"871","new":"1943","secondhand":"14049","_id":"3ZRHxRUatJIFkTfc"}
-{"location":"cantabria","year":"2019","total":"7250","protectedhousing":"240","new":"742","secondhand":"6435","_id":"40P01EwC1lhr9Om3"}
-{"location":"region of murcia","year":"2019","total":"19296","protectedhousing":"536","new":"1551","secondhand":"17723","_id":"43Dk3f9w5xNBIMAU"}
-{"location":"ceuta","year":"2018","total":"1357","protectedhousing":"252","new":"181","secondhand":"963","_id":"44Vh40BNvkLXPqxQ"}
-{"location":"region of murcia","year":"2017","total":"15447","protectedhousing":"491","new":"1372","secondhand":"14005","_id":"4696IW4VEffEzA6C"}
-{"location":"principality of asturias","year":"2018","total":"10186","protectedhousing":"707","new":"823","secondhand":"9194","_id":"4oE2omDD8dweStZP"}
-{"location":"balearic islands","year":"2015","total":"12952","protectedhousing":"61","new":"1336","secondhand":"11608","_id":"4sJbUYTo09q8aLza"}
-{"location":"balearic islands","year":"2018","total":"17466","protectedhousing":"122","new":"1160","secondhand":"16302","_id":"6uV3XLAdEebZq9sL"}
-{"location":"catalonia","year":"2018","total":"89685","protectedhousing":"1731","new":"6647","secondhand":"82596","_id":"7YJBfzDG2yrajuq5"}
-{"location":"community of madrid","year":"2017","total":"80613","protectedhousing":"4013","new":"7755","secondhand":"71738","_id":"8IuycLhX9Etbn7fz"}
-{"location":"cantabria","year":"2017","total":"6638","protectedhousing":"223","new":"695","secondhand":"5874","_id":"99QSYwBEiM0RojlQ"}
-{"location":"extremadura","year":"2019","total":"9686","protectedhousing":"765","new":"360","secondhand":"9213","_id":"9JOMD5awjd1t1Y6n"}
-{"location":"andalusia","year":"2017","total":"96440","protectedhousing":"4703","new":"6615","secondhand":"89004","_id":"AzcgLGWNd9JCRPYP"}
-{"location":"castile and leon","year":"2016","total":"20509","protectedhousing":"1156","new":"1491","secondhand":"18612","_id":"BTrvg2lfSe4XyE5n"}
-{"location":"galicia","year":"2016","total":"15604","protectedhousing":"634","new":"2133","secondhand":"13264","_id":"BUhQX7LONZ4ARs3V"}
-{"location":"la rioja","year":"2018","total":"4659","protectedhousing":"304","new":"430","secondhand":"4139","_id":"C7zUhiHQlZ4q5LLo"}
-{"location":"community of madrid","year":"2016","total":"67366","protectedhousing":"3830","new":"6104","secondhand":"59755","_id":"D9XxlDc0x0iwyzge"}
-{"location":"community of madrid","year":"2018","total":"85294","protectedhousing":"3940","new":"9451","secondhand":"74574","_id":"DfyPGklWr7U0DxMv"}
-{"location":"canary islands","year":"2018","total":"25269","protectedhousing":"525","new":"1519","secondhand":"23703","_id":"DobZbTwFrpykoAQa"}
-{"location":"catalonia","year":"2016","total":"75152","protectedhousing":"1378","new":"4888","secondhand":"69837","_id":"Dqo2pzmmIemc5wSC"}
-{"location":"galicia","year":"2018","total":"19786","protectedhousing":"527","new":"1912","secondhand":"17805","_id":"Epmjqa3uVK11lAfQ"}
-{"location":"castile and leon","year":"2017","total":"22890","protectedhousing":"1228","new":"1461","secondhand":"21025","_id":"G7uhTZACMs2rDHhG"}
-{"location":"principality of asturias","year":"2019","total":"10120","protectedhousing":"693","new":"657","secondhand":"9333","_id":"GNGOC41mBgRtY5si"}
-{"location":"aragon","year":"2016","total":"11688","protectedhousing":"712","new":"1356","secondhand":"9966","_id":"HH3XJylkEuVhccLu"}
-{"location":"basque country","year":"2019","total":"23644","protectedhousing":"1367","new":"3059","secondhand":"19870","_id":"IDJOdC8GlUK5W0wG"}
-{"location":"la rioja","year":"2017","total":"3748","protectedhousing":"262","new":"258","secondhand":"3415","_id":"JYy6qGV1dMMrbK17"}
-{"location":"basque country","year":"2017","total":"20909","protectedhousing":"1168","new":"2325","secondhand":"17994","_id":"K48jlIZgR454EKuj"}
-{"location":"castilla-la mancha","year":"2017","total":"20642","protectedhousing":"1039","new":"2684","secondhand":"17653","_id":"LD5QQpyUxgAfisOT"}
-{"location":"community of madrid","year":"2015","total":"57431","protectedhousing":"3255","new":"5244","secondhand":"50611","_id":"LzQwrqFDOl494ID4"}
-{"location":"extremadura","year":"2017","total":"8090","protectedhousing":"962","new":"302","secondhand":"7544","_id":"MazBcF3UZZWFhj9B"}
-{"location":"galicia","year":"2015","total":"14633","protectedhousing":"525","new":"2663","secondhand":"11794","_id":"NF5FktOIHxwHC8Fl"}
-{"location":"castilla-la mancha","year":"2019","total":"24082","protectedhousing":"907","new":"1988","secondhand":"21882","_id":"NGeJpoe2D1Sp65Jy"}
-{"location":"castile and leon","year":"2015","total":"18306","protectedhousing":"1174","new":"1525","secondhand":"16248","_id":"OjbKiXdSY0gxH0uq"}
-{"location":"extremadura","year":"2016","total":"7197","protectedhousing":"926","new":"303","secondhand":"6623","_id":"OvPzfEOsayfds4JK"}
-{"location":"cantabria","year":"2018","total":"7072","protectedhousing":"222","new":"787","secondhand":"6226","_id":"PiTkVksQLIVQrrI0"}
-{"location":"canary islands","year":"2015","total":"19846","protectedhousing":"440","new":"1850","secondhand":"17896","_id":"Pm2bEgjfRHe2kbkR"}
-{"location":"castilla-la mancha","year":"2018","total":"23626","protectedhousing":"1071","new":"2127","secondhand":"21222","_id":"QJtuGiLJQDtAaAul"}
-{"location":"la rioja","year":"2015","total":"3124","protectedhousing":"206","new":"321","secondhand":"2759","_id":"ReZU5cMdEf72PiE5"}
-{"location":"andalusia","year":"2018","total":"110425","protectedhousing":"5575","new":"9065","secondhand":"100435","_id":"RqdtHaR1WpvBsljA"}
-{"location":"community of navarre","year":"2019","total":"6521","protectedhousing":"323","new":"1114","secondhand":"5271","_id":"S5Y9ypElX1M41gFU"}
-{"location":"balearic islands","year":"2019","total":"15692","protectedhousing":"111","new":"1301","secondhand":"14388","_id":"SJCnL42MbeAWJQU8"}
-{"location":"basque country","year":"2015","total":"16568","protectedhousing":"2033","new":"2365","secondhand":"12688","_id":"SwXkNdu9T3nIQNq7"}
-{"location":"canary islands","year":"2017","total":"25868","protectedhousing":"572","new":"1548","secondhand":"24207","_id":"T1YZzcsblXXBd3wL"}
-{"location":"region of murcia","year":"2015","total":"12788","protectedhousing":"380","new":"1404","secondhand":"11336","_id":"U1L2zKrUqh2vYOPV"}
-{"location":"catalonia","year":"2019","total":"89237","protectedhousing":"1647","new":"6455","secondhand":"82341","_id":"UERtxDFHTE2KS8a0"}
-{"location":"castile and leon","year":"2019","total":"25852","protectedhousing":"1130","new":"1712","secondhand":"23825","_id":"ViXBnu6JLvUdgNP5"}
-{"location":"andalusia","year":"2016","total":"83508","protectedhousing":"4612","new":"6315","secondhand":"76094","_id":"WCmGhkd1vZxAvFnV"}
-{"location":"catalonia","year":"2017","total":"85567","protectedhousing":"1747","new":"5729","secondhand":"79236","_id":"XLVfoRf8niLLJFC8"}
-{"location":"extremadura","year":"2018","total":"9280","protectedhousing":"813","new":"334","secondhand":"8800","_id":"XMPqcClGShfdgFg0"}
-{"location":"community of navarre","year":"2016","total":"4946","protectedhousing":"302","new":"850","secondhand":"3992","_id":"XtrSTcO1e7nAmCvu"}
-{"location":"galicia","year":"2017","total":"17555","protectedhousing":"546","new":"1888","secondhand":"15524","_id":"Y9ziFeEmd3MH62xr"}
-{"location":"ceuta","year":"2017","total":"1088","protectedhousing":"56","new":"207","secondhand":"866","_id":"YcwzrN5QgZhMjWpY"}
-{"location":"community of navarre","year":"2018","total":"7156","protectedhousing":"596","new":"1439","secondhand":"5367","_id":"ZfM6TFgZ07NX8ulR"}
-{"location":"canary islands","year":"2019","total":"24630","protectedhousing":"945","new":"1670","secondhand":"22886","_id":"ZvdsGA7s6muloZuP"}
-{"location":"valencian community","year":"2019","total":"84737","protectedhousing":"4097","new":"7688","secondhand":"76815","_id":"aN1WEFssBLQEbS15"}
-{"location":"principality of asturias","year":"2017","total":"9216","protectedhousing":"739","new":"869","secondhand":"8133","_id":"dj55POlAf6w08uNA"}
-{"location":"la rioja","year":"2016","total":"3255","protectedhousing":"308","new":"232","secondhand":"2992","_id":"fFyguHgtP52JKrzl"}
-{"location":"galicia","year":"2019","total":"20462","protectedhousing":"487","new":"1828","secondhand":"18560","_id":"fdHf50w37UQ01J42"}
-{"location":"valencian community","year":"2017","total":"79132","protectedhousing":"3515","new":"7171","secondhand":"71674","_id":"gMsBIyGMZhwqTSW3"}
-{"location":"andalusia","year":"1","total":"1","protectedhousing":"1","new":"1","secondhand":"1","_id":"gOJZ4PpMCLW6dFFG"}
-{"location":"valencian community","year":"2016","total":"67820","protectedhousing":"2882","new":"6535","secondhand":"60925","_id":"gVnGF0cV4VwBiJfk"}
-{"location":"valencian community","year":"2015","total":"59605","protectedhousing":"2123","new":"6760","secondhand":"52644","_id":"h2GGgGHeLAXYGuef"}
-{"location":"ceuta","year":"2015","total":"972","protectedhousing":"30","new":"209","secondhand":"755","_id":"h3eNZaPHL1s0HcK1"}
-{"location":"ceuta","year":"2019","total":"1218","protectedhousing":"71","new":"129","secondhand":"1043","_id":"hcMSrVIO4DYWry9d"}
-{"location":"valencian community","year":"2018","total":"88792","protectedhousing":"4128","new":"7270","secondhand":"81061","_id":"hvja7ouRk2WHTcBG"}
-{"location":"la rioja","year":"2019","total":"4292","protectedhousing":"279","new":"277","secondhand":"3991","_id":"iNNS5SnDJ6eezoLw"}
-{"location":"basque country","year":"2016","total":"18730","protectedhousing":"1733","new":"2532","secondhand":"15075","_id":"inz0vHpEbJc3uckl"}
-{"location":"andalusia","year":"2015","total":"76743","protectedhousing":"3885","new":"8238","secondhand":"67443","_id":"j13N3bh49VE02o5i"}
-{"location":"aragon","year":"2017","total":"13988","protectedhousing":"573","new":"1469","secondhand":"12291","_id":"jtLwzVQXITcuYZLa"}
-{"location":"basque country","year":"2018","total":"23166","protectedhousing":"1409","new":"2835","secondhand":"19781","_id":"lUOpcuWKJXYg2qXh"}
-{"location":"aragon","year":"2019","total":"15365","protectedhousing":"369","new":"1816","secondhand":"13459","_id":"lndlcFnYtgwwJFs5"}
-{"location":"andalusia","year":"2019","total":"109275","protectedhousing":"5806","new":"9165","secondhand":"98636","_id":"mRKyWsl99bx9kF5j"}
-{"location":"cantabria","year":"2015","total":"4660","protectedhousing":"163","new":"672","secondhand":"3929","_id":"mXwahC96L1Orq9lW"}
-{"location":"community of navarre","year":"2015","total":"4533","protectedhousing":"443","new":"644","secondhand":"3559","_id":"n5VPjoyCkX1WLDrA"}
-{"location":"community of madrid","year":"2019","total":"78634","protectedhousing":"3628","new":"9211","secondhand":"68036","_id":"nNRX25cUm8HtWJgX"}
-{"location":"extremadura","year":"2015","total":"6323","protectedhousing":"788","new":"450","secondhand":"5556","_id":"ozGLrnQ2msRqBY9R"}
-{"location":"ceuta","year":"2016","total":"1043","protectedhousing":"34","new":"180","secondhand":"856","_id":"pFCG15TruLEvm9Uy"}
-{"location":"community of navarre","year":"2017","total":"6040","protectedhousing":"450","new":"1132","secondhand":"4734","_id":"pjSqZt139WMnevsX"}
-{"location":"catalonia","year":"2015","total":"61108","protectedhousing":"1162","new":"4747","secondhand":"55981","_id":"rQ1Od0XvM1OPmh7P"}
-{"location":"balearic islands","year":"2016","total":"15882","protectedhousing":"101","new":"1350","secondhand":"14525","_id":"tNGItgPlV4ZRMi4e"}
-{"location":"aragon","year":"2018","total":"15499","protectedhousing":"409","new":"1882","secondhand":"13515","_id":"tsmjIYzIwEnaGFKA"}
-{"location":"principality of asturias","year":"2016","total":"7602","protectedhousing":"524","new":"605","secondhand":"6919","_id":"u8QO01nLzM5vz206"}
-{"location":"castile and leon","year":"2018","total":"25957","protectedhousing":"1059","new":"1581","secondhand":"24071","_id":"u91NKYxoIgjmRiuS"}
-{"location":"canary islands","year":"2016","total":"22283","protectedhousing":"507","new":"1419","secondhand":"20735","_id":"uFeyMMNoDA1wyDiz"}
-{"location":"aragon","year":"2015","total":"11317","protectedhousing":"343","new":"1466","secondhand":"9749","_id":"uVOivnptT4HsfNPr"}
-{"location":"cantabria","year":"2016","total":"5250","protectedhousing":"240","new":"626","secondhand":"4523","_id":"wLZP8MdX0Cuv7U5u"}
-{"location":"region of murcia","year":"2016","total":"13638","protectedhousing":"414","new":"1702","secondhand":"11882","_id":"x7mdqpIN61xhaof0"}
-{"location":"balearic islands","year":"2017","total":"18390","protectedhousing":"127","new":"1435","secondhand":"16947","_id":"ykAmCpMOtYqqnvHK"}
-{"$$deleted":true,"_id":"1199KogAP6H3VxMZ"}
-{"$$deleted":true,"_id":"2939Y4Y0o0w5BqeC"}
-{"$$deleted":true,"_id":"2oJviWJcYS4eCLGg"}
-{"$$deleted":true,"_id":"3ZRHxRUatJIFkTfc"}
-{"$$deleted":true,"_id":"40P01EwC1lhr9Om3"}
-{"$$deleted":true,"_id":"43Dk3f9w5xNBIMAU"}
-{"$$deleted":true,"_id":"44Vh40BNvkLXPqxQ"}
-{"$$deleted":true,"_id":"4696IW4VEffEzA6C"}
-{"$$deleted":true,"_id":"4oE2omDD8dweStZP"}
-{"$$deleted":true,"_id":"4sJbUYTo09q8aLza"}
-{"$$deleted":true,"_id":"6uV3XLAdEebZq9sL"}
-{"$$deleted":true,"_id":"7YJBfzDG2yrajuq5"}
-{"$$deleted":true,"_id":"8IuycLhX9Etbn7fz"}
-{"$$deleted":true,"_id":"99QSYwBEiM0RojlQ"}
-{"$$deleted":true,"_id":"9JOMD5awjd1t1Y6n"}
-{"$$deleted":true,"_id":"AzcgLGWNd9JCRPYP"}
-{"$$deleted":true,"_id":"BTrvg2lfSe4XyE5n"}
-{"$$deleted":true,"_id":"BUhQX7LONZ4ARs3V"}
-{"$$deleted":true,"_id":"C7zUhiHQlZ4q5LLo"}
-{"$$deleted":true,"_id":"D9XxlDc0x0iwyzge"}
-{"$$deleted":true,"_id":"DfyPGklWr7U0DxMv"}
-{"$$deleted":true,"_id":"DobZbTwFrpykoAQa"}
-{"$$deleted":true,"_id":"Dqo2pzmmIemc5wSC"}
-{"$$deleted":true,"_id":"Epmjqa3uVK11lAfQ"}
-{"$$deleted":true,"_id":"G7uhTZACMs2rDHhG"}
-{"$$deleted":true,"_id":"GNGOC41mBgRtY5si"}
-{"$$deleted":true,"_id":"HH3XJylkEuVhccLu"}
-{"$$deleted":true,"_id":"IDJOdC8GlUK5W0wG"}
-{"$$deleted":true,"_id":"JYy6qGV1dMMrbK17"}
-{"$$deleted":true,"_id":"K48jlIZgR454EKuj"}
-{"$$deleted":true,"_id":"LD5QQpyUxgAfisOT"}
-{"$$deleted":true,"_id":"LzQwrqFDOl494ID4"}
-{"$$deleted":true,"_id":"MazBcF3UZZWFhj9B"}
-{"$$deleted":true,"_id":"NF5FktOIHxwHC8Fl"}
-{"$$deleted":true,"_id":"NGeJpoe2D1Sp65Jy"}
-{"$$deleted":true,"_id":"OjbKiXdSY0gxH0uq"}
-{"$$deleted":true,"_id":"OvPzfEOsayfds4JK"}
-{"$$deleted":true,"_id":"PiTkVksQLIVQrrI0"}
-{"$$deleted":true,"_id":"Pm2bEgjfRHe2kbkR"}
-{"$$deleted":true,"_id":"QJtuGiLJQDtAaAul"}
-{"$$deleted":true,"_id":"ReZU5cMdEf72PiE5"}
-{"$$deleted":true,"_id":"RqdtHaR1WpvBsljA"}
-{"$$deleted":true,"_id":"S5Y9ypElX1M41gFU"}
-{"$$deleted":true,"_id":"SJCnL42MbeAWJQU8"}
-{"$$deleted":true,"_id":"SwXkNdu9T3nIQNq7"}
-{"$$deleted":true,"_id":"T1YZzcsblXXBd3wL"}
-{"$$deleted":true,"_id":"U1L2zKrUqh2vYOPV"}
-{"$$deleted":true,"_id":"UERtxDFHTE2KS8a0"}
-{"$$deleted":true,"_id":"ViXBnu6JLvUdgNP5"}
-{"$$deleted":true,"_id":"WCmGhkd1vZxAvFnV"}
-{"$$deleted":true,"_id":"XLVfoRf8niLLJFC8"}
-{"$$deleted":true,"_id":"XMPqcClGShfdgFg0"}
-{"$$deleted":true,"_id":"XtrSTcO1e7nAmCvu"}
-{"$$deleted":true,"_id":"Y9ziFeEmd3MH62xr"}
-{"$$deleted":true,"_id":"YcwzrN5QgZhMjWpY"}
-{"$$deleted":true,"_id":"ZfM6TFgZ07NX8ulR"}
-{"$$deleted":true,"_id":"ZvdsGA7s6muloZuP"}
-{"$$deleted":true,"_id":"aN1WEFssBLQEbS15"}
-{"$$deleted":true,"_id":"dj55POlAf6w08uNA"}
-{"$$deleted":true,"_id":"fFyguHgtP52JKrzl"}
-{"$$deleted":true,"_id":"fdHf50w37UQ01J42"}
-{"$$deleted":true,"_id":"gMsBIyGMZhwqTSW3"}
-{"$$deleted":true,"_id":"gOJZ4PpMCLW6dFFG"}
-{"$$deleted":true,"_id":"gVnGF0cV4VwBiJfk"}
-{"$$deleted":true,"_id":"h2GGgGHeLAXYGuef"}
-{"$$deleted":true,"_id":"h3eNZaPHL1s0HcK1"}
-{"$$deleted":true,"_id":"hcMSrVIO4DYWry9d"}
-{"$$deleted":true,"_id":"hvja7ouRk2WHTcBG"}
-{"$$deleted":true,"_id":"iNNS5SnDJ6eezoLw"}
-{"$$deleted":true,"_id":"inz0vHpEbJc3uckl"}
-{"$$deleted":true,"_id":"j13N3bh49VE02o5i"}
-{"$$deleted":true,"_id":"jtLwzVQXITcuYZLa"}
-{"$$deleted":true,"_id":"lUOpcuWKJXYg2qXh"}
-{"$$deleted":true,"_id":"lndlcFnYtgwwJFs5"}
-{"$$deleted":true,"_id":"mRKyWsl99bx9kF5j"}
-{"$$deleted":true,"_id":"mXwahC96L1Orq9lW"}
-{"$$deleted":true,"_id":"n5VPjoyCkX1WLDrA"}
-{"$$deleted":true,"_id":"nNRX25cUm8HtWJgX"}
-{"$$deleted":true,"_id":"ozGLrnQ2msRqBY9R"}
-{"$$deleted":true,"_id":"pFCG15TruLEvm9Uy"}
-{"$$deleted":true,"_id":"pjSqZt139WMnevsX"}
-{"$$deleted":true,"_id":"rQ1Od0XvM1OPmh7P"}
-{"$$deleted":true,"_id":"tNGItgPlV4ZRMi4e"}
-{"$$deleted":true,"_id":"tsmjIYzIwEnaGFKA"}
-{"$$deleted":true,"_id":"u8QO01nLzM5vz206"}
-{"$$deleted":true,"_id":"u91NKYxoIgjmRiuS"}
-{"$$deleted":true,"_id":"uFeyMMNoDA1wyDiz"}
-{"$$deleted":true,"_id":"uVOivnptT4HsfNPr"}
-{"$$deleted":true,"_id":"wLZP8MdX0Cuv7U5u"}
-{"$$deleted":true,"_id":"x7mdqpIN61xhaof0"}
-{"$$deleted":true,"_id":"ykAmCpMOtYqqnvHK"}
-{"location":"andalusia","year":"2019","total":"109275","protectedhousing":"5806","new":"9165","secondhand":"98636","_id":"ij6r5C9bxMPBsQ80"}
-{"location":"aragon","year":"2019","total":"15365","protectedhousing":"369","new":"1816","secondhand":"13459","_id":"FtLs4310Fl0NUwNl"}
-{"location":"principality of asturias","year":"2019","total":"10120","protectedhousing":"693","new":"657","secondhand":"9333","_id":"L7Zvf84bjgQgltiA"}
-{"location":"balearic islands","year":"2019","total":"15692","protectedhousing":"111","new":"1301","secondhand":"14388","_id":"RAyuAAwJSUuIrDIx"}
-{"location":"canary islands","year":"2019","total":"24630","protectedhousing":"945","new":"1670","secondhand":"22886","_id":"igNRJg18MeTQAKWz"}
-{"location":"cantabria","year":"2019","total":"7250","protectedhousing":"240","new":"742","secondhand":"6435","_id":"mcQojuqePBowJqfd"}
-{"location":"castilla-la mancha","year":"2019","total":"24082","protectedhousing":"907","new":"1988","secondhand":"21882","_id":"oEebAWAc7p9CDAvT"}
-{"location":"castile and leon","year":"2019","total":"25852","protectedhousing":"1130","new":"1712","secondhand":"23825","_id":"JajBo4rog0m3n3B0"}
-{"location":"catalonia","year":"2019","total":"89237","protectedhousing":"1647","new":"6455","secondhand":"82341","_id":"1Ln0BbNIHn9LFSGk"}
-{"location":"valencian community","year":"2019","total":"84737","protectedhousing":"4097","new":"7688","secondhand":"76815","_id":"aStjufPBiB83xJwT"}
-{"location":"extremadura","year":"2019","total":"9686","protectedhousing":"765","new":"360","secondhand":"9213","_id":"jjGWQ16YXOu7w97e"}
-{"location":"galicia","year":"2019","total":"20462","protectedhousing":"487","new":"1828","secondhand":"18560","_id":"0ZrftpquB2ppnPuz"}
-{"location":"community of madrid","year":"2019","total":"78634","protectedhousing":"3628","new":"9211","secondhand":"68036","_id":"EDoRZw9RM8pf8lbz"}
-{"location":"region of murcia","year":"2019","total":"19296","protectedhousing":"536","new":"1551","secondhand":"17723","_id":"oI8xf3Vt3sTAq4Hz"}
-{"location":"community of navarre","year":"2019","total":"6521","protectedhousing":"323","new":"1114","secondhand":"5271","_id":"gNfzGoGHawnPbEW3"}
-{"location":"basque country","year":"2019","total":"23644","protectedhousing":"1367","new":"3059","secondhand":"19870","_id":"GLcmkc9ggjru7caE"}
-{"location":"la rioja","year":"2019","total":"4292","protectedhousing":"279","new":"277","secondhand":"3991","_id":"aQTPIeon39lCbHlI"}
-{"location":"ceuta","year":"2019","total":"1218","protectedhousing":"71","new":"129","secondhand":"1043","_id":"DDRJTIOJlUEgEDL9"}
-{"location":"andalusia","year":"2018","total":"110425","protectedhousing":"5575","new":"9065","secondhand":"100435","_id":"u65UELW8XarIp0DJ"}
-{"location":"aragon","year":"2018","total":"15499","protectedhousing":"409","new":"1882","secondhand":"13515","_id":"bzGwywmZiK98yC8T"}
-{"location":"principality of asturias","year":"2018","total":"10186","protectedhousing":"707","new":"823","secondhand":"9194","_id":"iz84VTalarDj8k4n"}
-{"location":"balearic islands","year":"2018","total":"17466","protectedhousing":"122","new":"1160","secondhand":"16302","_id":"ECU6WKMIhxU5w1iO"}
-{"location":"canary islands","year":"2018","total":"25269","protectedhousing":"525","new":"1519","secondhand":"23703","_id":"NkdLsshjHT1Eg5hl"}
-{"location":"cantabria","year":"2018","total":"7072","protectedhousing":"222","new":"787","secondhand":"6226","_id":"i3T0f8UW608d6OwW"}
-{"location":"castilla-la mancha","year":"2018","total":"23626","protectedhousing":"1071","new":"2127","secondhand":"21222","_id":"E1jPMow7i7cIH8Wj"}
-{"location":"castile and leon","year":"2018","total":"25957","protectedhousing":"1059","new":"1581","secondhand":"24071","_id":"oYAdteDDOMA5fCva"}
-{"location":"catalonia","year":"2018","total":"89685","protectedhousing":"1731","new":"6647","secondhand":"82596","_id":"lgXPf6A8KCT9KY9J"}
-{"location":"valencian community","year":"2018","total":"88792","protectedhousing":"4128","new":"7270","secondhand":"81061","_id":"oHmqpK7zgpM9FuVV"}
-{"location":"extremadura","year":"2018","total":"9280","protectedhousing":"813","new":"334","secondhand":"8800","_id":"1NumgpCtfBwNriay"}
-{"location":"galicia","year":"2018","total":"19786","protectedhousing":"527","new":"1912","secondhand":"17805","_id":"raRrahm4AIWypHV6"}
-{"location":"community of madrid","year":"2018","total":"85294","protectedhousing":"3940","new":"9451","secondhand":"74574","_id":"3a5j0FIT892HEkPg"}
-{"location":"region of murcia","year":"2018","total":"18213","protectedhousing":"508","new":"1494","secondhand":"16656","_id":"WIlydzxHMOJRpg7e"}
-{"location":"community of navarre","year":"2018","total":"7156","protectedhousing":"596","new":"1439","secondhand":"5367","_id":"TySJetmQkYPVWEI4"}
-{"location":"basque country","year":"2018","total":"23166","protectedhousing":"1409","new":"2835","secondhand":"19781","_id":"KXWqPoLc3KC5puwf"}
-{"location":"la rioja","year":"2018","total":"4659","protectedhousing":"304","new":"430","secondhand":"4139","_id":"wFoJeUt4EbPbP4oD"}
-{"location":"ceuta","year":"2018","total":"1357","protectedhousing":"252","new":"181","secondhand":"963","_id":"LIGckIKzDpfVztFV"}
-{"location":"andalusia","year":"2017","total":"96440","protectedhousing":"4703","new":"6615","secondhand":"89004","_id":"VYEv1YJzXtJf2mS4"}
-{"location":"aragon","year":"2017","total":"13988","protectedhousing":"573","new":"1469","secondhand":"12291","_id":"n2z44kHS47NaeGPG"}
-{"location":"principality of asturias","year":"2017","total":"9216","protectedhousing":"739","new":"869","secondhand":"8133","_id":"zBbgEN0KuM0h5ak6"}
-{"location":"balearic islands","year":"2017","total":"18390","protectedhousing":"127","new":"1435","secondhand":"16947","_id":"hiJMH52wInKen3SU"}
-{"location":"canary islands","year":"2017","total":"25868","protectedhousing":"572","new":"1548","secondhand":"24207","_id":"AgKsiy5viFzjY6Sz"}
-{"location":"cantabria","year":"2017","total":"6638","protectedhousing":"223","new":"695","secondhand":"5874","_id":"wvTqaG3tb1k3COiO"}
-{"location":"castilla-la mancha","year":"2017","total":"20642","protectedhousing":"1039","new":"2684","secondhand":"17653","_id":"NiSJlxvUFHX1k0ts"}
-{"location":"castile and leon","year":"2017","total":"22890","protectedhousing":"1228","new":"1461","secondhand":"21025","_id":"clsJuHstJsqdi3YQ"}
-{"location":"catalonia","year":"2017","total":"85567","protectedhousing":"1747","new":"5729","secondhand":"79236","_id":"jDYhWDpVWPHI8cte"}
-{"location":"valencian community","year":"2017","total":"79132","protectedhousing":"3515","new":"7171","secondhand":"71674","_id":"fatRr6sRF4Lhedun"}
-{"location":"extremadura","year":"2017","total":"8090","protectedhousing":"962","new":"302","secondhand":"7544","_id":"44kIRedXUequhwxR"}
-{"location":"galicia","year":"2017","total":"17555","protectedhousing":"546","new":"1888","secondhand":"15524","_id":"Pvl26TJN92o9OBZi"}
-{"location":"community of madrid","year":"2017","total":"80613","protectedhousing":"4013","new":"7755","secondhand":"71738","_id":"MW4c94XFrvtsAWrK"}
-{"location":"region of murcia","year":"2017","total":"15447","protectedhousing":"491","new":"1372","secondhand":"14005","_id":"qaTuHBZDuzkUicMM"}
-{"location":"community of navarre","year":"2017","total":"6040","protectedhousing":"450","new":"1132","secondhand":"4734","_id":"yN2LlgYpqR05R7TV"}
-{"location":"basque country","year":"2017","total":"20909","protectedhousing":"1168","new":"2325","secondhand":"17994","_id":"bqSk8pMmXhuStszX"}
-{"location":"la rioja","year":"2017","total":"3748","protectedhousing":"262","new":"258","secondhand":"3415","_id":"D5kBrysmtFIoLRyS"}
-{"location":"ceuta","year":"2017","total":"1088","protectedhousing":"56","new":"207","secondhand":"866","_id":"WXIWww1UEdUma7fk"}
-{"location":"andalusia","year":"2016","total":"83508","protectedhousing":"4612","new":"6315","secondhand":"76094","_id":"q4axatxCakBIwpmY"}
-{"location":"aragon","year":"2016","total":"11688","protectedhousing":"712","new":"1356","secondhand":"9966","_id":"uOKjBJacadZZLuhD"}
-{"location":"principality of asturias","year":"2016","total":"7602","protectedhousing":"524","new":"605","secondhand":"6919","_id":"qSr1NnBxsBXj337P"}
-{"location":"balearic islands","year":"2016","total":"15882","protectedhousing":"101","new":"1350","secondhand":"14525","_id":"UgXEybncUP6j5P8W"}
-{"location":"canary islands","year":"2016","total":"22283","protectedhousing":"507","new":"1419","secondhand":"20735","_id":"AmFEKMOcQj4dpJay"}
-{"location":"cantabria","year":"2016","total":"5250","protectedhousing":"240","new":"626","secondhand":"4523","_id":"y6PxJkXja6GFLFjE"}
-{"location":"castilla-la mancha","year":"2016","total":"16265","protectedhousing":"871","new":"1943","secondhand":"14049","_id":"RpcQrwijhmtq4sK2"}
-{"location":"castile and leon","year":"2016","total":"20509","protectedhousing":"1156","new":"1491","secondhand":"18612","_id":"uUReB4R0IiXHIGCI"}
-{"location":"catalonia","year":"2016","total":"75152","protectedhousing":"1378","new":"4888","secondhand":"69837","_id":"nPoedjKJuEjqyONs"}
-{"location":"valencian community","year":"2016","total":"67820","protectedhousing":"2882","new":"6535","secondhand":"60925","_id":"eXVYn7bypVEkPTGt"}
-{"location":"extremadura","year":"2016","total":"7197","protectedhousing":"926","new":"303","secondhand":"6623","_id":"BDVguWn6vJ8hv9Oi"}
-{"location":"galicia","year":"2016","total":"15604","protectedhousing":"634","new":"2133","secondhand":"13264","_id":"vO1jt1d8B8O8rHaP"}
-{"location":"community of madrid","year":"2016","total":"67366","protectedhousing":"3830","new":"6104","secondhand":"59755","_id":"UudEMbferVwHvKWw"}
-{"location":"region of murcia","year":"2016","total":"13638","protectedhousing":"414","new":"1702","secondhand":"11882","_id":"fWH6ssjKd2RMtUbX"}
-{"location":"community of navarre","year":"2016","total":"4946","protectedhousing":"302","new":"850","secondhand":"3992","_id":"0N1ljxyAeoeY4Mzu"}
-{"location":"basque country","year":"2016","total":"18730","protectedhousing":"1733","new":"2532","secondhand":"15075","_id":"q9Lk7PY5DlyQecEJ"}
-{"location":"la rioja","year":"2016","total":"3255","protectedhousing":"308","new":"232","secondhand":"2992","_id":"tTTnKw319EZh6qf4"}
-{"location":"ceuta","year":"2016","total":"1043","protectedhousing":"34","new":"180","secondhand":"856","_id":"EOWk9t082Zaj3VLs"}
-{"location":"andalusia","year":"2015","total":"76743","protectedhousing":"3885","new":"8238","secondhand":"67443","_id":"ZpfyxgA9z460v041"}
-{"location":"aragon","year":"2015","total":"11317","protectedhousing":"343","new":"1466","secondhand":"9749","_id":"agGAMe4Y9ZP0FaaX"}
-{"location":"principality of asturias","year":"2015","total":"6516","protectedhousing":"537","new":"554","secondhand":"5865","_id":"WsduGV7bMJcgT6Eo"}
-{"location":"balearic islands","year":"2015","total":"12952","protectedhousing":"61","new":"1336","secondhand":"11608","_id":"sRGuAcO35svNH2n1"}
-{"location":"canary islands","year":"2015","total":"19846","protectedhousing":"440","new":"1850","secondhand":"17896","_id":"NRSqHIJyJG7pvwbL"}
-{"location":"cantabria","year":"2015","total":"4660","protectedhousing":"163","new":"672","secondhand":"3929","_id":"ZlLLFB8spyiLEBvn"}
-{"location":"castilla-la mancha","year":"2015","total":"14288","protectedhousing":"1058","new":"1624","secondhand":"12180","_id":"bSetK3tCBTBE6Mew"}
-{"location":"castile and leon","year":"2015","total":"18306","protectedhousing":"1174","new":"1525","secondhand":"16248","_id":"s3xdBaSEOiWD5Iwl"}
-{"location":"catalonia","year":"2015","total":"61108","protectedhousing":"1162","new":"4747","secondhand":"55981","_id":"bI1s1h01Fh4IrJ1b"}
-{"location":"valencian community","year":"2015","total":"59605","protectedhousing":"2123","new":"6760","secondhand":"52644","_id":"7FiAIVUeGhrSpk1e"}
-{"location":"extremadura","year":"2015","total":"6323","protectedhousing":"788","new":"450","secondhand":"5556","_id":"2NKr9blKGz0x48iw"}
-{"location":"galicia","year":"2015","total":"14633","protectedhousing":"525","new":"2663","secondhand":"11794","_id":"MMatkbDuVGdGKq2O"}
-{"location":"community of madrid","year":"2015","total":"57431","protectedhousing":"3255","new":"5244","secondhand":"50611","_id":"qBkSDteAqgv0VanH"}
-{"location":"region of murcia","year":"2015","total":"12788","protectedhousing":"380","new":"1404","secondhand":"11336","_id":"RwJE9dqFSFBi1dpP"}
-{"location":"community of navarre","year":"2015","total":"4533","protectedhousing":"443","new":"644","secondhand":"3559","_id":"UNs4A9h1gZDkkIq1"}
-{"location":"basque country","year":"2015","total":"16568","protectedhousing":"2033","new":"2365","secondhand":"12688","_id":"E1Hu0kYowhi487oc"}
-{"location":"la rioja","year":"2015","total":"3124","protectedhousing":"206","new":"321","secondhand":"2759","_id":"8To0mDSXhyPyJfKI"}
-{"location":"ceuta","year":"2015","total":"972","protectedhousing":"30","new":"209","secondhand":"755","_id":"yVg7R68vO2Fy6mPA"}
-{"$$deleted":true,"_id":"0N1ljxyAeoeY4Mzu"}
-{"$$deleted":true,"_id":"0ZrftpquB2ppnPuz"}
-{"$$deleted":true,"_id":"1Ln0BbNIHn9LFSGk"}
-{"$$deleted":true,"_id":"1NumgpCtfBwNriay"}
-{"$$deleted":true,"_id":"2NKr9blKGz0x48iw"}
-{"$$deleted":true,"_id":"3a5j0FIT892HEkPg"}
-{"$$deleted":true,"_id":"44kIRedXUequhwxR"}
-{"$$deleted":true,"_id":"7FiAIVUeGhrSpk1e"}
-{"$$deleted":true,"_id":"8To0mDSXhyPyJfKI"}
-{"$$deleted":true,"_id":"AgKsiy5viFzjY6Sz"}
-{"$$deleted":true,"_id":"AmFEKMOcQj4dpJay"}
-{"$$deleted":true,"_id":"BDVguWn6vJ8hv9Oi"}
-{"$$deleted":true,"_id":"D5kBrysmtFIoLRyS"}
-{"$$deleted":true,"_id":"DDRJTIOJlUEgEDL9"}
-{"$$deleted":true,"_id":"E1Hu0kYowhi487oc"}
-{"$$deleted":true,"_id":"E1jPMow7i7cIH8Wj"}
-{"$$deleted":true,"_id":"ECU6WKMIhxU5w1iO"}
-{"$$deleted":true,"_id":"EDoRZw9RM8pf8lbz"}
-{"$$deleted":true,"_id":"EOWk9t082Zaj3VLs"}
-{"$$deleted":true,"_id":"FtLs4310Fl0NUwNl"}
-{"$$deleted":true,"_id":"GLcmkc9ggjru7caE"}
-{"$$deleted":true,"_id":"JajBo4rog0m3n3B0"}
-{"$$deleted":true,"_id":"KXWqPoLc3KC5puwf"}
-{"$$deleted":true,"_id":"L7Zvf84bjgQgltiA"}
-{"$$deleted":true,"_id":"LIGckIKzDpfVztFV"}
-{"$$deleted":true,"_id":"MMatkbDuVGdGKq2O"}
-{"$$deleted":true,"_id":"MW4c94XFrvtsAWrK"}
-{"$$deleted":true,"_id":"NRSqHIJyJG7pvwbL"}
-{"$$deleted":true,"_id":"NiSJlxvUFHX1k0ts"}
-{"$$deleted":true,"_id":"NkdLsshjHT1Eg5hl"}
-{"$$deleted":true,"_id":"Pvl26TJN92o9OBZi"}
-{"$$deleted":true,"_id":"RAyuAAwJSUuIrDIx"}
-{"$$deleted":true,"_id":"RpcQrwijhmtq4sK2"}
-{"$$deleted":true,"_id":"RwJE9dqFSFBi1dpP"}
-{"$$deleted":true,"_id":"TySJetmQkYPVWEI4"}
-{"$$deleted":true,"_id":"UNs4A9h1gZDkkIq1"}
-{"$$deleted":true,"_id":"UgXEybncUP6j5P8W"}
-{"$$deleted":true,"_id":"UudEMbferVwHvKWw"}
-{"$$deleted":true,"_id":"VYEv1YJzXtJf2mS4"}
-{"$$deleted":true,"_id":"WIlydzxHMOJRpg7e"}
-{"$$deleted":true,"_id":"WXIWww1UEdUma7fk"}
-{"$$deleted":true,"_id":"WsduGV7bMJcgT6Eo"}
-{"$$deleted":true,"_id":"ZlLLFB8spyiLEBvn"}
-{"$$deleted":true,"_id":"ZpfyxgA9z460v041"}
-{"$$deleted":true,"_id":"aQTPIeon39lCbHlI"}
-{"$$deleted":true,"_id":"aStjufPBiB83xJwT"}
-{"$$deleted":true,"_id":"agGAMe4Y9ZP0FaaX"}
-{"$$deleted":true,"_id":"bI1s1h01Fh4IrJ1b"}
-{"$$deleted":true,"_id":"bSetK3tCBTBE6Mew"}
-{"$$deleted":true,"_id":"bqSk8pMmXhuStszX"}
-{"$$deleted":true,"_id":"bzGwywmZiK98yC8T"}
-{"$$deleted":true,"_id":"clsJuHstJsqdi3YQ"}
-{"$$deleted":true,"_id":"eXVYn7bypVEkPTGt"}
-{"$$deleted":true,"_id":"fWH6ssjKd2RMtUbX"}
-{"$$deleted":true,"_id":"fatRr6sRF4Lhedun"}
-{"$$deleted":true,"_id":"gNfzGoGHawnPbEW3"}
-{"$$deleted":true,"_id":"hiJMH52wInKen3SU"}
-{"$$deleted":true,"_id":"i3T0f8UW608d6OwW"}
-{"$$deleted":true,"_id":"igNRJg18MeTQAKWz"}
-{"$$deleted":true,"_id":"ij6r5C9bxMPBsQ80"}
-{"$$deleted":true,"_id":"iz84VTalarDj8k4n"}
-{"$$deleted":true,"_id":"jDYhWDpVWPHI8cte"}
-{"$$deleted":true,"_id":"jjGWQ16YXOu7w97e"}
-{"$$deleted":true,"_id":"lgXPf6A8KCT9KY9J"}
-{"$$deleted":true,"_id":"mcQojuqePBowJqfd"}
-{"$$deleted":true,"_id":"n2z44kHS47NaeGPG"}
-{"$$deleted":true,"_id":"nPoedjKJuEjqyONs"}
-{"$$deleted":true,"_id":"oEebAWAc7p9CDAvT"}
-{"$$deleted":true,"_id":"oHmqpK7zgpM9FuVV"}
-{"$$deleted":true,"_id":"oI8xf3Vt3sTAq4Hz"}
-{"$$deleted":true,"_id":"oYAdteDDOMA5fCva"}
-{"$$deleted":true,"_id":"q4axatxCakBIwpmY"}
-{"$$deleted":true,"_id":"q9Lk7PY5DlyQecEJ"}
-{"$$deleted":true,"_id":"qBkSDteAqgv0VanH"}
-{"$$deleted":true,"_id":"qSr1NnBxsBXj337P"}
-{"$$deleted":true,"_id":"qaTuHBZDuzkUicMM"}
-{"$$deleted":true,"_id":"raRrahm4AIWypHV6"}
-{"$$deleted":true,"_id":"s3xdBaSEOiWD5Iwl"}
-{"$$deleted":true,"_id":"sRGuAcO35svNH2n1"}
-{"$$deleted":true,"_id":"tTTnKw319EZh6qf4"}
-{"$$deleted":true,"_id":"u65UELW8XarIp0DJ"}
-{"$$deleted":true,"_id":"uOKjBJacadZZLuhD"}
-{"$$deleted":true,"_id":"uUReB4R0IiXHIGCI"}
-{"$$deleted":true,"_id":"vO1jt1d8B8O8rHaP"}
-{"$$deleted":true,"_id":"wFoJeUt4EbPbP4oD"}
-{"$$deleted":true,"_id":"wvTqaG3tb1k3COiO"}
-{"$$deleted":true,"_id":"y6PxJkXja6GFLFjE"}
-{"$$deleted":true,"_id":"yN2LlgYpqR05R7TV"}
-{"$$deleted":true,"_id":"yVg7R68vO2Fy6mPA"}
-{"$$deleted":true,"_id":"zBbgEN0KuM0h5ak6"}
-{"location":"andalusia","year":"2019","total":"109275","protectedhousing":"5806","new":"9165","secondhand":"98636","_id":"xAqlyeMR0I5kuV4T"}
-{"location":"aragon","year":"2019","total":"15365","protectedhousing":"369","new":"1816","secondhand":"13459","_id":"5UzS7ewN2wvBWvCT"}
-{"location":"principality of asturias","year":"2019","total":"10120","protectedhousing":"693","new":"657","secondhand":"9333","_id":"cr6gmHUoEuM7fLzw"}
-{"location":"balearic islands","year":"2019","total":"15692","protectedhousing":"111","new":"1301","secondhand":"14388","_id":"dFtJJLIKNPjY1cmT"}
-{"location":"canary islands","year":"2019","total":"24630","protectedhousing":"945","new":"1670","secondhand":"22886","_id":"CPotw5TDmg9oDoG2"}
-{"location":"cantabria","year":"2019","total":"7250","protectedhousing":"240","new":"742","secondhand":"6435","_id":"yNlomhLQrYPNqKzU"}
-{"location":"castilla-la mancha","year":"2019","total":"24082","protectedhousing":"907","new":"1988","secondhand":"21882","_id":"PDxqmEQRsLXMEs69"}
-{"location":"castile and leon","year":"2019","total":"25852","protectedhousing":"1130","new":"1712","secondhand":"23825","_id":"RTKTUhGKVrrDmLUE"}
-{"location":"catalonia","year":"2019","total":"89237","protectedhousing":"1647","new":"6455","secondhand":"82341","_id":"jBgZSwWnmOkMZhPm"}
-{"location":"valencian community","year":"2019","total":"84737","protectedhousing":"4097","new":"7688","secondhand":"76815","_id":"UwsFvZse6Q8xGauR"}
-{"location":"extremadura","year":"2019","total":"9686","protectedhousing":"765","new":"360","secondhand":"9213","_id":"EOc6lIOZOrmNoAcd"}
-{"location":"galicia","year":"2019","total":"20462","protectedhousing":"487","new":"1828","secondhand":"18560","_id":"G1hUvLomZhfQMIF8"}
-{"location":"community of madrid","year":"2019","total":"78634","protectedhousing":"3628","new":"9211","secondhand":"68036","_id":"PoTFE0pIYMzhQ6fm"}
-{"location":"region of murcia","year":"2019","total":"19296","protectedhousing":"536","new":"1551","secondhand":"17723","_id":"SS3CSeWCSu4bTf2V"}
-{"location":"community of navarre","year":"2019","total":"6521","protectedhousing":"323","new":"1114","secondhand":"5271","_id":"oJtCbVNSfbB9MUjJ"}
-{"location":"basque country","year":"2019","total":"23644","protectedhousing":"1367","new":"3059","secondhand":"19870","_id":"HC9cL2fwMwOd95DN"}
-{"location":"la rioja","year":"2019","total":"4292","protectedhousing":"279","new":"277","secondhand":"3991","_id":"9PBBnULqOkTRdQsJ"}
-{"location":"ceuta","year":"2019","total":"1218","protectedhousing":"71","new":"129","secondhand":"1043","_id":"2kjF45aSQocsFlqN"}
-{"location":"andalusia","year":"2018","total":"110425","protectedhousing":"5575","new":"9065","secondhand":"100435","_id":"kKjRtiYGGd2PAoCm"}
-{"location":"aragon","year":"2018","total":"15499","protectedhousing":"409","new":"1882","secondhand":"13515","_id":"CpeBCIcWNh04Qqyd"}
-{"location":"principality of asturias","year":"2018","total":"10186","protectedhousing":"707","new":"823","secondhand":"9194","_id":"NJj7W5xKOBeqr13U"}
-{"location":"balearic islands","year":"2018","total":"17466","protectedhousing":"122","new":"1160","secondhand":"16302","_id":"efIXi1MZ9THx61QW"}
-{"location":"canary islands","year":"2018","total":"25269","protectedhousing":"525","new":"1519","secondhand":"23703","_id":"9EK76ZAG5FRbWlZ2"}
-{"location":"cantabria","year":"2018","total":"7072","protectedhousing":"222","new":"787","secondhand":"6226","_id":"gP5FOJZLdz2ggjfP"}
-{"location":"castilla-la mancha","year":"2018","total":"23626","protectedhousing":"1071","new":"2127","secondhand":"21222","_id":"Oe4vbJUOyHfW50KI"}
-{"location":"castile and leon","year":"2018","total":"25957","protectedhousing":"1059","new":"1581","secondhand":"24071","_id":"TyFRk21tmmFC600I"}
-{"location":"catalonia","year":"2018","total":"89685","protectedhousing":"1731","new":"6647","secondhand":"82596","_id":"ysXXO4NHzzjNe1by"}
-{"location":"valencian community","year":"2018","total":"88792","protectedhousing":"4128","new":"7270","secondhand":"81061","_id":"1y8XTGwZTyhDsghP"}
-{"location":"extremadura","year":"2018","total":"9280","protectedhousing":"813","new":"334","secondhand":"8800","_id":"e20zil4OO6Lm0YpO"}
-{"location":"galicia","year":"2018","total":"19786","protectedhousing":"527","new":"1912","secondhand":"17805","_id":"mTSZBz5Jyd9ApKPS"}
-{"location":"community of madrid","year":"2018","total":"85294","protectedhousing":"3940","new":"9451","secondhand":"74574","_id":"rmr4MIlqXbTyCPKd"}
-{"location":"region of murcia","year":"2018","total":"18213","protectedhousing":"508","new":"1494","secondhand":"16656","_id":"7J0A2n24caBR3U5U"}
-{"location":"community of navarre","year":"2018","total":"7156","protectedhousing":"596","new":"1439","secondhand":"5367","_id":"pswDD7n1tr3BHFGZ"}
-{"location":"basque country","year":"2018","total":"23166","protectedhousing":"1409","new":"2835","secondhand":"19781","_id":"PysLKAn11bjwdn64"}
-{"location":"la rioja","year":"2018","total":"4659","protectedhousing":"304","new":"430","secondhand":"4139","_id":"JFPgzd54Yv5NzIwi"}
-{"location":"ceuta","year":"2018","total":"1357","protectedhousing":"252","new":"181","secondhand":"963","_id":"51RxTyr75lmdPg1G"}
-{"location":"andalusia","year":"2017","total":"96440","protectedhousing":"4703","new":"6615","secondhand":"89004","_id":"sl6LLyI2joMuXVHC"}
-{"location":"aragon","year":"2017","total":"13988","protectedhousing":"573","new":"1469","secondhand":"12291","_id":"cN9H7XCPbtvTuD7M"}
-{"location":"principality of asturias","year":"2017","total":"9216","protectedhousing":"739","new":"869","secondhand":"8133","_id":"rChT9i6ZMy8E9bnE"}
-{"location":"balearic islands","year":"2017","total":"18390","protectedhousing":"127","new":"1435","secondhand":"16947","_id":"Ng3sU5btKc2iqoFO"}
-{"location":"canary islands","year":"2017","total":"25868","protectedhousing":"572","new":"1548","secondhand":"24207","_id":"7EareJpNJS1UqmyD"}
-{"location":"cantabria","year":"2017","total":"6638","protectedhousing":"223","new":"695","secondhand":"5874","_id":"FKcH2dN1FmXK1htN"}
-{"location":"castilla-la mancha","year":"2017","total":"20642","protectedhousing":"1039","new":"2684","secondhand":"17653","_id":"rk22KoomxUPxyiE9"}
-{"location":"castile and leon","year":"2017","total":"22890","protectedhousing":"1228","new":"1461","secondhand":"21025","_id":"EakcfTjXSuELj7YA"}
-{"location":"catalonia","year":"2017","total":"85567","protectedhousing":"1747","new":"5729","secondhand":"79236","_id":"Au0ji3TLVrz1ri1r"}
-{"location":"valencian community","year":"2017","total":"79132","protectedhousing":"3515","new":"7171","secondhand":"71674","_id":"f7trD7NYkF1UmAML"}
-{"location":"extremadura","year":"2017","total":"8090","protectedhousing":"962","new":"302","secondhand":"7544","_id":"KfIvHMZxeMmFHVB9"}
-{"location":"galicia","year":"2017","total":"17555","protectedhousing":"546","new":"1888","secondhand":"15524","_id":"BnfIIPSPDlDSkX8R"}
-{"location":"community of madrid","year":"2017","total":"80613","protectedhousing":"4013","new":"7755","secondhand":"71738","_id":"4nc67VrZ9umxgBPr"}
-{"location":"region of murcia","year":"2017","total":"15447","protectedhousing":"491","new":"1372","secondhand":"14005","_id":"oJkqEHJsMFc3zsgn"}
-{"location":"community of navarre","year":"2017","total":"6040","protectedhousing":"450","new":"1132","secondhand":"4734","_id":"wI8TZF7EkhsCj5FS"}
-{"location":"basque country","year":"2017","total":"20909","protectedhousing":"1168","new":"2325","secondhand":"17994","_id":"JHrieR5QphmvRtZw"}
-{"location":"la rioja","year":"2017","total":"3748","protectedhousing":"262","new":"258","secondhand":"3415","_id":"5cRMjjHdB3vqdyyz"}
 {"location":"ceuta","year":"2017","total":"1088","protectedhousing":"56","new":"207","secondhand":"866","_id":"0Ct5JOEJb0lgl65V"}
-{"location":"andalusia","year":"2016","total":"83508","protectedhousing":"4612","new":"6315","secondhand":"76094","_id":"crylXS3LFgw0GttM"}
-{"location":"aragon","year":"2016","total":"11688","protectedhousing":"712","new":"1356","secondhand":"9966","_id":"J7MRysckQItJor4m"}
-{"location":"principality of asturias","year":"2016","total":"7602","protectedhousing":"524","new":"605","secondhand":"6919","_id":"Lma2ybO3lIX2Qkok"}
-{"location":"balearic islands","year":"2016","total":"15882","protectedhousing":"101","new":"1350","secondhand":"14525","_id":"grVvYpFH8BumkigV"}
-{"location":"canary islands","year":"2016","total":"22283","protectedhousing":"507","new":"1419","secondhand":"20735","_id":"l7VRHL0uK14R72EM"}
-{"location":"cantabria","year":"2016","total":"5250","protectedhousing":"240","new":"626","secondhand":"4523","_id":"v15NMgYD8kBTyC8c"}
 {"location":"castilla-la mancha","year":"2016","total":"16265","protectedhousing":"871","new":"1943","secondhand":"14049","_id":"1FJ6p09YtfR5on8S"}
-{"location":"castile and leon","year":"2016","total":"20509","protectedhousing":"1156","new":"1491","secondhand":"18612","_id":"8UMc8f0aTdn90FpT"}
-{"location":"catalonia","year":"2016","total":"75152","protectedhousing":"1378","new":"4888","secondhand":"69837","_id":"gxVl3oXTkxgaIVj4"}
-{"location":"valencian community","year":"2016","total":"67820","protectedhousing":"2882","new":"6535","secondhand":"60925","_id":"iDfhgcYMy1UbnCDh"}
-{"location":"extremadura","year":"2016","total":"7197","protectedhousing":"926","new":"303","secondhand":"6623","_id":"6gtNPw6iC4q4tvBz"}
-{"location":"galicia","year":"2016","total":"15604","protectedhousing":"634","new":"2133","secondhand":"13264","_id":"mhZoVhNQfU9zLbwI"}
 {"location":"community of madrid","year":"2016","total":"67366","protectedhousing":"3830","new":"6104","secondhand":"59755","_id":"1aGg7TE76mjSFPXe"}
-{"location":"region of murcia","year":"2016","total":"13638","protectedhousing":"414","new":"1702","secondhand":"11882","_id":"VDfILW0B0Id2SESw"}
-{"location":"community of navarre","year":"2016","total":"4946","protectedhousing":"302","new":"850","secondhand":"3992","_id":"693CGZ0b4IlYi4md"}
+{"location":"valencian community","year":"2018","total":"88792","protectedhousing":"4128","new":"7270","secondhand":"81061","_id":"1y8XTGwZTyhDsghP"}
+{"location":"ceuta","year":"2019","total":"1218","protectedhousing":"71","new":"129","secondhand":"1043","_id":"2kjF45aSQocsFlqN"}
+{"location":"ceuta","year":"2015","total":"972","protectedhousing":"30","new":"209","secondhand":"755","_id":"2ks6urpCDtMEs7lF"}
 {"location":"basque country","year":"2016","total":"18730","protectedhousing":"1733","new":"2532","secondhand":"15075","_id":"3JN5OzKU5tHex7mc"}
+{"location":"catalonia","year":"2015","total":"61108","protectedhousing":"1162","new":"4747","secondhand":"55981","_id":"3VQcH88GRkGq3MtV"}
+{"location":"community of madrid","year":"2017","total":"80613","protectedhousing":"4013","new":"7755","secondhand":"71738","_id":"4nc67VrZ9umxgBPr"}
+{"location":"ceuta","year":"2018","total":"1357","protectedhousing":"252","new":"181","secondhand":"963","_id":"51RxTyr75lmdPg1G"}
+{"location":"aragon","year":"2019","total":"15365","protectedhousing":"369","new":"1816","secondhand":"13459","_id":"5UzS7ewN2wvBWvCT"}
+{"location":"la rioja","year":"2017","total":"3748","protectedhousing":"262","new":"258","secondhand":"3415","_id":"5cRMjjHdB3vqdyyz"}
 {"location":"la rioja","year":"2016","total":"3255","protectedhousing":"308","new":"232","secondhand":"2992","_id":"65QKAdj4S1wnhnQL"}
+{"location":"community of navarre","year":"2016","total":"4946","protectedhousing":"302","new":"850","secondhand":"3992","_id":"693CGZ0b4IlYi4md"}
+{"location":"extremadura","year":"2016","total":"7197","protectedhousing":"926","new":"303","secondhand":"6623","_id":"6gtNPw6iC4q4tvBz"}
 {"location":"ceuta","year":"2016","total":"1043","protectedhousing":"34","new":"180","secondhand":"856","_id":"6kLop2jaqUhH4k7H"}
+{"location":"community of madrid","year":"2015","total":"57431","protectedhousing":"3255","new":"5244","secondhand":"50611","_id":"73X6ZzwRDhSVHjs9"}
+{"location":"canary islands","year":"2017","total":"25868","protectedhousing":"572","new":"1548","secondhand":"24207","_id":"7EareJpNJS1UqmyD"}
+{"location":"region of murcia","year":"2018","total":"18213","protectedhousing":"508","new":"1494","secondhand":"16656","_id":"7J0A2n24caBR3U5U"}
+{"location":"galicia","year":"2015","total":"14633","protectedhousing":"525","new":"2663","secondhand":"11794","_id":"7jeVKTxt0O813gPq"}
+{"location":"region of murcia","year":"2015","total":"12788","protectedhousing":"380","new":"1404","secondhand":"11336","_id":"7sQwbVuPTcrGdAla"}
+{"location":"castile and leon","year":"2016","total":"20509","protectedhousing":"1156","new":"1491","secondhand":"18612","_id":"8UMc8f0aTdn90FpT"}
+{"location":"canary islands","year":"2018","total":"25269","protectedhousing":"525","new":"1519","secondhand":"23703","_id":"9EK76ZAG5FRbWlZ2"}
+{"location":"la rioja","year":"2019","total":"4292","protectedhousing":"279","new":"277","secondhand":"3991","_id":"9PBBnULqOkTRdQsJ"}
+{"location":"catalonia","year":"2017","total":"85567","protectedhousing":"1747","new":"5729","secondhand":"79236","_id":"Au0ji3TLVrz1ri1r"}
+{"location":"galicia","year":"2017","total":"17555","protectedhousing":"546","new":"1888","secondhand":"15524","_id":"BnfIIPSPDlDSkX8R"}
+{"location":"canary islands","year":"2019","total":"24630","protectedhousing":"945","new":"1670","secondhand":"22886","_id":"CPotw5TDmg9oDoG2"}
+{"location":"aragon","year":"2018","total":"15499","protectedhousing":"409","new":"1882","secondhand":"13515","_id":"CpeBCIcWNh04Qqyd"}
+{"location":"extremadura","year":"2019","total":"9686","protectedhousing":"765","new":"360","secondhand":"9213","_id":"EOc6lIOZOrmNoAcd"}
+{"location":"castile and leon","year":"2017","total":"22890","protectedhousing":"1228","new":"1461","secondhand":"21025","_id":"EakcfTjXSuELj7YA"}
+{"location":"cantabria","year":"2017","total":"6638","protectedhousing":"223","new":"695","secondhand":"5874","_id":"FKcH2dN1FmXK1htN"}
+{"location":"community of navarre","year":"2015","total":"4533","protectedhousing":"443","new":"644","secondhand":"3559","_id":"FOjKs6CPJmue616s"}
+{"location":"galicia","year":"2019","total":"20462","protectedhousing":"487","new":"1828","secondhand":"18560","_id":"G1hUvLomZhfQMIF8"}
+{"location":"basque country","year":"2019","total":"23644","protectedhousing":"1367","new":"3059","secondhand":"19870","_id":"HC9cL2fwMwOd95DN"}
+{"location":"valencian community","year":"2015","total":"59605","protectedhousing":"2123","new":"6760","secondhand":"52644","_id":"IwkbmeFXNDCVQ6iR"}
+{"location":"aragon","year":"2016","total":"11688","protectedhousing":"712","new":"1356","secondhand":"9966","_id":"J7MRysckQItJor4m"}
+{"location":"la rioja","year":"2018","total":"4659","protectedhousing":"304","new":"430","secondhand":"4139","_id":"JFPgzd54Yv5NzIwi"}
+{"location":"basque country","year":"2017","total":"20909","protectedhousing":"1168","new":"2325","secondhand":"17994","_id":"JHrieR5QphmvRtZw"}
+{"location":"extremadura","year":"2017","total":"8090","protectedhousing":"962","new":"302","secondhand":"7544","_id":"KfIvHMZxeMmFHVB9"}
+{"location":"principality of asturias","year":"2016","total":"7602","protectedhousing":"524","new":"605","secondhand":"6919","_id":"Lma2ybO3lIX2Qkok"}
+{"location":"balearic islands","year":"2015","total":"12952","protectedhousing":"61","new":"1336","secondhand":"11608","_id":"NE5xuS6vEC0YCSf5"}
+{"location":"principality of asturias","year":"2018","total":"10186","protectedhousing":"707","new":"823","secondhand":"9194","_id":"NJj7W5xKOBeqr13U"}
+{"location":"balearic islands","year":"2017","total":"18390","protectedhousing":"127","new":"1435","secondhand":"16947","_id":"Ng3sU5btKc2iqoFO"}
+{"location":"castilla-la mancha","year":"2018","total":"23626","protectedhousing":"1071","new":"2127","secondhand":"21222","_id":"Oe4vbJUOyHfW50KI"}
+{"location":"castilla-la mancha","year":"2019","total":"24082","protectedhousing":"907","new":"1988","secondhand":"21882","_id":"PDxqmEQRsLXMEs69"}
+{"location":"canary islands","year":"2015","total":"19846","protectedhousing":"440","new":"1850","secondhand":"17896","_id":"Po1AEEj2FdWmUwi8"}
+{"location":"community of madrid","year":"2019","total":"78634","protectedhousing":"3628","new":"9211","secondhand":"68036","_id":"PoTFE0pIYMzhQ6fm"}
+{"location":"basque country","year":"2018","total":"23166","protectedhousing":"1409","new":"2835","secondhand":"19781","_id":"PysLKAn11bjwdn64"}
+{"location":"castile and leon","year":"2019","total":"25852","protectedhousing":"1130","new":"1712","secondhand":"23825","_id":"RTKTUhGKVrrDmLUE"}
+{"location":"region of murcia","year":"2019","total":"19296","protectedhousing":"536","new":"1551","secondhand":"17723","_id":"SS3CSeWCSu4bTf2V"}
+{"location":"castile and leon","year":"2018","total":"25957","protectedhousing":"1059","new":"1581","secondhand":"24071","_id":"TyFRk21tmmFC600I"}
+{"location":"valencian community","year":"2019","total":"84737","protectedhousing":"4097","new":"7688","secondhand":"76815","_id":"UwsFvZse6Q8xGauR"}
+{"location":"region of murcia","year":"2016","total":"13638","protectedhousing":"414","new":"1702","secondhand":"11882","_id":"VDfILW0B0Id2SESw"}
+{"location":"cantabria","year":"2015","total":"4660","protectedhousing":"163","new":"672","secondhand":"3929","_id":"Vt2gpUn9h77O7Iop"}
 {"location":"andalusia","year":"2015","total":"76743","protectedhousing":"3885","new":"8238","secondhand":"67443","_id":"YVjXkcc36MtYtBEC"}
 {"location":"aragon","year":"2015","total":"11317","protectedhousing":"343","new":"1466","secondhand":"9749","_id":"aXUpij8J5jHccxJk"}
+{"location":"aragon","year":"2017","total":"13988","protectedhousing":"573","new":"1469","secondhand":"12291","_id":"cN9H7XCPbtvTuD7M"}
 {"location":"principality of asturias","year":"2015","total":"6516","protectedhousing":"537","new":"554","secondhand":"5865","_id":"cdIzTgEzSYXfQFBI"}
-{"location":"balearic islands","year":"2015","total":"12952","protectedhousing":"61","new":"1336","secondhand":"11608","_id":"NE5xuS6vEC0YCSf5"}
-{"location":"canary islands","year":"2015","total":"19846","protectedhousing":"440","new":"1850","secondhand":"17896","_id":"Po1AEEj2FdWmUwi8"}
-{"location":"cantabria","year":"2015","total":"4660","protectedhousing":"163","new":"672","secondhand":"3929","_id":"Vt2gpUn9h77O7Iop"}
-{"location":"castilla-la mancha","year":"2015","total":"14288","protectedhousing":"1058","new":"1624","secondhand":"12180","_id":"oirXyCsEaDlfixZf"}
-{"location":"castile and leon","year":"2015","total":"18306","protectedhousing":"1174","new":"1525","secondhand":"16248","_id":"laImkNRxR5AXMmEq"}
-{"location":"catalonia","year":"2015","total":"61108","protectedhousing":"1162","new":"4747","secondhand":"55981","_id":"3VQcH88GRkGq3MtV"}
-{"location":"valencian community","year":"2015","total":"59605","protectedhousing":"2123","new":"6760","secondhand":"52644","_id":"IwkbmeFXNDCVQ6iR"}
+{"location":"principality of asturias","year":"2019","total":"10120","protectedhousing":"693","new":"657","secondhand":"9333","_id":"cr6gmHUoEuM7fLzw"}
+{"location":"andalusia","year":"2016","total":"83508","protectedhousing":"4612","new":"6315","secondhand":"76094","_id":"crylXS3LFgw0GttM"}
+{"location":"balearic islands","year":"2019","total":"15692","protectedhousing":"111","new":"1301","secondhand":"14388","_id":"dFtJJLIKNPjY1cmT"}
+{"location":"extremadura","year":"2018","total":"9280","protectedhousing":"813","new":"334","secondhand":"8800","_id":"e20zil4OO6Lm0YpO"}
+{"location":"balearic islands","year":"2018","total":"17466","protectedhousing":"122","new":"1160","secondhand":"16302","_id":"efIXi1MZ9THx61QW"}
 {"location":"extremadura","year":"2015","total":"6323","protectedhousing":"788","new":"450","secondhand":"5556","_id":"emKdlimU0cu8PEmC"}
-{"location":"galicia","year":"2015","total":"14633","protectedhousing":"525","new":"2663","secondhand":"11794","_id":"7jeVKTxt0O813gPq"}
-{"location":"community of madrid","year":"2015","total":"57431","protectedhousing":"3255","new":"5244","secondhand":"50611","_id":"73X6ZzwRDhSVHjs9"}
-{"location":"region of murcia","year":"2015","total":"12788","protectedhousing":"380","new":"1404","secondhand":"11336","_id":"7sQwbVuPTcrGdAla"}
-{"location":"community of navarre","year":"2015","total":"4533","protectedhousing":"443","new":"644","secondhand":"3559","_id":"FOjKs6CPJmue616s"}
+{"location":"valencian community","year":"2017","total":"79132","protectedhousing":"3515","new":"7171","secondhand":"71674","_id":"f7trD7NYkF1UmAML"}
+{"location":"cantabria","year":"2018","total":"7072","protectedhousing":"222","new":"787","secondhand":"6226","_id":"gP5FOJZLdz2ggjfP"}
+{"location":"balearic islands","year":"2016","total":"15882","protectedhousing":"101","new":"1350","secondhand":"14525","_id":"grVvYpFH8BumkigV"}
+{"location":"catalonia","year":"2016","total":"75152","protectedhousing":"1378","new":"4888","secondhand":"69837","_id":"gxVl3oXTkxgaIVj4"}
+{"location":"valencian community","year":"2016","total":"67820","protectedhousing":"2882","new":"6535","secondhand":"60925","_id":"iDfhgcYMy1UbnCDh"}
+{"location":"catalonia","year":"2019","total":"89237","protectedhousing":"1647","new":"6455","secondhand":"82341","_id":"jBgZSwWnmOkMZhPm"}
+{"location":"andalusia","year":"2018","total":"110425","protectedhousing":"5575","new":"9065","secondhand":"100435","_id":"kKjRtiYGGd2PAoCm"}
+{"location":"canary islands","year":"2016","total":"22283","protectedhousing":"507","new":"1419","secondhand":"20735","_id":"l7VRHL0uK14R72EM"}
+{"location":"castile and leon","year":"2015","total":"18306","protectedhousing":"1174","new":"1525","secondhand":"16248","_id":"laImkNRxR5AXMmEq"}
+{"location":"galicia","year":"2018","total":"19786","protectedhousing":"527","new":"1912","secondhand":"17805","_id":"mTSZBz5Jyd9ApKPS"}
+{"location":"galicia","year":"2016","total":"15604","protectedhousing":"634","new":"2133","secondhand":"13264","_id":"mhZoVhNQfU9zLbwI"}
+{"location":"region of murcia","year":"2017","total":"15447","protectedhousing":"491","new":"1372","secondhand":"14005","_id":"oJkqEHJsMFc3zsgn"}
+{"location":"community of navarre","year":"2019","total":"6521","protectedhousing":"323","new":"1114","secondhand":"5271","_id":"oJtCbVNSfbB9MUjJ"}
+{"location":"castilla-la mancha","year":"2015","total":"14288","protectedhousing":"1058","new":"1624","secondhand":"12180","_id":"oirXyCsEaDlfixZf"}
+{"location":"community of navarre","year":"2018","total":"7156","protectedhousing":"596","new":"1439","secondhand":"5367","_id":"pswDD7n1tr3BHFGZ"}
+{"location":"principality of asturias","year":"2017","total":"9216","protectedhousing":"739","new":"869","secondhand":"8133","_id":"rChT9i6ZMy8E9bnE"}
+{"location":"castilla-la mancha","year":"2017","total":"20642","protectedhousing":"1039","new":"2684","secondhand":"17653","_id":"rk22KoomxUPxyiE9"}
+{"location":"community of madrid","year":"2018","total":"85294","protectedhousing":"3940","new":"9451","secondhand":"74574","_id":"rmr4MIlqXbTyCPKd"}
+{"location":"andalusia","year":"2017","total":"96440","protectedhousing":"4703","new":"6615","secondhand":"89004","_id":"sl6LLyI2joMuXVHC"}
+{"location":"cantabria","year":"2016","total":"5250","protectedhousing":"240","new":"626","secondhand":"4523","_id":"v15NMgYD8kBTyC8c"}
 {"location":"basque country","year":"2015","total":"16568","protectedhousing":"2033","new":"2365","secondhand":"12688","_id":"w0TQB64niz2eFCsE"}
+{"location":"community of navarre","year":"2017","total":"6040","protectedhousing":"450","new":"1132","secondhand":"4734","_id":"wI8TZF7EkhsCj5FS"}
+{"location":"andalusia","year":"2019","total":"109275","protectedhousing":"5806","new":"9165","secondhand":"98636","_id":"xAqlyeMR0I5kuV4T"}
+{"location":"cantabria","year":"2019","total":"7250","protectedhousing":"240","new":"742","secondhand":"6435","_id":"yNlomhLQrYPNqKzU"}
+{"location":"catalonia","year":"2018","total":"89685","protectedhousing":"1731","new":"6647","secondhand":"82596","_id":"ysXXO4NHzzjNe1by"}
 {"location":"la rioja","year":"2015","total":"3124","protectedhousing":"206","new":"321","secondhand":"2759","_id":"z43W9CejDp4UkOZd"}
-{"location":"ceuta","year":"2015","total":"972","protectedhousing":"30","new":"209","secondhand":"755","_id":"2ks6urpCDtMEs7lF"}
