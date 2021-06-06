@@ -29,6 +29,7 @@
 	import EvictionsGames from "./Integrations/EvictionsUseGames.svelte";
 	import EvictionsUseGames from "./Integrations/EvictionsUseGames.svelte";
 	import About from "./About.svelte";
+	import EvictionsUsePeople from "./Integrations/EvictionsUsePeople.svelte";
 
 
 	const routes = {
@@ -55,6 +56,7 @@
 		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 		"/Integrations/culturaBASEIntegrationGraph": EvictionsCulturaBase,
 		"/Integrations/useGames": EvictionsUseGames,
+		"/Integrations/evictionsUsePeople": EvictionsUsePeople,
 	};
 </script>
 
