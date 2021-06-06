@@ -27,8 +27,14 @@ const screenshotPath = './tests/e2e_screenshoots/';
     console.log("Taking an screenshot");
     await page.screenshot({ path: screenshotPath + 'Sales.png' });
 
-    var rowCount = (await page.$$("tr:nth-child(n)")).length;
-    console.log(`Initial row count = ${rowCount}`);
+    var initialRowCount = (await page.$$("tr:nth-child(n)")).length;
+    console.log(`Initial row count = ${initialRowCount}`);
+    if (initialRowCount != 12){
+        console.error("Initial row count is not 12");
+        process.exit(1);
+    }
+        
+
 
 
     console.log ("Search andalucia before insert");
@@ -40,8 +46,13 @@ const screenshotPath = './tests/e2e_screenshoots/';
     await page.waitForTimeout(2000);
     await page.screenshot({ path: screenshotPath + '01_BeforeInsertData.png' });
 
-    var rowCount = (await page.$$("tr:nth-child(n)")).length;
-    console.log(`andalusia row count = ${rowCount}`);
+    var searchRowCount = (await page.$$("tr:nth-child(n)")).length;
+    console.log(`search andalusia row count = ${searchRowCount}`);
+    if (searchRowCount!=7){
+        console.error("searchRowCount is not 7");
+        process.exit(1);
+    }
+        
 
     await page.focus('td:nth-child(2) > input:nth-child(1)');
     await page.keyboard.type("2014");
@@ -74,13 +85,21 @@ const screenshotPath = './tests/e2e_screenshoots/';
     await page.click('td:nth-child(8)');
     await page.waitForTimeout(2000);
 
-    var rowCount = (await page.$$("tr:nth-child(n)")).length;
-    console.log(`andalusia row count = ${rowCount}`);
+    var finalRowCount = (await page.$$("tr:nth-child(n)")).length;
+    console.log(`added one resource andalusia row count = ${finalRowCount}`);
+    if (finalRowCount!=8){
+        console.error("finalRowCount doesn't increase when adding data");
+        process.exit(1);
+    }
+
+
+
 
     console.log("Taking an screenshot searched data");
     await page.screenshot({ path: screenshotPath + '05_SearchedData.png' });
 
     await browser.close();
     console.log("Browser closed!");
+    process.exit(0);
 
 })();
