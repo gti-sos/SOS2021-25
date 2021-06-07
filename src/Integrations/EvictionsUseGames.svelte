@@ -291,25 +291,6 @@
         document.getElementById("cancelar").innerHTML =
             '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
     }
-
-    function convertToDataURLviaCanvas(url, callback, outputFormat){
-        var img = new Image();
-        img.crossOrigin = 'Anonymous';
-        img.onload = function(){
-            var canvas = document.createElement('CANVAS');
-            var ctx = canvas.getContext('2d');
-            var dataURL;
-            canvas.height = this.height;
-            canvas.width = this.width;
-            ctx.drawImage(this, 0, 0);
-            dataURL = canvas.toDataURL(outputFormat);
-            callback(dataURL);
-            canvas = null; 
-        };
-        img.src = url;
-    }
-
-
     
     onMount(getData);
     getNumData();
@@ -417,13 +398,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Portada</th>
+                        <th id="laPortadita">Portada</th>
                         <th>Nombre</th>
-                        <th>Precio de venta</th>
-                        <th>Precio habitual</th>
-                        <th>Puntuación</th>
-                        <th>Valoración</th>
-                        <th>Ranking en Steam</th>
+                        <th style="text-align: center;">Precio de venta</th>
+                        <th style="text-align: center;">Precio habitual</th>
+                        <th style="text-align: center;">Puntuación</th>
+                        <th style="text-align: center;">Valoración</th>
+                        <th style="text-align: center;">Ranking en Steam</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -432,11 +413,11 @@
                         <tr>
                             <td id="laPortadita"><img src="{data.thumb}" alt="Portada del juego {data.title}"></td>
                             <td>{data.title}</td>
-                            <td id="precioVenta">{data.salePrice} €</td>
-                            <td style="text-decoration: line-through;">{data.normalPrice} €</td>
-                            <td>{data.metacriticScore}</td>
-                            <td>{data.steamRatingText}</td>
-                            <td>{data.steamRatingPercent} %</td>
+                            <td id="precioVenta" style="text-align: center;">{data.salePrice} €</td>
+                            <td style="text-decoration: line-through; text-align:center;">{data.normalPrice} €</td>
+                            <td style="text-align: center;">{data.metacriticScore}</td>
+                            <td style="text-align: center;">{data.steamRatingText}</td>
+                            <td style="text-align: center;">{data.steamRatingPercent} %</td>
                             
                         </tr>
                     {/each}
