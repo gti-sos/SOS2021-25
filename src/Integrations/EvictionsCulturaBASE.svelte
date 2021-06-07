@@ -14,7 +14,7 @@
     async function getDataGraph() {
         console.log("Fetching data...");
         const res = await fetch(
-            "https://sos2021-26.herokuapp.com/api/v2/culturaBASE/"
+            "/proxyEvictions"
         );
         if (res.ok) {
             console.log("Ok");

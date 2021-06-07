@@ -2579,10 +2579,10 @@ app.listen(PORT, () => {
 })
 
 app.use("/proxyEvictions", function(req, res) {
-	var apiServerHost = 'https://sos2021-26.herokuapp.com';
+	var apiServerHost = 'https://sos2021-26.herokuapp.com/api/v2/culturaBASE';
 
-	var url = apiServerHost + req.baseUrl + req.url;
-	console.log(`piped: /proxyEvictions -> ${url}`);
+	var url = apiServerHost + req.url;
+	console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
 
 	req.pipe(request(url)).pipe(res);
 });
