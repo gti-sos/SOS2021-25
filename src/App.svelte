@@ -29,8 +29,9 @@
 	import SalesRent from "./Integrations/SalesRent.svelte";
 	import EvictionsGames from "./Integrations/EvictionsUseGames.svelte";
 	import About from "./About.svelte";
-	import EvictionsUsePeople from "./Integrations/EvictionsUsePeople.svelte";
+	//import EvictionsUsePeople from "./Integrations/EvictionsUsePeople.svelte";
 	import EvictionsAlbums from "./Integrations/EvictionsAlbums.svelte";
+	import EvictionsSuicidios from "./Integrations/EvictionsSuicidios.svelte";
 
 
 	const routes = {
@@ -58,8 +59,9 @@
 		"/Integrations/rentalsIntegrationGraph": EvictionsRentals,
 		"/Integrations/culturaBASEIntegrationGraph": EvictionsCulturaBase,
 		"/Integrations/useGames": EvictionsGames,
-		"/Integrations/evictionsUsePeople": EvictionsUsePeople,
+		//"/Integrations/evictionsUsePeople": EvictionsUsePeople,
 		"/Integrations/evictionsAlbums": EvictionsAlbums,
+		"/Integrations/evictionsSuicidios": EvictionsSuicidios,
 		
 	};
 </script>

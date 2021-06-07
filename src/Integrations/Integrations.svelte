@@ -86,19 +86,19 @@
             </p>
           </div>
         </a>          
+        <a href="/#/Integrations/evictionsSuicidios">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              API Externa - Integración Suicidios
+            </p>
+          </div>
+        </a>   
         <a href="/#/Integrations/useGames">
           <div class="article cambioNegro">
             <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
             <p>
               API Externa - Uso Videojuegos
-            </p>
-          </div>
-        </a>   
-        <a href="/#/Integrations/evictionsUsePeople">
-          <div class="article cambioNegro">
-            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
-            <p>
-              API Externa - Uso Datos Personales
             </p>
           </div>
         </a>   
