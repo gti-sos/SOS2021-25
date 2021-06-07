@@ -40,7 +40,7 @@
             console.log(`We have received ${evictionsData.length} resources.`);
             evictionsData.forEach((data) => {
                 evictionsKey.unshift(data.location + "-" + data.year);
-                evictionsHousehold.unshift(parseInt(data.other));
+                evictionsHousehold.unshift(parseInt(data.total));
             });
             //console.log("totales: " + evictionsTotal);
             //console.log("total totales: " + evictionsTotal.length);
@@ -51,7 +51,7 @@
                 type: "columnpyramid",
             },
             title: {
-                text: "Integración de álbums de fotos (API Externa) con otros desahucios (API propia)",
+                text: "Integración de álbums de fotos (API Externa) con total desahucios (API propia)",
             },
             colors: ["#C79D6D", "#B5927B", "#CE9B84", "#B7A58C", "#C7A58C"],
             xAxis: {
@@ -82,10 +82,10 @@
                         [nombreAlbum[13], fotosPorAlbum[13]],
                         [nombreAlbum[28], fotosPorAlbum[28]],
                         [nombreAlbum[67], fotosPorAlbum[67]],
-                        [evictionsKey[0], evictionsHousehold[0]],
-                        [evictionsKey[1], evictionsHousehold[1]],
-                        [evictionsKey[2], evictionsHousehold[2]],
-                        [evictionsKey[3], evictionsHousehold[3]],
+                        [evictionsKey[15], evictionsHousehold[15]],
+                        [evictionsKey[16], evictionsHousehold[16]],
+                        [evictionsKey[17], evictionsHousehold[17]],
+                        [evictionsKey[18], evictionsHousehold[18]],
                     ],
                     showInLegend: false,
                 },
@@ -127,7 +127,7 @@
         <p class="highcharts-description">
             En esta gráfica se observa la relación entre la cantidad de fotos
             que posee cada álbum de fotos al que hemos accedido mediante una API
-            Externa con la cantidad de desahucios de otro tipo que han tenido
+            Externa con la cantidad de desahucios totales que han tenido
             lugar en comunidades autónomas de España entre los años 2015 y 2019,
             cuyos datos pertenecen a nuestra API propia de la asignatura
             Sistemas Orientados a Servicios (SOS), curso 2020-2021:
