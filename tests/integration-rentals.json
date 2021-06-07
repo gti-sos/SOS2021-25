@@ -7,6 +7,42 @@
 	},
 	"item": [
 		{
+			"name": "8. DELETE lista recursos TEST Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "Borramos todos los datos que hay en la BBDD"
+			},
+			"response": []
+		},
+		{
 			"name": "0. loadInitialData TEST - db empty",
 			"event": [
 				{
@@ -223,7 +259,7 @@
 			"response": []
 		},
 		{
-			"name": "1a. GET lista recursos 2015 LIMIT=10",
+			"name": "1a. GET lista recursos 2018 LIMIT=5",
 			"event": [
 				{
 					"listen": "test",
@@ -233,13 +269,13 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"There are 10 rentals\", function () {\r",
+							"pm.test(\"There are 5 rentals\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(10);\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Body contains 2015\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"2015\");\r",
+							"pm.test(\"Body contains 2018\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -250,7 +286,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?year=2015&limit=10$offset=100",
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals?year=2018&limit=5&offset=5",
 					"protocol": "https",
 					"host": [
 						"sos2021-25",
@@ -265,11 +301,15 @@
 					"query": [
 						{
 							"key": "year",
-							"value": "2015"
+							"value": "2018"
 						},
 						{
 							"key": "limit",
-							"value": "10$offset=100"
+							"value": "5"
+						},
+						{
+							"key": "offset",
+							"value": "5"
 						}
 					]
 				},
@@ -1316,6 +1356,43 @@
 					]
 				},
 				"description": "Comprobamos mediante una busqueda que no hay datos en la BBDD puesto que se han borrado"
+			},
+			"response": []
+		},
+		{
+			"name": "0. loadInitialData TEST Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-25.herokuapp.com/api/v1/rentals/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-25",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"loadInitialData"
+					]
+				},
+				"description": "Lanzamos LoadInitialData para inicializar la BBDD con datos"
 			},
 			"response": []
 		}
