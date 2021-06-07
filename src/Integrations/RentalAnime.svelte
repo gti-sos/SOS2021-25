@@ -44,41 +44,19 @@
 
         console.log(animeAZ);
 
-        Highcharts.chart("container", {
-            chart: {
-                type: "area",
-            },
-            title: {
-                text: "Animes más conocidos que comienzan por las letras...",
-            },
-            subtitle: {
-                text: "Source: animechan.vercel.app",
-            },
-            xAxis: {
-                categories: letras,
-               
-                title: {
-                    enabled: false,
-                },
-            },
-            plotOptions: {
-                area: {
-                    stacking: "normal",
-                    lineColor: "#666666",
-                    lineWidth: 1,
-                    marker: {
-                        lineWidth: 1,
-                        lineColor: "#666666",
-                    },
-                },
-            },
-            series: [
-                {
-                    name: "Numero de Animes: ",
-                    data: animeSort,
-                },
-            ],
-        });
+        Highcharts.chart('container', {
+    title: {
+        text: 'Total de Animes'
+    },
+    xAxis: {
+        categories: letras,
+    },
+    series: [{
+        type: 'column',
+        name: 'Numero de animes:',
+        data: animeSort
+    }]
+});
     }
 </script>
 

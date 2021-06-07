@@ -231,6 +231,112 @@ const screenshotPath = './tests/e2e_screenshoots/';
 
     // Fin Evictions
 
+    //Rentals
+    // console.log("--------------------------------");
+    // console.log("Go to Rentals Frontend.");
+    // await page.click("li.nav-item:nth-child(1) > a:nth-child(1) > button:nth-child(1)"),
+    // console.log("Clicked \"frontend page\" link, waiting data...");
+    // await page.waitForTimeout(1000);
+    // await page.click("div.article:nth-child(2) > a:nth-child(3) > button:nth-child(1)"),
+    // console.log("Clicked \"frontend page\" link, waiting data...");
+    // await page.waitForTimeout(1000);
+    // console.log("Taking an screenshot");
+    // await page.screenshot({ path: screenshotPath + 'Rentals.png' });
+
+    // var initialRentalsRowCount = (await page.$$("tr:nth-child(n)")).length;
+    // console.log(`Initial row count = ${initialRentalsRowCount}`);
+    // if (initialRentalsRowCount != 12){
+    //     console.error("Initial row count in Rentals front-end is not 12");
+    //     process.exit(1);
+    // }
+        
+
+    // console.log ("Search galicia before insert");
+    // await page.focus('#nuevalocation');
+    // await page.keyboard.type("galicia");
+    // console.log("Taking an screenshot with data (Before search)");
+    // await page.focus("#buscar");
+    // await page.click('#buscar');
+    // await page.waitForTimeout(2000);
+    // await page.screenshot({ path: screenshotPath + '01_BeforeInsertDataRental.png' });
+
+    // var initialRentalsRowCount = (await page.$$("tr:nth-child(n)")).length;
+    // console.log(`search galicia row count = ${initialRentalsRowCount}`);
+    // if (initialRentalsRowCount!=7){
+    //     console.error("searchRentalsRowCount is not 7");
+    //     // process.exit(1);
+    // }
+
+    // await page.focus("#cancelar > button");
+    // await page.click('#cancelar > button');
+
+    // await page.waitForTimeout(2000);
+    
+    // console.log ("Insert new data Galicia in Rentlas");    
+    // await page.focus('#nuevalocation');
+    // await page.keyboard.type("galicia");
+    // await page.focus('#nuevoyear');
+    // await page.keyboard.type("2001");
+    // await page.focus('#nuevopricesquaremeter');
+    // await page.keyboard.type("12345");
+    // await page.focus('#nuevoannualvariation');
+    // await page.keyboard.type("12345");
+    // await page.focus('#nuevoalltimehigh');
+    // await page.keyboard.type("12345");
+    // await page.focus('#nuevomaxvariation');
+    // await page.keyboard.type("12345");
+
+    // console.log("Taking an screenshot with data (For insert in Rentals)");
+
+    // await page.screenshot({ path: screenshotPath + '02_InsertingDataRentals.png' });
+    // await page.focus("#cancelar > button");
+    // await page.click('#cancelar > button');
+    // await page.waitForTimeout(2000);
+
+    // console.log("Taking an screenshot inserted data in Rentals");
+    // await page.screenshot({ path: screenshotPath + '03_InsertedDataRentals.png' });
+
+    // await page.focus('#nuevalocation');
+    // await page.keyboard.type("galicia");
+
+    // console.log("Taking an screenshot with data in Rentals (For search)");
+
+    // await page.screenshot({ path: screenshotPath + '04_SearchingRentalsData.png' });
+    // await page.focus("body > main > div:nth-child(2) > table > tbody > tr.insertadatos.svelte-u62nji > td:nth-child(8) > button");
+    // await page.click('body > main > div:nth-child(2) > table > tbody > tr.insertadatos.svelte-u62nji > td:nth-child(8) > button');
+    // await page.waitForTimeout(2000);
+
+    // var finalRentalsRowCount = (await page.$$("body > main > div:nth-child(2) > table > tbody > tr")).length;
+    // console.log(`added one resource galicia row count = ${finalRentalsRowCount}`);
+    // if (finalRentalsRowCount!=8){
+    //     console.error("finalRentalsRowCount doesn't increase when adding data");
+    //     process.exit(1);
+    // }
+
+    // console.log("Taking an screenshot searched data in Rentals");
+    // await page.screenshot({ path: screenshotPath + '05_SearchedRentalsData.png' });
+
+    // console.log("To delete Galicia 2001 data in Rentals");
+    // await page.waitForTimeout(2000);
+    // await page.focus("tr.svelte-jlgssw:nth-child(7) > td:nth-child(9) > button:nth-child(1)");
+    // await page.click('tr.svelte-jlgssw:nth-child(7) > td:nth-child(9) > button:nth-child(1)');
+    // await page.waitForTimeout(2000);
+    
+    // console.log("Taking an screenshot with data (after delete)");
+    // await page.focus("tbody.svelte-jlgssw > tr:nth-child(1) > td:nth-child(9) > button:nth-child(1)");
+    // await page.click('tbody.svelte-jlgssw > tr:nth-child(1) > td:nth-child(9) > button:nth-child(1)');
+    // await page.waitForTimeout(2000);
+    // await page.screenshot({ path: screenshotPath + '06_AfterDeleteDataEviction.png' });
+
+    // var searchEvictionsRowCount = (await page.$$("tr:nth-child(n)")).length;
+    // console.log(`search cataluña row count = ${searchEvictionsRowCount}`);
+    // if (searchEvictionsRowCount!=7){
+    //     console.error("searchEvictionsRowCount is not 7");
+    //     process.exit(1);
+    // }
+
+    // Fin Rentals
+
     await browser.close();
     console.log("Browser closed!");
     process.exit(0);

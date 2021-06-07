@@ -22,7 +22,7 @@
         PaginationLink,
     } from "sveltestrap";
     import { onMount } from "svelte";
-import { get } from "svelte/store";
+    import { get } from "svelte/store";
     //Load
     let open1 = false;
     const toggle1 = () => (open1 = !open1);
@@ -41,12 +41,12 @@ import { get } from "svelte/store";
     function resetInputs() {
         console.log("Reseting inputs");
         let resetData = {
-        location: "",
-        year: "",
-        "pricesquaremeter": "",
-        "annualvariation": "",
-        "alltimehigh": "",
-        "maxvariation": "",
+            location: "",
+            year: "",
+            pricesquaremeter: "",
+            annualvariation: "",
+            alltimehigh: "",
+            maxvariation: "",
         };
         newRentals = resetData;
     }
@@ -97,43 +97,46 @@ import { get } from "svelte/store";
                     alertError = "Error al acceder a la base de datos";
                 } else {
                     alertOk = "";
-                    alertError = "Todas las casillas deben ser rellenas correctamente";
+                    alertError =
+                        "Todas las casillas deben ser rellenas correctamente";
                 }
             }
-            console.log("Error: "+ alertError);
+            console.log("Error: " + alertError);
         });
         resetInputs(2);
     }
     async function loadData() {
         console.log("Loading data...");
-        const res = await fetch("api/v1/rentals/loadInitialData").then(function (
-            res
-        ) {
-            if (res.ok) {
-                console.log("Ok");
-                getData();
-                //error = 0;
-                alertError = "";
-                alertOk ="Datos cargados correctamente";
-            /*} else if (res.status == 409) {
+        const res = await fetch("api/v1/rentals/loadInitialData").then(
+            function (res) {
+                if (res.ok) {
+                    console.log("Ok");
+                    getData();
+                    //error = 0;
+                    alertError = "";
+                    alertOk = "Datos cargados correctamente";
+                    /*} else if (res.status == 409) {
                 error = 409;
                 console.log("Conflict");*/
-            } else if (res.status == 409){
-                alertOk = "";
-                alertError = "Hay un conflicto al cargar los datos";        
-            } else {
-                /*error = 404;
+                } else if (res.status == 409) {
+                    alertOk = "";
+                    alertError = "Hay un conflicto al cargar los datos";
+                } else {
+                    /*error = 404;
                 console.log("Error");*/
-                alertOk = "";
-                alertError = "Error general";
+                    alertOk = "";
+                    alertError = "Error general";
+                }
+                getNumData();
             }
-            getNumData();
-        });
+        );
     }
 
     async function getData() {
         console.log("Fetching data...");
-        const res = await fetch("api/v1/rentals?limit=" + limit + "&offset=" + current_offset);
+        const res = await fetch(
+            "api/v1/rentals?limit=" + limit + "&offset=" + current_offset
+        );
         if (res.ok) {
             console.log("Ok");
             const json = await res.json();
@@ -293,7 +296,7 @@ import { get } from "svelte/store";
                 alertOk = "OK";
                 rentalsData = [];
                 getNumData();
-               // error = 0;
+                // error = 0;
             } else if ((res.status = 404)) {
                 //error = 404;
                 alertError = "Error: Data not found";
@@ -316,32 +319,34 @@ import { get } from "svelte/store";
         let aux = "";
         for (var [clave, valor] of campos.entries()) {
             querySymbol += clave + "=" + valor + "&";
-            if (clave=="year"){
-                aux=aux+"Año="+valor+" ";
-            } else if (clave=="location"){
-                aux=aux+"Localizacion="+valor+" ";
-            } else if (clave=="pricesquaremeter"){
-                aux=aux+"Precio m2="+valor+" ";
-            } else if (clave=="annualvariation"){
-                aux=aux+" Variacion anual="+valor+" ";
-            } else if (clave=="alltimehigh"){
-                aux=aux+"Mas Alto Historico="+valor+" ";
-            } else if (clave=="maxvariation"){
-                aux=aux+"Variacion maxima="+valor+" ";
+            if (clave == "year") {
+                aux = aux + "Año=" + valor + " ";
+            } else if (clave == "location") {
+                aux = aux + "Localizacion=" + valor + " ";
+            } else if (clave == "pricesquaremeter") {
+                aux = aux + "Precio m2=" + valor + " ";
+            } else if (clave == "annualvariation") {
+                aux = aux + " Variacion anual=" + valor + " ";
+            } else if (clave == "alltimehigh") {
+                aux = aux + "Mas Alto Historico=" + valor + " ";
+            } else if (clave == "maxvariation") {
+                aux = aux + "Variacion maxima=" + valor + " ";
             }
         }
         fullQuery = querySymbol.slice(0, -1);
         if (fullQuery != "") {
             const limityOffset =
                 "&limit=" + limit + "&offset=" + current_offset;
-            const res = await fetch("api/v1/rentals" + fullQuery + limityOffset);
+            const res = await fetch(
+                "api/v1/rentals" + fullQuery + limityOffset
+            );
             console.log(fullQuery);
             if (res.ok) {
                 console.log("OK");
                 const json = await res.json();
                 rentalsData = json;
                 alertError = "";
-                alertOk = "Búsqueda realizada con éxito: "+aux;
+                alertOk = "Búsqueda realizada con éxito: " + aux;
             } else {
                 if (res.status == 404) {
                     alertOk = "";
@@ -355,7 +360,8 @@ import { get } from "svelte/store";
             }
         } else {
             alertError = "";
-            alertOk = "No ha insertado valores para buscar. Por favor, introduzaca algun dato";
+            alertOk =
+                "No ha insertado valores para buscar. Por favor, introduzaca algun dato";
             //getDataSearch();
         }
 
@@ -369,7 +375,11 @@ import { get } from "svelte/store";
         }).then(function (res) {
             if (res.ok) {
                 alertError = "";
-                alertOk = location + " y año " + year +" ha sido borrado correctamente";
+                alertOk =
+                    location +
+                    " y año " +
+                    year +
+                    " ha sido borrado correctamente";
                 if (rentalsData.length == 1) {
                     rentalsData = [];
                     currentPage = 1;
@@ -384,7 +394,7 @@ import { get } from "svelte/store";
                     console.log(`Database error`);
                 }
             }
-            console.log("Error: "+alertError);
+            console.log("Error: " + alertError);
         });
     }
     onMount(getData);
@@ -398,15 +408,24 @@ import { get } from "svelte/store";
     <div class="container">
         <Nav>
             <NavItem>
-                <a href="/"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
-                
+                <a href="/"
+                    ><Button style="margin: 0 5px 10px 50px;" color="primary"
+                        >Volver</Button
+                    ></a
+                >
             </NavItem>
             <NavItem>
-                <a href="/#/rentals/rentalsGraph"><Button style="margin: 0 25px 5px 0;" color="light">Ver gráfica</Button></a>
+                <a href="/#/rentals/rentalsGraph"
+                    ><Button style="margin: 0 25px 5px 0;" color="light"
+                        >Ver gráfica</Button
+                    ></a
+                >
             </NavItem>
             <NavItem>
-                <Button style="margin: 0 25px 5px 0;" color="success" on:click={toggle1}
-                    >Cargar datos inciales</Button
+                <Button
+                    style="margin: 0 25px 5px 0;"
+                    color="success"
+                    on:click={toggle1}>Cargar datos inciales</Button
                 >
                 <Modal isOpen={open1} {toggle1}>
                     <ModalHeader {toggle1}>
@@ -416,8 +435,8 @@ import { get } from "svelte/store";
                     >
                     <ModalBody>
                         <p style="color:black">
-                            Esta acción cargará los datos siempre y cuando
-                                no existan previamente.
+                            Esta acción cargará los datos siempre y cuando no
+                            existan previamente.
                         </p>
                     </ModalBody>
                     <ModalFooter>
@@ -432,8 +451,10 @@ import { get } from "svelte/store";
             </NavItem>
             <NavItem>
                 {#if rentalsData.length == 0}
-                    <Button style="margin: 0 5px 5px 15px;" color="danger" on:click={toggle2}
-                        >Borrar todos los datos</Button
+                    <Button
+                        style="margin: 0 5px 5px 15px;"
+                        color="danger"
+                        on:click={toggle2}>Borrar todos los datos</Button
                     >
                     <!--  <NavLink disabled href="#" on:click={toggle2}
                         >Borrar todos los datos</NavLink
@@ -451,9 +472,11 @@ import { get } from "svelte/store";
                                 ¿Borrar todos los datos?
                             </p></ModalHeader
                         >
-                        <ModalBody><p style="color:black">
-                            Esta acción no se puede deshacer.s
-                        </p></ModalBody>
+                        <ModalBody
+                            ><p style="color:black">
+                                Esta acción no se puede deshacer.s
+                            </p></ModalBody
+                        >
                         <ModalFooter>
                             <Button color="danger" on:click={toggle2P}
                                 >Borrar</Button
@@ -469,17 +492,18 @@ import { get } from "svelte/store";
 
         <!-- Alerts -->
         {#if alertError}
-        <p>{alertError}</p>
+            <p>{alertError}</p>
         {:else if alertOk}
-        <p>{alertOk}</p>
-        <!-- Table -->
+            <p>{alertOk}</p>
+            <!-- Table -->
         {/if}
-        {#if rentalsData.length == 0 && visitado=="no"}
+        {#if rentalsData.length == 0 && visitado == "no"}
             <div class="borrado">
                 <p>
-                No se han encontrado datos, por favor carga los datos iniciales.</p>
+                    No se han encontrado datos, por favor carga los datos
+                    iniciales.
+                </p>
             </div>
-
 
             <table responsive="true" bordered="true">
                 <thead>
@@ -543,11 +567,15 @@ import { get } from "svelte/store";
                         >
                         <td>
                             <div id="cancelar">
-                                <Button color="primary" on:click={insertData}>Insertar</Button>
+                                <Button color="primary" on:click={insertData}
+                                    >Insertar</Button
+                                >
                             </div>
                         </td>
                         <td>
-                            <Button color="primary" on:click={searchData}>Buscar</Button>
+                            <Button color="primary" on:click={searchData}
+                                >Buscar</Button
+                            >
                         </td>
                     </tr>
                     <tr>
@@ -565,13 +593,11 @@ import { get } from "svelte/store";
                         </td>
                         <td>
                             <Button color="danger">Borrar</Button>
-                        </td
-                        >
+                        </td>
                     </tr>
                 </tbody>
             </table>
         {:else}
-
             <table responsive="true" bordered="true">
                 <thead>
                     <tr>
@@ -588,6 +614,7 @@ import { get } from "svelte/store";
                     <tr class="insertadatos">
                         <td
                             ><input
+                                id="nuevalocation"
                                 type="text"
                                 placeholder="Localizacion"
                                 bind:value={newRentals.location}
@@ -595,6 +622,7 @@ import { get } from "svelte/store";
                         >
                         <td
                             ><input
+                                id="nuevoyear"
                                 type="text"
                                 placeholder="Año"
                                 bind:value={newRentals.year}
@@ -602,6 +630,7 @@ import { get } from "svelte/store";
                         >
                         <td
                             ><input
+                            id="nuevopricesquaremeter"
                                 type="text"
                                 placeholder="Precio m2"
                                 min="0"
@@ -610,6 +639,7 @@ import { get } from "svelte/store";
                         >
                         <td
                             ><input
+                            id="nuevoannualvariation"
                                 type="text"
                                 placeholder="Viviendas protegidas"
                                 min="0"
@@ -618,6 +648,7 @@ import { get } from "svelte/store";
                         >
                         <td
                             ><input
+                            id="nuevoalltimehigh"
                                 type="text"
                                 placeholder="Alto Historico"
                                 min="0"
@@ -626,6 +657,7 @@ import { get } from "svelte/store";
                         >
                         <td
                             ><input
+                            id="nuevomaxvariation"
                                 type="text"
                                 placeholder="Maxima Variacion"
                                 min="0"
@@ -634,11 +666,13 @@ import { get } from "svelte/store";
                         >
                         <td>
                             <div id="cancelar">
-                                <Button color="primary" on:click={insertData}>Insertar</Button>
+                                <Button color="primary" on:click={insertData}
+                                    >Insertar</Button
+                                >
                             </div>
                         </td>
                         <td
-                            ><Button color="primary" on:click={searchData}
+                            ><Button id="buscar" color="primary" on:click={searchData}
                                 >Buscar</Button
                             ></td
                         >
@@ -721,7 +755,6 @@ import { get } from "svelte/store";
         padding-left: auto;
         padding-right: auto;
         margin: 0 auto;
-        
     }
     h2 {
         text-transform: uppercase;
@@ -756,12 +789,10 @@ import { get } from "svelte/store";
 
     p,
     a {
-        
         font-size: 20px;
         line-height: 30px;
         margin: 15px;
     }
-
 
     table {
         border-radius: 5px;
@@ -800,9 +831,8 @@ import { get } from "svelte/store";
     }
 
     @media (max-width: 1290px) {
-        input{
+        input {
             width: 100px;
         }
     }
-
 </style>

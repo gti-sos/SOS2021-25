@@ -175,10 +175,8 @@
     <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
-            Heatmap showing employee data per weekday. Heatmaps are commonly
-            used to visualize hot spots within data sets, and to show patterns
-            or correlations. Due to their compact nature, they are often used
-            with large sets of data.
+            La gráfica muestra datos de 10 pokemons, con su imagen, el nivel de vida, ataque, defensa, y ataque y defensa especiales.
+            Cada vez que la pagina es recargada se muestran 10 pokemons nuevos aleatorios.
         </p>
     </figure>
 </main>
