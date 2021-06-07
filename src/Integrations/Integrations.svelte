@@ -130,6 +130,14 @@
               Externa <br>Pokemons
             </p>
           </div>
+        </a>
+        <a href="/#/Integrations/animeIntegrationGraph">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              Externa <br> Animes
+            </p>
+          </div>
         </a>   
       </div>
     </div>
