@@ -114,7 +114,15 @@
               Grupo 09 <br>Notas de Corte
             </p>
           </div>
-        </a>      
+        </a>
+        <a href="/#/Integrations/pokeIntegrationGraph">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              Externa <br>Pokemons
+            </p>
+          </div>
+        </a>   
       </div>
     </div>
   </main>
