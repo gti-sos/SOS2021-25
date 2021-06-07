@@ -78,11 +78,11 @@
             </p>
           </div>
         </a>
-        <a href="/#/Integrations/evictionsUsePeople">
+        <a href="/#/Integrations/evictionsAlbums">
           <div class="article cambioNegro">
             <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
             <p>
-              API Externa - Uso Personas
+              API Externa - Integración Álbums
             </p>
           </div>
         </a>          
@@ -91,6 +91,14 @@
             <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
             <p>
               API Externa - Uso Videojuegos
+            </p>
+          </div>
+        </a>   
+        <a href="/#/Integrations/evictionsUsePeople">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              API Externa - Uso Datos Personales
             </p>
           </div>
         </a>   
