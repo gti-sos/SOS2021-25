@@ -202,6 +202,9 @@
         }
 
         Highcharts.chart("container", {
+            chart: {
+                type: "area",
+            },
             title: {
                 text: "Venta de viviendas, alquileres y desahucios en España",
             },

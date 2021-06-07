@@ -72,7 +72,7 @@
     <div class="container">
         <Nav>
             <NavItem>
-                <a href="/#/info">
+                <a href="/#/integrations">
                     <Button style="margin: 0 5px 10px 50px;" color="primary"
                         >Volver</Button
                     ></a
@@ -92,7 +92,7 @@
     </div>
     <div id="container3">
         <p>
-            Relación de la cultura con la cantidad de desahucios
+            Relación de la cultura con la cantidad de desahucios en ISLAS CANARIAS 2018
         </p>
     </div>
     <div id="myfirstchart" style="height: 250px;" />

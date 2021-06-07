@@ -2604,3 +2604,12 @@ app.use("/proxyRentals", function(req, res) {
 
 	req.pipe(request(url)).pipe(res);
 });
+
+app.use("/proxyEvictions1", function(req, res) {
+	var apiServerHost = 'https://www.freetogame.com';
+
+	var url = apiServerHost + req.baseUrl + req.url;
+	console.log(`piped: /proxyEvictions1 -> ${url}`);
+
+	req.pipe(request(url)).pipe(res);
+});

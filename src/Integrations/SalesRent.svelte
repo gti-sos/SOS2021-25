@@ -160,14 +160,14 @@ Highcharts.chart('container', {
     series: [
         {
             name: 'Venta totales de pisos',
-            data: [salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
+            data: ["", "", "", salesTotalData2015, salesTotalData2016,salesTotalData2017, salesTotalData2018, salesTotalData2019],
             color: colors[2],
             accessibility: {
                 description: ''
             }
         }, {
             name: 'Renta bruta mixta anual',
-            data: [rentTotal2012, rentTotal2013, rentTotal2014, rentTotal2015, rentTotal2016],
+            data: [rentTotal2012, rentTotal2013, rentTotal2014, rentTotal2015, rentTotal2016, "", "", ""],
             dashStyle: 'ShortDash',
             color: colors[3],
             yAxis: 1

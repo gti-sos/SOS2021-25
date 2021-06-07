@@ -1,0 +1,39 @@
+﻿User,Title,Duration
+Antonio Javier Palma Guerrero,#1 Registrar información en el repositorio común de la asignatura,01:12:06
+Antonio Javier Palma Guerrero,#11 Ruta /info/YYYYY,03:12:50
+Antonio Javier Palma Guerrero,#14 Haber realizado una API REST tal como se explica y ejemplifica en el L06 de manera que se ofrezcan los datos que se han especificado en la ficha de propuesta de trabajo,00:45:51
+Antonio Javier Palma Guerrero,#15 La API debe implementar adecuadamente todos los casos de la “tabla azul” comentada en el L06,05:39:04
+Antonio Javier Palma Guerrero,#16 Trabajo por persona F05,02:47:32
+Antonio Javier Palma Guerrero,#19 Tareas para la D01,19:24:53
+Antonio Javier Palma Guerrero,#23 Tareas F07,06:43:34
+Antonio Javier Palma Guerrero,#25 Tareas F08,42:45:29
+Antonio Javier Palma Guerrero,#27 Tareas D02,14:38:36
+Antonio Javier Palma Guerrero,#30 Tareas F10,10:59:25
+Antonio Javier Palma Guerrero,#32 Tareas D03,06:01:11
+Antonio Javier Palma Guerrero,#6 Tareas pendientes para la F02,03:12:00
+José Alberto Trancoso Nieto,#1 Prueba de Issues,00:04:12
+José Alberto Trancoso Nieto,#10 Tener una colección de Postman con nombre SOS2021-XX-YYYYYY  (siendo YYYYYY el nombre del recurso ofrecido tal como aparece en la columna “datos” de la primera hoja de la ficha de la propuesta de trabajo)  que tenga una petición GET a la página de información (/info/YYYYYY) desplegada en Heroku.,08:06:11
+José Alberto Trancoso Nieto,#13 Haber realizado una API REST tal como se explica y ejemplifica en el L06 de manera que se ofrezcan los datos que se han especificado en la ficha de propuesta de trabajo: Tener desplegado en Heroku la API en la ruta: /api/v1/YYYYYY (siendo YYYYYY el nombre del recurso ofrecido tal como aparece en la primera hoja de la ficha de la propuesta de trabajo). El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.<,06:24:20
+José Alberto Trancoso Nieto,#17 Para el Martes 13 de Abril (F05),02:34:00
+José Alberto Trancoso Nieto,#2 8. Register information in the common repository of the subject,00:00:08
+José Alberto Trancoso Nieto,#20 Tarea D01: API Rest,05:19:00
+José Alberto Trancoso Nieto,#22 Tareas F07,05:50:39
+José Alberto Trancoso Nieto,#26 Tareas F08,07:51:00
+José Alberto Trancoso Nieto,#28 Tareas D02,192:06:34
+José Alberto Trancoso Nieto,#3 Realizar tareas para F01,03:25:39
+José Alberto Trancoso Nieto,#31 Tareas F10,06:41:49
+José Alberto Trancoso Nieto,#33 Tareas D03,86:11:51
+José Alberto Trancoso Nieto,#4 Tener implementado en el proyecto de grupo (repositorio SOS2021-XX) el código de un servidor web realizado en NodeJS y usando el modulo “express” (siguiendo el video anexo al L4) que tenga una ruta “/cool” que devuelva una cara ASCII con generada con el módulo “cool-ascii-faces”.,06:49:13
+José María de Soto Oncíns,#1 Prueba de Issues,00:00:18
+José María de Soto Oncíns,#12 La API debe implementar adecuadamente todos los casos de la “tabla azul” comentada en el L06:,03:59:29
+José María de Soto Oncíns,#18 Tener modulada la API en archivos distintos,04:14:06
+José María de Soto Oncíns,#2 8. Register information in the common repository of the subject,00:21:23
+José María de Soto Oncíns,#21 La API debe implementar búsquedas por todos los campos del recurso (siguiendo las buenas prácticas recomendadas en el L06),06:33:32
+José María de Soto Oncíns,#24 Front-end,03:01:00
+José María de Soto Oncíns,#29 Tareas D02,02:14:43
+José María de Soto Oncíns,#34 Tereas D03,00:00:12
+José María de Soto Oncíns,#5 Tener sincronizado el repositorio del grupo en un contenedor de GoormIDE o en su ordenador personal (de forma que al hacer ejecutar el comando “git pull” se muestre “up to date”).,00:42:19
+José María de Soto Oncíns,#7 Tener instalada la herramienta POSTMAN,00:30:16
+José María de Soto Oncíns,#8 Haber completado la ficha del trabajo a partir de la plantilla,02:10:55
+José María de Soto Oncíns,#9 Tener una ruta “/info/YYYYYY,02:52:04
+José María de Soto Oncíns,,00:00:02

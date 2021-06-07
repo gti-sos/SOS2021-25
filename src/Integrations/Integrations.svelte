@@ -8,11 +8,18 @@
       CardSubtitle,
       CardText,
       CardTitle,
+      Nav,
+      NavItem,
     } from "sveltestrap";
   </script>
   
   <main class="main">
     <div class="container">
+      <Nav>
+        <NavItem>
+            <a href="/#/info"><Button style="margin: 0 5px 10px 50px;" color="primary">Volver</Button></a>
+        </NavItem>
+    </Nav>
       <h1>INTEGRACIONES</h1>
     </div>
     <div class="container">
@@ -70,7 +77,23 @@
               Grupo 26 - CulturaBASE
             </p>
           </div>
-        </a>       
+        </a>
+        <a href="/#/Integrations/evictionsUsePeople">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              API Externa - Uso Personas
+            </p>
+          </div>
+        </a>          
+        <a href="/#/Integrations/useGames">
+          <div class="article cambioNegro">
+            <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="Imagen GitHub">
+            <p>
+              API Externa - Uso Videojuegos
+            </p>
+          </div>
+        </a>   
       </div>
     </div>
     <div class="container">

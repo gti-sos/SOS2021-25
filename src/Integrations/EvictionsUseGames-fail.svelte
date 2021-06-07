@@ -64,7 +64,7 @@
         console.log("Loading data...");
         alertOk = "";
         alertError = "";
-        const res = await fetch("api/v1/evictions/loadInitialData").then(
+        const res = await fetch("https://www.freetogame.com/api/games").then(
             function (res) {
                 if (res.ok) {
                     console.log("Ok");
@@ -85,7 +85,7 @@
     async function getData() {
         console.log("Fetching data...");
         const res = await fetch(
-            "api/v1/evictions?limit=" + limit + "&offset=" + current_offset
+            "https://www.freetogame.com/api/games?limit=" + limit + "&offset=" + current_offset
         );
         if (res.ok) {
             console.log("Ok");
@@ -100,7 +100,7 @@
     async function getDataSearch(query) {
         console.log("Fetching data...");
         const res = await fetch(
-            "api/v1/evictions" +
+            "https://www.freetogame.com/api/games" +
                 query +
                 "&limit=" +
                 limit +
@@ -129,7 +129,7 @@
                 current_offset
         );
         //const res = await fetch("api/v1/evictions" + query + "&limit=" + limit + "&offset="+current_offset);
-        const res = await fetch("api/v1/evictions" + query);
+        const res = await fetch("https://www.freetogame.com/api/games" + query);
         if (res.ok) {
             const json = await res.json();
             total = json.length;
@@ -164,7 +164,7 @@
     }
 
     async function getNumData() {
-        const res = await fetch("api/v1/evictions");
+        const res = await fetch("https://www.freetogame.com/api/games");
         if (res.ok) {
             const json = await res.json();
             total = json.length;
@@ -213,55 +213,6 @@
             }
         }
         console.log("---------Exit change page-------");
-    }
-
-    async function insertEviction() {
-        console.log("Inserting eviction " + JSON.stringify(newEviction));
-        const res = await fetch("api/v1/evictions/", {
-            method: "POST",
-            body: JSON.stringify(newEviction),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then(function (res) {
-            if (res.ok) {
-                console.log("OK");
-                getData();
-                alertError = "";
-                alertOk = `${newEviction.location} ${newEviction.year} ha sido insertado correctamente`;
-                resetImputs();
-            } else {
-                if (res.status == 409) {
-                    alertOk = "";
-                    alertError = `Revise que los campos numéricos de ${newEviction.location} ${newEviction.year} contienen datos numéricos.`;
-                } else if (res.status == 500) {
-                    alertOk = "";
-                    alertError = "Error al acceder a la base de datos";
-                } else if (res.status == 400) {
-                    alertOk = "";
-                    alertError =
-                        "Dato no añadido. Revise que no haya campos vacíos.";
-                } else {
-                    alertOk = "";
-                    alertError =
-                        "Todas las casillas deben ser rellenas correctamente";
-                }
-            }
-            console.log("Error: " + alertError);
-        });
-    }
-
-    async function resetImputs() {
-        let resetEviction = {
-            location: "",
-            year: "",
-            total: "",
-            rustic: "",
-            household: "",
-            buildinglot: "",
-            other: "",
-        };
-        newEviction = resetEviction;
     }
 
     async function searchData() {
@@ -339,80 +290,14 @@
             '<button style="border-radius:5px; margin-left:18px; padding:10px 8px; background-color: #dc3545; color:#fff; border-color: #dc3545;" onClick="window.location.reload();">Cancelar</button>';
     }
 
-    async function deleteEviction(data) {
-        console.log("Deleting eviction " + JSON.stringify(data));
-        const res = await fetch(
-            "api/v1/evictions/" + data.location + "/" + data.year,
-            {
-                method: "DELETE",
-            }
-        ).then(function (res) {
-            if (res.ok) {
-                alertError = "";
-                alertOk =
-                    data.location +
-                    " " +
-                    data.year +
-                    " ha sido borrado correctamente";
-                if (evictionsData.length == 1) {
-                    evictionsData = [];
-                    currentPage = 1;
-                }
-                console.log(`Resource has been deleted`);
-                getData();
-                getNumData();
-            } else {
-                if (res.status == 404) {
-                    alertOk = "";
-                    console.log = `Resource not found`;
-                    alertError =
-                        data.location +
-                        " " +
-                        data.year +
-                        " no se ha borrado. Elemento no encontrado.";
-                } else if (res.status == 500) {
-                    console.log(`Database error`);
-                    alertOk = "";
-                }
-            }
-            console.log("Error: " + alertError);
-        });
-    }
-
-    async function deleteData() {
-        console.log("Deleting data...");
-        const res = await fetch("api/v1/evictions/", {
-            method: "DELETE",
-        }).then(function (res) {
-            if (res.ok) {
-                console.log("OK");
-                evictionsData = [];
-                error = 0;
-                getData();
-                getNumData();
-                alertOk = "Todos los datos se han borrado correctamente";
-            } else if (res.status == 404) {
-                error = 404;
-                console.log("Error Data not found");
-                alertError =
-                    "No se han encontrado datos. No hay nada para borrar.";
-                alertOk = "";
-            } else if (res.status == 500) {
-                console.log("Error al acceder a la base de datos");
-                alertOk = "";
-            } else {
-                error = 1000;
-                console.log("Error");
-            }
-        });
-    }
+    
     onMount(getData);
     getNumData();
 </script>
 
 <main>
     <div class="container">
-        <h2>Desahucios</h2>
+        <h2>Videojuegos</h2>
     </div>
     <div class="container">
         <Nav>
@@ -512,98 +397,27 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Localización</th>
-                        <th>Año</th>
-                        <th>Total</th>
-                        <th>Rústicas</th>
-                        <th>Viviendas</th>
-                        <th>Solares</th>
-                        <th>Otros</th>
-                        <th>Acciones</th>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Género</th>
+                        <th>Plataforma</th>
+                        <th>Publicador</th>
+                        <th>Desarrollador</th>
+                        <th>Fecha</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td
-                            ><input
-                                id="nuevalocation"
-                                bind:value={newEviction.location}
-                            /></td
-                        >
-                        <td
-                            ><input
-                                id="nuevoyear"
-                                bind:value={newEviction.year}
-                            /></td
-                        >
-                        <td
-                            ><input
-                                id="nuevototal"
-                                bind:value={newEviction.total}
-                            /></td
-                        >
-                        <td
-                            ><input
-                                id="nuevorustic"
-                                bind:value={newEviction.rustic}
-                            /></td
-                        >
-                        <td
-                            ><input
-                                id="nuevohousehold"
-                                bind:value={newEviction.household}
-                            /></td
-                        >
-                        <td
-                            ><input
-                                id="nuevobuildinglot"
-                                bind:value={newEviction.buildinglot}
-                            /></td
-                        >
-                        <td
-                            ><input
-                                id="nuevoother"
-                                bind:value={newEviction.other}
-                            /></td
-                        >
-                        <td
-                            ><div id="cancelar">
-                                <Button
-                                    color="primary"
-                                    on:click={insertEviction}>Insertar</Button
-                                >
-                            </div></td
-                        >
-                        <td
-                            ><Button color="primary" on:click={searchData}
-                                >Buscar</Button
-                            ></td
-                        >
-                    </tr>
+                    
                     {#each evictionsData as data}
                         <tr>
-                            <td>{data.location}</td>
-                            <td>{data.year}</td>
-                            <td>{data["total"]}</td>
-                            <td>{data["rustic"]}</td>
-                            <td>{data["household"]}</td>
-                            <td>{data["buildinglot"]}</td>
-                            <td>{data["other"]}</td>
-                            <td>
-                                <a
-                                    href="#/evictions/{data.location}/{data.year}"
-                                >
-                                    <Button color="primary">Editar</Button></a
-                                ></td
-                            >
-                            <td
-                                ><Button
-                                    color="danger"
-                                    on:click={deleteEviction(data)}
-                                >
-                                    Eliminar</Button
-                                ></td
-                            >
+                            <td>{data.title}</td>
+                            <td>{data.short_description}</td>
+                            <td>{data["genre"]}</td>
+                            <td>{data["platform"]}</td>
+                            <td>{data["publisher"]}</td>
+                            <td>{data["developer"]}</td>
+                            <td>{data["release_date"]}</td>
+                            
                         </tr>
                     {/each}
                 </tbody>
@@ -614,7 +428,7 @@
                 <PaginationItem class={current_page == 1 ? "disabled" : ""}>
                     <PaginationLink
                         previous
-                        href="#/evictions"
+                        href="#/Integrations/useGames"
                         on:click={() =>
                             changePage(current_page - 1, current_offset - 10)}
                     />
@@ -625,7 +439,7 @@
                     >
                         <PaginationLink
                             previous
-                            href="#/evictions"
+                            href="#/Integrations/useGames"
                             on:click={() => changePage(page, (page - 1) * 10)}
                             >{page}</PaginationLink
                         >
@@ -636,7 +450,7 @@
                 >
                     <PaginationLink
                         next
-                        href="#/evictions"
+                        href="#/Integrations/useGames"
                         on:click={() =>
                             changePage(current_page + 1, current_offset + 10)}
                     />

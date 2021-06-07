@@ -7,6 +7,44 @@
 	},
 	"item": [
 		{
+			"name": "/sales - del sales Copy [initial]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Resource has been deleted\", function () {\r",
+							"    pm.response.to.have.body(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales"
+					]
+				},
+				"description": "DELETE a lista de recursos"
+			},
+			"response": []
+		},
+		{
 			"name": "/sales/loadInitialData",
 			"event": [
 				{
@@ -1048,20 +1086,54 @@
 				"description": "DELETE a lista de recursos"
 			},
 			"response": []
+		},
+		{
+			"name": "/sales/loadInitialData for test e2e",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{PROTOCOL}}://{{HOST}}:{{PORT}}/api/v1/sales/loadInitialData",
+					"protocol": "{{PROTOCOL}}",
+					"host": [
+						"{{HOST}}"
+					],
+					"port": "{{PORT}}",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"loadInitialData"
+					]
+				},
+				"description": "GET inicial"
+			},
+			"response": []
 		}
 	],
 	"variable": [
 		{
 			"key": "HOST",
-			"value": "sos2021-25.herokuapp.com"
+			"value": "localhost"
 		},
 		{
 			"key": "PORT",
-			"value": "443"
+			"value": "10000"
 		},
 		{
 			"key": "PROTOCOL",
-			"value": "https"
+			"value": "http"
 		}
 	]
 }
